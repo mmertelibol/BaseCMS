@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  bilgeadam.web:
+    image: bilgeadamweb
+    container_name: bilgeadamweb
+    ports:
+      - "32500:80"
+    build:
+      context: .
+      dockerfile: aspcoremvc/Dockerfile
+
+  bilgeadam.webapi:
+    image: bilgeadamwebapi
+    container_name: bilgeadamwebapi
+    ports:
+      - "32501:80"
+    build:
+      context: .
+      dockerfile: aspcoremvc.webapi/Dockerfile
+      
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongo2
+    ports:
+     - "27017:27017"
+    volumes:
+     - 'mongodb_master_data:/data/db'
+      
+  redis:
+    image: redis
+    restart: always
+    container_name: redis1
+    ports:
+     - "6379:6379"
+    volumes:
+     - 'redis_data:/data'
+     
+volumes:
+  mongodb_master_data:
+  redis_data:

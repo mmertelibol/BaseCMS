@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  bilgeadam.web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
+  bilgeadam.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

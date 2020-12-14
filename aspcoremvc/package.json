@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "name": "otoflex",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "prosemirror-state": "1.2.2",
+    "prosemirror-view": "1.0.0",
+    "prosemirror-model": "1.2.2",
+    "prosemirror-schema-basic": "1.0.0",
+    "prosemirror-schema-list": "1.0.0"
+  }
+}

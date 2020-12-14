@@ -1,0 +1,2301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="VisitorLogAndCheckInsTitle" xml:space="preserve">
+    <value>Giriş Yapanlar</value>
+  </data>
+  <data name="CheckOutsTitle" xml:space="preserve">
+    <value>Çıkış Yapanlar</value>
+  </data>
+  <data name="NewInviteTitle" xml:space="preserve">
+    <value>Yeni Davet</value>
+  </data>
+  <data name="VisitorsTitle" xml:space="preserve">
+    <value>Davetliler</value>
+  </data>
+  <data name="FormVisitorTypeTitle" xml:space="preserve">
+    <value>Ziyaretçi Sebebi</value>
+  </data>
+  <data name="FormDateTitle" xml:space="preserve">
+    <value>Ziyaret Tarihi</value>
+  </data>
+  <data name="FormVisitorFullNameTitle" xml:space="preserve">
+    <value>Ziyaretçi Adı ve Soyadı</value>
+  </data>
+  <data name="SaveInputText" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="VisitorDraggableCardAddCommentTitle" xml:space="preserve">
+    <value>Yorum Ekle</value>
+  </data>
+  <data name="FormVisitorMailTitle" xml:space="preserve">
+    <value>Ziyaretçi E-posta</value>
+  </data>
+  <data name="FormHostTitle" xml:space="preserve">
+    <value>Ev Sahibi</value>
+  </data>
+  <data name="NewInviteFormGetInvite" xml:space="preserve">
+    <value>Davet Et</value>
+  </data>
+  <data name="FormNoteTitle" xml:space="preserve">
+    <value>Not</value>
+  </data>
+  <data name="CancelInputText" xml:space="preserve">
+    <value>Vazgeç</value>
+  </data>
+  <data name="FormEndTimeTitle" xml:space="preserve">
+    <value>Ziyaret Bitiş Saati</value>
+  </data>
+  <data name="FormStartTimeTitle" xml:space="preserve">
+    <value>Ziyaret Başlangıç Saati</value>
+  </data>
+  <data name="LocationSelectChooseText" xml:space="preserve">
+    <value>Lokasyon Seç</value>
+  </data>
+  <data name="FormVisitorCount" xml:space="preserve">
+    <value>Eşlik eden Sayısı</value>
+  </data>
+  <data name="OperationFailedText" xml:space="preserve">
+    <value>İşlem Başarısız</value>
+  </data>
+  <data name="OperationSucceedText" xml:space="preserve">
+    <value>İşlem Başarılı</value>
+  </data>
+  <data name="VisitorTypeSelectChooseText" xml:space="preserve">
+    <value>Ziyaret Sebebi Seç</value>
+  </data>
+  <data name="VisitorDraggableCardActivityTitle" xml:space="preserve">
+    <value>Etkinlikler</value>
+  </data>
+  <data name="DeleteInputText" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="ConfirmTitle" xml:space="preserve">
+    <value>Onay</value>
+  </data>
+  <data name="DeleteConfirmationText" xml:space="preserve">
+    <value>Seçili öğe silinecek. Onaylıyor musun?</value>
+  </data>
+  <data name="ConfirmInputText" xml:space="preserve">
+    <value>Onayla</value>
+  </data>
+  <data name="HostSelectChooseText" xml:space="preserve">
+    <value>Ev Sahibi Seçin</value>
+  </data>
+  <data name="NewVisitorLogTitle" xml:space="preserve">
+    <value>Ziyaretçi Kaydı</value>
+  </data>
+  <data name="FormHostNotificationTitle" xml:space="preserve">
+    <value>Ev Sahibi Bildirimleri</value>
+  </data>
+  <data name="InviteCheckInFormTitle" xml:space="preserve">
+    <value>Check-In Yap</value>
+  </data>
+  <data name="InviteCheckInApproveTitle" xml:space="preserve">
+    <value>Check-In'i Onayla</value>
+  </data>
+  <data name="CheckInApproveText" xml:space="preserve">
+    <value>Giriş onaylanıp işlem tamamlanacak. Emin misin?</value>
+  </data>
+  <data name="accentColor" xml:space="preserve">
+    <value>Tema Rengi</value>
+  </data>
+  <data name="accentColorDefinition" xml:space="preserve">
+    <value>iPad ve Maillerinizde Vurgulanacak rengi seçin</value>
+  </data>
+  <data name="activate" xml:space="preserve">
+    <value>Aktive Et</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="advancedSetting" xml:space="preserve">
+    <value>İleri Ayaralar</value>
+  </data>
+  <data name="ajaxError" xml:space="preserve">
+    <value>İstek Gönderimi Sırasında bir Hata Oluştu</value>
+  </data>
+  <data name="api" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="autoSignOut" xml:space="preserve">
+    <value>Otomatik Çıkış</value>
+  </data>
+  <data name="autoSignOutDefinition" xml:space="preserve">
+    <value>Tüm Ziyaretçilerin Çıkışını Gece Yarısı otomatik olarak yap</value>
+  </data>
+  <data name="backgroundColor" xml:space="preserve">
+    <value>Zemin Rengi</value>
+  </data>
+  <data name="backgroundColorDefinition" xml:space="preserve">
+    <value>Logonuzun yada Hoşgeldin Mesajınızın Zemini İçin sabit bir renk seçin</value>
+  </data>
+  <data name="badge" xml:space="preserve">
+    <value>Etiket</value>
+  </data>
+  <data name="beenHereBefore" xml:space="preserve">
+    <value>Burada daha önce bulundunuz mu?</value>
+  </data>
+  <data name="beenHereBeforeDefinition" xml:space="preserve">
+    <value>Bu Binaya daha önce gelmiş Ziyaretçileriniz  hatırlansın ve daha hızlı giriş yapabilsin</value>
+  </data>
+  <data name="branding" xml:space="preserve">
+    <value>Marka</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>Değiştir</value>
+  </data>
+  <data name="configureFinal" xml:space="preserve">
+    <value>Final Ekran Kişiselleştirmesi</value>
+  </data>
+  <data name="configureNda" xml:space="preserve">
+    <value>NDA Ayarları</value>
+  </data>
+  <data name="customizeWelcomeScreen" xml:space="preserve">
+    <value>Hoşgeldin Ekranını özelleştir</value>
+  </data>
+  <data name="dataPolicy" xml:space="preserve">
+    <value>Veri Politikası</value>
+  </data>
+  <data name="dataPolicyDefinition" xml:space="preserve">
+    <value>Veri Politikanızı tablette görünür bir yere ekleyin</value>
+  </data>
+  <data name="dataPolicyText" xml:space="preserve">
+    <value>Ziyaretçi Rızası ve Veri Politikası</value>
+  </data>
+  <data name="dataPolicyTextDefinition" xml:space="preserve">
+    <value>Tableti KVKK ile Uyumlu Hale getirme özelleştirmeleri</value>
+  </data>
+  <data name="dataPrivacy" xml:space="preserve">
+    <value>Veri Politikası</value>
+  </data>
+  <data name="deactivate" xml:space="preserve">
+    <value>Devre Dışı Bırak</value>
+  </data>
+  <data name="deactivatedLocation" xml:space="preserve">
+    <value>Bu Lokasyon Aktif Değil</value>
+  </data>
+  <data name="deactivatedLocationDefinition" xml:space="preserve">
+    <value>Deneme süreniz boyunca sınırsız sayıda lokasyon oluşturabilirsiniz</value>
+  </data>
+  <data name="deactivateLocation" xml:space="preserve">
+    <value>Lokasyonu Devre Dışı Bırak</value>
+  </data>
+  <data name="deactivateLocationDefinition" xml:space="preserve">
+    <value>Bu Lokasyondan Girişleri geçici olarak devre dışı bırak</value>
+  </data>
+  <data name="deactivateLocationMessage" xml:space="preserve">
+    <value>Bu lokasyonu Devre Dışı Bırakmak İstediğinizden Emin misiniz? lokasyona tanımlı tabletlerden giriş engellenecek.</value>
+  </data>
+  <data name="declineSign" xml:space="preserve">
+    <value>Ziyaretçilerin Gizlilik Sözleşmesi imza işlemini atlamasına izin ver</value>
+  </data>
+  <data name="declineSignDefinition" xml:space="preserve">
+    <value>Ziyaretçilere Gizlilik Sözleşmesi formunu görüp imzalamama yetkisi verin</value>
+  </data>
+  <data name="design" xml:space="preserve">
+    <value>Dizayn</value>
+  </data>
+  <data name="disable" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="dropdown" xml:space="preserve">
+    <value>Dropdown alan</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="editSettings" xml:space="preserve">
+    <value>Ayarları Düzenle</value>
+  </data>
+  <data name="editText" xml:space="preserve">
+    <value>Metni Düzenle</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-posta Adresi</value>
+  </data>
+  <data name="emailMe" xml:space="preserve">
+    <value>‘Bunu bana Email ile gönder’ butonu</value>
+  </data>
+  <data name="emailMeDefinition" xml:space="preserve">
+    <value>Ziyaretçileriniz bu görüntünün bir kopyasını kendilerine E-mail ile gönderebilir.</value>
+  </data>
+  <data name="emailNda" xml:space="preserve">
+    <value>İmzalanmış Gizlilik Sözleşmelerini Email ile gönder</value>
+  </data>
+  <data name="emailNdaDefinition" xml:space="preserve">
+    <value>İmzalanmış Gizlilik Sözleşmelerini belirlenmiş bir Email adresine otomatik gönder</value>
+  </data>
+  <data name="emptyFieldName" xml:space="preserve">
+    <value>Lütfen Geçerli bir alan ismi belirleyin</value>
+  </data>
+  <data name="emptyFinalTextError" xml:space="preserve">
+    <value>Lütfen bir final mesaj belirleyin</value>
+  </data>
+  <data name="emptyImageError" xml:space="preserve">
+    <value>Lütfen bir görsel seçin</value>
+  </data>
+  <data name="emptyLocationAddressError" xml:space="preserve">
+    <value>Lütfen bir lokasyon adresi belireyin</value>
+  </data>
+  <data name="emptyLocationNameError" xml:space="preserve">
+    <value>Lütfen bir lokasyon ismi belirleyin</value>
+  </data>
+  <data name="emptyMailError" xml:space="preserve">
+    <value>Lütfen geçerli bir E-posta belirleyin</value>
+  </data>
+  <data name="emptyUrlError" xml:space="preserve">
+    <value>Lütfen geçerli bir url belirleyin</value>
+  </data>
+  <data name="enable" xml:space="preserve">
+    <value>Etkinleştir</value>
+  </data>
+  <data name="exceptionOccured" xml:space="preserve">
+    <value>Sistemsel bir hata oluştu: </value>
+  </data>
+  <data name="existingPhoto" xml:space="preserve">
+    <value>Varolan fotoğrafı kullan</value>
+  </data>
+  <data name="existingPhotoDefinition" xml:space="preserve">
+    <value>Daha önce de gelmiş olan ziyaretçiler için fotoğraf çekme adımını atla</value>
+  </data>
+  <data name="export" xml:space="preserve">
+    <value>Dışa aktar</value>
+  </data>
+  <data name="exportHistory" xml:space="preserve">
+    <value>Tüm Ziyaretçi geçmişini dışa aktar</value>
+  </data>
+  <data name="exportHistoryDefinition" xml:space="preserve">
+    <value>Tüm Ziyaretçi verilerinin CSV dosyasını indir</value>
+  </data>
+  <data name="fieldDrop" xml:space="preserve">
+    <value>Bir dropdown menü oluşturun. (Her bir satıra bir seçenek gelecek şekilde)</value>
+  </data>
+  <data name="fieldName" xml:space="preserve">
+    <value>Bu alana bir isim verin</value>
+  </data>
+  <data name="finalMessage" xml:space="preserve">
+    <value>Son Ekran Mesajı Özelleştirme</value>
+  </data>
+  <data name="finalMessageDefinition" xml:space="preserve">
+    <value>Giriş İşlemini bittiğinde,  ziyaret tipine göre özelleştirilmiş bir mesaj, görsel yada video gösterin</value>
+  </data>
+  <data name="finalScreen" xml:space="preserve">
+    <value>Son Ekran</value>
+  </data>
+  <data name="finalScreenMessage" xml:space="preserve">
+    <value>Son Ekran Mesajı</value>
+  </data>
+  <data name="formatMailError" xml:space="preserve">
+    <value>Email formatınız doğru değil</value>
+  </data>
+  <data name="fullName" xml:space="preserve">
+    <value>Adı ve Soyadı</value>
+  </data>
+  <data name="giveName" xml:space="preserve">
+    <value>Bu alana bir isim ver</value>
+  </data>
+  <data name="greaterZero" xml:space="preserve">
+    <value>Değer Sıfırdan Büyük Olmalı</value>
+  </data>
+  <data name="hideLogoFromWelcome" xml:space="preserve">
+    <value>Hoşgeldin Ekranında Şirket Logosunu kapat</value>
+  </data>
+  <data name="hideLogoFromWelcomeDefinition" xml:space="preserve">
+    <value>Sadece slayt görsellerini göster</value>
+  </data>
+  <data name="hostVideoUrl" xml:space="preserve">
+    <value>Youtube yada Vimeoda oynatılan bir videoya link verin</value>
+  </data>
+  <data name="idCheck" xml:space="preserve">
+    <value>Kimlik Kontrol</value>
+  </data>
+  <data name="idRequirement" xml:space="preserve">
+    <value>Kimlik Kontrol</value>
+  </data>
+  <data name="image" xml:space="preserve">
+    <value>Görsel</value>
+  </data>
+  <data name="imageRecommend" xml:space="preserve">
+    <value>En az 1280×800px çözünürlükte bir görsel kullanmanızı öneririz</value>
+  </data>
+  <data name="ipadPreview" xml:space="preserve">
+    <value>iPad Ön İzleme</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+  <data name="languageDefinition" xml:space="preserve">
+    <value>Varsayılan Dil Ayarı..</value>
+  </data>
+  <data name="learnAbout" xml:space="preserve">
+    <value>Daha fazla bilgi..</value>
+  </data>
+  <data name="listOption" xml:space="preserve">
+    <value>Dropdown menu için seçenek listesi yapıştırın /her satır için bir seçenek</value>
+  </data>
+  <data name="locationDetail" xml:space="preserve">
+    <value>Lokasyon Detayları</value>
+  </data>
+  <data name="locationName" xml:space="preserve">
+    <value>Lokasyon İsmi</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="logoDefinition" xml:space="preserve">
+    <value>Bu Logo Tablet ve Davet maillerinizde kullanılacak</value>
+  </data>
+  <data name="logoRecommend" xml:space="preserve">
+    <value>Logonuzun arka planı transparan, kenarları kırpılmış ve 1000 piksel genişliğe veya 600 piksel yüksekliğe kadar şeffaf bir PNG yüklemenizi öneririz.</value>
+  </data>
+  <data name="messageType" xml:space="preserve">
+    <value>Mesaj Tipi</value>
+  </data>
+  <data name="nda" xml:space="preserve">
+    <value>Gizlilik Sözleşmesi</value>
+  </data>
+  <data name="ndaReceiveEmail" xml:space="preserve">
+    <value>Tüm imzalı Gizililik Sözleşmelerinin gönderileceği bir email adresi belirleyin </value>
+  </data>
+  <data name="ndaSign" xml:space="preserve">
+    <value>Gizlilik Sözleşmesi imzalanması</value>
+  </data>
+  <data name="ndaSignDefinition" xml:space="preserve">
+    <value>İmzalanacak gizlilik sözleşmesini ziyaretçilere sunun</value>
+  </data>
+  <data name="ndaText" xml:space="preserve">
+    <value>Gizlilik Sözleşmesi metni</value>
+  </data>
+  <data name="ndaTextDefinition" xml:space="preserve">
+    <value>Ziyaretçilerinize sunulacak Gizlilik Sözleşmesi metnini özelleştirin</value>
+  </data>
+  <data name="newField" xml:space="preserve">
+    <value>Yeni bir alan ekle</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Telefon Numarası</value>
+  </data>
+  <data name="photo" xml:space="preserve">
+    <value>Fotograf</value>
+  </data>
+  <data name="plusOne" xml:space="preserve">
+    <value>Eşlik Eden Giriş İşlemi</value>
+  </data>
+  <data name="plusOneDefinition" xml:space="preserve">
+    <value>Ziyaretçilere giriş sırasında önceden belirtilmemiş kişiler eşlik edebilir mi?</value>
+  </data>
+  <data name="preview" xml:space="preserve">
+    <value>Ön İzleme</value>
+  </data>
+  <data name="remove" xml:space="preserve">
+    <value>Kaldır</value>
+  </data>
+  <data name="removeField" xml:space="preserve">
+    <value>Alanı Kaldır</value>
+  </data>
+  <data name="renew" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>Zorunlu</value>
+  </data>
+  <data name="resignDay" xml:space="preserve">
+    <value>İmza geçerli olacağı gün sayısı:</value>
+  </data>
+  <data name="resignEvery" xml:space="preserve">
+    <value>Her ziyaret için tekrar imza gerekli mi?</value>
+  </data>
+  <data name="resignNda" xml:space="preserve">
+    <value>Tekrar Gelen Ziyaretçiler de Gizlilik Sözleşmesi imzalamalı</value>
+  </data>
+  <data name="resignNdaDefinition" xml:space="preserve">
+    <value>Gizlilik Sözleşmesi geçerlilik süresini belirleyin</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="saved" xml:space="preserve">
+    <value>Kaydedildi</value>
+  </data>
+  <data name="saveField" xml:space="preserve">
+    <value>Alanları Kaydet</value>
+  </data>
+  <data name="saveLocation" xml:space="preserve">
+    <value>Lokasyon Bilgisini kaydet</value>
+  </data>
+  <data name="saveNdaText" xml:space="preserve">
+    <value>Gizlilik Sözleşmesi metnini kaydet</value>
+  </data>
+  <data name="selectImage" xml:space="preserve">
+    <value>Görsel seç</value>
+  </data>
+  <data name="selfSignOut" xml:space="preserve">
+    <value>Kendi kendine çıkış yapabilme</value>
+  </data>
+  <data name="selfSignOutDefinition" xml:space="preserve">
+    <value>Ziyaretçilerin kendi çıkışlarını yapabilmelerine izin verin</value>
+  </data>
+  <data name="signinField" xml:space="preserve">
+    <value>Giriş Alanları</value>
+  </data>
+  <data name="signOut" xml:space="preserve">
+    <value>Çıkış </value>
+  </data>
+  <data name="slideShow" xml:space="preserve">
+    <value>Slayt gösterimi</value>
+  </data>
+  <data name="slideShowDefinition" xml:space="preserve">
+    <value>Logo yada Hoşgeldin görselinizin arkasında dönmek üzere beş adete kadar görsel seçin</value>
+  </data>
+  <data name="slideShowRecommend" xml:space="preserve">
+    <value>PNG yada JPG formatında en az 1536x2048px görsel kullanmanızı öneririz</value>
+  </data>
+  <data name="specifyHost" xml:space="preserve">
+    <value>Ev Sahibi alan ismini belirleyin</value>
+  </data>
+  <data name="suite" xml:space="preserve">
+    <value>Suite #</value>
+  </data>
+  <data name="text" xml:space="preserve">
+    <value>Metin</value>
+  </data>
+  <data name="textField" xml:space="preserve">
+    <value>Metin Alanı</value>
+  </data>
+  <data name="thanks" xml:space="preserve">
+    <value>Teşekkürler</value>
+  </data>
+  <data name="tip" xml:space="preserve">
+    <value>İpucu:</value>
+  </data>
+  <data name="tipBackgroundColor" xml:space="preserve">
+    <value>Tema renginiz ve logonuzla uyumlu bir renk seçin</value>
+  </data>
+  <data name="tipFinalScreenMessage" xml:space="preserve">
+    <value>Veri toplamanıza izin vermeyen ziyaretçilere son ekranda gösterilecek mesajı belirleyin</value>
+  </data>
+  <data name="tipLanguage1" xml:space="preserve">
+    <value>Varsayılan dili seçin. Bu dil Tabletlerde, ve noqnoqun ev sahibi ve ziyaretçilere göndereceği email ve bildirimlerde kullanılacak</value>
+  </data>
+  <data name="tipLanguage2" xml:space="preserve">
+    <value>Giriş alanları, NDA ve davet emaillerinizi de tercüme etmenizi öneririz</value>
+  </data>
+  <data name="tipLogo" xml:space="preserve">
+    <value>Tabletteki görüntüyü özelleştirmek için bir görsel yada slayt ekleyin</value>
+  </data>
+  <data name="tipUrl" xml:space="preserve">
+    <value>You can also host a file on your own SSL-encrypted server. iOS requires &lt;a href=\"https://www.ssllabs.com/ssltest/\" class=\"font-red-sunglo\"&gt;SSL Grade A&lt;/a&gt; to play remote video files.&lt;br /&gt;File types accepted: MP4, MOV, M4V.</value>
+  </data>
+  <data name="tipWelcomeImage" xml:space="preserve">
+    <value>Ziyaretçinizi karşılaması için logo veya mesaj içeren bir görsel yükleyin.</value>
+  </data>
+  <data name="video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="videoUrl" xml:space="preserve">
+    <value>Video URL</value>
+  </data>
+  <data name="visitorConsent" xml:space="preserve">
+    <value>Ziyaretçi Rızası</value>
+  </data>
+  <data name="visitorConsentDefinition" xml:space="preserve">
+    <value>Ziyaretçilerden veri toplama rızası alın</value>
+  </data>
+  <data name="visitorPhoto" xml:space="preserve">
+    <value>Ziyaretçi fotografları</value>
+  </data>
+  <data name="visitorPhotoDefinition" xml:space="preserve">
+    <value>Ziyaretçinizi daha rahat tanıyabilmek için giriş sırasında fotograflarını çekin.</value>
+  </data>
+  <data name="welcomeImage" xml:space="preserve">
+    <value>Hoşgeldin görseli</value>
+  </data>
+  <data name="welcomeImageDefinition" xml:space="preserve">
+    <value>Logonuzu göstermek istemezseniz Hoşgeldin ekranında gösterilmek üzere bir grafik görsel seçin</value>
+  </data>
+  <data name="welcomeImageRecommend" xml:space="preserve">
+    <value>1000px kare bir görsel öneririz.</value>
+  </data>
+  <data name="yourApi" xml:space="preserve">
+    <value>API anahtarınız</value>
+  </data>
+  <data name="addLocation" xml:space="preserve">
+    <value>Lokasyon ekleyin</value>
+  </data>
+  <data name="copyLocationSettings" xml:space="preserve">
+    <value>Lokasyon ekranlarını kopyalayın</value>
+  </data>
+  <data name="copyLocationSettingsDefinition" xml:space="preserve">
+    <value>Varolan bir lokasyon ayarını kopyalayın</value>
+  </data>
+  <data name="tipCopyLocationSettings" xml:space="preserve">
+    <value>Çalışan Directory’niz kopyalanmayacak</value>
+  </data>
+  <data name="defaultFinalScreenMessage" xml:space="preserve">
+    <value>Lütfen danışmadan destek isteyin</value>
+  </data>
+  <data name="visitor" xml:space="preserve">
+    <value>Ziyaretçi</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Geri</value>
+  </data>
+  <data name="companyAddress" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="companyAddressRequired" xml:space="preserve">
+    <value>Şirketinizin adresini girin</value>
+  </data>
+  <data name="companyName" xml:space="preserve">
+    <value>Şirket İsmi</value>
+  </data>
+  <data name="companyNameRequired" xml:space="preserve">
+    <value>Şirket ismini girin</value>
+  </data>
+  <data name="continueText" xml:space="preserve">
+    <value>Devam</value>
+  </data>
+  <data name="createYourAccount" xml:space="preserve">
+    <value>Noqnoq hesabınızı oluşturun</value>
+  </data>
+  <data name="emailRequired" xml:space="preserve">
+    <value>E-mail adresinizi girin</value>
+  </data>
+  <data name="fullNameRequired" xml:space="preserve">
+    <value>Ad ve Soyad girin</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="passwordRequired" xml:space="preserve">
+    <value>Parola girin</value>
+  </data>
+  <data name="provideAccountInfo" xml:space="preserve">
+    <value>Hesap detaylarınızı belirleyin</value>
+  </data>
+  <data name="provideCompanyInfo" xml:space="preserve">
+    <value>İşyeriniz hakkında biraz daha bilgi verir misiniz?</value>
+  </data>
+  <data name="registerAccountInfo" xml:space="preserve">
+    <value>Hesap bilgileri</value>
+  </data>
+  <data name="registerCompanyInfo" xml:space="preserve">
+    <value>Şirket bilgileri</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>Bilgilerin doğruluğunu onaylıyorum</value>
+  </data>
+  <data name="registerConfirm" xml:space="preserve">
+    <value>Bilgilerini Onayla</value>
+  </data>
+  <data name="registerSummary" xml:space="preserve">
+    <value>Özet</value>
+  </data>
+  <data name="requiredField" xml:space="preserve">
+    <value>Zorunlu Alan</value>
+  </data>
+  <data name="hq" xml:space="preserve">
+    <value>Merkez</value>
+  </data>
+  <data name="minlength" xml:space="preserve">
+    <value>Parolanız enaz 5 karakter olmalı</value>
+  </data>
+  <data name="addNewLocation" xml:space="preserve">
+    <value>Yeni lokasyon ekle</value>
+  </data>
+  <data name="locations" xml:space="preserve">
+    <value>Lokasyonlar</value>
+  </data>
+  <data name="chooseOption" xml:space="preserve">
+    <value>Seç</value>
+  </data>
+  <data name="ipadStep1" xml:space="preserve">
+    <value>1. Noqnoq Kiosk’u indirin.</value>
+  </data>
+  <data name="ipadStep1_1" xml:space="preserve">
+    <value>iPad’inizden App store’u açın.</value>
+  </data>
+  <data name="ipadStep1_2" xml:space="preserve">
+    <value>Noqnoq Kiosk’u bulup, indirin.</value>
+  </data>
+  <data name="ipadStep2" xml:space="preserve">
+    <value>2. Noqnoq Kiosk’u eşleyin.</value>
+  </data>
+  <data name="ipadStep2_1" xml:space="preserve">
+    <value>Aşağıdan iPad’i eşleştireceğiniz kapıyı seçin.</value>
+  </data>
+  <data name="ipadStep2_2" xml:space="preserve">
+    <value>iPad’inizden Noqnoq kiosk’u açın.</value>
+  </data>
+  <data name="ipadStep2_3" xml:space="preserve">
+    <value>Sağ tarafta gözüktüğü gibi ekranda bulunan kodu girin.</value>
+  </data>
+  <data name="ipadEsle" xml:space="preserve">
+    <value>iPad’i Eşle</value>
+  </data>
+  <data name="chooseEntrance" xml:space="preserve">
+    <value>Bir kapı seçin</value>
+  </data>
+  <data name="pairCode" xml:space="preserve">
+    <value>Eşleme Kodu</value>
+  </data>
+  <data name="pairIpad" xml:space="preserve">
+    <value>Bu tableti eşle</value>
+  </data>
+  <data name="entranceGate" xml:space="preserve">
+    <value>Giriş Kapısı</value>
+  </data>
+  <data name="ipadEntranceError" xml:space="preserve">
+    <value>Lütfen bir giriş kapısı seçin</value>
+  </data>
+  <data name="ipadPairCodeError" xml:space="preserve">
+    <value>Eşleme kodu 6 karakter olmalı</value>
+  </data>
+  <data name="locationNotFound" xml:space="preserve">
+    <value>Lokasyon bulunamadı</value>
+  </data>
+  <data name="newRecord" xml:space="preserve">
+    <value>Yeni kayıt</value>
+  </data>
+  <data name="noEntranceFound" xml:space="preserve">
+    <value>Giriş kapısı yok</value>
+  </data>
+  <data name="operations" xml:space="preserve">
+    <value>İşlemler</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="entranceName" xml:space="preserve">
+    <value>Kapı İsmi</value>
+  </data>
+  <data name="entranceSelectError" xml:space="preserve">
+    <value>Kapı Seçilmedi</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="listDevices" xml:space="preserve">
+    <value>iPad'leri' Listele</value>
+  </data>
+  <data name="argumentException" xml:space="preserve">
+    <value>Sistemsel bir hata oluştu</value>
+  </data>
+  <data name="devices" xml:space="preserve">
+    <value>Cihazlar</value>
+  </data>
+  <data name="noDeviceFound" xml:space="preserve">
+    <value>Cihaz Yok</value>
+  </data>
+  <data name="isActive" xml:space="preserve">
+    <value>Aktif</value>
+  </data>
+  <data name="noVisitorTypeFound" xml:space="preserve">
+    <value>Ziyaret Sebebi yok</value>
+  </data>
+  <data name="signInFlowSettings" xml:space="preserve">
+    <value>Giriş Akışı Ayarları</value>
+  </data>
+  <data name="visitorType" xml:space="preserve">
+    <value>Ziyaret Sebebi</value>
+  </data>
+  <data name="visitorTypeName" xml:space="preserve">
+    <value>Ziyaret Tipi</value>
+  </data>
+  <data name="visitorTypeSelectError" xml:space="preserve">
+    <value>Ziyaret sebebi seçilemiyor</value>
+  </data>
+  <data name="assistantNotification" xml:space="preserve">
+    <value>asistan bildirimi</value>
+  </data>
+  <data name="defaultHost" xml:space="preserve">
+    <value>Varsayılan Ev Sahibi için bildirim ayarları</value>
+  </data>
+  <data name="defaultHostDefinition" xml:space="preserve">
+    <value>Çalışanlar kendi bildirim ayarlarını güncellemedikleri sürece bu varsayılan yöntemler ile bildirim alacaklar</value>
+  </data>
+  <data name="fallbackNotification" xml:space="preserve">
+    <value>Alternatif Kişi bildirimi: ziyaretçi ev sahibi seçmezse gönderilecektir</value>
+  </data>
+  <data name="fallbackNotifications" xml:space="preserve">
+    <value>Alternatif Kişi bildirimleri</value>
+  </data>
+  <data name="fallbackNotificationsDefinition" xml:space="preserve">
+    <value>Ziyaretçi bir ev sahibi seçmezse bildirim gidecek bir çalışan yada yönetici seçin</value>
+  </data>
+  <data name="hostNotification" xml:space="preserve">
+    <value>Ev Sahibi Bildirimi</value>
+  </data>
+  <data name="hostNotificationForGroup" xml:space="preserve">
+    <value>Grup girişler için ev sahibi bildirimi</value>
+  </data>
+  <data name="hostNotificationForSingle" xml:space="preserve">
+    <value>Tekli ziyaretçi girişi için ev sahibi bildirimi</value>
+  </data>
+  <data name="hostNotifications" xml:space="preserve">
+    <value>Ev Sahibi bildirimi</value>
+  </data>
+  <data name="hostNotificationsDefinition" xml:space="preserve">
+    <value>Ziyaretçiler Giriş yaptığında otomatik bildirim yolla</value>
+  </data>
+  <data name="hostNotificationText" xml:space="preserve">
+    <value>Ev Sahibi bildirim metni</value>
+  </data>
+  <data name="hostNotificationTextDefinition" xml:space="preserve">
+    <value>Ev Sahibi bildirimi metnini özelleştir</value>
+  </data>
+  <data name="notificationEmail" xml:space="preserve">
+    <value>E-posta Adresi</value>
+  </data>
+  <data name="notificationEmailDefinition" xml:space="preserve">
+    <value>Ziyaretçileri Giriş yaptığında Ev Sahibini E-mail ile bilgilendir</value>
+  </data>
+  <data name="notificationSms" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="notificationSmsDefinition" xml:space="preserve">
+    <value>Ziyaretçileri Giriş yaptığında Ev Sahibini SMS ile bilgilendir</value>
+  </data>
+  <data name="hostNotificationTextMessage" xml:space="preserve">
+    <value>Tüm değişiklikler kaydedilmeden kaybolacak? devam etmek ister misin?</value>
+  </data>
+  <data name="chooseContact" xml:space="preserve">
+    <value>Bir kişi seçin </value>
+  </data>
+  <data name="groupAssistantNotification" xml:space="preserve">
+    <value>Asistan grup bildirimi</value>
+  </data>
+  <data name="groupFallbackNotification" xml:space="preserve">
+    <value>Grup için Alternatif Kişi bildirimi</value>
+  </data>
+  <data name="groupHostNotification" xml:space="preserve">
+    <value>Grup için Ev Sahibi grup bildirimi</value>
+  </data>
+  <data name="userAssistantNotification" xml:space="preserve">
+    <value>Asistan bildirimi</value>
+  </data>
+  <data name="userFallbackNotification" xml:space="preserve">
+    <value>Alternatif Kişi bildirimi</value>
+  </data>
+  <data name="userHostNotification" xml:space="preserve">
+    <value>Ev Sahibi bildirimi</value>
+  </data>
+  <data name="upload" xml:space="preserve">
+    <value>Yükle</value>
+  </data>
+  <data name="fileSizeError" xml:space="preserve">
+    <value>En fazla dosya büyüklüğü 4MB</value>
+  </data>
+  <data name="imageFormatError" xml:space="preserve">
+    <value>Sadece 'png', 'jpeg' or 'jpg' görsel formatları desteklenmektedir.</value>
+  </data>
+  <data name="noFileFound" xml:space="preserve">
+    <value>Dosya Bulunamadı</value>
+  </data>
+  <data name="entranceCountException" xml:space="preserve">
+    <value>Bir lokasyona ait en az bir kapı olmalı</value>
+  </data>
+  <data name="gate" xml:space="preserve">
+    <value>Kapı</value>
+  </data>
+  <data name="visitorTypeCountException" xml:space="preserve">
+    <value>Bir lokasyona ait en az bir Ziyaret Sebebi olmalı</value>
+  </data>
+  <data name="newVisitorType" xml:space="preserve">
+    <value>Yeni Ziyaret Sebebi ekle</value>
+  </data>
+  <data name="selectImages" xml:space="preserve">
+    <value>Görsel seç</value>
+  </data>
+  <data name="maxSlideImageCountError" xml:space="preserve">
+    <value>En fazla 5 slayt kullanılabilir</value>
+  </data>
+  <data name="notFoundException" xml:space="preserve">
+    <value>Bulunamadı</value>
+  </data>
+  <data name="guestStatus_Invite" xml:space="preserve">
+    <value>Davet gönderildi</value>
+  </data>
+  <data name="guestStatus_VisitorLog_Added" xml:space="preserve">
+    <value>Yeni Ziyaretçi kaydı yapıldı.</value>
+  </data>
+  <data name="guestStatus_VisitorLog_Canceled" xml:space="preserve">
+    <value>İşlem iptal edildi.</value>
+  </data>
+  <data name="guestStatus_VisitorLog_SignIn" xml:space="preserve">
+    <value>Giriş yapıldı.</value>
+  </data>
+  <data name="guestStatus_VisitorLog_SignOut" xml:space="preserve">
+    <value>Çıkış yapıldı.</value>
+  </data>
+  <data name="guestStatus_VisitorLog_WaitingApprove" xml:space="preserve">
+    <value>Ziyaretçi geldi ve bilgilendirme yapıldı.</value>
+  </data>
+  <data name="closeModal" xml:space="preserve">
+    <value>Popup’ı kapat</value>
+  </data>
+  <data name="comments" xml:space="preserve">
+    <value>Yorumlar</value>
+  </data>
+  <data name="newComment" xml:space="preserve">
+    <value>Yeni Yorum</value>
+  </data>
+  <data name="newInvite" xml:space="preserve">
+    <value>Yeni davet</value>
+  </data>
+  <data name="saveCommentButtonText" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="dashboardInviteCardGroupTitle" xml:space="preserve">
+    <value>Davetliler</value>
+  </data>
+  <data name="dashboardVisitorsCardGroupTitle" xml:space="preserve">
+    <value>Ziyaretçiler</value>
+  </data>
+  <data name="deviceAlreadyMatched" xml:space="preserve">
+    <value>Bu cihaz zaten bir kapıya bağlı</value>
+  </data>
+  <data name="deviceAlreadySaved" xml:space="preserve">
+    <value>Bu cihaz daha önce kaydedilmiş</value>
+  </data>
+  <data name="dashboardInvitesCardGroupTitle" xml:space="preserve">
+    <value>Davetliler</value>
+  </data>
+  <data name="hostApproval" xml:space="preserve">
+    <value>Ev Sahibi onayı</value>
+  </data>
+  <data name="hostApprovalDefinition" xml:space="preserve">
+    <value>Ev Sahibi onayı tanımı</value>
+  </data>
+  <data name="DashboardInviteDatePassed" xml:space="preserve">
+    <value>Geç Kaldı</value>
+  </data>
+  <data name="hostApprovalDisabled" xml:space="preserve">
+    <value>Ev Sahibi Onayı Devre Dışı</value>
+  </data>
+  <data name="hostApprovalEnabled" xml:space="preserve">
+    <value>Ev Sahibi Onayı Devre İçi</value>
+  </data>
+  <data name="hostApprovalMessage" xml:space="preserve">
+    <value>Mesaj</value>
+  </data>
+  <data name="hostApprovalVideoUrl" xml:space="preserve">
+    <value>Video Url</value>
+  </data>
+  <data name="allTime" xml:space="preserve">
+    <value>Tüm Zamanlar</value>
+  </data>
+  <data name="daysOfNoqNoq" xml:space="preserve">
+    <value>Noqnoq Kullanılan Toplam Gün Sayısı</value>
+  </data>
+  <data name="invites" xml:space="preserve">
+    <value>Davetler</value>
+  </data>
+  <data name="notifications" xml:space="preserve">
+    <value>Bildirimler</value>
+  </data>
+  <data name="visitorHistoryDays" xml:space="preserve">
+    <value>Ziyaret Tarihçesi (Gün)</value>
+  </data>
+  <data name="visitors" xml:space="preserve">
+    <value>Ziyaretçiler</value>
+  </data>
+  <data name="averageHistory" xml:space="preserve">
+    <value>Ortalamalar</value>
+  </data>
+  <data name="dayOfWeek" xml:space="preserve">
+    <value>Hafta Günü</value>
+  </data>
+  <data name="mostVisitedEmployees" xml:space="preserve">
+    <value>Ev Sahipleri (ilk 10)</value>
+  </data>
+  <data name="timeOfDay" xml:space="preserve">
+    <value>Saat Aralıkları</value>
+  </data>
+  <data name="IDCheckModalCancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="IDCheckModalSubmit" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="IDCheckModalText" xml:space="preserve">
+    <value>Ziyaretçi kimlik kartı numarası.</value>
+  </data>
+  <data name="IDCheckModalTitle" xml:space="preserve">
+    <value>Giriş Kartı Numarası</value>
+  </data>
+  <data name="NDASignedEmailSubject" xml:space="preserve">
+    <value>Gizlilik Sözleşmesi {fullname} tarafından İmzalandı.</value>
+  </data>
+  <data name="CardSuccessfullyMoved" xml:space="preserve">
+    <value>Ziyaretçi durumu değiştirildi.</value>
+  </data>
+  <data name="ContinueCannotWithoutIDCheck" xml:space="preserve">
+    <value>Bu ziyaretçi için kimlik doğrulaması yapılması gerekmektedir.</value>
+  </data>
+  <data name="CardNotAllowedMove" xml:space="preserve">
+    <value>Taşıma işlemine izin verilmedi.</value>
+  </data>
+  <data name="expectedTime" xml:space="preserve">
+    <value>Ziyaret Saati</value>
+  </data>
+  <data name="host" xml:space="preserve">
+    <value>Ev Sahibi</value>
+  </data>
+  <data name="lastUpdated" xml:space="preserve">
+    <value>son güncelleme</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="notes" xml:space="preserve">
+    <value>Notlar</value>
+  </data>
+  <data name="noVisitorRegistered" xml:space="preserve">
+    <value>şu ana kadar kaydolan ziyaretçi yok</value>
+  </data>
+  <data name="refreshPage" xml:space="preserve">
+    <value>Sayfayı yenile</value>
+  </data>
+  <data name="searchName" xml:space="preserve">
+    <value>Ziyaretçi Ara</value>
+  </data>
+  <data name="sortBy" xml:space="preserve">
+    <value>Buna Göre Sırala</value>
+  </data>
+  <data name="count" xml:space="preserve">
+    <value>Sayı</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="dayName" xml:space="preserve">
+    <value>Gün</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>Saat</value>
+  </data>
+  <data name="mostVisitedCompanies" xml:space="preserve">
+    <value>Şirketler</value>
+  </data>
+  <data name="mostVisitedHistory" xml:space="preserve">
+    <value>En Çok Ziyaret Edilenler</value>
+  </data>
+  <data name="company" xml:space="preserve">
+    <value>Şirket</value>
+  </data>
+  <data name="employee" xml:space="preserve">
+    <value>Çalışan</value>
+  </data>
+  <data name="totalVisit" xml:space="preserve">
+    <value>Toplam</value>
+  </data>
+  <data name="InsertedSignature" xml:space="preserve">
+    <value>Bir Gizlilik Sözleşmesi İmzalandı</value>
+  </data>
+  <data name="UpdatedSignature" xml:space="preserve">
+    <value>Bir Gizlilik Sözleşmesi İmzalandı</value>
+  </data>
+  <data name="VisitorCardAddComment" xml:space="preserve">
+    <value>Karta bir yorum eklendi.</value>
+  </data>
+  <data name="InvitePrivateMessage" xml:space="preserve">
+    <value>Davetliye Mesaj</value>
+  </data>
+  <data name="VisitorCount" xml:space="preserve">
+    <value>Eşlik Eden Sayısı</value>
+  </data>
+  <data name="EMailNotSend" xml:space="preserve">
+    <value>E-mail içeriği gönderilemedi.</value>
+  </data>
+  <data name="EMailSuccessfullySend" xml:space="preserve">
+    <value>E-mail içeriği başarıyla gönderildi.</value>
+  </data>
+  <data name="MissingDataOnTheCard" xml:space="preserve">
+    <value>Kartta eksik veri var</value>
+  </data>
+  <data name="tcIdentity" xml:space="preserve">
+    <value>T.C. Kimlik No</value>
+  </data>
+  <data name="tcIdentityDefinition" xml:space="preserve">
+    <value>TC Kimlik Tanımları</value>
+  </data>
+  <data name="ParentGuestTitle" xml:space="preserve">
+    <value>Eşlik Eden kartıdır</value>
+  </data>
+  <data name="MainGuestTitle" xml:space="preserve">
+    <value>Ana ziyaretçi kartıdır.</value>
+  </data>
+  <data name="CardNumber" xml:space="preserve">
+    <value>Kart Numarası</value>
+  </data>
+  <data name="expireDayCount" xml:space="preserve">
+    <value>Son kullanım tarihi</value>
+  </data>
+  <data name="maxEmployeeCount" xml:space="preserve">
+    <value>Çalışan sayısı</value>
+  </data>
+  <data name="maxLocationCount" xml:space="preserve">
+    <value>Lokasyon sayısı</value>
+  </data>
+  <data name="monthlyFee" xml:space="preserve">
+    <value>Aylık ücret</value>
+  </data>
+  <data name="packageName" xml:space="preserve">
+    <value>Paket İsmi</value>
+  </data>
+  <data name="yearlyFee" xml:space="preserve">
+    <value>Yıllık Ücret</value>
+  </data>
+  <data name="noPackageFound" xml:space="preserve">
+    <value>Paket Yok</value>
+  </data>
+  <data name="packageCustomers" xml:space="preserve">
+    <value>Paket Müşterileri</value>
+  </data>
+  <data name="packageInfo" xml:space="preserve">
+    <value>Paket Bilgisi</value>
+  </data>
+  <data name="packageNameRequired" xml:space="preserve">
+    <value>Paket İsmi Gerekli</value>
+  </data>
+  <data name="packageHasCustomersException" xml:space="preserve">
+    <value>Paket Müşterisi Yok</value>
+  </data>
+  <data name="packageSelectError" xml:space="preserve">
+    <value>Paket seçilemiyor</value>
+  </data>
+  <data name="noPackageCustomerFound" xml:space="preserve">
+    <value>Müşteri yok</value>
+  </data>
+  <data name="packageCustomerName" xml:space="preserve">
+    <value>Müşteri ismi</value>
+  </data>
+  <data name="customerName" xml:space="preserve">
+    <value>Müşteri ismi</value>
+  </data>
+  <data name="customerPackageInfo" xml:space="preserve">
+    <value>Müşteri Paket bilgisi</value>
+  </data>
+  <data name="languageSetting" xml:space="preserve">
+    <value>Dil Ayarları</value>
+  </data>
+  <data name="chooseDefault" xml:space="preserve">
+    <value>Seç…</value>
+  </data>
+  <data name="customer" xml:space="preserve">
+    <value>Müşteri</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Tanım</value>
+  </data>
+  <data name="expireDate" xml:space="preserve">
+    <value>Son kullanım tarihi</value>
+  </data>
+  <data name="packageCustomerNameRequired" xml:space="preserve">
+    <value>Paket Müşteri İsmi gerekli</value>
+  </data>
+  <data name="packageCustomerSelectError" xml:space="preserve">
+    <value>Müşteri seçilemiyor</value>
+  </data>
+  <data name="packageOf" xml:space="preserve">
+    <value>Paket Adı</value>
+  </data>
+  <data name="registerCustomerFormError" xml:space="preserve">
+    <value>Hata oluştu. Lütfen aşağıdaki kayıtları kontrol edin</value>
+  </data>
+  <data name="registerCustomerFormSuccess" xml:space="preserve">
+    <value>Onay başarılı</value>
+  </data>
+  <data name="maximumLocationCountError" xml:space="preserve">
+    <value>Maximum sayıda lokasyon sayısına ulaştınız</value>
+  </data>
+  <data name="changePackage" xml:space="preserve">
+    <value>Paketi değiştir</value>
+  </data>
+  <data name="chooseNewPackage" xml:space="preserve">
+    <value>Lütfen yeni paket tipi seçin</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="SubmitAndAddAnother" xml:space="preserve">
+    <value>Kaydet ve Yeni Ekle</value>
+  </data>
+  <data name="SubmitAndCLose" xml:space="preserve">
+    <value>Kaydet ve Kapat</value>
+  </data>
+  <data name="outlookMultipleHostError" xml:space="preserve">
+    <value>E-posta adresleri ile eşleşen ev sahibi bulunamadığı için davet kaydınız oluşturulamadı.</value>
+  </data>
+  <data name="DashboardReport_CardNumber" xml:space="preserve">
+    <value>Kart Numarası</value>
+  </data>
+  <data name="DashboardReport_Email" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="DashboardReport_FullName" xml:space="preserve">
+    <value>Adı ve Soyadı</value>
+  </data>
+  <data name="DashboardReport_NdaSigned" xml:space="preserve">
+    <value>Gizlilik Sözleşmesi</value>
+  </data>
+  <data name="DashboardReport_Status" xml:space="preserve">
+    <value>Statü</value>
+  </data>
+  <data name="DashboardReport_Telephone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="DashboardReport_VisitorCount" xml:space="preserve">
+    <value>Ziyaretçi sayısı</value>
+  </data>
+  <data name="ewsCountException" xml:space="preserve">
+    <value>Uygulamaya ait en az bir exchange server hesabı olmalı</value>
+  </data>
+  <data name="ewsPassword" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="ewsPasswordRequired" xml:space="preserve">
+    <value>Parola gerekli</value>
+  </data>
+  <data name="ewsSettingInfo" xml:space="preserve">
+    <value>Outlook ayarları</value>
+  </data>
+  <data name="ewsSettingsSelectError" xml:space="preserve">
+    <value>Ayarlar seçilemiyor</value>
+  </data>
+  <data name="ewsUrl" xml:space="preserve">
+    <value>EWS Url</value>
+  </data>
+  <data name="ewsUserName" xml:space="preserve">
+    <value>Kullanıcı ismi</value>
+  </data>
+  <data name="ewsUserNameRequired" xml:space="preserve">
+    <value>Kullanıcı ismi gerekli</value>
+  </data>
+  <data name="noEwsSettingFound" xml:space="preserve">
+    <value>ews ayarları bulunamadı</value>
+  </data>
+  <data name="adminSettingsTab" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="adminVisitorTypesTab" xml:space="preserve">
+    <value>Ziyaret Sebebi</value>
+  </data>
+  <data name="selectCustomer" xml:space="preserve">
+    <value>Müşteri seç</value>
+  </data>
+  <data name="selectCustomer_CustomerError" xml:space="preserve">
+    <value>Lütfen listeden bir müşteri seçin</value>
+  </data>
+  <data name="selectCustomer_LocationError" xml:space="preserve">
+    <value>Lütfen listeden bir lokasyon seçin</value>
+  </data>
+  <data name="CannotAddVisitorAlreadyInvited" xml:space="preserve">
+    <value>Bu kişinin aynı güne bir davet kaydı var. Yeni kayıt oluşturulamaz.</value>
+  </data>
+  <data name="companyNotFound" xml:space="preserve">
+    <value>Şirket Bulunamadı</value>
+  </data>
+  <data name="upgradePro" xml:space="preserve">
+    <value>Pro pakete yükselt</value>
+  </data>
+  <data name="upgradeStandard" xml:space="preserve">
+    <value>Standart Pakete yükselt</value>
+  </data>
+  <data name="upgrade" xml:space="preserve">
+    <value>Yükselt</value>
+  </data>
+  <data name="menu_Account" xml:space="preserve">
+    <value>Hesap Ayarları</value>
+  </data>
+  <data name="menu_Admin" xml:space="preserve">
+    <value>Yönetici</value>
+  </data>
+  <data name="menu_AdminSettings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="menu_Analytics" xml:space="preserve">
+    <value>Analizler</value>
+  </data>
+  <data name="menu_Dashboard" xml:space="preserve">
+    <value>Ziyaretçi Defteri</value>
+  </data>
+  <data name="menu_Devices" xml:space="preserve">
+    <value>iPad Ayarları</value>
+  </data>
+  <data name="menu_Entrances" xml:space="preserve">
+    <value>Kapı Ayarları</value>
+  </data>
+  <data name="menu_HomePage" xml:space="preserve">
+    <value>Anasayfa</value>
+  </data>
+  <data name="menu_MainMenuDashboard" xml:space="preserve">
+    <value>Ana Ekran</value>
+  </data>
+  <data name="menu_Notification" xml:space="preserve">
+    <value>Bildirim Ayarları</value>
+  </data>
+  <data name="menu_Outlook" xml:space="preserve">
+    <value>Outlook Ayarları</value>
+  </data>
+  <data name="menu_PackageCustomer" xml:space="preserve">
+    <value>Paket Müşterileri</value>
+  </data>
+  <data name="menu_Packages" xml:space="preserve">
+    <value>Paketler</value>
+  </data>
+  <data name="menu_Roles" xml:space="preserve">
+    <value>Roller</value>
+  </data>
+  <data name="menu_SecurityDesk" xml:space="preserve">
+    <value>Güvenlik Kapısı</value>
+  </data>
+  <data name="menu_SelectCustomer" xml:space="preserve">
+    <value>Müşteri seç</value>
+  </data>
+  <data name="menu_Settings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="menu_SignInFlow" xml:space="preserve">
+    <value>Ziyaret Ayarları</value>
+  </data>
+  <data name="menu_SignOut" xml:space="preserve">
+    <value>Çıkış Ayarları</value>
+  </data>
+  <data name="menu_UserOperations" xml:space="preserve">
+    <value>Kullanıcı Yönetimi</value>
+  </data>
+  <data name="menu_Users" xml:space="preserve">
+    <value>Kullanıcılar</value>
+  </data>
+  <data name="menu_VisitorTypes" xml:space="preserve">
+    <value>Ziyaret Tipleri</value>
+  </data>
+  <data name="menu_WelcomeScreen" xml:space="preserve">
+    <value>Hoşgeldin Ekranı</value>
+  </data>
+  <data name="activeEmployeeCount" xml:space="preserve">
+    <value>Aktif Çalışan Sayısı</value>
+  </data>
+  <data name="activeLocationCount" xml:space="preserve">
+    <value>Aktif lokasyon sayısı</value>
+  </data>
+  <data name="menu_CustomerReport" xml:space="preserve">
+    <value>Müşteri Raporu</value>
+  </data>
+  <data name="toExcel" xml:space="preserve">
+    <value>Excel’e</value>
+  </data>
+  <data name="customerActivationRequired" xml:space="preserve">
+    <value>Aktivasyon kodu mailinize yönlendirildi</value>
+  </data>
+  <data name="customerRegisterConfirmation_1" xml:space="preserve">
+    <value>Onay maili gönderildi</value>
+  </data>
+  <data name="customerRegisterConfirmation_2" xml:space="preserve">
+    <value>Onaylamanız için size bir e-posta gönderdik. Maildeki linki tıklayarak üyeliğinizi onayladığınızda 14 günlük deneme süreniz başlayacaktır.</value>
+  </data>
+  <data name="DashboardReport_FirstStatus" xml:space="preserve">
+    <value>Statü</value>
+  </data>
+  <data name="DashboardReport_Host" xml:space="preserve">
+    <value>Ev Sahibi</value>
+  </data>
+  <data name="DashboardReport_IdentityNumber" xml:space="preserve">
+    <value>T.C. Kimlik No</value>
+  </data>
+  <data name="DashboardReport_InvitePnrCode" xml:space="preserve">
+    <value>Pnr kodu</value>
+  </data>
+  <data name="DashboardReport_IsMobileDeviceCreated" xml:space="preserve">
+    <value>Mobil cihazdan oluşturuldu</value>
+  </data>
+  <data name="DashboardReport_Location" xml:space="preserve">
+    <value>Lokasyon</value>
+  </data>
+  <data name="DashboardReport_LocationName" xml:space="preserve">
+    <value>Lokasyon İsmi</value>
+  </data>
+  <data name="DashboardReport_VisitorType" xml:space="preserve">
+    <value>Ziyaret Sebebi</value>
+  </data>
+  <data name="endDate" xml:space="preserve">
+    <value>Bitiş Tarihi</value>
+  </data>
+  <data name="startDate" xml:space="preserve">
+    <value>Başlangıç Tarihi</value>
+  </data>
+  <data name="applicationLogo" xml:space="preserve">
+    <value>Aplikasyon Logosu</value>
+  </data>
+  <data name="applicationLogoDefinition" xml:space="preserve">
+    <value>Aplikasyon logo tanımı</value>
+  </data>
+  <data name="entranceCard" xml:space="preserve">
+    <value>Giriş Kartı</value>
+  </data>
+  <data name="entranceCardDefinition" xml:space="preserve">
+    <value>Giriş Kartı tanımı</value>
+  </data>
+  <data name="hostApprovalNotificationAlert" xml:space="preserve">
+    <value>Ev sahibi bildirimi etkin</value>
+  </data>
+  <data name="securityDeskStatus" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="statusAdded" xml:space="preserve">
+    <value>Eklendi</value>
+  </data>
+  <data name="statusCanceled" xml:space="preserve">
+    <value>İptal edildi</value>
+  </data>
+  <data name="statusInvite" xml:space="preserve">
+    <value>Davet</value>
+  </data>
+  <data name="statusSignIn" xml:space="preserve">
+    <value>Giriş</value>
+  </data>
+  <data name="statusSignOut" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="statusWaitingApprove" xml:space="preserve">
+    <value>Onay Bekliyor</value>
+  </data>
+  <data name="menu_NewLocation" xml:space="preserve">
+    <value>Yeni Lokasyon</value>
+  </data>
+  <data name="packageExpired" xml:space="preserve">
+    <value>Paket kullanım süresi bitti</value>
+  </data>
+  <data name="DashboardReport_SignInDate" xml:space="preserve">
+    <value>Giriş Tarih ve Saati</value>
+  </data>
+  <data name="DashboardReport_SignOutDate" xml:space="preserve">
+    <value>Çıkış Tarih ve Saati</value>
+  </data>
+  <data name="DashboardReport_TimeDifference" xml:space="preserve">
+    <value>Ziyaret Süresi</value>
+  </data>
+  <data name="NewUserInfoEmailSubject" xml:space="preserve">
+    <value>Hoş Geldiniz</value>
+  </data>
+  <data name="plate" xml:space="preserve">
+    <value>Plaka</value>
+  </data>
+  <data name="status" xml:space="preserve">
+    <value>Statü</value>
+  </data>
+  <data name="idchecked" xml:space="preserve">
+    <value>Kimlik Kontrolü Yapıldı</value>
+  </data>
+  <data name="IDCheckModalSubmitGetInside" xml:space="preserve">
+    <value>Kaydet ve İçeri Al</value>
+  </data>
+  <data name="CardWaitingForApproval" xml:space="preserve">
+    <value>Onay Bekleyen durumundaki kartlarda sürükleme işlemi yapılamaz.</value>
+  </data>
+  <data name="menu_DashboardActivity" xml:space="preserve">
+    <value>Rapor</value>
+  </data>
+  <data name="CardNumberInuse" xml:space="preserve">
+    <value>Kart Numarası Kullanımda</value>
+  </data>
+  <data name="PhoneNumberInUse" xml:space="preserve">
+    <value>Girmiş olduğunuz telefon numarasına bu tarihe ait davet kaydı bulunmaktadır.</value>
+  </data>
+  <data name="NewRecordHostNotification" xml:space="preserve">
+    <value>Davetli girişte benden onay alsın.</value>
+  </data>
+  <data name="menu_DashboardReport" xml:space="preserve">
+    <value>Ziyaretçi Raporu</value>
+  </data>
+  <data name="onlyTodayInvitesCanBeChangeable" xml:space="preserve">
+    <value>Bugüne ait davetler için işlem yapılabilir.</value>
+  </data>
+  <data name="outlookVisitorTypeChangeError" xml:space="preserve">
+    <value>"Outlook Toplantı" tipinde ziyaret kaydı sadece Outlook üzerinden oluşturulabilir.</value>
+  </data>
+  <data name="Analytics_DaysOfWeek" xml:space="preserve">
+    <value>['Pt', 'Sl', 'Çr', 'Pr', 'Cm', 'Ct', 'Pz']</value>
+  </data>
+  <data name="Analytics_MonthNames" xml:space="preserve">
+    <value>['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran', 'Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık']</value>
+  </data>
+  <data name="Analytics_CustomRange" xml:space="preserve">
+    <value>Özel Aralık</value>
+  </data>
+  <data name="Analytics_DateRangeApply" xml:space="preserve">
+    <value>Uygula</value>
+  </data>
+  <data name="Analytics_DateRangeCancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Analytics_Last30Days" xml:space="preserve">
+    <value>Son 30 Gün</value>
+  </data>
+  <data name="Analytics_Last60Days" xml:space="preserve">
+    <value>Son 60 Gün</value>
+  </data>
+  <data name="Analytics_Last7Days" xml:space="preserve">
+    <value>Son 7 Gün</value>
+  </data>
+  <data name="Analytics_LastMonth" xml:space="preserve">
+    <value>Geçen Ay</value>
+  </data>
+  <data name="Analytics_ThisMonth" xml:space="preserve">
+    <value>Bu Ay</value>
+  </data>
+  <data name="Analytics_Today" xml:space="preserve">
+    <value>Bugün</value>
+  </data>
+  <data name="Analytics_Yesterday" xml:space="preserve">
+    <value>Dün</value>
+  </data>
+  <data name="Notification_GuestApproved" xml:space="preserve">
+    <value>Konuk Onaylandı</value>
+  </data>
+  <data name="Notification_GuestApproveError" xml:space="preserve">
+    <value>Hata: Konuk onaylanamadı</value>
+  </data>
+  <data name="Notification_GuestDeclined" xml:space="preserve">
+    <value>Konuk Reddedildi</value>
+  </data>
+  <data name="Notification_GuestDeclineError" xml:space="preserve">
+    <value>Hata: Konuk reddedilemedi</value>
+  </data>
+  <data name="Notification_GuestNotFound" xml:space="preserve">
+    <value>Konuk bulunamadı</value>
+  </data>
+  <data name="Notification_NotificationAlreadyApproved" xml:space="preserve">
+    <value>Bildirim zaten onaylanmış</value>
+  </data>
+  <data name="Notification_NotificationAlreadyDeclined" xml:space="preserve">
+    <value>Bildirim zaten reddedilmiş</value>
+  </data>
+  <data name="OutlookCheckInWithPNR" xml:space="preserve">
+    <value>Lütfen PNR numaranız ile giriş yapın.</value>
+  </data>
+  <data name="UserManager_EmailAddressInUse" xml:space="preserve">
+    <value>Email adresi başka bir kullanıcı tarafından kullanılıyor</value>
+  </data>
+  <data name="UserManager_UserNotFound" xml:space="preserve">
+    <value>Kullanıcı bulunamadı</value>
+  </data>
+  <data name="DasboardModal_newVisitor" xml:space="preserve">
+    <value>Yeni ziyaretçi</value>
+  </data>
+  <data name="GuestDuplicationSuccessful" xml:space="preserve">
+    <value>Konuk çoklandı</value>
+  </data>
+  <data name="InviteCreated_Successfully" xml:space="preserve">
+    <value>Davet kaydı oluşturuldu</value>
+  </data>
+  <data name="InviteCreate_Error" xml:space="preserve">
+    <value>Davet kaydı oluşturulamadı!</value>
+  </data>
+  <data name="InviteUpdated_Successfully" xml:space="preserve">
+    <value>Davet başarıyla güncellendi</value>
+  </data>
+  <data name="InviteUpdate_Error" xml:space="preserve">
+    <value>Davet güncellenemedi!</value>
+  </data>
+  <data name="VisitorLogCreated_Successfully" xml:space="preserve">
+    <value>Ziyaretçi kaydı oluşturuldu</value>
+  </data>
+  <data name="VisitorLogCreate_Error" xml:space="preserve">
+    <value>Ziyaretçi kaydı oluşturulamadı!</value>
+  </data>
+  <data name="VisitorLogUpdated_Successfully" xml:space="preserve">
+    <value>Ziyaretçi başarıyla güncellendi</value>
+  </data>
+  <data name="VisitorLogUpdate_Error" xml:space="preserve">
+    <value>Ziyaretçi güncellenemedi!</value>
+  </data>
+  <data name="Dashboard_EmployeeCannotAcceptInvites" xml:space="preserve">
+    <value>You could not accept your guest</value>
+  </data>
+  <data name="Dashboard_SendEmail" xml:space="preserve">
+    <value>Email Gönder</value>
+  </data>
+  <data name="Dashboard_SendEmailModalClose" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Dashboard_SendEmailSubject" xml:space="preserve">
+    <value>Konu</value>
+  </data>
+  <data name="NewAccount_ActiveAccount" xml:space="preserve">
+    <value>Hesabınızı aktive edin</value>
+  </data>
+  <data name="OutlookInvite_PleaseContactCompanyManaging" xml:space="preserve">
+    <value>Lütfen şirket yetkilisi ile iletişime geç.</value>
+  </data>
+  <data name="dashboardSignoutCardGroupTitle" xml:space="preserve">
+    <value>Çıkış Yapanlar &amp; Reddedilenler</value>
+  </data>
+  <data name="Notification_HostApproved" xml:space="preserve">
+    <value>Ev sahibi girişe onay verdi.</value>
+  </data>
+  <data name="Notification_HostDisapproved" xml:space="preserve">
+    <value>Ev sahibi girişi kabul etmedi.</value>
+  </data>
+  <data name="guestStatus_VisitorCardNumberGiven" xml:space="preserve">
+    <value>Ziyaretçiye giriş kartı verildi</value>
+  </data>
+  <data name="gatecannotdelete" xml:space="preserve">
+    <value>Kapı silinemez, önce kapıya tanımlı cihazları silin</value>
+  </data>
+  <data name="gatedeleted" xml:space="preserve">
+    <value>Kapı silindi</value>
+  </data>
+  <data name="Usermanager_SendNewPassword" xml:space="preserve">
+    <value>Yeni şifre gönder</value>
+  </data>
+  <data name="UserRoles_UserRoleDataError" xml:space="preserve">
+    <value>Kullanıcıya ait aktif roller alınamadı</value>
+  </data>
+  <data name="AccountManager_IsEmployeeHost" xml:space="preserve">
+    <value>KULLANICI ZİYARETÇİ KABUL ETSİN Mİ ?</value>
+  </data>
+  <data name="PreRegistration_ClearSignature" xml:space="preserve">
+    <value>İmzayi Temizle</value>
+  </data>
+  <data name="PreRegistration_Email" xml:space="preserve">
+    <value>E-Posta</value>
+  </data>
+  <data name="PreRegistration_FullName" xml:space="preserve">
+    <value>Tam Adınız</value>
+  </data>
+  <data name="PreRegistration_IdentityNumber" xml:space="preserve">
+    <value>T.C. Kimlik Numarası</value>
+  </data>
+  <data name="PreRegistration_MobilePhone" xml:space="preserve">
+    <value>Cep Telefonu</value>
+  </data>
+  <data name="PreRegistration_NameIsRequired" xml:space="preserve">
+    <value>İsim girmek zorunludur.</value>
+  </data>
+  <data name="PreRegistration_Plate" xml:space="preserve">
+    <value>Plaka</value>
+  </data>
+  <data name="PreRegistration_ThankYou" xml:space="preserve">
+    <value>Teşekkürler!</value>
+  </data>
+  <data name="PreRegistration_Title" xml:space="preserve">
+    <value>Ziyaretiniz için check-in yapın</value>
+  </data>
+  <data name="PreRegistration_AddDetails" xml:space="preserve">
+    <value>Detay Ekle </value>
+  </data>
+  <data name="PreRegistration_SignAgreement" xml:space="preserve">
+    <value>Sözleşme İmzası</value>
+  </data>
+  <data name="PreRegistration_Visitor" xml:space="preserve">
+    <value>Ziyaretçi</value>
+  </data>
+  <data name="PreRegistration_NextButtonText" xml:space="preserve">
+    <value>İleri</value>
+  </data>
+  <data name="PreRegistration_PnrCode" xml:space="preserve">
+    <value>PNR Kodu:</value>
+  </data>
+  <data name="notEqual" xml:space="preserve">
+    <value>Parolalar eşleşmiyor.</value>
+  </data>
+  <data name="DashboardReport_CompanyName" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="PreRegistration_CompanyName" xml:space="preserve">
+    <value>Şirket İsmi</value>
+  </data>
+  <data name="Dasboard_ApproveFilterButton" xml:space="preserve">
+    <value>Onay</value>
+  </data>
+  <data name="Dasboard_CardNoFilterButton" xml:space="preserve">
+    <value>Kart No</value>
+  </data>
+  <data name="Dasboard_DeclinedFilterButton" xml:space="preserve">
+    <value>Reddedilenler</value>
+  </data>
+  <data name="Dasboard_InsideFilterButton" xml:space="preserve">
+    <value>İçerde</value>
+  </data>
+  <data name="Dasboard_SignOutFilterButton" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="Dasboard_TodayFilterButton" xml:space="preserve">
+    <value>Bugün</value>
+  </data>
+  <data name="Dasboard_TomorrowFilterButton" xml:space="preserve">
+    <value>Yarın</value>
+  </data>
+  <data name="Dasboard_Next30DaysFilter" xml:space="preserve">
+    <value>+30 Gün</value>
+  </data>
+  <data name="Dashboard_ResetFilterButton" xml:space="preserve">
+    <value>filtre sıfırla</value>
+  </data>
+  <data name="Dashboard_CompanyNameInput" xml:space="preserve">
+    <value>Firma Adı</value>
+  </data>
+  <data name="Dashboard_EmailInput" xml:space="preserve">
+    <value>E-Posta</value>
+  </data>
+  <data name="Dashboard_FullNameInput" xml:space="preserve">
+    <value>Tam Ad</value>
+  </data>
+  <data name="Dashboard_InvateDateInput" xml:space="preserve">
+    <value>Davet Tarihi</value>
+  </data>
+  <data name="Dashboard_PhoneInput" xml:space="preserve">
+    <value>Telefon Numarası</value>
+  </data>
+  <data name="Dashboard_PlateInput" xml:space="preserve">
+    <value>Plaka</value>
+  </data>
+  <data name="Dashboard_TCIdentityNumberInput" xml:space="preserve">
+    <value>TC Kimlik No</value>
+  </data>
+  <data name="Dashboard_HostMessageInput" xml:space="preserve">
+    <value>Lütfen ev sahibine iletmek istediğiniz mesajı yazın.</value>
+  </data>
+  <data name="Dashboard_SeachInputPlaceholder" xml:space="preserve">
+    <value>Ad, Soyad, Eposta, Telefon, PNR</value>
+  </data>
+  <data name="Dashboard_ActivityPanelTitle" xml:space="preserve">
+    <value>Aktiviteler</value>
+  </data>
+  <data name="Dashboard_NotificationCenterClose" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Dashboard_NotificationCenterTitle" xml:space="preserve">
+    <value>Bildirimler</value>
+  </data>
+  <data name="Dashboard_ProfileChangePassword" xml:space="preserve">
+    <value>Şifremi değiştir</value>
+  </data>
+  <data name="Dashboard_ProfileLogout" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="ChangePassword_CurrentPassword" xml:space="preserve">
+    <value>Mevcut şifre</value>
+  </data>
+  <data name="ChangePassword_NewPassword" xml:space="preserve">
+    <value>Yeni şifre</value>
+  </data>
+  <data name="ChangePassword_NewPasswordAgain" xml:space="preserve">
+    <value>Yeni şifre tekrar</value>
+  </data>
+  <data name="menu_ChangePassword" xml:space="preserve">
+    <value>Şifre Değiştir</value>
+  </data>
+  <data name="UserManager_AddCompany" xml:space="preserve">
+    <value>Firma Ekle</value>
+  </data>
+  <data name="UserManager_AddCompanyTitle" xml:space="preserve">
+    <value>Yeni Firma Ekle</value>
+  </data>
+  <data name="UserManager_Company" xml:space="preserve">
+    <value>Firma Adı</value>
+  </data>
+  <data name="UserManager_CreateNewUser" xml:space="preserve">
+    <value>Yeni Kullanıcı Ekle</value>
+  </data>
+  <data name="UserManager_Email" xml:space="preserve">
+    <value>E-Posta</value>
+  </data>
+  <data name="UserManager_ExportEmployees" xml:space="preserve">
+    <value>Dışarı aktar</value>
+  </data>
+  <data name="UserManager_FirstName" xml:space="preserve">
+    <value>Ad</value>
+  </data>
+  <data name="UserManager_ImportEmployees" xml:space="preserve">
+    <value>İçe Toplu Aktar</value>
+  </data>
+  <data name="UserManager_LastName" xml:space="preserve">
+    <value>Soyad</value>
+  </data>
+  <data name="UserManager_Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="UserManager_SearchEmployees" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="UserManager_CompanyNotes" xml:space="preserve">
+    <value>Not</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="UserManager_EmployeeListTitle" xml:space="preserve">
+    <value>Kullanıcı</value>
+  </data>
+  <data name="UserManager_SearchEmployeesPlaceholder" xml:space="preserve">
+    <value>Kullanıcı Ara</value>
+  </data>
+  <data name="RoleManager_Allroles" xml:space="preserve">
+    <value>Tüm Roller</value>
+  </data>
+  <data name="RoleManager_CreateNewModalTitle" xml:space="preserve">
+    <value>Yeni Oluştur</value>
+  </data>
+  <data name="RoleManager_NewAdmin" xml:space="preserve">
+    <value>Yeni Yönetici Ekle</value>
+  </data>
+  <data name="RoleManager_Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="RoleManager_SearchEmployeePlaceholder" xml:space="preserve">
+    <value>Yönetici Ara</value>
+  </data>
+  <data name="RoleManager_UserName" xml:space="preserve">
+    <value>Kullanıcı Adı</value>
+  </data>
+  <data name="RoleManager_EditUser" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="Dashboard_CardNoMessage" xml:space="preserve">
+    <value>Mesaj yok</value>
+  </data>
+  <data name="Dashboard_DeleteGuest" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Dashboard_DuplicateInvite" xml:space="preserve">
+    <value>Aynı davetten oluştur</value>
+  </data>
+  <data name="Dashboard_RejectInvite" xml:space="preserve">
+    <value>Reddet</value>
+  </data>
+  <data name="Dashboard_AddGuestToCard" xml:space="preserve">
+    <value>Bağlı kayıt ekle</value>
+  </data>
+  <data name="NotificationSettings_Variables" xml:space="preserve">
+    <value>Değişkenler</value>
+  </data>
+  <data name="NotificationSettings_Variables_CompanyName" xml:space="preserve">
+    <value>Firma adı</value>
+  </data>
+  <data name="NotificationSettings_Variables_HostName" xml:space="preserve">
+    <value>Ev sahibi adı</value>
+  </data>
+  <data name="NotificationSettings_Variables_LocationName" xml:space="preserve">
+    <value>Lokasyon adı</value>
+  </data>
+  <data name="NotificationSettings_Variables_NumberOfVisitors" xml:space="preserve">
+    <value>Ziyaretçi sayısı</value>
+  </data>
+  <data name="NotificationSettings_Variables_VisitorName" xml:space="preserve">
+    <value>Ziyaretçi adı</value>
+  </data>
+  <data name="FooterTelif" xml:space="preserve">
+    <value>Bütün hakları saklıdır.</value>
+  </data>
+  <data name="KullanicilarFirmaSec" xml:space="preserve">
+    <value>Binanızda birden fazla firma varsa kullanıcının firmasını seçin ya da ekleyin.</value>
+  </data>
+  <data name="YeniZiyaretTipiEkle" xml:space="preserve">
+    <value>Yeni Ziyaret Tipi Ekle</value>
+  </data>
+  <data name="YeniZiyaretTipiAciklama" xml:space="preserve">
+    <value>Yeni bir ziyaret tipi tanımlamak için burayı kullanabilirsiniz.</value>
+  </data>
+  <data name="KapiAyarlari" xml:space="preserve">
+    <value>Kapı Ayarları</value>
+  </data>
+  <data name="YeniKapiEkle" xml:space="preserve">
+    <value>Yeni Kapı Ekle</value>
+  </data>
+  <data name="YeniKapiEkleAciklama" xml:space="preserve">
+    <value>Yeni bir kapı tanımlamak için burayı kullanabilirsiniz.</value>
+  </data>
+  <data name="IpadleriListele" xml:space="preserve">
+    <value>iPad’leri Listele</value>
+  </data>
+  <data name="Dashboard_CustomerPackageLeftDayCount" xml:space="preserve">
+    <value>gün kaldı</value>
+  </data>
+  <data name="Packagemanager_CargoModuleEnable" xml:space="preserve">
+    <value>Kargo Modülü</value>
+  </data>
+  <data name="Packagemanager_VisitorModuleEnable" xml:space="preserve">
+    <value>Ziyaretçi Modülü</value>
+  </data>
+  <data name="menu_Cargo" xml:space="preserve">
+    <value>Kargo</value>
+  </data>
+  <data name="RoleManager_GridEmail" xml:space="preserve">
+    <value>E-POSTA</value>
+  </data>
+  <data name="RoleManager_GridEmailAlt" xml:space="preserve">
+    <value>Kullanıcı adı</value>
+  </data>
+  <data name="RoleManager_GridNameSurname" xml:space="preserve">
+    <value>ADI-SOYADI</value>
+  </data>
+  <data name="RoleManager_GridNameSurnameAlt" xml:space="preserve">
+    <value>Kullanıcı bilgileri</value>
+  </data>
+  <data name="RoleManager_GridOperations" xml:space="preserve">
+    <value>İŞLEMLER</value>
+  </data>
+  <data name="RoleManager_GridOperationsAlt" xml:space="preserve">
+    <value>Rolü düzenle</value>
+  </data>
+  <data name="RoleManager_GridTitleRole" xml:space="preserve">
+    <value>ROLÜ</value>
+  </data>
+  <data name="RoleManager_GridTitleRoleAlt" xml:space="preserve">
+    <value>Kullanıcı yetkileri</value>
+  </data>
+  <data name="AccountRegister_AppSelectError" xml:space="preserve">
+    <value>En az bir ürün seçin</value>
+  </data>
+  <data name="AccountRegister_AppSelectText" xml:space="preserve">
+    <value>Hangi çözümleri denemek istediğinizi seçin</value>
+  </data>
+  <data name="AccountRegister_CargoModuleDesc" xml:space="preserve">
+    <value>Gelen ofis teslimatlarını düzenlemenin yeni bir yolu.</value>
+  </data>
+  <data name="AccountRegister_CargoModuleName" xml:space="preserve">
+    <value>Kargo</value>
+  </data>
+  <data name="AccountRegister_VisitorModuleDesc" xml:space="preserve">
+    <value>Herhangi bir ön büro için ziyaretçi yönetimi çözümleri.</value>
+  </data>
+  <data name="AccountRegister_VisitorModuleName" xml:space="preserve">
+    <value>Ziyaretçi</value>
+  </data>
+  <data name="registerModuleSelect" xml:space="preserve">
+    <value>Çözüm seçin</value>
+  </data>
+  <data name="Package_SystemPackageDeleteError" xml:space="preserve">
+    <value>Sistem ön tanımlı paketleri silinemez</value>
+  </data>
+  <data name="Users_ExcelErrorImportUsers" xml:space="preserve">
+    <value>Dosya içeriği okunamadı</value>
+  </data>
+  <data name="Users_ExcelErrorInvalidFile" xml:space="preserve">
+    <value>Dosya uygun değil</value>
+  </data>
+  <data name="Users_ImportCreateUserError" xml:space="preserve">
+    <value>{0} için kullanıcı oluşturulamadı. Lütfen girdiğiniz bilgileri kontrol edin.</value>
+  </data>
+  <data name="Users_ImportExistingUserError" xml:space="preserve">
+    <value>{0} zaten sisteme kayıtlı</value>
+  </data>
+  <data name="Users_ImportUserPhoneNumberExist" xml:space="preserve">
+    <value>{0} telefon numarası kullanımda. Kullanıcı oluşturulamadı</value>
+  </data>
+  <data name="Users_ImportUserUnknownEror" xml:space="preserve">
+    <value>{0} eklenirken hata oluştu!</value>
+  </data>
+  <data name="Users_PackageUsersExceeded" xml:space="preserve">
+    <value>Paketinizdeki kullanıcı sayısını aştınız!</value>
+  </data>
+  <data name="Users_UserUploadSuccess" xml:space="preserve">
+    <value>Kullanıcılar başarıyla yüklendi.</value>
+  </data>
+  <data name="Usermanager_ChooseExcelFile" xml:space="preserve">
+    <value>Excel dosyası</value>
+  </data>
+  <data name="Usermanager_ChooseFile" xml:space="preserve">
+    <value>Dosya seçin</value>
+  </data>
+  <data name="Usermanager_EmptyUploadFile" xml:space="preserve">
+    <value>Dosya ?</value>
+  </data>
+  <data name="Usermanager_SelectFile" xml:space="preserve">
+    <value>Lütfen dosya seçin</value>
+  </data>
+  <data name="menu_ActiveDirectory" xml:space="preserve">
+    <value>Active Directory</value>
+  </data>
+  <data name="Settings_ActiveDirectorySync" xml:space="preserve">
+    <value>Active Directory kullanıcı senkronizasyonu</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncDefinition" xml:space="preserve">
+    <value>Active Directory kullanıcılarını sisteme aktarır</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncApiDefinition" xml:space="preserve">
+    <value>Firma API anahtarınız</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncCron" xml:space="preserve">
+    <value>Cron scriptiniz</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncCronDefinition" xml:space="preserve">
+    <value>BT bölümünüzün bunu sunucunuza yüklemesini sağlayın.</value>
+  </data>
+  <data name="Settings_ActiveDirectoryReNewApiDesc" xml:space="preserve">
+    <value>Bu işlemi geri alamayacaksınız!</value>
+  </data>
+  <data name="Settings_ActiveDirectoryReNewApiTitle" xml:space="preserve">
+    <value>Emin misiniz ?</value>
+  </data>
+  <data name="Settings_ActiveDirectoryReNewButton" xml:space="preserve">
+    <value>Evet, yenile</value>
+  </data>
+  <data name="Settings_ActiveDirectoryRenewSuccessMessage" xml:space="preserve">
+    <value>API anahtarınız değiştirildi.</value>
+  </data>
+  <data name="Settings_DisableActiveDirectorySyncButton" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="Settings_ApiKeyChangeSucccessMessage" xml:space="preserve">
+    <value>API anahtarınız değiştirildi</value>
+  </data>
+  <data name="Settings_ActiveDirectoryKeyInvalid" xml:space="preserve">
+    <value>API anahtarı geçersiz</value>
+  </data>
+  <data name="Settings_ActiveDirectorySelectCompany" xml:space="preserve">
+    <value>Kişilerin aktarılacağı şirketi seçin</value>
+  </data>
+  <data name="Settings_ActiveDirectoryWaitingApiKey" xml:space="preserve">
+    <value>API anahtarı bekleniyor...</value>
+  </data>
+  <data name="Usermanager_CompanySelectError" xml:space="preserve">
+    <value>Firma seçimi yapılmadı</value>
+  </data>
+  <data name="OutlookMeeting_VisitorType" xml:space="preserve">
+    <value>Outlook Toplantı</value>
+  </data>
+  <data name="DashboardReportScreenTitle" xml:space="preserve">
+    <value>Ziyaretçi Raporu</value>
+  </data>
+  <data name="DashboardReport_ShowNDA" xml:space="preserve">
+    <value>NDA Göster</value>
+  </data>
+  <data name="Signinflowsettings_ReturningVisitorNdaSign" xml:space="preserve">
+    <value>Geri gelen ziyaretçiler gözden geçirilmiş NDA'yı imzalamalıdır</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>Hayır</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Evet</value>
+  </data>
+  <data name="deleteSingleGlobalAdminError" xml:space="preserve">
+    <value>Birden çok globaladmin olduğundan emin olun</value>
+  </data>
+  <data name="userDeleted" xml:space="preserve">
+    <value>Kullanıcı silindi</value>
+  </data>
+  <data name="userNotFound" xml:space="preserve">
+    <value>Kullanıcı bulunamadı</value>
+  </data>
+  <data name="deleted" xml:space="preserve">
+    <value>Silindi!</value>
+  </data>
+  <data name="userDeleteConfirmation" xml:space="preserve">
+    <value>Evet, sil</value>
+  </data>
+  <data name="userDeleteDesc" xml:space="preserve">
+    <value>Bu işlemi geri alamayacaksınız!</value>
+  </data>
+  <data name="userDeleteTitle" xml:space="preserve">
+    <value>Emin misiniz?</value>
+  </data>
+  <data name="photoConsent" xml:space="preserve">
+    <value>Fotoğraf Açık Rıza Metni</value>
+  </data>
+  <data name="photoConsentDefinition" xml:space="preserve">
+    <value>Fotoğraf açık rıza metninizi tablette görünür bir yere ekleyin</value>
+  </data>
+  <data name="menu_DataController" xml:space="preserve">
+    <value>Veri Sorumlusu</value>
+  </data>
+  <data name="identityNumber" xml:space="preserve">
+    <value>TCKN</value>
+  </data>
+  <data name="telephone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="VisitYear" xml:space="preserve">
+    <value>Ziyaret Yılı</value>
+  </data>
+  <data name="DataControllerReport_Action" xml:space="preserve">
+    <value>Alt Menü</value>
+  </data>
+  <data name="DataControllerReport_AddedBy" xml:space="preserve">
+    <value>İşlem Yapan</value>
+  </data>
+  <data name="DataControllerReport_AddedDate" xml:space="preserve">
+    <value>İşlem Tarihi</value>
+  </data>
+  <data name="DataControllerReport_ClientIp" xml:space="preserve">
+    <value>İşlem Yapan IP</value>
+  </data>
+  <data name="DataControllerReport_Controller" xml:space="preserve">
+    <value>Menü</value>
+  </data>
+  <data name="DataControllerReport_Parameter" xml:space="preserve">
+    <value>Parametre</value>
+  </data>
+  <data name="menu_DataControllerLogReport" xml:space="preserve">
+    <value>İşlem Geçmişi Raporu</value>
+  </data>
+  <data name="DataControllerReport_LogType" xml:space="preserve">
+    <value>Kayıt Tipi</value>
+  </data>
+  <data name="addedBy" xml:space="preserve">
+    <value>İşlem Yapan</value>
+  </data>
+  <data name="parameter" xml:space="preserve">
+    <value>Parametre</value>
+  </data>
+  <data name="DashboardReport_Export" xml:space="preserve">
+    <value>Dashbord Rapor - Çıktı </value>
+  </data>
+  <data name="DataController_Export" xml:space="preserve">
+    <value>Veri Sorumlusu - Çıktı Alma</value>
+  </data>
+  <data name="DataController_Remove" xml:space="preserve">
+    <value>Veri Sorumlusu - Ziyaretçi Silme</value>
+  </data>
+  <data name="DataController_Search" xml:space="preserve">
+    <value>Veri Sorumlusu - Ziyaretçi Arama</value>
+  </data>
+  <data name="dataAnonymizationText" xml:space="preserve">
+    <value>Verilerin Anonimleştirmesi</value>
+  </data>
+  <data name="dataAnonymizationTextDefinition" xml:space="preserve">
+    <value>Kullanıcı ve Ziyaretçi bilgilerinin anonimleştirilmesi</value>
+  </data>
+  <data name="anonymizationTimeError" xml:space="preserve">
+    <value>Anonimleştirme Zamanı Hata</value>
+  </data>
+  <data name="DataControllerScreenTitle" xml:space="preserve">
+    <value>Veri Yönetimi</value>
+  </data>
+  <data name="DataController_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="DataController_FullName" xml:space="preserve">
+    <value>Ad Soyad</value>
+  </data>
+  <data name="DataController_Host" xml:space="preserve">
+    <value>Evsahibi</value>
+  </data>
+  <data name="DataController_IdentityNumber" xml:space="preserve">
+    <value>TCKN</value>
+  </data>
+  <data name="DataController_Location" xml:space="preserve">
+    <value>Lokasyon</value>
+  </data>
+  <data name="DataController_Telephone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="DataController_VisitorCount" xml:space="preserve">
+    <value>Ziyaret Sayısı</value>
+  </data>
+  <data name="DataController_VisitYear" xml:space="preserve">
+    <value>Davet - Ziyaret Yılı</value>
+  </data>
+  <data name="DataControllerReport_Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="DataController_Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="menu_DataManagement" xml:space="preserve">
+    <value>Veri Yönetimi</value>
+  </data>
+  <data name="DataController_GuestDelete" xml:space="preserve">
+    <value>Ziyaretçi silinsin mi?</value>
+  </data>
+  <data name="DataController_GuestDeleted" xml:space="preserve">
+    <value>Ziyaretçi silindi!</value>
+  </data>
+  <data name="DataConroller_Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="userSearchInformation" xml:space="preserve">
+    <value>Lütfen bir alan giriniz</value>
+  </data>
+  <data name="DataController_Email_ValidationMinLengthMessage" xml:space="preserve">
+    <value>En az 4 karakter gereklidir!</value>
+  </data>
+  <data name="DataController_FullName_ValidationMinLengthMessage" xml:space="preserve">
+    <value>En az 4 karakter gereklidir!</value>
+  </data>
+  <data name="DataController_IdentityNumber_ValidationMinLengthMessage" xml:space="preserve">
+    <value>En az 4 karakter gereklidir!</value>
+  </data>
+  <data name="DataController_Report_Export" xml:space="preserve">
+    <value>İşlem Geçmişi Raporu - Çıktı Alma</value>
+  </data>
+  <data name="DataController_Telephone_ValidationMinLengthMessage" xml:space="preserve">
+    <value>En az 4 karakter gereklidir!</value>
+  </data>
+  <data name="tooltip_VisitorPersonalInformationAnonymizes" xml:space="preserve">
+    <value>Ziyaretçi kişisel bilgileri anonimleştirilir</value>
+  </data>
+  <data name="Placeholder_NoVisitorFound" xml:space="preserve">
+    <value>Ziyaretçi Bulunamadı</value>
+  </data>
+  <data name="DataControllerReport_OperationCount" xml:space="preserve">
+    <value>Kayıt Adedi</value>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 Gün</value>
+  </data>
+  <data name="OneMonth" xml:space="preserve">
+    <value>1 Ay</value>
+  </data>
+  <data name="OneYear" xml:space="preserve">
+    <value>1 Yıl</value>
+  </data>
+  <data name="SixMonths" xml:space="preserve">
+    <value>6 Ay</value>
+  </data>
+  <data name="ThreeMonths" xml:space="preserve">
+    <value>3 Ay</value>
+  </data>
+  <data name="TwoYears" xml:space="preserve">
+    <value>2 Yıl</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Error" xml:space="preserve">
+    <value>Anonimleştirme süresi değiştirilemedi.</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Success" xml:space="preserve">
+    <value>Anonimleştirme süresi başarıyla değiştirildi.</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Confirmation" xml:space="preserve">
+    <value>Değiştir</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Desc" xml:space="preserve">
+    <value>Yapmış olduğunuz değişiklikte, vakti geldiğinde bu tarihten önceki verilerin tamamı anonimleştirilecektir ve geri dönüşü MÜMKÜN OLMAYACAKTIR. Onaylıyor musunuz?</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Title" xml:space="preserve">
+    <value>Verilerin Anonimleştirilme Süresi Değiştirilsin mi?</value>
+  </data>
+  <data name="Dashboard_IdentityChecked" xml:space="preserve">
+    <value>Kimlik Kontrolu Yapıldı.</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="dashboard_CheckGuestModalInfoText" xml:space="preserve">
+    <value>Kimlik Numarasını Girmeniz ya da Kontrol Etmeniz gerekmektedir. Aksi halde ziyaretçi Giriş yapamaz.</value>
+  </data>
+</root>

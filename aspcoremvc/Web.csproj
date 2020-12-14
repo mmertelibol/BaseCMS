@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<!--<RazorCompileOnBuild>false</RazorCompileOnBuild>
+	<RazorCompileOnPublish>false</RazorCompileOnPublish>-->
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\**" />
+    <Compile Remove="wwwroot\assets\**" />
+    <Content Remove="ViewModels\**" />
+    <Content Remove="wwwroot\assets\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <EmbeddedResource Remove="wwwroot\assets\**" />
+    <None Remove="ViewModels\**" />
+    <None Remove="wwwroot\assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="15.0.8" />
+    <PackageReference Include="Hangfire" Version="1.7.16" />
+    <PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.16" />
+    <PackageReference Include="MassTransit" Version="5.2.3" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="5.2.3" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="5.2.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient.AlwaysEncrypted.AzureKeyVaultProvider" Version="1.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
+    <PackageReference Include="SendGrid" Version="9.12.6" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="5.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Member\Controllers\" />
+    <Folder Include="Areas\Member\Models\" />
+    <Folder Include="Areas\Member\Views\" />
+    <Folder Include="LogFolder\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\%40fortawesome\fontawesome-free\less\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\%40fortawesome\fontawesome-free\scss\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\cryptofont\less\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\cryptofont\sass\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\flag-icon-css\less\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\flag-icon-css\sass\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\fontawesome-free\less\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\fontawesome-free\scss\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\ionicons\scss\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\ionicons\types\icon\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\jquery-steps\demo\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\jquery.maskedinput\demo\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\morris.js\less\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\morris.js\lib\" />
+    <Folder Include="wwwroot\Template\v1.1\lib\spectrum-colorpicker\build\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\aspcoremvc.business\Business.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,2301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="VisitorLogAndCheckInsTitle" xml:space="preserve">
+    <value>Check-Ins</value>
+  </data>
+  <data name="CheckOutsTitle" xml:space="preserve">
+    <value>Check-outs</value>
+  </data>
+  <data name="NewInviteTitle" xml:space="preserve">
+    <value>New Invite</value>
+  </data>
+  <data name="VisitorsTitle" xml:space="preserve">
+    <value>Invites</value>
+  </data>
+  <data name="FormVisitorTypeTitle" xml:space="preserve">
+    <value>Visitor Type</value>
+  </data>
+  <data name="FormDateTitle" xml:space="preserve">
+    <value>Visit Date</value>
+  </data>
+  <data name="FormVisitorFullNameTitle" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="SaveInputText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="VisitorDraggableCardAddCommentTitle" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="FormVisitorMailTitle" xml:space="preserve">
+    <value>Visitor E-mail</value>
+  </data>
+  <data name="FormHostTitle" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="NewInviteFormGetInvite" xml:space="preserve">
+    <value>İnvite</value>
+  </data>
+  <data name="FormNoteTitle" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="CancelInputText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="FormEndTimeTitle" xml:space="preserve">
+    <value>Sign-Out Time</value>
+  </data>
+  <data name="FormStartTimeTitle" xml:space="preserve">
+    <value>Sign-İn Time</value>
+  </data>
+  <data name="LocationSelectChooseText" xml:space="preserve">
+    <value>Select a Location</value>
+  </data>
+  <data name="FormVisitorCount" xml:space="preserve">
+    <value>Accompanying Visitors</value>
+  </data>
+  <data name="OperationFailedText" xml:space="preserve">
+    <value>Failure</value>
+  </data>
+  <data name="OperationSucceedText" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="VisitorTypeSelectChooseText" xml:space="preserve">
+    <value>Visitor Type</value>
+  </data>
+  <data name="VisitorDraggableCardActivityTitle" xml:space="preserve">
+    <value>Activities</value>
+  </data>
+  <data name="DeleteInputText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ConfirmTitle" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="DeleteConfirmationText" xml:space="preserve">
+    <value>Selected item will be deleted. Do you confirm?</value>
+  </data>
+  <data name="ConfirmInputText" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="HostSelectChooseText" xml:space="preserve">
+    <value>Select Host</value>
+  </data>
+  <data name="NewVisitorLogTitle" xml:space="preserve">
+    <value>Visitor Record</value>
+  </data>
+  <data name="FormHostNotificationTitle" xml:space="preserve">
+    <value>Host notification</value>
+  </data>
+  <data name="InviteCheckInFormTitle" xml:space="preserve">
+    <value>Check-In </value>
+  </data>
+  <data name="InviteCheckInApproveTitle" xml:space="preserve">
+    <value>Confirm Check-In</value>
+  </data>
+  <data name="CheckInApproveText" xml:space="preserve">
+    <value>Check-In onaylanacak ve giriş işlemi sağlanacak. Emin misiniz?</value>
+  </data>
+  <data name="accentColor" xml:space="preserve">
+    <value>Accent color</value>
+  </data>
+  <data name="accentColorDefinition" xml:space="preserve">
+    <value>Choose a custom accent color for the details on your iPad and pre-registration emails.</value>
+  </data>
+  <data name="activate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="advancedSetting" xml:space="preserve">
+    <value>Advanced Settings</value>
+  </data>
+  <data name="ajaxError" xml:space="preserve">
+    <value>An error occured while sending request.</value>
+  </data>
+  <data name="api" xml:space="preserve">
+    <value>API</value>
+  </data>
+  <data name="autoSignOut" xml:space="preserve">
+    <value>Automatic sign-out</value>
+  </data>
+  <data name="autoSignOutDefinition" xml:space="preserve">
+    <value>Automatically sign out all visitors at midnight.</value>
+  </data>
+  <data name="backgroundColor" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="backgroundColorDefinition" xml:space="preserve">
+    <value>Choose a solid background color to appear behind your logo or welcome image.</value>
+  </data>
+  <data name="badge" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="beenHereBefore" xml:space="preserve">
+    <value>Been Here Before?</value>
+  </data>
+  <data name="beenHereBeforeDefinition" xml:space="preserve">
+    <value>Give returning visitors the option for quicker sign-in.</value>
+  </data>
+  <data name="branding" xml:space="preserve">
+    <value>Branding</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="configureFinal" xml:space="preserve">
+    <value>Customizing Final Screen</value>
+  </data>
+  <data name="configureNda" xml:space="preserve">
+    <value>Configuring NDA Settings</value>
+  </data>
+  <data name="customizeWelcomeScreen" xml:space="preserve">
+    <value>Customizing Welcome Screen</value>
+  </data>
+  <data name="dataPolicy" xml:space="preserve">
+    <value>Data policy</value>
+  </data>
+  <data name="dataPolicyDefinition" xml:space="preserve">
+    <value>Present a data policy or document for visitors to view on the iPad.</value>
+  </data>
+  <data name="dataPolicyText" xml:space="preserve">
+    <value>Visitor consent and data policy</value>
+  </data>
+  <data name="dataPolicyTextDefinition" xml:space="preserve">
+    <value>Customize the iPad to support GDPR compliance efforts.</value>
+  </data>
+  <data name="dataPrivacy" xml:space="preserve">
+    <value>Data Privacy</value>
+  </data>
+  <data name="deactivate" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="deactivatedLocation" xml:space="preserve">
+    <value>This location is inactive.</value>
+  </data>
+  <data name="deactivatedLocationDefinition" xml:space="preserve">
+    <value>You can have unlimited active locations while on trial.</value>
+  </data>
+  <data name="deactivateLocation" xml:space="preserve">
+    <value>Deactivate location</value>
+  </data>
+  <data name="deactivateLocationDefinition" xml:space="preserve">
+    <value>Temporarily disable sign-ins at this location.</value>
+  </data>
+  <data name="deactivateLocationMessage" xml:space="preserve">
+    <value>Are you sure you want to deactivate this location? All iPads at this location will be logged out.</value>
+  </data>
+  <data name="declineSign" xml:space="preserve">
+    <value>Allow visitors to decline signing</value>
+  </data>
+  <data name="declineSignDefinition" xml:space="preserve">
+    <value>Permit visitors to view your NDA but skip signing.</value>
+  </data>
+  <data name="design" xml:space="preserve">
+    <value>Design</value>
+  </data>
+  <data name="disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="dropdown" xml:space="preserve">
+    <value>Dropdown Field</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="editSettings" xml:space="preserve">
+    <value>Edit Settings</value>
+  </data>
+  <data name="editText" xml:space="preserve">
+    <value>Edit Text</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-mail Address</value>
+  </data>
+  <data name="emailMe" xml:space="preserve">
+    <value>"Email me this info" button</value>
+  </data>
+  <data name="emailMeDefinition" xml:space="preserve">
+    <value>Allow visitors to email themselves a copy of this image.</value>
+  </data>
+  <data name="emailNda" xml:space="preserve">
+    <value>Email signed NDAs</value>
+  </data>
+  <data name="emailNdaDefinition" xml:space="preserve">
+    <value>Automatically send signed NDAs to a specified email address.</value>
+  </data>
+  <data name="emptyFieldName" xml:space="preserve">
+    <value>Please specify a valid field name.</value>
+  </data>
+  <data name="emptyFinalTextError" xml:space="preserve">
+    <value>Please specify a final text</value>
+  </data>
+  <data name="emptyImageError" xml:space="preserve">
+    <value>Please select an image.</value>
+  </data>
+  <data name="emptyLocationAddressError" xml:space="preserve">
+    <value>Please specify a location address.</value>
+  </data>
+  <data name="emptyLocationNameError" xml:space="preserve">
+    <value>Please specify a location name.</value>
+  </data>
+  <data name="emptyMailError" xml:space="preserve">
+    <value>Please specify a valid email.</value>
+  </data>
+  <data name="emptyUrlError" xml:space="preserve">
+    <value>Please specify a valid url</value>
+  </data>
+  <data name="enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="exceptionOccured" xml:space="preserve">
+    <value>Exception occured: </value>
+  </data>
+  <data name="existingPhoto" xml:space="preserve">
+    <value>Use existing photos</value>
+  </data>
+  <data name="existingPhotoDefinition" xml:space="preserve">
+    <value>Skip the photo-taking step for returning visitors and Passport visitors.</value>
+  </data>
+  <data name="export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="exportHistory" xml:space="preserve">
+    <value>Export full visitor history</value>
+  </data>
+  <data name="exportHistoryDefinition" xml:space="preserve">
+    <value>Download a CSV file of all visitor data.</value>
+  </data>
+  <data name="fieldDrop" xml:space="preserve">
+    <value>Paste a list of dropdown options.\nOne option per line.</value>
+  </data>
+  <data name="fieldName" xml:space="preserve">
+    <value>Give a name to this field</value>
+  </data>
+  <data name="finalMessage" xml:space="preserve">
+    <value>Custom final message</value>
+  </data>
+  <data name="finalMessageDefinition" xml:space="preserve">
+    <value>Show a custom message, image, or video to visitors when they finish signing in.</value>
+  </data>
+  <data name="finalScreen" xml:space="preserve">
+    <value>Final Screen</value>
+  </data>
+  <data name="finalScreenMessage" xml:space="preserve">
+    <value>Final Screen Message</value>
+  </data>
+  <data name="formatMailError" xml:space="preserve">
+    <value>Your email format is not correct.</value>
+  </data>
+  <data name="fullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="giveName" xml:space="preserve">
+    <value>Give a name to this field</value>
+  </data>
+  <data name="greaterZero" xml:space="preserve">
+    <value>The value must be greater than zero.</value>
+  </data>
+  <data name="hideLogoFromWelcome" xml:space="preserve">
+    <value>Hide Company Logo from Welcome Screen</value>
+  </data>
+  <data name="hideLogoFromWelcomeDefinition" xml:space="preserve">
+    <value>Show slideshow images only.</value>
+  </data>
+  <data name="hostVideoUrl" xml:space="preserve">
+    <value>Link to a video hosted on YouTube or Vimeo.</value>
+  </data>
+  <data name="idCheck" xml:space="preserve">
+    <value>Id Check</value>
+  </data>
+  <data name="idRequirement" xml:space="preserve">
+    <value>ID Requirements</value>
+  </data>
+  <data name="image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="imageRecommend" xml:space="preserve">
+    <value>We recommend a 1200px × 800px image.</value>
+  </data>
+  <data name="ipadPreview" xml:space="preserve">
+    <value>iPad Preview</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="languageDefinition" xml:space="preserve">
+    <value>Your default language is</value>
+  </data>
+  <data name="learnAbout" xml:space="preserve">
+    <value>Learn more about</value>
+  </data>
+  <data name="listOption" xml:space="preserve">
+    <value>Paste a list of dropdown options.\nOne option per line.</value>
+  </data>
+  <data name="locationDetail" xml:space="preserve">
+    <value>Location Details</value>
+  </data>
+  <data name="locationName" xml:space="preserve">
+    <value>Location Name</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="logoDefinition" xml:space="preserve">
+    <value>Upload a logo that will appear on the iPad, badges and invite emails.</value>
+  </data>
+  <data name="logoRecommend" xml:space="preserve">
+    <value>We recommend uploading a transparent PNG cropped to the edges of your logo and up to 1000px wide or 600px tall.</value>
+  </data>
+  <data name="messageType" xml:space="preserve">
+    <value>Message Type</value>
+  </data>
+  <data name="nda" xml:space="preserve">
+    <value>NDA</value>
+  </data>
+  <data name="ndaReceiveEmail" xml:space="preserve">
+    <value>Choose one email address to receive a PDF of each signed NDA.</value>
+  </data>
+  <data name="ndaSign" xml:space="preserve">
+    <value>NDA signing</value>
+  </data>
+  <data name="ndaSignDefinition" xml:space="preserve">
+    <value>Present your NDA to visitors for signature.</value>
+  </data>
+  <data name="ndaText" xml:space="preserve">
+    <value>NDA Text</value>
+  </data>
+  <data name="ndaTextDefinition" xml:space="preserve">
+    <value>Customize the NDA you present to visitors.</value>
+  </data>
+  <data name="newField" xml:space="preserve">
+    <value>Add a new field</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="photo" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="plusOne" xml:space="preserve">
+    <value>Plus One Sign-in</value>
+  </data>
+  <data name="plusOneDefinition" xml:space="preserve">
+    <value>Visitors can sign in with additional unspecified visitors.</value>
+  </data>
+  <data name="preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="removeField" xml:space="preserve">
+    <value>Remove Field</value>
+  </data>
+  <data name="renew" xml:space="preserve">
+    <value>Renew</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="resignDay" xml:space="preserve">
+    <value>RE-SIGN AFTER A NUMBER OF DAYS:</value>
+  </data>
+  <data name="resignEvery" xml:space="preserve">
+    <value>RE-SIGN FOR EVERY VISIT</value>
+  </data>
+  <data name="resignNda" xml:space="preserve">
+    <value>Returning visitors must re-sign NDA</value>
+  </data>
+  <data name="resignNdaDefinition" xml:space="preserve">
+    <value>Choose when to prompt returning visitors to re-sign your NDA.</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="saveField" xml:space="preserve">
+    <value>Save Fields</value>
+  </data>
+  <data name="saveLocation" xml:space="preserve">
+    <value>Save location info</value>
+  </data>
+  <data name="saveNdaText" xml:space="preserve">
+    <value>Save NDA Text</value>
+  </data>
+  <data name="selectImage" xml:space="preserve">
+    <value>Select image</value>
+  </data>
+  <data name="selfSignOut" xml:space="preserve">
+    <value>Self sign-out</value>
+  </data>
+  <data name="selfSignOutDefinition" xml:space="preserve">
+    <value>Allow visitors to sign themselves out.</value>
+  </data>
+  <data name="signinField" xml:space="preserve">
+    <value>Sign-in Fields</value>
+  </data>
+  <data name="signOut" xml:space="preserve">
+    <value>Sign-out</value>
+  </data>
+  <data name="slideShow" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
+  <data name="slideShowDefinition" xml:space="preserve">
+    <value>Choose up to ten full-screen images to cycle behind your logo or welcome image.</value>
+  </data>
+  <data name="slideShowRecommend" xml:space="preserve">
+    <value>We recommend 1536 × 2048px images in PNG or JPG format.</value>
+  </data>
+  <data name="specifyHost" xml:space="preserve">
+    <value>Specify host field name</value>
+  </data>
+  <data name="suite" xml:space="preserve">
+    <value>Suite #</value>
+  </data>
+  <data name="text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="textField" xml:space="preserve">
+    <value>Text Field</value>
+  </data>
+  <data name="thanks" xml:space="preserve">
+    <value>Thanks</value>
+  </data>
+  <data name="tip" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="tipBackgroundColor" xml:space="preserve">
+    <value>Pick a color that compliments your accent color and logo.</value>
+  </data>
+  <data name="tipFinalScreenMessage" xml:space="preserve">
+    <value>Customize the message visitors see on the final screen if they do not consent to data collection.</value>
+  </data>
+  <data name="tipLanguage1" xml:space="preserve">
+    <value>Choose the default language of your Visitors kiosk, and the emails and notifications NoqNoq sends to hosts and invited visitors.</value>
+  </data>
+  <data name="tipLanguage2" xml:space="preserve">
+    <value>We recommend translating your sign-in fields, NDA, and invite email template as well.</value>
+  </data>
+  <data name="tipLogo" xml:space="preserve">
+    <value>To further customize the look of your iPad, add a welcome image or slideshow.</value>
+  </data>
+  <data name="tipUrl" xml:space="preserve">
+    <value>You can also host a file on your own SSL-encrypted server. iOS requires &lt;a href=\"https://www.ssllabs.com/ssltest/\" class=\"font-red-sunglo\"&gt;SSL Grade A&lt;/a&gt; to play remote video files.&lt;br /&gt;File types accepted: MP4, MOV, M4V.</value>
+  </data>
+  <data name="tipWelcomeImage" xml:space="preserve">
+    <value>Upload a more elaborate logo or custom graphic with a greeting.</value>
+  </data>
+  <data name="video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="videoUrl" xml:space="preserve">
+    <value>Video URL</value>
+  </data>
+  <data name="visitorConsent" xml:space="preserve">
+    <value>Visitor Consent</value>
+  </data>
+  <data name="visitorConsentDefinition" xml:space="preserve">
+    <value>Offer visitors the option to consent to data collection on the iPad.</value>
+  </data>
+  <data name="visitorPhoto" xml:space="preserve">
+    <value>Visitor photos</value>
+  </data>
+  <data name="visitorPhotoDefinition" xml:space="preserve">
+    <value>Capture visitor photos during sign-in for easy recognition and increased security.</value>
+  </data>
+  <data name="welcomeImage" xml:space="preserve">
+    <value>Welcome Image</value>
+  </data>
+  <data name="welcomeImageDefinition" xml:space="preserve">
+    <value>Choose a graphic to appear on your welcome screen in place of your logo.</value>
+  </data>
+  <data name="welcomeImageRecommend" xml:space="preserve">
+    <value>We recommend a 1000px square image.</value>
+  </data>
+  <data name="yourApi" xml:space="preserve">
+    <value>Your API Key</value>
+  </data>
+  <data name="addLocation" xml:space="preserve">
+    <value>Add Location</value>
+  </data>
+  <data name="copyLocationSettings" xml:space="preserve">
+    <value>Copy Location Settings</value>
+  </data>
+  <data name="copyLocationSettingsDefinition" xml:space="preserve">
+    <value>Duplicate settings from an existing location.</value>
+  </data>
+  <data name="tipCopyLocationSettings" xml:space="preserve">
+    <value>You’ll still need to populate the employee directory.</value>
+  </data>
+  <data name="defaultFinalScreenMessage" xml:space="preserve">
+    <value>Please ask the front desk for assistance.</value>
+  </data>
+  <data name="visitor" xml:space="preserve">
+    <value>Visitor</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="companyAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="companyAddressRequired" xml:space="preserve">
+    <value>Provide the address of your company</value>
+  </data>
+  <data name="companyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="companyNameRequired" xml:space="preserve">
+    <value>Provide your company name</value>
+  </data>
+  <data name="continueText" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="createYourAccount" xml:space="preserve">
+    <value>Create your NoqNoq account</value>
+  </data>
+  <data name="emailRequired" xml:space="preserve">
+    <value>Provide your email address</value>
+  </data>
+  <data name="fullNameRequired" xml:space="preserve">
+    <value>Provide your first and last name</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="passwordRequired" xml:space="preserve">
+    <value>Provide your password.</value>
+  </data>
+  <data name="provideAccountInfo" xml:space="preserve">
+    <value>Provide your account details</value>
+  </data>
+  <data name="provideCompanyInfo" xml:space="preserve">
+    <value>Tell us a bit about your workplace</value>
+  </data>
+  <data name="registerAccountInfo" xml:space="preserve">
+    <value>Account Info</value>
+  </data>
+  <data name="registerCompanyInfo" xml:space="preserve">
+    <value>Company Info</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="registerConfirm" xml:space="preserve">
+    <value>Confirm your information</value>
+  </data>
+  <data name="registerSummary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="requiredField" xml:space="preserve">
+    <value>This field is required.</value>
+  </data>
+  <data name="hq" xml:space="preserve">
+    <value>Headquarter</value>
+  </data>
+  <data name="minlength" xml:space="preserve">
+    <value>Your password must be minimum 5 characters.</value>
+  </data>
+  <data name="addNewLocation" xml:space="preserve">
+    <value>Add New Location</value>
+  </data>
+  <data name="locations" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="chooseOption" xml:space="preserve">
+    <value>Choose an option</value>
+  </data>
+  <data name="ipadStep1" xml:space="preserve">
+    <value>1. Download Noqnoq Kiosk.</value>
+  </data>
+  <data name="ipadStep1_1" xml:space="preserve">
+    <value>Open app store in your iPad.</value>
+  </data>
+  <data name="ipadStep1_2" xml:space="preserve">
+    <value>Find and download Noqnoq Kiosk.</value>
+  </data>
+  <data name="ipadStep2" xml:space="preserve">
+    <value>2. Pair Noqnoq Kiosk.</value>
+  </data>
+  <data name="ipadStep2_1" xml:space="preserve">
+    <value>Open Noqnoq Kiosk from in your iPad.</value>
+  </data>
+  <data name="ipadStep2_2" xml:space="preserve">
+    <value>Select the entrance that you will pair the iPad.</value>
+  </data>
+  <data name="ipadStep2_3" xml:space="preserve">
+    <value>Enter the code on the screen seen in the image at right.</value>
+  </data>
+  <data name="ipadEsle" xml:space="preserve">
+    <value>Pair iPad</value>
+  </data>
+  <data name="chooseEntrance" xml:space="preserve">
+    <value>Choose an entrance gate</value>
+  </data>
+  <data name="pairCode" xml:space="preserve">
+    <value>Pair Code</value>
+  </data>
+  <data name="pairIpad" xml:space="preserve">
+    <value>Pair this iPad</value>
+  </data>
+  <data name="entranceGate" xml:space="preserve">
+    <value>Entrance Gate</value>
+  </data>
+  <data name="ipadEntranceError" xml:space="preserve">
+    <value>Please select an entrance gate.</value>
+  </data>
+  <data name="ipadPairCodeError" xml:space="preserve">
+    <value>Pair Code must be 6 characters.</value>
+  </data>
+  <data name="locationNotFound" xml:space="preserve">
+    <value>Location is not found.</value>
+  </data>
+  <data name="newRecord" xml:space="preserve">
+    <value>New Record</value>
+  </data>
+  <data name="noEntranceFound" xml:space="preserve">
+    <value>There is no entrance gate.</value>
+  </data>
+  <data name="operations" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="entranceName" xml:space="preserve">
+    <value>Entrance Name</value>
+  </data>
+  <data name="entranceSelectError" xml:space="preserve">
+    <value>Entrance could not selected.</value>
+  </data>
+  <data name="update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="listDevices" xml:space="preserve">
+    <value>List the iPads</value>
+  </data>
+  <data name="argumentException" xml:space="preserve">
+    <value>Argument is not valid.</value>
+  </data>
+  <data name="devices" xml:space="preserve">
+    <value>Devices</value>
+  </data>
+  <data name="noDeviceFound" xml:space="preserve">
+    <value>There is no device.</value>
+  </data>
+  <data name="isActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="noVisitorTypeFound" xml:space="preserve">
+    <value>There is no visitor-type.</value>
+  </data>
+  <data name="signInFlowSettings" xml:space="preserve">
+    <value>Sign-in Flow Settings</value>
+  </data>
+  <data name="visitorType" xml:space="preserve">
+    <value>Visitor Type</value>
+  </data>
+  <data name="visitorTypeName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="visitorTypeSelectError" xml:space="preserve">
+    <value>Visitor Type could not selected.</value>
+  </data>
+  <data name="assistantNotification" xml:space="preserve">
+    <value>ASSISTANT NOTIFICATION</value>
+  </data>
+  <data name="defaultHost" xml:space="preserve">
+    <value>Default host notification methods</value>
+  </data>
+  <data name="defaultHostDefinition" xml:space="preserve">
+    <value>Employees will be notified with these default methods, unless they customize their own notification settings.</value>
+  </data>
+  <data name="fallbackNotification" xml:space="preserve">
+    <value>FALLBACK NOTIFICATION: SENT WHEN A VISITOR DOES NOT SELECT A HOST</value>
+  </data>
+  <data name="fallbackNotifications" xml:space="preserve">
+    <value>Fallback Notifications</value>
+  </data>
+  <data name="fallbackNotificationsDefinition" xml:space="preserve">
+    <value>Select an admin or employee to notify when a visitor does not select a host.</value>
+  </data>
+  <data name="hostNotification" xml:space="preserve">
+    <value>HOST NOTIFICATION</value>
+  </data>
+  <data name="hostNotificationForGroup" xml:space="preserve">
+    <value>Host notification for group sign-in</value>
+  </data>
+  <data name="hostNotificationForSingle" xml:space="preserve">
+    <value>Host notification for single visitor sign-in</value>
+  </data>
+  <data name="hostNotifications" xml:space="preserve">
+    <value>Host Notifications</value>
+  </data>
+  <data name="hostNotificationsDefinition" xml:space="preserve">
+    <value>Automatically notify employees when their visitors arrive.</value>
+  </data>
+  <data name="hostNotificationText" xml:space="preserve">
+    <value>Host notification text</value>
+  </data>
+  <data name="hostNotificationTextDefinition" xml:space="preserve">
+    <value>Customize the text that appears in your host notifications.</value>
+  </data>
+  <data name="notificationEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="notificationEmailDefinition" xml:space="preserve">
+    <value>Send employees an email when their visitor arrives.</value>
+  </data>
+  <data name="notificationSms" xml:space="preserve">
+    <value>SMS</value>
+  </data>
+  <data name="notificationSmsDefinition" xml:space="preserve">
+    <value>Send employees an SMS when their visitor arrives.</value>
+  </data>
+  <data name="hostNotificationTextMessage" xml:space="preserve">
+    <value>Any changes will be lost. Do you want to continue?</value>
+  </data>
+  <data name="chooseContact" xml:space="preserve">
+    <value>Choose a contact</value>
+  </data>
+  <data name="groupAssistantNotification" xml:space="preserve">
+    <value>Group assistant notification</value>
+  </data>
+  <data name="groupFallbackNotification" xml:space="preserve">
+    <value>Group fallback notification</value>
+  </data>
+  <data name="groupHostNotification" xml:space="preserve">
+    <value>Group host notification</value>
+  </data>
+  <data name="userAssistantNotification" xml:space="preserve">
+    <value>Assistant notification</value>
+  </data>
+  <data name="userFallbackNotification" xml:space="preserve">
+    <value>Fallback notification</value>
+  </data>
+  <data name="userHostNotification" xml:space="preserve">
+    <value>Host notification</value>
+  </data>
+  <data name="upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="fileSizeError" xml:space="preserve">
+    <value>Max file size is 4MB.</value>
+  </data>
+  <data name="imageFormatError" xml:space="preserve">
+    <value>Only 'png', 'jpeg' or 'jpg' image formats are supported.</value>
+  </data>
+  <data name="noFileFound" xml:space="preserve">
+    <value>There is no file found.</value>
+  </data>
+  <data name="entranceCountException" xml:space="preserve">
+    <value>A location must has at least one gate.</value>
+  </data>
+  <data name="gate" xml:space="preserve">
+    <value>Gate</value>
+  </data>
+  <data name="visitorTypeCountException" xml:space="preserve">
+    <value>A location must has at least one visitor type.</value>
+  </data>
+  <data name="newVisitorType" xml:space="preserve">
+    <value>New Visitor Type</value>
+  </data>
+  <data name="selectImages" xml:space="preserve">
+    <value>Select Images</value>
+  </data>
+  <data name="maxSlideImageCountError" xml:space="preserve">
+    <value>Slide can have maximum 5 images.</value>
+  </data>
+  <data name="notFoundException" xml:space="preserve">
+    <value>Not Found</value>
+  </data>
+  <data name="guestStatus_Invite" xml:space="preserve">
+    <value>Invited</value>
+  </data>
+  <data name="guestStatus_VisitorLog_Added" xml:space="preserve">
+    <value>New Visitor Recorded</value>
+  </data>
+  <data name="guestStatus_VisitorLog_Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="guestStatus_VisitorLog_SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="guestStatus_VisitorLog_SignOut" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="guestStatus_VisitorLog_WaitingApprove" xml:space="preserve">
+    <value>Visitor came in and host was informed.</value>
+  </data>
+  <data name="closeModal" xml:space="preserve">
+    <value>Close Popup</value>
+  </data>
+  <data name="comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="newComment" xml:space="preserve">
+    <value>New Comment</value>
+  </data>
+  <data name="newInvite" xml:space="preserve">
+    <value>New Invite</value>
+  </data>
+  <data name="saveCommentButtonText" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="dashboardInviteCardGroupTitle" xml:space="preserve">
+    <value>Invites</value>
+  </data>
+  <data name="dashboardVisitorsCardGroupTitle" xml:space="preserve">
+    <value>Visitors</value>
+  </data>
+  <data name="deviceAlreadyMatched" xml:space="preserve">
+    <value>The device is already paired to an entrance.</value>
+  </data>
+  <data name="deviceAlreadySaved" xml:space="preserve">
+    <value>The device is already saved before.</value>
+  </data>
+  <data name="dashboardInvitesCardGroupTitle" xml:space="preserve">
+    <value>Invites</value>
+  </data>
+  <data name="hostApproval" xml:space="preserve">
+    <value>Host Approval</value>
+  </data>
+  <data name="hostApprovalDefinition" xml:space="preserve">
+    <value>Host Approval Definition</value>
+  </data>
+  <data name="DashboardInviteDatePassed" xml:space="preserve">
+    <value>Late</value>
+  </data>
+  <data name="hostApprovalDisabled" xml:space="preserve">
+    <value>Host Approval Disabled</value>
+  </data>
+  <data name="hostApprovalEnabled" xml:space="preserve">
+    <value>Host Approval Enabled</value>
+  </data>
+  <data name="hostApprovalMessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="hostApprovalVideoUrl" xml:space="preserve">
+    <value>Video Url</value>
+  </data>
+  <data name="allTime" xml:space="preserve">
+    <value>All Time</value>
+  </data>
+  <data name="daysOfNoqNoq" xml:space="preserve">
+    <value>Days of NoqNoq</value>
+  </data>
+  <data name="invites" xml:space="preserve">
+    <value>Invites</value>
+  </data>
+  <data name="notifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="visitorHistoryDays" xml:space="preserve">
+    <value>Visitor History (days)</value>
+  </data>
+  <data name="visitors" xml:space="preserve">
+    <value>Visitors</value>
+  </data>
+  <data name="averageHistory" xml:space="preserve">
+    <value>Average History</value>
+  </data>
+  <data name="dayOfWeek" xml:space="preserve">
+    <value>Day of Week</value>
+  </data>
+  <data name="mostVisitedEmployees" xml:space="preserve">
+    <value>Employees (Top 10)</value>
+  </data>
+  <data name="timeOfDay" xml:space="preserve">
+    <value>Time of Day</value>
+  </data>
+  <data name="IDCheckModalCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="IDCheckModalSubmit" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="IDCheckModalText" xml:space="preserve">
+    <value>IdentityNumber</value>
+  </data>
+  <data name="IDCheckModalTitle" xml:space="preserve">
+    <value>Entrance Card</value>
+  </data>
+  <data name="NDASignedEmailSubject" xml:space="preserve">
+    <value>NDA signed by {fullname}.</value>
+  </data>
+  <data name="CardSuccessfullyMoved" xml:space="preserve">
+    <value>Visitor status changed</value>
+  </data>
+  <data name="ContinueCannotWithoutIDCheck" xml:space="preserve">
+    <value>ID verification required for the visitor</value>
+  </data>
+  <data name="CardNotAllowedMove" xml:space="preserve">
+    <value>Drag &amp; Drop Not Allowed</value>
+  </data>
+  <data name="expectedTime" xml:space="preserve">
+    <value>Expected Time</value>
+  </data>
+  <data name="host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="lastUpdated" xml:space="preserve">
+    <value>Last Updated</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="noVisitorRegistered" xml:space="preserve">
+    <value>No visitors have been registered just yet</value>
+  </data>
+  <data name="refreshPage" xml:space="preserve">
+    <value>Refresh Page</value>
+  </data>
+  <data name="searchName" xml:space="preserve">
+    <value>Search name...</value>
+  </data>
+  <data name="sortBy" xml:space="preserve">
+    <value>Sort By</value>
+  </data>
+  <data name="count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="dayName" xml:space="preserve">
+    <value>Day Name</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="mostVisitedCompanies" xml:space="preserve">
+    <value>Companies</value>
+  </data>
+  <data name="mostVisitedHistory" xml:space="preserve">
+    <value>Most Visited History</value>
+  </data>
+  <data name="company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="employee" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="totalVisit" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="InsertedSignature" xml:space="preserve">
+    <value>An NDA signed</value>
+  </data>
+  <data name="UpdatedSignature" xml:space="preserve">
+    <value>An NDA signed</value>
+  </data>
+  <data name="VisitorCardAddComment" xml:space="preserve">
+    <value>A comment added to the card</value>
+  </data>
+  <data name="InvitePrivateMessage" xml:space="preserve">
+    <value>A message to the visitor</value>
+  </data>
+  <data name="VisitorCount" xml:space="preserve">
+    <value>Number of accompanies</value>
+  </data>
+  <data name="EMailNotSend" xml:space="preserve">
+    <value>E-mail content not sent</value>
+  </data>
+  <data name="EMailSuccessfullySend" xml:space="preserve">
+    <value>E-mail content sent</value>
+  </data>
+  <data name="MissingDataOnTheCard" xml:space="preserve">
+    <value>There is missing data on the card.</value>
+  </data>
+  <data name="tcIdentity" xml:space="preserve">
+    <value>ID No</value>
+  </data>
+  <data name="tcIdentityDefinition" xml:space="preserve">
+    <value>T.C. Identity Definition</value>
+  </data>
+  <data name="ParentGuestTitle" xml:space="preserve">
+    <value>Accompanying Visitor Card</value>
+  </data>
+  <data name="MainGuestTitle" xml:space="preserve">
+    <value>Main Visitor Card</value>
+  </data>
+  <data name="CardNumber" xml:space="preserve">
+    <value>Entrance Card Number</value>
+  </data>
+  <data name="expireDayCount" xml:space="preserve">
+    <value>Expire Day</value>
+  </data>
+  <data name="maxEmployeeCount" xml:space="preserve">
+    <value>Employee Count</value>
+  </data>
+  <data name="maxLocationCount" xml:space="preserve">
+    <value>Location Count</value>
+  </data>
+  <data name="monthlyFee" xml:space="preserve">
+    <value>Monthly Fee</value>
+  </data>
+  <data name="packageName" xml:space="preserve">
+    <value>Package Name</value>
+  </data>
+  <data name="yearlyFee" xml:space="preserve">
+    <value>Yearly Fee</value>
+  </data>
+  <data name="noPackageFound" xml:space="preserve">
+    <value>There is no package.</value>
+  </data>
+  <data name="packageCustomers" xml:space="preserve">
+    <value>Package Customers</value>
+  </data>
+  <data name="packageInfo" xml:space="preserve">
+    <value>Package Info</value>
+  </data>
+  <data name="packageNameRequired" xml:space="preserve">
+    <value>Package Name Required</value>
+  </data>
+  <data name="packageHasCustomersException" xml:space="preserve">
+    <value>Package has customers.</value>
+  </data>
+  <data name="packageSelectError" xml:space="preserve">
+    <value>Package could not selected.</value>
+  </data>
+  <data name="noPackageCustomerFound" xml:space="preserve">
+    <value>There is no customer.</value>
+  </data>
+  <data name="packageCustomerName" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="customerName" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="customerPackageInfo" xml:space="preserve">
+    <value>Customer Package Info</value>
+  </data>
+  <data name="languageSetting" xml:space="preserve">
+    <value>Language Settings</value>
+  </data>
+  <data name="chooseDefault" xml:space="preserve">
+    <value>Choose...</value>
+  </data>
+  <data name="customer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="expireDate" xml:space="preserve">
+    <value>Expire Date</value>
+  </data>
+  <data name="packageCustomerNameRequired" xml:space="preserve">
+    <value>Package Customer Name Required</value>
+  </data>
+  <data name="packageCustomerSelectError" xml:space="preserve">
+    <value>Customer could not selected.</value>
+  </data>
+  <data name="packageOf" xml:space="preserve">
+    <value>Package (Paketi)</value>
+  </data>
+  <data name="registerCustomerFormError" xml:space="preserve">
+    <value>You have some form errors. Please check below.</value>
+  </data>
+  <data name="registerCustomerFormSuccess" xml:space="preserve">
+    <value>Your form validation is successful</value>
+  </data>
+  <data name="maximumLocationCountError" xml:space="preserve">
+    <value>You have reached maximum number of locations.</value>
+  </data>
+  <data name="changePackage" xml:space="preserve">
+    <value>Change Package</value>
+  </data>
+  <data name="chooseNewPackage" xml:space="preserve">
+    <value>Please choose new package type.</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SubmitAndAddAnother" xml:space="preserve">
+    <value>Submit and Add New</value>
+  </data>
+  <data name="SubmitAndCLose" xml:space="preserve">
+    <value>Submit and Close</value>
+  </data>
+  <data name="outlookMultipleHostError" xml:space="preserve">
+    <value>Your invitation record could not be created because no hosts matched for email addresses.</value>
+  </data>
+  <data name="DashboardReport_CardNumber" xml:space="preserve">
+    <value>Entrance Card Number</value>
+  </data>
+  <data name="DashboardReport_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="DashboardReport_FullName" xml:space="preserve">
+    <value>FullName</value>
+  </data>
+  <data name="DashboardReport_NdaSigned" xml:space="preserve">
+    <value>NDA Signed?</value>
+  </data>
+  <data name="DashboardReport_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="DashboardReport_Telephone" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
+  <data name="DashboardReport_VisitorCount" xml:space="preserve">
+    <value>Visitor Count</value>
+  </data>
+  <data name="ewsCountException" xml:space="preserve">
+    <value>The application must has at least one exchange server account.</value>
+  </data>
+  <data name="ewsPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ewsPasswordRequired" xml:space="preserve">
+    <value>Password Required</value>
+  </data>
+  <data name="ewsSettingInfo" xml:space="preserve">
+    <value>Outlook Settings</value>
+  </data>
+  <data name="ewsSettingsSelectError" xml:space="preserve">
+    <value>Settings could not selected.</value>
+  </data>
+  <data name="ewsUrl" xml:space="preserve">
+    <value>EWS Url</value>
+  </data>
+  <data name="ewsUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="ewsUserNameRequired" xml:space="preserve">
+    <value>User Name Required</value>
+  </data>
+  <data name="noEwsSettingFound" xml:space="preserve">
+    <value>There is no ews setting found.</value>
+  </data>
+  <data name="adminSettingsTab" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="adminVisitorTypesTab" xml:space="preserve">
+    <value>Visitor Types</value>
+  </data>
+  <data name="selectCustomer" xml:space="preserve">
+    <value>Select Customer</value>
+  </data>
+  <data name="selectCustomer_CustomerError" xml:space="preserve">
+    <value>Please select a customer from the list.</value>
+  </data>
+  <data name="selectCustomer_LocationError" xml:space="preserve">
+    <value>Please select a location from the list.</value>
+  </data>
+  <data name="CannotAddVisitorAlreadyInvited" xml:space="preserve">
+    <value>This person has an invitation record on the same day.</value>
+  </data>
+  <data name="companyNotFound" xml:space="preserve">
+    <value>The company is not found.</value>
+  </data>
+  <data name="upgradePro" xml:space="preserve">
+    <value>Upgrade to Pro</value>
+  </data>
+  <data name="upgradeStandard" xml:space="preserve">
+    <value>Upgrade to Standard</value>
+  </data>
+  <data name="upgrade" xml:space="preserve">
+    <value>Upgrade</value>
+  </data>
+  <data name="menu_Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="menu_Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="menu_AdminSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="menu_Analytics" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
+  <data name="menu_Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="menu_Devices" xml:space="preserve">
+    <value>Devices</value>
+  </data>
+  <data name="menu_Entrances" xml:space="preserve">
+    <value>Entrances</value>
+  </data>
+  <data name="menu_HomePage" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="menu_MainMenuDashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="menu_Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="menu_Outlook" xml:space="preserve">
+    <value>Outlook Settings</value>
+  </data>
+  <data name="menu_PackageCustomer" xml:space="preserve">
+    <value>Package Customers</value>
+  </data>
+  <data name="menu_Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
+  <data name="menu_Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="menu_SecurityDesk" xml:space="preserve">
+    <value>Security Desk</value>
+  </data>
+  <data name="menu_SelectCustomer" xml:space="preserve">
+    <value>Customer Select</value>
+  </data>
+  <data name="menu_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="menu_SignInFlow" xml:space="preserve">
+    <value>SignInFlow</value>
+  </data>
+  <data name="menu_SignOut" xml:space="preserve">
+    <value>SignOut</value>
+  </data>
+  <data name="menu_UserOperations" xml:space="preserve">
+    <value>User Management</value>
+  </data>
+  <data name="menu_Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="menu_VisitorTypes" xml:space="preserve">
+    <value>VisitorTypes</value>
+  </data>
+  <data name="menu_WelcomeScreen" xml:space="preserve">
+    <value>WelcomeScreen</value>
+  </data>
+  <data name="activeEmployeeCount" xml:space="preserve">
+    <value>Active Employee Count</value>
+  </data>
+  <data name="activeLocationCount" xml:space="preserve">
+    <value>Active Location Count</value>
+  </data>
+  <data name="menu_CustomerReport" xml:space="preserve">
+    <value>Customer Report</value>
+  </data>
+  <data name="toExcel" xml:space="preserve">
+    <value>To Excel</value>
+  </data>
+  <data name="customerActivationRequired" xml:space="preserve">
+    <value>Activation key is sent to your mail address.</value>
+  </data>
+  <data name="customerRegisterConfirmation_1" xml:space="preserve">
+    <value>Confirmation Email Sent</value>
+  </data>
+  <data name="customerRegisterConfirmation_2" xml:space="preserve">
+    <value>We just sent a message to confirm your email address. Simply click on the link within the email to get going!</value>
+  </data>
+  <data name="menu_DashboardReport" xml:space="preserve">
+    <value>D.Report</value>
+  </data>
+  <data name="DashboardReport_IdentityNumber" xml:space="preserve">
+    <value>IdentityNumber</value>
+  </data>
+  <data name="DashboardReport_IsMobileDeviceCreated" xml:space="preserve">
+    <value>IsMobileDeviceCreated</value>
+  </data>
+  <data name="DashboardReport_LocationName" xml:space="preserve">
+    <value>LocationName</value>
+  </data>
+  <data name="DashboardReport_VisitorType" xml:space="preserve">
+    <value>VisitorType</value>
+  </data>
+  <data name="DashboardReport_FirstStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="DashboardReport_Host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="DashboardReport_InvitePnrCode" xml:space="preserve">
+    <value>Pnr Code</value>
+  </data>
+  <data name="DashboardReport_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="endDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="startDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="applicationLogo" xml:space="preserve">
+    <value>Application Logo</value>
+  </data>
+  <data name="applicationLogoDefinition" xml:space="preserve">
+    <value>Application Logo Definition</value>
+  </data>
+  <data name="entranceCard" xml:space="preserve">
+    <value>Entrance Card</value>
+  </data>
+  <data name="entranceCardDefinition" xml:space="preserve">
+    <value>Entrance Card Definition</value>
+  </data>
+  <data name="hostApprovalNotificationAlert" xml:space="preserve">
+    <value>Host Notification Setting is also enabled.</value>
+  </data>
+  <data name="securityDeskStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="statusAdded" xml:space="preserve">
+    <value>Added</value>
+  </data>
+  <data name="statusCanceled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="statusInvite" xml:space="preserve">
+    <value>Invite</value>
+  </data>
+  <data name="statusSignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="statusSignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="statusWaitingApprove" xml:space="preserve">
+    <value>Waiting Approval</value>
+  </data>
+  <data name="menu_NewLocation" xml:space="preserve">
+    <value>New Location</value>
+  </data>
+  <data name="packageExpired" xml:space="preserve">
+    <value>Package Expired</value>
+  </data>
+  <data name="menu_DashboardActivity" xml:space="preserve">
+    <value>Activities</value>
+  </data>
+  <data name="DashboardReport_SignInDate" xml:space="preserve">
+    <value>SignInDate</value>
+  </data>
+  <data name="DashboardReport_SignOutDate" xml:space="preserve">
+    <value>SignOutDate</value>
+  </data>
+  <data name="DashboardReport_TimeDifference" xml:space="preserve">
+    <value>TimeDifference</value>
+  </data>
+  <data name="NewUserInfoEmailSubject" xml:space="preserve">
+    <value>Welcome!</value>
+  </data>
+  <data name="plate" xml:space="preserve">
+    <value>Plate</value>
+  </data>
+  <data name="status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="idchecked" xml:space="preserve">
+    <value>Id Checked</value>
+  </data>
+  <data name="IDCheckModalSubmitGetInside" xml:space="preserve">
+    <value>Save and Get Inside</value>
+  </data>
+  <data name="CardWaitingForApproval" xml:space="preserve">
+    <value>Dragging cannot be performed on cards that are pending approval.</value>
+  </data>
+  <data name="CardNumberInuse" xml:space="preserve">
+    <value>Card number in use</value>
+  </data>
+  <data name="PhoneNumberInUse" xml:space="preserve">
+    <value>There is an invitation record for this date to the phone number you entered.</value>
+  </data>
+  <data name="NewRecordHostNotification" xml:space="preserve">
+    <value>Guest get approval at login</value>
+  </data>
+  <data name="onlyTodayInvitesCanBeChangeable" xml:space="preserve">
+    <value>Today's invitations can be processed.</value>
+  </data>
+  <data name="outlookVisitorTypeChangeError" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Analytics_DaysOfWeek" xml:space="preserve">
+    <value>['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']</value>
+  </data>
+  <data name="Analytics_MonthNames" xml:space="preserve">
+    <value>['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']</value>
+  </data>
+  <data name="Analytics_Today" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="Analytics_CustomRange" xml:space="preserve">
+    <value>Custom Range</value>
+  </data>
+  <data name="Analytics_DateRangeApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Analytics_DateRangeCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Analytics_Last30Days" xml:space="preserve">
+    <value>Last 30 Days</value>
+  </data>
+  <data name="Analytics_Last60Days" xml:space="preserve">
+    <value>Last 60 Days</value>
+  </data>
+  <data name="Analytics_Last7Days" xml:space="preserve">
+    <value>Last 7 Days</value>
+  </data>
+  <data name="Analytics_LastMonth" xml:space="preserve">
+    <value>Last Month</value>
+  </data>
+  <data name="Analytics_ThisMonth" xml:space="preserve">
+    <value>This Month</value>
+  </data>
+  <data name="Analytics_Yesterday" xml:space="preserve">
+    <value>Yesterday</value>
+  </data>
+  <data name="Notification_GuestApproved" xml:space="preserve">
+    <value>Guest Approved</value>
+  </data>
+  <data name="Notification_GuestApproveError" xml:space="preserve">
+    <value>Error: Guest could not be approved</value>
+  </data>
+  <data name="Notification_GuestDeclined" xml:space="preserve">
+    <value>Guest Disapproved</value>
+  </data>
+  <data name="Notification_GuestDeclineError" xml:space="preserve">
+    <value>Error: Guest could not be disapproved</value>
+  </data>
+  <data name="Notification_GuestNotFound" xml:space="preserve">
+    <value>Guest not found</value>
+  </data>
+  <data name="Notification_NotificationAlreadyApproved" xml:space="preserve">
+    <value>Notification already approved</value>
+  </data>
+  <data name="Notification_NotificationAlreadyDeclined" xml:space="preserve">
+    <value>Notification already disapproved</value>
+  </data>
+  <data name="OutlookCheckInWithPNR" xml:space="preserve">
+    <value>Please enter with PNR number</value>
+  </data>
+  <data name="UserManager_EmailAddressInUse" xml:space="preserve">
+    <value>Email address in use</value>
+  </data>
+  <data name="UserManager_UserNotFound" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="DasboardModal_newVisitor" xml:space="preserve">
+    <value>New visitor</value>
+  </data>
+  <data name="GuestDuplicationSuccessful" xml:space="preserve">
+    <value>Guest duplicated</value>
+  </data>
+  <data name="InviteCreated_Successfully" xml:space="preserve">
+    <value>Invite created</value>
+  </data>
+  <data name="InviteCreate_Error" xml:space="preserve">
+    <value>Invite could not create</value>
+  </data>
+  <data name="InviteUpdated_Successfully" xml:space="preserve">
+    <value>Invite updated succesfully</value>
+  </data>
+  <data name="InviteUpdate_Error" xml:space="preserve">
+    <value>Invite update error!</value>
+  </data>
+  <data name="VisitorLogCreated_Successfully" xml:space="preserve">
+    <value>Visitor created</value>
+  </data>
+  <data name="VisitorLogCreate_Error" xml:space="preserve">
+    <value>Visitor could not create</value>
+  </data>
+  <data name="VisitorLogUpdated_Successfully" xml:space="preserve">
+    <value>Visitor updated succesfully</value>
+  </data>
+  <data name="VisitorLogUpdate_Error" xml:space="preserve">
+    <value>Visitor update error!</value>
+  </data>
+  <data name="Dashboard_EmployeeCannotAcceptInvites" xml:space="preserve">
+    <value>You could not accept your guest</value>
+  </data>
+  <data name="Dashboard_SendEmail" xml:space="preserve">
+    <value>Send Email</value>
+  </data>
+  <data name="Dashboard_SendEmailModalClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Dashboard_SendEmailSubject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="NewAccount_ActiveAccount" xml:space="preserve">
+    <value>Active your account</value>
+  </data>
+  <data name="OutlookInvite_PleaseContactCompanyManaging" xml:space="preserve">
+    <value>Please contact your company managing</value>
+  </data>
+  <data name="dashboardSignoutCardGroupTitle" xml:space="preserve">
+    <value>Sign Out &amp; Cancelled</value>
+  </data>
+  <data name="Notification_HostApproved" xml:space="preserve">
+    <value>Host Approved</value>
+  </data>
+  <data name="Notification_HostDisapproved" xml:space="preserve">
+    <value>Host Disapproved</value>
+  </data>
+  <data name="guestStatus_VisitorCardNumberGiven" xml:space="preserve">
+    <value>Visitor card was given</value>
+  </data>
+  <data name="gatecannotdelete" xml:space="preserve">
+    <value>Gate could not be deleted, there are devices defined on the door</value>
+  </data>
+  <data name="gatedeleted" xml:space="preserve">
+    <value>Gate deleted</value>
+  </data>
+  <data name="Usermanager_SendNewPassword" xml:space="preserve">
+    <value>Send new password</value>
+  </data>
+  <data name="UserRoles_UserRoleDataError" xml:space="preserve">
+    <value>Failed to retrieve user's active roles</value>
+  </data>
+  <data name="AccountManager_IsEmployeeHost" xml:space="preserve">
+    <value>Host ?</value>
+  </data>
+  <data name="PreRegistration_ClearSignature" xml:space="preserve">
+    <value>Clear Signature</value>
+  </data>
+  <data name="PreRegistration_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="PreRegistration_FullName" xml:space="preserve">
+    <value>FullName</value>
+  </data>
+  <data name="PreRegistration_IdentityNumber" xml:space="preserve">
+    <value>Identity Number</value>
+  </data>
+  <data name="PreRegistration_MobilePhone" xml:space="preserve">
+    <value>Mobile Phone</value>
+  </data>
+  <data name="PreRegistration_NameIsRequired" xml:space="preserve">
+    <value>Name is required</value>
+  </data>
+  <data name="PreRegistration_Plate" xml:space="preserve">
+    <value>Plate</value>
+  </data>
+  <data name="PreRegistration_ThankYou" xml:space="preserve">
+    <value>Thank You!</value>
+  </data>
+  <data name="PreRegistration_Title" xml:space="preserve">
+    <value>Check in for your visit</value>
+  </data>
+  <data name="PreRegistration_AddDetails" xml:space="preserve">
+    <value>Add Details</value>
+  </data>
+  <data name="PreRegistration_SignAgreement" xml:space="preserve">
+    <value>Sign Agreement</value>
+  </data>
+  <data name="PreRegistration_Visitor" xml:space="preserve">
+    <value>Visitor</value>
+  </data>
+  <data name="PreRegistration_NextButtonText" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="PreRegistration_PnrCode" xml:space="preserve">
+    <value>PNR Code:</value>
+  </data>
+  <data name="notEqual" xml:space="preserve">
+    <value>Passwords do not match.</value>
+  </data>
+  <data name="DashboardReport_CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="PreRegistration_CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Dasboard_ApproveFilterButton" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="Dasboard_CardNoFilterButton" xml:space="preserve">
+    <value>Card Number</value>
+  </data>
+  <data name="Dasboard_DeclinedFilterButton" xml:space="preserve">
+    <value>Declined</value>
+  </data>
+  <data name="Dasboard_InsideFilterButton" xml:space="preserve">
+    <value>Inside</value>
+  </data>
+  <data name="Dasboard_SignOutFilterButton" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
+  <data name="Dasboard_TodayFilterButton" xml:space="preserve">
+    <value>Today</value>
+  </data>
+  <data name="Dasboard_TomorrowFilterButton" xml:space="preserve">
+    <value>Tomorrow</value>
+  </data>
+  <data name="Dasboard_Next30DaysFilter" xml:space="preserve">
+    <value>+30 Days</value>
+  </data>
+  <data name="Dashboard_ResetFilterButton" xml:space="preserve">
+    <value>reset filter</value>
+  </data>
+  <data name="Dashboard_CompanyNameInput" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Dashboard_EmailInput" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="Dashboard_FullNameInput" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="Dashboard_InvateDateInput" xml:space="preserve">
+    <value>Invate Date</value>
+  </data>
+  <data name="Dashboard_PhoneInput" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="Dashboard_PlateInput" xml:space="preserve">
+    <value>Plate</value>
+  </data>
+  <data name="Dashboard_TCIdentityNumberInput" xml:space="preserve">
+    <value>TC Identity Number</value>
+  </data>
+  <data name="Dashboard_HostMessageInput" xml:space="preserve">
+    <value>Message to host</value>
+  </data>
+  <data name="Dashboard_SeachInputPlaceholder" xml:space="preserve">
+    <value>Name, Surname, Email, Phone, PNR</value>
+  </data>
+  <data name="Dashboard_ActivityPanelTitle" xml:space="preserve">
+    <value>Activities</value>
+  </data>
+  <data name="Dashboard_NotificationCenterClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Dashboard_NotificationCenterTitle" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Dashboard_ProfileChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="Dashboard_ProfileLogout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="ChangePassword_CurrentPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="ChangePassword_NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="ChangePassword_NewPasswordAgain" xml:space="preserve">
+    <value>New password again</value>
+  </data>
+  <data name="menu_ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="UserManager_AddCompany" xml:space="preserve">
+    <value>Add Company</value>
+  </data>
+  <data name="UserManager_AddCompanyTitle" xml:space="preserve">
+    <value>Add New Company</value>
+  </data>
+  <data name="UserManager_Company" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="UserManager_CreateNewUser" xml:space="preserve">
+    <value>Create New</value>
+  </data>
+  <data name="UserManager_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="UserManager_ExportEmployees" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="UserManager_FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="UserManager_ImportEmployees" xml:space="preserve">
+    <value>Import from Excel</value>
+  </data>
+  <data name="UserManager_LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="UserManager_Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="UserManager_SearchEmployees" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="UserManager_CompanyNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="UserManager_EmployeeListTitle" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="UserManager_SearchEmployeesPlaceholder" xml:space="preserve">
+    <value>Search Employees</value>
+  </data>
+  <data name="RoleManager_Allroles" xml:space="preserve">
+    <value>All Roles</value>
+  </data>
+  <data name="RoleManager_CreateNewModalTitle" xml:space="preserve">
+    <value>Create New</value>
+  </data>
+  <data name="RoleManager_NewAdmin" xml:space="preserve">
+    <value>New Admin</value>
+  </data>
+  <data name="RoleManager_Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="RoleManager_SearchEmployeePlaceholder" xml:space="preserve">
+    <value>Search Employee...</value>
+  </data>
+  <data name="RoleManager_UserName" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="RoleManager_EditUser" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Dashboard_CardNoMessage" xml:space="preserve">
+    <value>No message</value>
+  </data>
+  <data name="Dashboard_DeleteGuest" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Dashboard_DuplicateInvite" xml:space="preserve">
+    <value>Duplicate invite</value>
+  </data>
+  <data name="Dashboard_RejectInvite" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="Dashboard_AddGuestToCard" xml:space="preserve">
+    <value>Add guest</value>
+  </data>
+  <data name="NotificationSettings_Variables" xml:space="preserve">
+    <value>Variables</value>
+  </data>
+  <data name="NotificationSettings_Variables_CompanyName" xml:space="preserve">
+    <value>Company name</value>
+  </data>
+  <data name="NotificationSettings_Variables_HostName" xml:space="preserve">
+    <value>Host name</value>
+  </data>
+  <data name="NotificationSettings_Variables_LocationName" xml:space="preserve">
+    <value>Location name</value>
+  </data>
+  <data name="NotificationSettings_Variables_NumberOfVisitors" xml:space="preserve">
+    <value>Number of visitors</value>
+  </data>
+  <data name="NotificationSettings_Variables_VisitorName" xml:space="preserve">
+    <value>Visitor name</value>
+  </data>
+  <data name="FooterTelif" xml:space="preserve">
+    <value>All rights reserved.</value>
+  </data>
+  <data name="KullanicilarFirmaSec" xml:space="preserve">
+    <value>If your building has more than one company, select the user's company or add one.</value>
+  </data>
+  <data name="YeniZiyaretTipiEkle" xml:space="preserve">
+    <value>Add a New Type of Visit</value>
+  </data>
+  <data name="YeniZiyaretTipiAciklama" xml:space="preserve">
+    <value>You can define a new type of visit here.</value>
+  </data>
+  <data name="YeniKapiEkle" xml:space="preserve">
+    <value>Add a New Entrance</value>
+  </data>
+  <data name="KapiAyarlari" xml:space="preserve">
+    <value>Entrance Settings</value>
+  </data>
+  <data name="YeniKapiEkleAciklama" xml:space="preserve">
+    <value>You can define a new entrance here.</value>
+  </data>
+  <data name="IpadleriListele" xml:space="preserve">
+    <value>List the iPads</value>
+  </data>
+  <data name="Dashboard_CustomerPackageLeftDayCount" xml:space="preserve">
+    <value>days left</value>
+  </data>
+  <data name="Packagemanager_CargoModuleEnable" xml:space="preserve">
+    <value>Cargo Module</value>
+  </data>
+  <data name="Packagemanager_VisitorModuleEnable" xml:space="preserve">
+    <value>Visitor Module</value>
+  </data>
+  <data name="menu_Cargo" xml:space="preserve">
+    <value>Cargo</value>
+  </data>
+  <data name="RoleManager_GridEmail" xml:space="preserve">
+    <value>E-MAIL</value>
+  </data>
+  <data name="RoleManager_GridEmailAlt" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="RoleManager_GridNameSurname" xml:space="preserve">
+    <value>NAME-SURNAME</value>
+  </data>
+  <data name="RoleManager_GridNameSurnameAlt" xml:space="preserve">
+    <value>User information</value>
+  </data>
+  <data name="RoleManager_GridOperations" xml:space="preserve">
+    <value>OPERATIONS</value>
+  </data>
+  <data name="RoleManager_GridOperationsAlt" xml:space="preserve">
+    <value>Manage role</value>
+  </data>
+  <data name="RoleManager_GridTitleRole" xml:space="preserve">
+    <value>ROLE</value>
+  </data>
+  <data name="RoleManager_GridTitleRoleAlt" xml:space="preserve">
+    <value>User privileges</value>
+  </data>
+  <data name="AccountRegister_AppSelectError" xml:space="preserve">
+    <value>Select at least one product</value>
+  </data>
+  <data name="AccountRegister_AppSelectText" xml:space="preserve">
+    <value>Select which solutions you'd like to try</value>
+  </data>
+  <data name="AccountRegister_CargoModuleDesc" xml:space="preserve">
+    <value>A new way to organize incoming office deliveries.</value>
+  </data>
+  <data name="AccountRegister_CargoModuleName" xml:space="preserve">
+    <value>Deliveries</value>
+  </data>
+  <data name="AccountRegister_VisitorModuleDesc" xml:space="preserve">
+    <value>Visitor management solutions for any front desk.</value>
+  </data>
+  <data name="AccountRegister_VisitorModuleName" xml:space="preserve">
+    <value>Visitors</value>
+  </data>
+  <data name="registerModuleSelect" xml:space="preserve">
+    <value>Select solutions</value>
+  </data>
+  <data name="Package_SystemPackageDeleteError" xml:space="preserve">
+    <value>System default packages cannot be deleted</value>
+  </data>
+  <data name="Users_ExcelErrorImportUsers" xml:space="preserve">
+    <value>Unable to read file contents</value>
+  </data>
+  <data name="Users_ExcelErrorInvalidFile" xml:space="preserve">
+    <value>Invalid File</value>
+  </data>
+  <data name="Users_ImportCreateUserError" xml:space="preserve">
+    <value>Could not create user for {0}. Please check the information you entered.</value>
+  </data>
+  <data name="Users_ImportExistingUserError" xml:space="preserve">
+    <value>{0} already existing</value>
+  </data>
+  <data name="Users_ImportUserPhoneNumberExist" xml:space="preserve">
+    <value>Failed to create user. The phone number {0} is in use.</value>
+  </data>
+  <data name="Users_ImportUserUnknownEror" xml:space="preserve">
+    <value>Error when creating {0}</value>
+  </data>
+  <data name="Users_PackageUsersExceeded" xml:space="preserve">
+    <value>You have exceeded the number of users in your package!</value>
+  </data>
+  <data name="Users_UserUploadSuccess" xml:space="preserve">
+    <value>Users uploaded successfully.</value>
+  </data>
+  <data name="Usermanager_ChooseExcelFile" xml:space="preserve">
+    <value>Excel dosyası</value>
+  </data>
+  <data name="Usermanager_ChooseFile" xml:space="preserve">
+    <value>Dosya seçin</value>
+  </data>
+  <data name="Usermanager_EmptyUploadFile" xml:space="preserve">
+    <value>File ?</value>
+  </data>
+  <data name="Usermanager_SelectFile" xml:space="preserve">
+    <value>Please select file</value>
+  </data>
+  <data name="menu_ActiveDirectory" xml:space="preserve">
+    <value>Active Directory Sync</value>
+  </data>
+  <data name="Settings_ActiveDirectorySync" xml:space="preserve">
+    <value>Active Directory user synchronization</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncDefinition" xml:space="preserve">
+    <value>Synchronizes Active Directory users to the system</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncApiDefinition" xml:space="preserve">
+    <value>Company API</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncCron" xml:space="preserve">
+    <value>Your Cron script</value>
+  </data>
+  <data name="Settings_ActiveDirectorySyncCronDefinition" xml:space="preserve">
+    <value>Have your IT department install this on your server.</value>
+  </data>
+  <data name="Settings_ActiveDirectoryReNewApiDesc" xml:space="preserve">
+    <value>You won't be able to revert this!</value>
+  </data>
+  <data name="Settings_ActiveDirectoryReNewApiTitle" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="Settings_ActiveDirectoryReNewButton" xml:space="preserve">
+    <value>Yes, renew</value>
+  </data>
+  <data name="Settings_ActiveDirectoryRenewSuccessMessage" xml:space="preserve">
+    <value>Your API key has been changed.</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Settings_DisableActiveDirectorySyncButton" xml:space="preserve">
+    <value>Disable Sync</value>
+  </data>
+  <data name="Settings_ApiKeyChangeSucccessMessage" xml:space="preserve">
+    <value>Your api key has been changed</value>
+  </data>
+  <data name="Settings_ActiveDirectoryKeyInvalid" xml:space="preserve">
+    <value>API key invalid</value>
+  </data>
+  <data name="Settings_ActiveDirectorySelectCompany" xml:space="preserve">
+    <value>Select the company to transfer contacts to</value>
+  </data>
+  <data name="Settings_ActiveDirectoryWaitingApiKey" xml:space="preserve">
+    <value>Waiting for api key...</value>
+  </data>
+  <data name="Usermanager_CompanySelectError" xml:space="preserve">
+    <value>You must select the company</value>
+  </data>
+  <data name="OutlookMeeting_VisitorType" xml:space="preserve">
+    <value>Outlook Meeting</value>
+  </data>
+  <data name="DashboardReportScreenTitle" xml:space="preserve">
+    <value>Dashboard Report</value>
+  </data>
+  <data name="DashboardReport_ShowNDA" xml:space="preserve">
+    <value>Show NDA</value>
+  </data>
+  <data name="Signinflowsettings_ReturningVisitorNdaSign" xml:space="preserve">
+    <value>Returning visitors must sign the revised NDA</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="deleteSingleGlobalAdminError" xml:space="preserve">
+    <value>Make sure there are multiple global admins</value>
+  </data>
+  <data name="userDeleted" xml:space="preserve">
+    <value>User deleted</value>
+  </data>
+  <data name="userNotFound" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="deleted" xml:space="preserve">
+    <value>Deleted!</value>
+  </data>
+  <data name="userDeleteConfirmation" xml:space="preserve">
+    <value>Yes, delete it</value>
+  </data>
+  <data name="userDeleteDesc" xml:space="preserve">
+    <value>You won't be able to revert this!</value>
+  </data>
+  <data name="photoConsent" xml:space="preserve">
+    <value>Photo Consent</value>
+  </data>
+  <data name="photoConsentDefinition" xml:space="preserve">
+    <value>Present a photo open consent for visitors to view on the iPad.</value>
+  </data>
+  <data name="menu_DataController" xml:space="preserve">
+    <value>Data Controller</value>
+  </data>
+  <data name="identityNumber" xml:space="preserve">
+    <value>Identity Number</value>
+  </data>
+  <data name="telephone" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
+  <data name="VisitYear" xml:space="preserve">
+    <value>Visit Year</value>
+  </data>
+  <data name="DataControllerReport_Action" xml:space="preserve">
+    <value>Sub Menu</value>
+  </data>
+  <data name="DataControllerReport_AddedBy" xml:space="preserve">
+    <value>Added By</value>
+  </data>
+  <data name="DataControllerReport_AddedDate" xml:space="preserve">
+    <value>Added Date</value>
+  </data>
+  <data name="DataControllerReport_ClientIp" xml:space="preserve">
+    <value>Client Ip</value>
+  </data>
+  <data name="DataControllerReport_Controller" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="DataControllerReport_Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="menu_DataControllerLogReport" xml:space="preserve">
+    <value>Log Report</value>
+  </data>
+  <data name="DataControllerReport_LogType" xml:space="preserve">
+    <value>Log Type</value>
+  </data>
+  <data name="addedBy" xml:space="preserve">
+    <value>Added BY</value>
+  </data>
+  <data name="parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="DashboardReport_Export" xml:space="preserve">
+    <value>Dashboard Report - Export</value>
+  </data>
+  <data name="DataController_Export" xml:space="preserve">
+    <value>Data Controller Export</value>
+  </data>
+  <data name="DataController_Remove" xml:space="preserve">
+    <value>Data Controller Remove</value>
+  </data>
+  <data name="DataController_Search" xml:space="preserve">
+    <value>Data Controller Search</value>
+  </data>
+  <data name="dataAnonymizationText" xml:space="preserve">
+    <value>Data Anonymization</value>
+  </data>
+  <data name="dataAnonymizationTextDefinition" xml:space="preserve">
+    <value>Anonymizing user and visitor information.</value>
+  </data>
+  <data name="anonymizationTimeError" xml:space="preserve">
+    <value>Anonymization Time Error</value>
+  </data>
+  <data name="DataControllerScreenTitle" xml:space="preserve">
+    <value>Data Controller</value>
+  </data>
+  <data name="DataController_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="DataController_FullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="DataController_Host" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="DataController_IdentityNumber" xml:space="preserve">
+    <value>SSN</value>
+  </data>
+  <data name="DataController_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="DataController_Telephone" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
+  <data name="DataController_VisitorCount" xml:space="preserve">
+    <value>Visitor Count</value>
+  </data>
+  <data name="DataController_VisitYear" xml:space="preserve">
+    <value>Invate - Visit Year</value>
+  </data>
+  <data name="DataControllerReport_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DataController_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="menu_DataManagement" xml:space="preserve">
+    <value>Data Management</value>
+  </data>
+  <data name="DataController_GuestDelete" xml:space="preserve">
+    <value>Delete the visitor?</value>
+  </data>
+  <data name="DataController_GuestDeleted" xml:space="preserve">
+    <value>Guest deleted!</value>
+  </data>
+  <data name="DataConroller_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="userSearchInformation" xml:space="preserve">
+    <value>Please enter a field</value>
+  </data>
+  <data name="DataController_Email_ValidationMinLengthMessage" xml:space="preserve">
+    <value>At least 4 characters required!</value>
+  </data>
+  <data name="DataController_FullName_ValidationMinLengthMessage" xml:space="preserve">
+    <value>At least 4 characters required!</value>
+  </data>
+  <data name="DataController_IdentityNumber_ValidationMinLengthMessage" xml:space="preserve">
+    <value>At least 4 characters required!</value>
+  </data>
+  <data name="DataController_Telephone_ValidationMinLengthMessage" xml:space="preserve">
+    <value>At least 4 characters required!</value>
+  </data>
+  <data name="DataController_Report_Export" xml:space="preserve">
+    <value>Data Controller / Report - Export</value>
+  </data>
+  <data name="tooltip_VisitorPersonalInformationAnonymizes" xml:space="preserve">
+    <value>Visitor Personal Information Anonymizes</value>
+  </data>
+  <data name="Placeholder_NoVisitorFound" xml:space="preserve">
+    <value>No Visitor Found</value>
+  </data>
+  <data name="DataControllerReport_OperationCount" xml:space="preserve">
+    <value>Operation Count</value>
+  </data>
+  <data name="OneDay" xml:space="preserve">
+    <value>1 Day</value>
+  </data>
+  <data name="OneMonth" xml:space="preserve">
+    <value>1 Month</value>
+  </data>
+  <data name="OneYear" xml:space="preserve">
+    <value>1 Year</value>
+  </data>
+  <data name="SixMonths" xml:space="preserve">
+    <value>6 Months</value>
+  </data>
+  <data name="ThreeMonths" xml:space="preserve">
+    <value>3 Months</value>
+  </data>
+  <data name="TwoYears" xml:space="preserve">
+    <value>2 Years</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Error" xml:space="preserve">
+    <value>Anonymization time could not be changed.</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Success" xml:space="preserve">
+    <value>Anonymization time has been successfully changed.</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Confirmation" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Desc" xml:space="preserve">
+    <value>In the change you have made, when the time comes, all the data before this date will be anonymized and its return will NOT be possible. Do you confirm?</value>
+  </data>
+  <data name="ChangeAnonymizationTime_Title" xml:space="preserve">
+    <value>Change Anonymization Time of Data?</value>
+  </data>
+  <data name="Dashboard_IdentityChecked" xml:space="preserve">
+    <value>Identity Checked.</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="dashboard_CheckGuestModalInfoText" xml:space="preserve">
+    <value>You must enter or check the Identification Number. Otherwise, the visitor cannot sign in.</value>
+  </data>
+</root>

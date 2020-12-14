@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200415144506_Location-TimeToAnonymize.cs" />
+    <Compile Remove="Migrations\20200415144506_Location-TimeToAnonymize.Designer.cs" />
+    <Compile Remove="Migrations\20200415144838_Location-TimeToAnonymize.cs" />
+    <Compile Remove="Migrations\20200415144838_Location-TimeToAnonymize.Designer.cs" />
+    <Compile Remove="Migrations\20200423164859_OperationalLog-LocationId.cs" />
+    <Compile Remove="Migrations\20200423164859_OperationalLog-LocationId.Designer.cs" />
+    <Compile Remove="Migrations\20200423165202_OperationalLog-LocationId.cs" />
+    <Compile Remove="Migrations\20200423165202_OperationalLog-LocationId.Designer.cs" />
+    <Compile Remove="Migrations\20200514125516_Guest-IdentityNumber.cs" />
+    <Compile Remove="Migrations\20200514125516_Guest-IdentityNumber.Designer.cs" />
+    <Compile Remove="Migrations\20200514130416_ChangeUserAttributes.cs" />
+    <Compile Remove="Migrations\20200514130416_ChangeUserAttributes.Designer.cs" />
+    <Compile Remove="Migrations\20200514130546_ChangeUserAttributes.cs" />
+    <Compile Remove="Migrations\20200514130546_ChangeUserAttributes.Designer.cs" />
+    <Compile Remove="Migrations\20200514130659_ChangeUserAttributes.cs" />
+    <Compile Remove="Migrations\20200514130659_ChangeUserAttributes.Designer.cs" />
+    <Compile Remove="Migrations\20200515072939_Guest-IdentityNumber2.cs" />
+    <Compile Remove="Migrations\20200515072939_Guest-IdentityNumber2.Designer.cs" />
+    <Compile Remove="Migrations\20200520130335_ChangeUserAttributes.cs" />
+    <Compile Remove="Migrations\20200520130335_ChangeUserAttributes.Designer.cs" />
+    <Compile Remove="Migrations\20200520130747_ChangeUserAttributes.cs" />
+    <Compile Remove="Migrations\20200520130747_ChangeUserAttributes.Designer.cs" />
+    <Compile Remove="Migrations\20200617111700_telephone-type.cs" />
+    <Compile Remove="Migrations\20200617111700_telephone-type.Designer.cs" />
+    <Compile Remove="Migrations\20200617112821_telephone-type.cs" />
+    <Compile Remove="Migrations\20200617112821_telephone-type.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFrameworkCore.DataEncryption" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Owin" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\aspcoremvc.common\Common.csproj" />
+  </ItemGroup>
+
+</Project>
