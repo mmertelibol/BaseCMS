@@ -10,7 +10,7 @@ namespace Data.Domain.Panel
         public string LogoUrl { get; set; }
         public string Description { get; set; }
         public string PageUrl { get; set; }
-
-        public string ContentText { get; set; }
+        //public string ContentText { get; set; }
+        
     }
 }
