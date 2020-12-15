@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Data.Domain
+namespace Common.Dto.PanelDto
 {
-    [Table("References")]
-    public class Reference:EntityBase
+   public class ReferenceDto
     {
+
         public string Name { get; set; }
 
         public string Description { get; set; }
 
         public string PageContent { get; set; }
 
-        public string PageUrl { get; set; }
-
         public string LogoUrl { get; set; }
 
-        
+        public int Id { get; set; }
+
+        public DateTime? AddedDate { get; set; }
+
+        public DateTime? UpdatedDate { get; set; }
+
+        public bool IsDeleted { get; set; }
+
     }
 }

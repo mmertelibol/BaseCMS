@@ -11,7 +11,7 @@ namespace Data.Domain.Panel
         public string Name { get; set; }
         public string PageContent { get; set; }
 
-        public int ViewCount { get; set; }
+        
 
 
 
