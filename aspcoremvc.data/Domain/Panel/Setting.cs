@@ -6,10 +6,10 @@ using System.Text;
 namespace Data.Domain.Panel
 {
     /// <summary>
-    /// site kimliği için kullanılacak
+    /// Şirket kimliği için kullanılacak
     /// </summary>
     [Table("Settings")]
-    public class Setting:EntityBase //iletişime ayrıca gerek var mı sor//settings olarak degiş
+    public class Setting:EntityBase 
     {
         public string CompanyName { get; set; }
         public string Slogan { get; set; }

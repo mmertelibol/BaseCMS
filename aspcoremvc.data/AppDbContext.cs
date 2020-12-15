@@ -51,7 +51,8 @@ namespace Data
         //public DbSet<Product> Product { get; set; }
        // public DbSet<Reference> Reference { get; set; }
         public DbSet<Slider> Slider { get; set; }
-        public DbSet<Solution> Solution { get; set; }
+        public DbSet<Component> Component { get; set; }
+        public DbSet<ComponentCategory> ComponentCategory { get; set; }
 
         public DbSet<NewsCategory> NewsCategory { get; set; }
 
