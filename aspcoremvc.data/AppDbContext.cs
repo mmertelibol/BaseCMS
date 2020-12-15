@@ -41,7 +41,7 @@ namespace Data
         public DbSet<Page> Pages { get; set; }
 
         //PANEL
-        public DbSet<StaticPage> Content { get; set; }
+        public DbSet<StaticPage> StaticPage { get; set; }
        // public DbSet<Director> Director { get; set; }
         public DbSet<Setting> GeneralSetting { get; set; }
         public DbSet<News> News { get; set; }
@@ -55,6 +55,8 @@ namespace Data
         public DbSet<ComponentCategory> ComponentCategory { get; set; }
 
         public DbSet<NewsCategory> NewsCategory { get; set; }
+        public DbSet<Adress> Adress { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)
