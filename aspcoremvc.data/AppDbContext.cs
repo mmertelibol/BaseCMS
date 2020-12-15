@@ -49,7 +49,7 @@ namespace Data
        // public DbSet<Partner> Partner { get; set; }
 
         //public DbSet<Product> Product { get; set; }
-        public DbSet<Reference> Reference { get; set; }
+       // public DbSet<Reference> Reference { get; set; }
         public DbSet<Slider> Slider { get; set; }
         public DbSet<Solution> Solution { get; set; }
 
