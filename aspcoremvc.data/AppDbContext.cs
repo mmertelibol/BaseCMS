@@ -45,7 +45,8 @@ namespace Data
        // public DbSet<Director> Director { get; set; }
         public DbSet<Setting> GeneralSetting { get; set; }
         public DbSet<News> News { get; set; }
-        public DbSet<Partner> Partner { get; set; }
+
+       // public DbSet<Partner> Partner { get; set; }
 
         //public DbSet<Product> Product { get; set; }
         public DbSet<Reference> Reference { get; set; }
