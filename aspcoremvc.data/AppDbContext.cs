@@ -53,6 +53,8 @@ namespace Data
         public DbSet<Slider> Slider { get; set; }
         public DbSet<Solution> Solution { get; set; }
 
+        public DbSet<NewsCategory> NewsCategory { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

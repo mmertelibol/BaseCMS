@@ -26,6 +26,9 @@ namespace Data.Domain.Panel
 
         public string Author { get; set; }
 
+        public int CategoryId { get; set; }
+        public NewsCategory NewsCategory { get; set; }
+
 
 
 
