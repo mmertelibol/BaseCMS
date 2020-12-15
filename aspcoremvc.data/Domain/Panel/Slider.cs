@@ -14,7 +14,7 @@ namespace Data.Domain
 
         public int OrderNumber { get; set; }
 
-        public string PageUrl { get; set; }
+        public string Href { get; set; }
 
         
     }

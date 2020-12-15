@@ -56,6 +56,8 @@ namespace Data
 
         public DbSet<NewsCategory> NewsCategory { get; set; }
         public DbSet<Adress> Adress { get; set; }
+        public DbSet<SocialMedia> SocialMedia { get; set; }
+
 
 
 
