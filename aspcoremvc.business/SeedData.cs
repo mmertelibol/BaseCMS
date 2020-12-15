@@ -168,17 +168,17 @@ namespace Business
             }
 
 
-            if (!context.EwsSettings.Any())
-            {
-                context.EwsSettings.Add(new EwsSetting()
-                {
-                    UserName = conf["EwsSettings:UserName"],
-                    Password = conf["EwsSettings:Password"],
-                    Url = conf["EwsSettings:Url"]
-                });
+            //if (!context.EwsSettings.Any())
+            //{
+            //    context.EwsSettings.Add(new EwsSetting()
+            //    {
+            //        UserName = conf["EwsSettings:UserName"],
+            //        Password = conf["EwsSettings:Password"],
+            //        Url = conf["EwsSettings:Url"]
+            //    });
 
-                context.SaveChanges();
-            }
+            //    context.SaveChanges();
+            //}
 
         }
 

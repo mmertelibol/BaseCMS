@@ -35,7 +35,7 @@ namespace Data
 
         public DbSet<ActionLog> ActionLogs { get; set; }
         //public DbSet<Constant> Constants { get; set; }
-        public DbSet<EwsSetting> EwsSettings { get; set; }
+       // public DbSet<EwsSetting> EwsSettings { get; set; }
        // public DbSet<EMailSetting> EMailSettings { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Page> Pages { get; set; }
