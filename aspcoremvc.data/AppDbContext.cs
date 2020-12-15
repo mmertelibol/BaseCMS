@@ -34,7 +34,7 @@ namespace Data
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseLazyLoadingProxies();
 
         public DbSet<ActionLog> ActionLogs { get; set; }
-        public DbSet<Constant> Constants { get; set; }
+        //public DbSet<Constant> Constants { get; set; }
         public DbSet<EwsSetting> EwsSettings { get; set; }
         public DbSet<EMailSetting> EMailSettings { get; set; }
         public DbSet<Language> Languages { get; set; }
@@ -42,7 +42,7 @@ namespace Data
 
         //PANEL
         public DbSet<StaticPage> Content { get; set; }
-        public DbSet<Director> Director { get; set; }
+       // public DbSet<Director> Director { get; set; }
         public DbSet<Setting> GeneralSetting { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Partner> Partner { get; set; }

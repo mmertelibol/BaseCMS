@@ -26,7 +26,7 @@ namespace Domain.User
         [ForeignKey("UpdatedById")]
         public User UpdatedBy { get; set; }
         public int? UserTypeId { get; set; }
-        public Constant UserType { get; set; }//Registrar,Employee
+        //public Constant UserType { get; set; }//Registrar,Employee
         public bool IsEmployeeHost { get; set; } 
     }
 }

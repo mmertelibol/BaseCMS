@@ -18,7 +18,7 @@ namespace Business
                 cfg.CreateMap<ActionLogDto, ActionLog>();
 
                 // DOMAIN TO DTO
-                cfg.CreateMap<Constant, ConstantDto>().ReverseMap().MaxDepth(1);              
+                //cfg.CreateMap<Constant, ConstantDto>().ReverseMap().MaxDepth(1);              
                 cfg.CreateMap<User, UserDto>().ReverseMap().MaxDepth(1);                         
                 cfg.CreateMap<Language, LanguageDto>().ReverseMap().MaxDepth(1);                
                 
