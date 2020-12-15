@@ -6,12 +6,12 @@ using System.Text;
 namespace Data.Domain.Panel
 {
     /// <summary>
-    /// blog içerigi için kullanılır.
+    /// statik sayfalar için kullanılır
     /// </summary>
-    [Table("News")]
-    public class News : EntityBase
+    [Table("StaticPages")]
+    public class StaticPage:EntityBase
     {
-      
+        public string Name { get; set; }
         public string HTMLContent { get; set; }
 
         public string Title { get; set; }
@@ -22,9 +22,9 @@ namespace Data.Domain.Panel
 
         public string RoutingUrl { get; set; }
 
-        public int ViewCount { get; set; }
 
-        public string Author { get; set; }
+
+
 
 
 

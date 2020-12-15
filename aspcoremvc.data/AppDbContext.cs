@@ -41,12 +41,13 @@ namespace Data
         public DbSet<Page> Pages { get; set; }
 
         //PANEL
-        public DbSet<Content> Content { get; set; }
+        public DbSet<StaticPage> Content { get; set; }
         public DbSet<Director> Director { get; set; }
-        public DbSet<GeneralSetting> GeneralSetting { get; set; }
+        public DbSet<Setting> GeneralSetting { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Partner> Partner { get; set; }
-        public DbSet<Product> Product { get; set; }
+
+        //public DbSet<Product> Product { get; set; }
         public DbSet<Reference> Reference { get; set; }
         public DbSet<Slider> Slider { get; set; }
         public DbSet<Solution> Solution { get; set; }
