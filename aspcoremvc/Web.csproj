@@ -55,10 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Member\Controllers\" />
-    <Folder Include="Areas\Member\Models\" />
-    <Folder Include="Areas\Member\Views\" />
     <Folder Include="LogFolder\" />
     <Folder Include="wwwroot\Template\v1.1\lib\%40fortawesome\fontawesome-free\less\" />
     <Folder Include="wwwroot\Template\v1.1\lib\%40fortawesome\fontawesome-free\scss\" />

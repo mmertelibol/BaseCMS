@@ -292,31 +292,15 @@ namespace Web
 
             });
 
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "areas",
-            //        template: "{controller=HomePage}/{action=Index}/{id?}");
-
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=HomePage}/{action=Index}/{id?}");
-            //});
-
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
-                    name: "Area",
-                    
-                    pattern: "{area=exists}/{controller=HomePage}/{action=Index}/{id?}"
-                    ) ;
 
 
-                endpoints.MapControllerRoute(
+                routes.MapRoute(
                     name: "default",
-                    pattern: "{controller=HomePage}/{action=Index}/{id?}"
-                    );
+                    template: "{controller=HomePage}/{action=Index}/{id?}");
             });
+
 
         }
     }

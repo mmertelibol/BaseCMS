@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Data.Domain
 {
-   public class Slider:EntityBase
+    [Table("Sliders")]
+    public class Slider:EntityBase
     {
         public string Description { get; set; }
 
@@ -13,5 +15,7 @@ namespace Data.Domain
         public int OrderNumber { get; set; }
 
         public string PageUrl { get; set; }
+
+        
     }
 }

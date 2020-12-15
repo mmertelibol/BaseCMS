@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore.DataEncryption.Providers;
 using Microsoft.EntityFrameworkCore.DataEncryption;
 using System.Text;
 using System;
+using Data.Domain.Panel;
 
 namespace Data
 {
@@ -38,6 +39,17 @@ namespace Data
         public DbSet<EMailSetting> EMailSettings { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Page> Pages { get; set; }
+
+        //PANEL
+        public DbSet<Content> Content { get; set; }
+        public DbSet<Director> Director { get; set; }
+        public DbSet<GeneralSetting> GeneralSetting { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<Partner> Partner { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Reference> Reference { get; set; }
+        public DbSet<Slider> Slider { get; set; }
+        public DbSet<Solution> Solution { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
