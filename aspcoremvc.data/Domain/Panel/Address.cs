@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Common.Dto.PanelDto
+namespace Data.Domain.Panel
 {
-   public class AdressDto
+    [Table("Addresses")]
+    public class Address:EntityBase
     {
         public string Name { get; set; }
         public string Email { get; set; }
@@ -20,12 +22,5 @@ namespace Common.Dto.PanelDto
         /// enlem
         /// </summary>
         public string Latitude { get; set; }
-
-        
-
-        public int Id { get; set; }
-        public DateTime? AddedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }

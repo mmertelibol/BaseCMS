@@ -34,6 +34,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using Business.Services.Panel.Interfaces;
+using Business.Services.Panel;
 
 namespace Web
 {
@@ -124,6 +126,11 @@ namespace Web
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddCors();
+
+            //PANELSERVICES
+            //PANELSERVICES
+            services.AddScoped<INewsService, NewsService>();
+
 
             //services.AddMvc().AddNewtonsoftJson();
             //services.AddMvc(option => option.EnableEndpointRouting = false)

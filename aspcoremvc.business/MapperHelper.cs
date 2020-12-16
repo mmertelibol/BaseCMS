@@ -28,7 +28,7 @@ namespace Business
                 //panel dto to domain
                 cfg.CreateMap<NewsDto, News>().ReverseMap();
                 cfg.CreateMap<NewsCategoryDto, NewsCategory>().ReverseMap();
-                cfg.CreateMap<AdressDto, Adress>().ReverseMap();
+                cfg.CreateMap<AddressDto, Address>().ReverseMap();
                 cfg.CreateMap<ComponentCategoryDto, ComponentCategory>().ReverseMap();
                 cfg.CreateMap<ComponentDto, Component>().ReverseMap();
                 cfg.CreateMap<SliderDto, Slider>().ReverseMap();

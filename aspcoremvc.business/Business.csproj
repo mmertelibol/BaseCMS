@@ -41,9 +41,4 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Interfaces\InterfacePanel\" />
-    <Folder Include="Services\Panel\" />
-  </ItemGroup>
-
 </Project>

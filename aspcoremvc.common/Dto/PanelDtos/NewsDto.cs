@@ -20,7 +20,7 @@ namespace Common.Dto.PanelDto
 
         public string Author { get; set; }
 
-        public int CategoryId { get; set; }
+        public int NewsCategoryId { get; set; }
 
         public int Id { get; set; }
 
