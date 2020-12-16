@@ -6,7 +6,7 @@ using System.Text;
 namespace Data.Domain.Panel
 {
     /// <summary>
-    /// statik sayfalar için kullanılır
+    /// statik sayfalar için kullanılır(hakkımızda vs)
     /// </summary>
     [Table("StaticPages")]
     public class StaticPage:EntityBase
@@ -20,7 +20,7 @@ namespace Data.Domain.Panel
 
         public string MetaDescription { get; set; }
 
-        public string RoutingUrl { get; set; }
+        public string RoutingUrl { get; set; }//bunu nasıl kullanıcaz //input alanı olcak bunun için 
 
 
 

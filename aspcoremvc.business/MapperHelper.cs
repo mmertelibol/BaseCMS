@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using Common.Dto;
+using Common.Dto.PanelDto;
+using Common.Dto.PanelDtos;
 using Common.Resources;
 using Data.Domain;
+using Data.Domain.Panel;
 using Domain.User;
 using System;
 
@@ -20,12 +23,31 @@ namespace Business
                 // DOMAIN TO DTO
                 //cfg.CreateMap<Constant, ConstantDto>().ReverseMap().MaxDepth(1);              
                 cfg.CreateMap<User, UserDto>().ReverseMap().MaxDepth(1);                         
-                cfg.CreateMap<Language, LanguageDto>().ReverseMap().MaxDepth(1);                
+                cfg.CreateMap<Language, LanguageDto>().ReverseMap().MaxDepth(1);
+
+                //panel dto to domain
+                cfg.CreateMap<NewsDto, News>().ReverseMap();
+                cfg.CreateMap<NewsCategoryDto, NewsCategory>().ReverseMap();
+                cfg.CreateMap<AdressDto, Adress>().ReverseMap();
+                cfg.CreateMap<ComponentCategoryDto, ComponentCategory>().ReverseMap();
+                cfg.CreateMap<ComponentDto, Component>().ReverseMap();
+                cfg.CreateMap<SliderDto, Slider>().ReverseMap();
+                cfg.CreateMap<SettingDto, Setting>().ReverseMap();
+                cfg.CreateMap<StaticPageDto, StaticPage>().ReverseMap();
+                cfg.CreateMap<SocialMediaDto, SocialMedia>().ReverseMap();
+
+                
+                
                 
                 // DTO TO DTO               
                 cfg.CreateMap<UserDto, LookupDto>().ForMember(src => src.Text, desc => desc.MapFrom(trgt => $"{trgt.FirstName} {trgt.LastName}"));
   
+               
             });
+
+
+
+         
         }
     }
 }
