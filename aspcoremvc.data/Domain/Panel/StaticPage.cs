@@ -20,12 +20,7 @@ namespace Data.Domain.Panel
 
         public string MetaDescription { get; set; }
 
-        public string RoutingUrl { get; set; }//bunu nasıl kullanıcaz //input alanı olcak bunun için 
-
-
-
-
-
+        public string RoutingUrl { get; set; }//bunu nasıl kullanıcaz //input alanı olcak bunun için(sor,araştır) 
 
 
 
