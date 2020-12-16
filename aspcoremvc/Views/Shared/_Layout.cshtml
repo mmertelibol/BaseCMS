@@ -84,18 +84,18 @@
                         </div>--><!-- az-menu-sub -->
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link with-sub"><i class="typcn typcn-folder"></i> HomePageColumns</a>
+                        <a href="" class="nav-link with-sub"><i class="typcn typcn-folder"></i> News</a>
                         <nav class="az-menu-sub">
-                            <a href="app-mail.html" class="nav-link">News</a>
-                            <a href="app-chat.html" class="nav-link">Partners</a>
-                            <a href="app-calendar.html" class="nav-link">Products</a>
+                            <a asp-action="Index" asp-controller="News" class="nav-link">NewsList</a>
+                            <a  asp-action="Index" asp-controller="NewsCategory" class="nav-link">NewsCategories</a>
+                            @*<a href="app-calendar.html" class="nav-link">Products</a>
                             <a href="app-contacts.html" class="nav-link">Solutions</a>
                             <a href="app-contacts.html" class="nav-link">Board of Directors</a>
-                            <a href="app-contacts.html" class="nav-link">References</a>
+                            <a href="app-contacts.html" class="nav-link">References</a>*@
                         </nav>
                     </li>
                     <li class="nav-item">
-                        <a asp-action="Index" asp-controller="GeneralSetting" class="nav-link "><i class="typcn typcn-document"></i> General Settings</a>
+                        <a asp-action="Index" asp-controller="GeneralSetting" class="nav-link  "><i class="typcn typcn-document"></i> General Settings</a>
                         @*<nav class="az-menu-sub">
                             <a href="page-profile.html" class="nav-link">About Company</a>
                             <a href="page-invoice.html" class="nav-link">About Website</a>*@
