@@ -46,6 +46,10 @@
     <link href="~/Template/v1.1/lib/typicons.font/typicons.css" rel="stylesheet">
     <link href="~/Template/v1.1/lib/lightslider/css/lightslider.min.css" rel="stylesheet">
     <link href="~/Template/v1.1/lib/cryptofont/css/cryptofont.min.css" rel="stylesheet">
+    <link href="~/Template/v1.1/lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="~/Template/v1.1/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
+    <link href="~/Template/v1.1/lib/select2/css/select2.min.css" rel="stylesheet">
+
 
     <!-- azia CSS -->
     <link rel="stylesheet" href="~/Template/v1.1/css/azia.css">
@@ -70,28 +74,29 @@
                         @*<div class="az-menu-sub">
                             <nav class="nav">
                                 <a href="dashboard-one.html" class="nav-link">CreatePage</a>*@
-                                @*<a href="dashboard-one.html" class="nav-link">PageCategory</a>*@
-                                @*<a href="dashboard-two.html" class="nav-link">sales monitoring</a>
-                                    <a href="dashboard-three.html" class="nav-link">ad campaign</a>
-                                    <a href="dashboard-four.html" class="nav-link">event management</a>
-                                    <a href="dashboard-five.html" class="nav-link">helpdesk management</a>
-                                    <a href="dashboard-six.html" class="nav-link">finance monitoring</a>
-                                    <a href="dashboard-seven.html" class="nav-link active">cryptocurrency</a>
-                                    <a href="dashboard-eight.html" class="nav-link">executive / saas</a>
-                                    <a href="dashboard-nine.html" class="nav-link">campaign monitoring</a>
-                                    <a href="dashboard-ten.html" class="nav-link">Product Management</a>*@
-                            <!--</nav>
-                        </div>--><!-- az-menu-sub -->
+                        @*<a href="dashboard-one.html" class="nav-link">PageCategory</a>*@
+                        @*<a href="dashboard-two.html" class="nav-link">sales monitoring</a>
+                            <a href="dashboard-three.html" class="nav-link">ad campaign</a>
+                            <a href="dashboard-four.html" class="nav-link">event management</a>
+                            <a href="dashboard-five.html" class="nav-link">helpdesk management</a>
+                            <a href="dashboard-six.html" class="nav-link">finance monitoring</a>
+                            <a href="dashboard-seven.html" class="nav-link active">cryptocurrency</a>
+                            <a href="dashboard-eight.html" class="nav-link">executive / saas</a>
+                            <a href="dashboard-nine.html" class="nav-link">campaign monitoring</a>
+                            <a href="dashboard-ten.html" class="nav-link">Product Management</a>*@
+                        <!--</nav>
+                        </div>-->
+                        <!-- az-menu-sub -->
                     </li>
                     <li class="nav-item">
                         <a href="" class="nav-link with-sub"><i class="typcn typcn-folder"></i> News</a>
                         <nav class="az-menu-sub">
                             <a asp-action="Index" asp-controller="News" class="nav-link">NewsList</a>
-                            <a  asp-action="Index" asp-controller="NewsCategory" class="nav-link">NewsCategories</a>
+                            <a asp-action="Index" asp-controller="NewsCategory" class="nav-link">NewsCategories</a>
                             @*<a href="app-calendar.html" class="nav-link">Products</a>
-                            <a href="app-contacts.html" class="nav-link">Solutions</a>
-                            <a href="app-contacts.html" class="nav-link">Board of Directors</a>
-                            <a href="app-contacts.html" class="nav-link">References</a>*@
+                                <a href="app-contacts.html" class="nav-link">Solutions</a>
+                                <a href="app-contacts.html" class="nav-link">Board of Directors</a>
+                                <a href="app-contacts.html" class="nav-link">References</a>*@
                         </nav>
                     </li>
                     <li class="nav-item">
@@ -279,6 +284,15 @@
     <script src="~/Template/v1.1/lib/jquery.flot/jquery.flot.js"></script>
     <script src="~/Template/v1.1/lib/jquery.flot/jquery.flot.resize.js"></script>
     <script src="~/Template/v1.1/lib/lightslider/js/lightslider.min.js"></script>
+
+    @* newsdatatable *@
+
+    <script src="~/Template/v1.1/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Template/v1.1/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="~/Template/v1.1/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Template/v1.1/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>-->
+    <script src="~/Template/v1.1/lib/select2/js/select2.min.js"></script>
+
 
     <script src="~/Template/v1.1/js/azia.js"></script>
     <script src="~/Template/v1.1/js/chart.flot.sampledata.js"></script>
@@ -492,6 +506,36 @@
 
 
         });
+
+
+        
+            $(function () {
+                'use strict'
+
+            $('#example1').DataTable({
+                language: {
+                searchPlaceholder: 'Search...',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+
+            $('#example2').DataTable({
+                responsive: true,
+                language: {
+                searchPlaceholder: 'Search...',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+
+            // Select2
+            $('.dataTables_length select').select2({minimumResultsForSearch: Infinity });
+
+        });
+    
+
     </script>
+
 </body>
 </html>
