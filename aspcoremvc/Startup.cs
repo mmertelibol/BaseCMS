@@ -130,6 +130,7 @@ namespace Web
             //PANELSERVICES
             //PANELSERVICES
             services.AddScoped<INewsService, NewsService>();
+            services.AddScoped<INewsCategoryService, NewsCategoryService>();
 
 
             //services.AddMvc().AddNewtonsoftJson();

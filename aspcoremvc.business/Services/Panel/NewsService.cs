@@ -58,7 +58,7 @@ namespace Business.Services.Panel
 
         public NewsDto GetNewsById(int newsId)
         {
-            var news = _context.News.FirstOrDefault(x => x.Id == newsId);
+            var news = _context.News.Find(newsId);
             var newsDtoModel = _mapper.Map<NewsDto>(news);
 
             return newsDtoModel;
