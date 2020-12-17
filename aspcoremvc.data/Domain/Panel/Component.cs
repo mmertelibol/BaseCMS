@@ -17,7 +17,7 @@ namespace Data.Domain
         public string ImageUrl { get; set; }
         public string Href { get; set; }
 
-        public int CategoryId { get; set; }
+        public int ComponentCategoryId { get; set; }
         public ComponentCategory ComponentCategory { get; set; }
 
     }
