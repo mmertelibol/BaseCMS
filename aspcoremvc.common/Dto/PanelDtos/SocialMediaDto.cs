@@ -8,7 +8,7 @@ namespace Common.Dto.PanelDto
     public class SocialMediaDto
     {
         public string Name { get; set; }
-        public string IsVisible { get; set; }
+        public bool IsVisible { get; set; }
         public string Icon { get; set; }
         public string Href { get; set; }
 
