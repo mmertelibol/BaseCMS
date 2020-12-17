@@ -131,6 +131,12 @@ namespace Web
             //PANELSERVICES
             services.AddScoped<INewsService, NewsService>();
             services.AddScoped<INewsCategoryService, NewsCategoryService>();
+            services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<IPageComponentService, PageComponentService>();
+            services.AddScoped<ISettingService, SettingService>();
+            services.AddScoped<ISocialMediaService, SocialMediaService>();
+            services.AddScoped<IStaticPageService, StaticPageService>();
+            services.AddScoped<ISliderService, SliderService>();
 
 
             //services.AddMvc().AddNewtonsoftJson();
