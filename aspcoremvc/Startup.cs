@@ -36,6 +36,7 @@ using System.Linq;
 using System.Reflection;
 using Business.Services.Panel.Interfaces;
 using Business.Services.Panel;
+using AutoMapper;
 
 namespace Web
 {
@@ -158,6 +159,16 @@ namespace Web
                         return factory.Create("SharedResource", assemblyName.Name);
                     };
                 });
+
+            services.AddAutoMapper();
+
+            //var mappingConfig = new MapperConfiguration(mc =>
+            //{
+            //    mc.AddProfile(new MappingProfile());
+            //});
+
+            //IMapper mapper = mappingConfig.CreateMapper();
+            //services.AddSingleton(mapper);
 
             //services.Configure<RequestLocalizationOptions>(
             //    options =>

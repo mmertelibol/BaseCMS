@@ -3,6 +3,7 @@ using Business.Services.Panel.Interfaces;
 using Common.Dto.PanelDto;
 using Data;
 using Data.Domain.Panel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,7 @@ namespace Business.Services.Panel
 
         public List<NewsDto> GetAllNews()
         {
-            var newsList = _context.News.Where(x => x.IsDeleted == false).ToList();
+            var newsList = _context.News.Include(x => x.NewsCategory).Where(x => x.IsDeleted == false).ToList();
             var newsListDtoModel = _mapper.Map<List<NewsDto>>(newsList);
 
             return newsListDtoModel;

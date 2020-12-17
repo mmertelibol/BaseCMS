@@ -1,4 +1,5 @@
 ﻿using Business.Services.Panel.Interfaces;
+using Common.Dto.PanelDto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -19,39 +20,41 @@ namespace Web.Controllers
         }
         public IActionResult Index()
         {
-            var newsList = _newsService.GetAllNews();
+            var newsList = _newsService.GetAllNews();            
 
             return View(newsList);
         }
 
         [HttpPost]
-        public JsonResult InsertNews()
+        public JsonResult AddNews(NewsDto newsDto)
         {
-
-            return Json("true");
+            var addednews = _newsService.AddNews(newsDto);
+            
+            return Json(addednews);
         }
 
         [HttpDelete]
-        public JsonResult DeleteNews()
+        public JsonResult DeleteNews(int id)
         {
+            var deletedNews = _newsService.DeleteNews(id);
 
-            return Json("true");
+            return Json(deletedNews);
 
         }
 
         [HttpPut]
-        public JsonResult UpdateNews()
+        public JsonResult UpdateNews(NewsDto newsDto)
         {
-
-            return Json("true");
+            var updatedNews = _newsService.UpdateNews(newsDto);
+            return Json(updatedNews);
 
         }
 
         [HttpGet]
         public JsonResult GetNewsById(int id)
         {
-
-            return Json("true");
+            var news = _newsService.GetNewsById(id);
+            return Json(news);
 
         }
 
