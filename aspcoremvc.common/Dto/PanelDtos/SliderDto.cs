@@ -10,7 +10,7 @@ namespace Common.Dto.PanelDto
 
         public string ImageUrl { get; set; }
 
-        public int OrderNumber { get; set; } 
+        public int Order { get; set; } 
 
         public string Href { get; set; }
 
