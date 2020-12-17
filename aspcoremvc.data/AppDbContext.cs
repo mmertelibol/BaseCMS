@@ -48,8 +48,8 @@ namespace Data
 
        
         public DbSet<Slider> Slider { get; set; }
-        public DbSet<Component> Component { get; set; }
-        public DbSet<ComponentCategory> ComponentCategory { get; set; }
+        public DbSet<PageComponent> PageComponent { get; set; }
+        public DbSet<PageComponentCategory> PageComponentCategory { get; set; }
 
         public DbSet<NewsCategory> NewsCategory { get; set; }
         public DbSet<Address> Adress { get; set; }

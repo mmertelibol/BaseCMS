@@ -4,14 +4,16 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201217120418_forComponent")]
+    partial class forComponent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,6 +65,54 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ActionLogs","dbo");
+                });
+
+            modelBuilder.Entity("Data.Domain.Component", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AddedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("AddedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ComponentCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Href")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UpdatedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddedById");
+
+                    b.HasIndex("ComponentCategoryId");
+
+                    b.HasIndex("UpdatedById");
+
+                    b.ToTable("Components");
                 });
 
             modelBuilder.Entity("Data.Domain.Language", b =>
@@ -163,57 +213,6 @@ namespace Data.Migrations
                     b.ToTable("Pages","dbo");
                 });
 
-            modelBuilder.Entity("Data.Domain.PageComponent", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AddedById")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("AddedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ComponentCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Href")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("PageComponentCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UpdatedById")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddedById");
-
-                    b.HasIndex("PageComponentCategoryId");
-
-                    b.HasIndex("UpdatedById");
-
-                    b.ToTable("PageComponents");
-                });
-
             modelBuilder.Entity("Data.Domain.Panel.Address", b =>
                 {
                     b.Property<int>("Id")
@@ -267,6 +266,40 @@ namespace Data.Migrations
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("Data.Domain.Panel.ComponentCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AddedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("AddedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UpdatedById")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddedById");
+
+                    b.HasIndex("UpdatedById");
+
+                    b.ToTable("ComponentCategories");
                 });
 
             modelBuilder.Entity("Data.Domain.Panel.News", b =>
@@ -358,40 +391,6 @@ namespace Data.Migrations
                     b.HasIndex("UpdatedById");
 
                     b.ToTable("NewsCategories");
-                });
-
-            modelBuilder.Entity("Data.Domain.Panel.PageComponentCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AddedById")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("AddedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UpdatedById")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AddedById");
-
-                    b.HasIndex("UpdatedById");
-
-                    b.ToTable("ComponentCategories");
                 });
 
             modelBuilder.Entity("Data.Domain.Panel.Setting", b =>
@@ -858,6 +857,25 @@ namespace Data.Migrations
                     b.ToTable("UserTokens","User");
                 });
 
+            modelBuilder.Entity("Data.Domain.Component", b =>
+                {
+                    b.HasOne("Domain.User.User", "AddedBy")
+                        .WithMany()
+                        .HasForeignKey("AddedById")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Data.Domain.Panel.ComponentCategory", "ComponentCategory")
+                        .WithMany("Components")
+                        .HasForeignKey("ComponentCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Domain.User.User", "UpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("UpdatedById")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("Data.Domain.Language", b =>
                 {
                     b.HasOne("Domain.User.User", "AddedBy")
@@ -884,16 +902,11 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Data.Domain.PageComponent", b =>
+            modelBuilder.Entity("Data.Domain.Panel.Address", b =>
                 {
                     b.HasOne("Domain.User.User", "AddedBy")
                         .WithMany()
                         .HasForeignKey("AddedById")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Data.Domain.Panel.PageComponentCategory", "PageComponentCategory")
-                        .WithMany("PageComponents")
-                        .HasForeignKey("PageComponentCategoryId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Domain.User.User", "UpdatedBy")
@@ -902,7 +915,7 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
-            modelBuilder.Entity("Data.Domain.Panel.Address", b =>
+            modelBuilder.Entity("Data.Domain.Panel.ComponentCategory", b =>
                 {
                     b.HasOne("Domain.User.User", "AddedBy")
                         .WithMany()
@@ -935,19 +948,6 @@ namespace Data.Migrations
                 });
 
             modelBuilder.Entity("Data.Domain.Panel.NewsCategory", b =>
-                {
-                    b.HasOne("Domain.User.User", "AddedBy")
-                        .WithMany()
-                        .HasForeignKey("AddedById")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Domain.User.User", "UpdatedBy")
-                        .WithMany()
-                        .HasForeignKey("UpdatedById")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("Data.Domain.Panel.PageComponentCategory", b =>
                 {
                     b.HasOne("Domain.User.User", "AddedBy")
                         .WithMany()

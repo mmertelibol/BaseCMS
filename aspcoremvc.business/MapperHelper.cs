@@ -29,8 +29,8 @@ namespace Business
                 cfg.CreateMap<NewsDto, News>().ReverseMap();
                 cfg.CreateMap<NewsCategoryDto, NewsCategory>().ReverseMap();
                 cfg.CreateMap<AddressDto, Address>().ReverseMap();
-                cfg.CreateMap<ComponentCategoryDto, ComponentCategory>().ReverseMap();
-                cfg.CreateMap<ComponentDto, Component>().ReverseMap();
+                cfg.CreateMap<PageComponentCategoryDto, PageComponentCategory>().ReverseMap();
+                cfg.CreateMap<PageComponentDto, PageComponent>().ReverseMap();
                 cfg.CreateMap<SliderDto, Slider>().ReverseMap();
                 cfg.CreateMap<SettingDto, Setting>().ReverseMap();
                 cfg.CreateMap<StaticPageDto, StaticPage>().ReverseMap();

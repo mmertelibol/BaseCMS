@@ -6,11 +6,11 @@ using System.Text;
 namespace Data.Domain.Panel
 {
     [Table("ComponentCategories")]
-   public class ComponentCategory:EntityBase
+   public class PageComponentCategory:EntityBase
     {
         public string Name { get; set; }
 
-        public ICollection<Component> Components { get; set; }
+        public ICollection<PageComponent> PageComponents { get; set; }
 
     }
 }

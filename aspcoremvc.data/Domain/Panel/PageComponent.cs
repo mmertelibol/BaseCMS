@@ -9,8 +9,8 @@ namespace Data.Domain
     /// <summary>
     /// Ana sayfada kullanılabilecek resim,desc ve title içeren componentler için.
     /// </summary>
-    [Table("Components")]
-    public class Component:EntityBase
+    [Table("PageComponents")]
+    public class PageComponent:EntityBase
     {
         public string Title { get; set; }
         public string Description { get; set; }
@@ -18,7 +18,7 @@ namespace Data.Domain
         public string Href { get; set; }
 
         public int ComponentCategoryId { get; set; }
-        public ComponentCategory ComponentCategory { get; set; }
+        public PageComponentCategory PageComponentCategory { get; set; }
 
     }
 }
