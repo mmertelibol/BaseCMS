@@ -42,14 +42,11 @@ namespace Data
 
         //PANEL
         public DbSet<StaticPage> StaticPage { get; set; }
-       // public DbSet<Director> Director { get; set; }
-        public DbSet<Setting> GeneralSetting { get; set; }
+       
+        public DbSet<Setting> Setting { get; set; }
         public DbSet<News> News { get; set; }
 
-       // public DbSet<Partner> Partner { get; set; }
-
-        //public DbSet<Product> Product { get; set; }
-       // public DbSet<Reference> Reference { get; set; }
+       
         public DbSet<Slider> Slider { get; set; }
         public DbSet<Component> Component { get; set; }
         public DbSet<ComponentCategory> ComponentCategory { get; set; }
