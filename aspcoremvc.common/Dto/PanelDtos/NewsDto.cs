@@ -22,7 +22,9 @@ namespace Common.Dto.PanelDto
 
         public int NewsCategoryId { get; set; }
 
-        public NewsCategoryDto NewsCategoryDto { get; set; }
+        public string Name { get; set; }
+
+       // public NewsCategoryDto NewsCategoryDto { get; set; }
 
         public int Id { get; set; }
 

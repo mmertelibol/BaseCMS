@@ -20,10 +20,10 @@ namespace Web.Controllers
         }
         public IActionResult Index()
         {
-            var categorylist = _newsCategoryService.GetAllNewsCategories();
-            //var categories = categorylist.GroupBy(u=>new { u.Name}).Select(grp=>grp.FirstOrDefault()).ToList();
-            ViewBag.Categories = categorylist;
-            return View(categorylist);
+        //    var categorylist = _newsCategoryService.GetAllNewsCategories();
+        //    //var categories = categorylist.GroupBy(u=>new { u.Name}).Select(grp=>grp.FirstOrDefault()).ToList();
+        //    ViewBag.Categories = categorylist;
+            return View();
         }
 
         public JsonResult InsertNewsCategory()

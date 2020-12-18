@@ -127,7 +127,10 @@ namespace Data
 
             return (await base.SaveChangesAsync(true, cancellationToken));
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseLazyLoadingProxies();
+        //}
 
-      
     }
 }

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<NewsDto>
+﻿
+@model IEnumerable<NewsDto>
+
 @{
     ViewData["Title"] = "News";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,11 +12,14 @@
 <!-- vendor css -->
 <!-- az-header -->
 
+
 <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
+            <a class="btn btn-primary" data-toggle="modal" data-target="#modaldemo3" style="width:120px;">Insert News </a>
+           @Html.Partial("_AddNewsPopUpPartial")
 
 
 
@@ -22,9 +27,7 @@
 
             <hr class="mg-y-30">
 
-            @*<a class="btn btn-az-primary" style="width:130px;"  href="#">Insert News</a>*@
-        <a class="btn btn-primary" data-toggle="modal" data-target="#modaldemo3" style="width:120px;">Insert News </a> 
-        <partial name="_AddPopUpPartial"> </partial>
+            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
 
             <div>
                 <table id="example2" class="table">
@@ -53,13 +56,13 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.Title.Substring(0,5)...</td>
-                                <td>@item.Author.Substring(0,5)...</td>
-                                <td>@item.HTMLContent.Substring(0,5)...</td>
-                                <td>@item.MetaDescription.Substring(0,5) ...</td>
-                                <td>@item.MetaKeywords.Substring(0,5) ...</td>
-                                <td>@item.RoutingUrl.Substring(0,5)...</td>
-                                <td>@item.NewsCategoryId</td>
+                                <td>@item.Title.Substring(0, 5)...</td>
+                                <td>@item.Author.Substring(0, 5)...</td>
+                                <td>@item.HTMLContent.Substring(0, 5)...</td>
+                                <td>@item.MetaDescription.Substring(0, 5)...</td>
+                                <td>@item.MetaKeywords.Substring(0, 5)...</td>
+                                <td>@item.Name</td>
+                                <td>@item.RoutingUrl.Substring(0, 5)...</td>
                                 <td>@item.ViewCount</td>
                                 <td><a href="#">Details</a> </td>
                                 <td><a href="#">Edit</a> </td>
@@ -73,7 +76,7 @@
                 </table>
             </div>
 
-       
+
 
             <div class="ht-40"></div>
 
@@ -81,8 +84,3 @@
         </div><!-- az-content-body -->
     </div><!-- container -->
 </div><!-- az-content -->
-
-
-
-
-

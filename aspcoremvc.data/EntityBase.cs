@@ -18,7 +18,7 @@ namespace Data
 
         public int? AddedById { get; set; }
 
-        public User AddedBy { get; set; }
+        public  User AddedBy { get; set; }
 
         public int? UpdatedById { get; set; }
 

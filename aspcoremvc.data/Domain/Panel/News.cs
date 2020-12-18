@@ -27,7 +27,7 @@ namespace Data.Domain.Panel
         public string Author { get; set; }
 
         public int NewsCategoryId { get; set; }
-        public NewsCategory NewsCategory { get; set; }
+        public  NewsCategory NewsCategory { get; set; }
 
 
 

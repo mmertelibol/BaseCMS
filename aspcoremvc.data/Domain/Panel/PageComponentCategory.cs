@@ -10,7 +10,7 @@ namespace Data.Domain.Panel
     {
         public string Name { get; set; }
 
-        public ICollection<PageComponent> PageComponents { get; set; }
+        public  ICollection<PageComponent> PageComponents { get; set; }
 
     }
 }
