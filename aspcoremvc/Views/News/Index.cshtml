@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<NewsDto>
 @{
     ViewData["Title"] = "News";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -49,27 +49,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Şirket Battı</td>
-                            <td>Yılmaz Özdil</td>
-                            <td>Şirket içindeki...</td>
-                            <td>Edinburgh</td>
-                            <td>keyword,keyword,keyword</td>
-                            <td>Edinburgh</td>
-                            <td>Edinburgh</td>
-                            <td>5</td>
-                            <td><a href="#">Details</a> </td>
-                            <td><a href="#">Edit</a> </td>
-                            <td><a href="#">Delete</a> </td>
-                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Title.Substring(0,5)...</td>
+                                <td>@item.Author.Substring(0,5)...</td>
+                                <td>@item.HTMLContent.Substring(0,5)...</td>
+                                <td>@item.MetaDescription.Substring(0,5) ...</td>
+                                <td>@item.MetaKeywords.Substring(0,5) ...</td>
+                                <td>@item.RoutingUrl.Substring(0,5)...</td>
+                                <td>@item.NewsCategoryId</td>
+                                <td>@item.ViewCount</td>
+                                <td><a href="#">Details</a> </td>
+                                <td><a href="#">Edit</a> </td>
+                                <td><a href="#">Delete</a> </td>
+                            </tr>
+                        }
+
 
 
                     </tbody>
                 </table>
             </div>
 
-
+       
 
             <div class="ht-40"></div>
 

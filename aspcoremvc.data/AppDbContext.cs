@@ -23,9 +23,11 @@ namespace Data
         private readonly IHttpContextAccessor _contextAccessor;
         private readonly CacheBase _cacheService;
 
+      
         public AppDbContext(DbContextOptions<AppDbContext> options, IConfiguration configuration, IHttpContextAccessor contextAccessor, CacheBase cacheService)
             : base(options)
         {
+            
             _configuration = configuration;
             _contextAccessor = contextAccessor;
             _cacheService = cacheService;
@@ -125,5 +127,7 @@ namespace Data
 
             return (await base.SaveChangesAsync(true, cancellationToken));
         }
+
+      
     }
 }

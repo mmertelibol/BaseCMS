@@ -20,7 +20,8 @@ namespace Web.Controllers
         }
         public IActionResult Index()
         {
-            var newsList = _newsService.GetAllNews();            
+            var newsList = _newsService.GetAllNews();
+         
 
             return View(newsList);
         }

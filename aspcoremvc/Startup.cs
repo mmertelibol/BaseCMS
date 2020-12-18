@@ -37,6 +37,8 @@ using System.Reflection;
 using Business.Services.Panel.Interfaces;
 using Business.Services.Panel;
 using AutoMapper;
+using Business;
+using Business.AutoMapper;
 
 namespace Web
 {
@@ -162,13 +164,13 @@ namespace Web
 
             services.AddAutoMapper();
 
-            //var mappingConfig = new MapperConfiguration(mc =>
-            //{
-            //    mc.AddProfile(new MappingProfile());
-            //});
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapping());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
-            //IMapper mapper = mappingConfig.CreateMapper();
-            //services.AddSingleton(mapper);
 
             //services.Configure<RequestLocalizationOptions>(
             //    options =>

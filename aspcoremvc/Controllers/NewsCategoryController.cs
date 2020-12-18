@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Services.Panel.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,20 @@ namespace Web.Controllers
 {
     public class NewsCategoryController : Controller
     {
+        private readonly INewsCategoryService _newsCategoryService;
+        private readonly ILogger<NewsCategoryController> _logger;
+
+        public NewsCategoryController(INewsCategoryService newsCategoryService, ILogger<NewsCategoryController> logger)
+        {
+            _newsCategoryService = newsCategoryService;
+            _logger = logger;
+        }
         public IActionResult Index()
         {
-            return View();
+            var categorylist = _newsCategoryService.GetAllNewsCategories();
+            //var categories = categorylist.GroupBy(u=>new { u.Name}).Select(grp=>grp.FirstOrDefault()).ToList();
+            ViewBag.Categories = categorylist;
+            return View(categorylist);
         }
 
         public JsonResult InsertNewsCategory()

@@ -51,7 +51,8 @@ namespace Business.Services.Panel
 
         public List<NewsDto> GetAllNews()
         {
-            var newsList = _context.News.Include(x => x.NewsCategory).Where(x => x.IsDeleted == false).ToList();
+            
+            var newsList = _context.News.Include(x=>x.NewsCategory).Where(x => x.IsDeleted == false).ToList();
             var newsListDtoModel = _mapper.Map<List<NewsDto>>(newsList);
 
             return newsListDtoModel;

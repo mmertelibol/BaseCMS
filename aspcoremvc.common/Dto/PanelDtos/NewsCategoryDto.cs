@@ -15,5 +15,7 @@ namespace Common.Dto.PanelDto
         public DateTime? UpdatedDate { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public List<NewsDto> NewsDto { get; set; }
     }
 }
