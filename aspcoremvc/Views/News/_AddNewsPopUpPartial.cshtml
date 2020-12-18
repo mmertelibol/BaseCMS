@@ -1,142 +1,98 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130582519-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-130582519-1');
-    </script>
-    <link href="~/Template/v1.1/lib/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="~/Template/v1.1/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="~/Template/v1.1/lib/typicons.font/typicons.css" rel="stylesheet">
-
-    <!-- azia CSS -->
-    <link rel="stylesheet" href="~/Template/v1.1/css/azia.css">
-</head>
-<body>
-    <div id="modaldemo3" class="modal">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content modal-content-demo">
-                <div class="modal-header">
-                    <h6 class="modal-title">Message Preview</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Title</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title">
-                            </div>
-
-
-
-                        </div>
-
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Category</label>
-                            <div class="col-sm-10">
-                                <select class="form-control select2">
-                                    @foreach (var item in ViewBag.Categories)
-                                    {
-                                        <option id="category" value="@item.Name">@item.Name</option>
-                                    }
-                                </select>
-                            </div>
-
-
-
+﻿<div id="modaldemo3" class="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">Message Preview</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" name="title">
                         </div>
 
 
-                     
 
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Author</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title">
-                            </div>
+                    </div>
 
-
-
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Meta Description</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title">
-                            </div>
-
-
-
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Meta Keywords</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title">
-                            </div>
-
-
-
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Routing URL</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="title" name="title">
-                            </div>
-
-
-
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Category</label>
+                        <div class="col-sm-10">
+                            <select class="form-control select2">
+                                @foreach (var item in ViewBag.Categories)
+                                {
+                                    <option id="category" value="@item.Id">@item.Name</option>
+                                }
+                            </select>
                         </div>
 
 
-                    </form>
-                </div><!-- modal-body -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-indigo">Save changes</button>
-                    <button type="button" data-dismiss="modal" class="btn btn-outline-light">Close</button>
-                </div>
+
+                    </div>
+
+
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Author</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="author" name="title">
+                        </div>
+
+
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Meta Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="description" name="title">
+                        </div>
+
+
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Meta Keywords</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="keywords" name="title">
+                        </div>
+
+
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Routing URL</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="routingurl" name="title">
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">HTML Content</label>
+                        <div class="col-sm-10">
+                            <textarea id="editor1" class="form-control"></textarea>
+                        </div>
+
+
+
+                    </div>
+
+
+                </form>
+            </div><!-- modal-body -->
+            <div class="modal-footer">
+                <button type="submit" id="addnews" class="btn btn-indigo">Add</button>
+                <button type="button" data-dismiss="modal" class="btn btn-outline-light">Close</button>
             </div>
         </div>
     </div>
-
-    <script src="~/Template/lib/jquery/jquery.min.js"></script>
-    <script src="~/Template/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Template/lib/ionicons/ionicons.js"></script>
-
-    <script src="~/Template/js/azia.js"></script>
-    <script>
-        $(function () {
-            'use strict'
-
-            // showing modal with effect
-            $('.modal-effect').on('click', function (e) {
-                e.preventDefault();
-                var effect = $(this).attr('data-effect');
-                $('#modaldemo8').addClass(effect);
-            });
-
-            // hide modal with effect
-            $('#modaldemo8').on('hidden.bs.modal', function (e) {
-                $(this).removeClass(function (index, className) {
-                    return (className.match(/(^|\s)effect-\S+/g) || []).join(' ');
-                });
-            });
-
-        });
-    </script>
-
-</body>
+</div>
 
 
-
-
-
-
-</html>

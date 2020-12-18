@@ -24,7 +24,7 @@ namespace Common.Dto.PanelDto
 
         public string Name { get; set; }
 
-       // public NewsCategoryDto NewsCategoryDto { get; set; }
+       // public NewsCategoryDto NewsCategory { get; set; }
 
         public int Id { get; set; }
 

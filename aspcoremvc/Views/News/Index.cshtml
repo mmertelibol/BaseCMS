@@ -19,7 +19,7 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" data-target="#modaldemo3" style="width:120px;">Insert News </a>
-           @Html.Partial("_AddNewsPopUpPartial")
+            @Html.Partial("_AddNewsPopUpPartial")
 
 
 
@@ -39,7 +39,7 @@
                             <th>Content</th>
                             <th>Description</th>
                             <th>Keywords</th>
-                            <th>Category</th>
+                            <th>Category</th>_
                             <th>RoutingUrl</th>
                             <th>ViewCount</th>
                             <th>Details</th>
@@ -61,7 +61,7 @@
                                 <td>@item.HTMLContent.Substring(0, 5)...</td>
                                 <td>@item.MetaDescription.Substring(0, 5)...</td>
                                 <td>@item.MetaKeywords.Substring(0, 5)...</td>
-                                <td>@item.Name.Substring(0,5)...</td>
+                                <td>@item.Name.Substring(0, 5)...</td>
                                 <td>@item.RoutingUrl.Substring(0, 5)...</td>
                                 <td>@item.ViewCount</td>
                                 <td><a href="#">Details</a> </td>
@@ -76,14 +76,6 @@
                 </table>
             </div>
 
-        @*<ul>
-            
-                @foreach (var item in ViewBag.Categories)
-                {
-                    <li>@item.Name</li>
-                }
-            
-        </ul>*@
 
             <div class="ht-40"></div>
 
@@ -91,3 +83,50 @@
         </div><!-- az-content-body -->
     </div><!-- container -->
 </div><!-- az-content -->
+
+
+@section xx{
+
+
+    <script>
+        debugger;
+        $(function () {
+
+
+            debugger;
+
+
+            $("#addnews").click(function () {
+                debugger;
+                let News = {
+                    Title: $("#title").val(),
+                    Author: $("#author").val(),
+                    MetaDescription: $("#description").val(),
+                    MetaKeywords: $("#keywords").val(),
+                    RoutingURL: $("#routingurl").val(),
+
+
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/News/AddNews",
+                    data: News,
+                    success: function (response) {
+                        console.log(response);
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+    <script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+
+
+}
