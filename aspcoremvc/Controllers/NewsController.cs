@@ -13,15 +13,21 @@ namespace Web.Controllers
     {
         private readonly INewsService _newsService;
         private readonly ILogger<NewsController> _logger;
-        public NewsController(INewsService newsService, ILogger<NewsController> logger)
+        private readonly INewsCategoryService _newsCategoryService;
+        public NewsController(INewsService newsService, ILogger<NewsController> logger, INewsCategoryService newsCategoryService)
         {
             _newsService = newsService;
             _logger = logger;
+            _newsCategoryService = newsCategoryService;
         }
         public IActionResult Index()
         {
+
             var newsList = _newsService.GetAllNews();
-         
+            var categoryList = _newsCategoryService.GetAllNewsCategories();
+            // var categories = newsList.GroupBy(u => new { u.Name }).Select(grp => grp.FirstOrDefault()).ToList(); //bunu dinamik olarak author alırsan kullanırsın.
+
+            ViewBag.Categories = categoryList; 
 
             return View(newsList);
         }

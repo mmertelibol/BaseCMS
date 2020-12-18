@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<NewsDto>
+
 
 @{
     ViewData["Title"] = "News";
@@ -61,7 +61,7 @@
                                 <td>@item.HTMLContent.Substring(0, 5)...</td>
                                 <td>@item.MetaDescription.Substring(0, 5)...</td>
                                 <td>@item.MetaKeywords.Substring(0, 5)...</td>
-                                <td>@item.Name</td>
+                                <td>@item.Name.Substring(0,5)...</td>
                                 <td>@item.RoutingUrl.Substring(0, 5)...</td>
                                 <td>@item.ViewCount</td>
                                 <td><a href="#">Details</a> </td>
@@ -76,7 +76,14 @@
                 </table>
             </div>
 
-
+        @*<ul>
+            
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <li>@item.Name</li>
+                }
+            
+        </ul>*@
 
             <div class="ht-40"></div>
 

@@ -100,8 +100,8 @@ namespace Business.Services.Panel
 
 
             //var newsList = _context.News.Where(x => x.IsDeleted == false).ToList();
-            
-           
+
+
 
             //var newsListDtoModel = _mapper.Map<List<NewsDto>>(newsList);
 

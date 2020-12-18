@@ -12,6 +12,7 @@ namespace Web.Controllers
     {
         private readonly INewsCategoryService _newsCategoryService;
         private readonly ILogger<NewsCategoryController> _logger;
+        
 
         public NewsCategoryController(INewsCategoryService newsCategoryService, ILogger<NewsCategoryController> logger)
         {
@@ -20,10 +21,10 @@ namespace Web.Controllers
         }
         public IActionResult Index()
         {
-        //    var categorylist = _newsCategoryService.GetAllNewsCategories();
-        //    //var categories = categorylist.GroupBy(u=>new { u.Name}).Select(grp=>grp.FirstOrDefault()).ToList();
-        //    ViewBag.Categories = categorylist;
-            return View();
+            var categorylist = _newsCategoryService.GetAllNewsCategories();
+            //var categories = categorylist.GroupBy(u=>new { u.Name}).Select(grp=>grp.FirstOrDefault()).ToList();
+            //ViewBag.Categories = categories;
+            return View(categorylist);
         }
 
         public JsonResult InsertNewsCategory()
