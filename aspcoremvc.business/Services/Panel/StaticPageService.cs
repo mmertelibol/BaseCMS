@@ -26,7 +26,7 @@ namespace Business.Services.Panel
             staticPageDto.AddedDate = DateTime.Now;
             var staticPage = _mapper.Map<StaticPage>(staticPageDto);
             var added = _context.StaticPage.Add(staticPage);
-            var dtoModel = _mapper.Map<StaticPageDto>(added);
+            var dtoModel = _mapper.Map<StaticPageDto>(staticPage);
 
             _context.SaveChanges();
             return dtoModel;

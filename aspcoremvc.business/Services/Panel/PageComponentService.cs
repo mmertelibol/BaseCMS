@@ -28,7 +28,7 @@ namespace Business.Services.Panel
             pageComponentDto.AddedDate = DateTime.Now;
             var pageComponent = _mapper.Map<PageComponent>(pageComponentDto);
             var added = _context.PageComponent.Add(pageComponent);
-            var dtoModel = _mapper.Map<PageComponentDto>(added);
+            var dtoModel = _mapper.Map<PageComponentDto>(pageComponent);
 
             _context.SaveChanges();
             return dtoModel;

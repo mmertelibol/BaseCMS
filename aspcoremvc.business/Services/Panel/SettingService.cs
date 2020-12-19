@@ -27,7 +27,7 @@ namespace Business.Services.Panel
             var setting = _mapper.Map<Setting>(settingDto);
             var addedSetting = _context.Setting.Add(setting);
 
-            var dtoModel = _mapper.Map<SettingDto>(addedSetting);
+            var dtoModel = _mapper.Map<SettingDto>(setting);
 
             _context.SaveChanges();
             return dtoModel;

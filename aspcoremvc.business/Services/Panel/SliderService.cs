@@ -26,7 +26,7 @@ namespace Business.Services.Panel
             sliderDto.AddedDate = DateTime.Now;
             var slider = _mapper.Map<Slider>(sliderDto);
             var addedSlider = _context.Slider.Add(slider);
-            var sliderDtoModel = _mapper.Map<SliderDto>(addedSlider);
+            var sliderDtoModel = _mapper.Map<SliderDto>(slider);
 
             _context.SaveChanges();
             return sliderDtoModel;

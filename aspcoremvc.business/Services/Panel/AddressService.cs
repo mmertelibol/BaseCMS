@@ -26,7 +26,7 @@ namespace Business.Services.Panel
             addressDto.AddedDate = DateTime.Now;
             var address = _mapper.Map<Address>(addressDto);
             var added = _context.Adress.Add(address);
-            var dtoModel = _mapper.Map<AddressDto>(added);
+            var dtoModel = _mapper.Map<AddressDto>(address);
 
             _context.SaveChanges();
             return dtoModel;

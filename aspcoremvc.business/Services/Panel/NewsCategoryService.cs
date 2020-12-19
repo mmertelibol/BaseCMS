@@ -25,7 +25,7 @@ namespace Business.Services.Panel
             newsCategoryDto.AddedDate = DateTime.Now;
             var newsCategory = _mapper.Map<NewsCategory>(newsCategoryDto);
             var addedNewsCategory = _context.NewsCategory.Add(newsCategory);
-            var dtoModel = _mapper.Map<NewsCategoryDto>(addedNewsCategory);
+            var dtoModel = _mapper.Map<NewsCategoryDto>(newsCategory);
 
             _context.SaveChanges();
 

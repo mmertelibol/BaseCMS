@@ -27,7 +27,7 @@ namespace Business.Services.Panel
             socialMediaDto.AddedDate = DateTime.Now;
             var socialMedia = _mapper.Map<SocialMedia>(socialMediaDto);
             var added = _context.SocialMedia.Add(socialMedia);
-            var dtoModel = _mapper.Map<SocialMediaDto>(added);
+            var dtoModel = _mapper.Map<SocialMediaDto>(socialMedia);
 
             _context.SaveChanges();
 

@@ -27,7 +27,7 @@ namespace Business.Services.Panel
             var pageComponentCategory = _mapper.Map<PageComponentCategory>(dto);
             var addedPageComponentCategory = _context.PageComponentCategory.Add(pageComponentCategory);
 
-            var dtoModel = _mapper.Map<PageComponentCategoryDto>(addedPageComponentCategory);
+            var dtoModel = _mapper.Map<PageComponentCategoryDto>(pageComponentCategory);
 
             _context.SaveChanges();
             return dtoModel;
