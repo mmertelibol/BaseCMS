@@ -26,7 +26,7 @@ namespace Business.Services.Panel
             newsDto.AddedDate = DateTime.Now;
             var news = _mapper.Map<News>(newsDto);
             var addedNews = _context.News.Add(news);
-            var newsDtoModel = _mapper.Map<NewsDto>(addedNews);
+            var newsDtoModel = _mapper.Map<NewsDto>(news);
 
             _context.SaveChanges();
 
@@ -52,60 +52,72 @@ namespace Business.Services.Panel
 
         public List<NewsDto> GetAllNews()
         {
-            var newsList = _context.News.Join(
-                _context.NewsCategory,
-                n => n.NewsCategoryId,
-                nc => nc.Id,
-                (news, category) => new
+            //var newsList = _context.News.Join(
+            //    _context.NewsCategory,
+            //    n => n.NewsCategoryId,
+            //    nc => nc.Id,
+            //    (news, category) => new
 
-                {
-                    news.Id,
-                    news.MetaDescription,
-                    news.IsDeleted,
-                    news.HTMLContent,
-                    news.MetaKeywords,
-                    news.RoutingUrl,
-                    news.ViewCount,
-                    news.NewsCategoryId,
-                    news.Title,
-                    news.Author,
+            //    {
+            //        news.Id,
+            //        news.MetaDescription,
+            //        news.IsDeleted,
+            //        news.HTMLContent,
+            //        news.MetaKeywords,
+            //        news.RoutingUrl,
+            //        news.ViewCount,
+            //        news.NewsCategoryId,
+            //        news.Title,
+            //        news.Author,
 
-                    category.Name
-
-
-
-                }).Where(x => x.IsDeleted == false).ToList();
-            List<NewsDto> newsDtoList = new List<NewsDto>();
-
-            foreach (var item in newsList)
-            {
-                NewsDto newsDto = new NewsDto();
-                newsDto.Id = item.Id;
-                newsDto.HTMLContent = item.HTMLContent;
-                newsDto.MetaDescription = item.MetaDescription;
-                newsDto.MetaKeywords = item.MetaKeywords;
-                newsDto.RoutingUrl = item.RoutingUrl;
-                newsDto.ViewCount = item.ViewCount;
-                newsDto.NewsCategoryId = item.NewsCategoryId;
-                newsDto.IsDeleted = item.IsDeleted;
-                newsDto.Title = item.Title;
-                newsDto.Author = item.Author;
-                newsDto.Name = item.Name;
-
-                newsDtoList.Add(newsDto);
+            //        category.Name
 
 
 
-            }
+            //    }).Where(x => x.IsDeleted == false).ToList();
+            //List<NewsDto> newsDtoList = new List<NewsDto>();
+
+            //foreach (var item in newsList)
+            //{
+            //    NewsDto newsDto = new NewsDto();
+            //    newsDto.Id = item.Id;
+            //    newsDto.HTMLContent = item.HTMLContent;
+            //    newsDto.MetaDescription = item.MetaDescription;
+            //    newsDto.MetaKeywords = item.MetaKeywords;
+            //    newsDto.RoutingUrl = item.RoutingUrl;
+            //    newsDto.ViewCount = item.ViewCount;
+            //    newsDto.NewsCategoryId = item.NewsCategoryId;
+            //    newsDto.IsDeleted = item.IsDeleted;
+            //    newsDto.Title = item.Title;
+            //    newsDto.Author = item.Author;
+            //    newsDto.Name = item.Name;
+
+            //    newsDtoList.Add(newsDto);
 
 
-            //var newsList = _context.News.Where(x => x.IsDeleted == false).ToList();
+
+            //}
+
+
+            var newsList = _context.News.Include(x=>x.NewsCategory).Where(x => x.IsDeleted == false).ToList();
 
 
 
-            //var newsListDtoModel = _mapper.Map<List<NewsDto>>(newsList);
+            var newsListDtoModel = _mapper.Map<List<NewsDto>>(newsList);
 
-            return newsDtoList;
+            return newsListDtoModel;
+        }
+
+        public int GetLastNewsId()
+        {
+            var newsId = _context.News.OrderByDescending(x => x.Id).Select(x => x.Id).FirstOrDefault();
+            newsId++;
+
+
+
+                //var categories = newsList.GroupBy(u => new { u.Name }).Select(grp => grp.FirstOrDefault()).ToList();
+
+            return newsId;
         }
 
         public NewsDto GetNewsById(int newsId)

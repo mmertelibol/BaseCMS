@@ -56,12 +56,12 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.Title.Substring(0, 5)...</td>
-                                <td>@item.Author.Substring(0, 5)...</td>
-                                <td>@item.HTMLContent.Substring(0, 5)...</td>
+                                <td>@item.Title.Substring(0,5)...</td>
+                                <td>@item.Author.Substring(0,5)...</td>
+                                <td>@item.HTMLContent.Substring(0,5)...</td>
                                 <td>@item.MetaDescription.Substring(0, 5)...</td>
                                 <td>@item.MetaKeywords.Substring(0, 5)...</td>
-                                <td>@item.Name.Substring(0, 5)...</td>
+                                <td>@item.NewsCategory.Name.Substring(0, 5)...</td>
                                 <td>@item.RoutingUrl.Substring(0, 5)...</td>
                                 <td>@item.ViewCount</td>
                                 <td><a href="#">Details</a> </td>
@@ -104,6 +104,10 @@
                     MetaDescription: $("#description").val(),
                     MetaKeywords: $("#keywords").val(),
                     RoutingURL: $("#routingurl").val(),
+                    NewsCategoryId: $("#secim").val(),
+                    HTMLContent: $("#editor1").val(),
+                    //Id: $("#newsId").val()
+
 
 
                 };

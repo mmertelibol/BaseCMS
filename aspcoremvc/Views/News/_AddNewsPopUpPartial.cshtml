@@ -1,4 +1,6 @@
-﻿<div id="modaldemo3" class="modal">
+﻿
+
+<div id="modaldemo3" class="modal">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
@@ -9,6 +11,8 @@
             </div>
             <div class="modal-body">
                 <form>
+
+                    @*<input type="hidden" name="newsId" id="newsId" value="@ViewBag.Lastnews" />*@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Title</label>
                         <div class="col-sm-10">
@@ -22,10 +26,10 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Category</label>
                         <div class="col-sm-10">
-                            <select class="form-control select2">
+                            <select  id="secim" class="form-control select2">
                                 @foreach (var item in ViewBag.Categories)
                                 {
-                                    <option id="category" value="@item.Id">@item.Name</option>
+                                    <option  id="category" value="@item.Id">@item.Name</option>
                                 }
                             </select>
                         </div>

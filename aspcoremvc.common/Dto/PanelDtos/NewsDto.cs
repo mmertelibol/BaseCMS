@@ -16,15 +16,15 @@ namespace Common.Dto.PanelDto
 
         public string RoutingUrl { get; set; }
 
-        public int ViewCount { get; set; }
+        public int? ViewCount { get; set; }
 
         public string Author { get; set; }
 
         public int NewsCategoryId { get; set; }
 
-        public string Name { get; set; }
+       
 
-       // public NewsCategoryDto NewsCategory { get; set; }
+        public NewsCategoryDto NewsCategory { get; set; }
 
         public int Id { get; set; }
 

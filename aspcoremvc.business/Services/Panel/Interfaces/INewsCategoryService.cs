@@ -17,6 +17,8 @@ namespace Business.Services.Panel.Interfaces
 
         List<NewsCategoryDto> GetAllNewsCategories();
 
+        NewsCategoryDto GetCategoryIdByCategoryName(string categoryName);
+
 
 
 

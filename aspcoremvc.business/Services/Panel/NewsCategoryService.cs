@@ -54,6 +54,17 @@ namespace Business.Services.Panel
             return dtoModel;
         }
 
+        public NewsCategoryDto GetCategoryIdByCategoryName(string categoryName)
+        {
+            var categoryId = _context.NewsCategory.Where(x => x.Name == categoryName).FirstOrDefault().Id;
+
+            var dtomodel = _mapper.Map<NewsCategoryDto>(categoryId);
+
+            return dtomodel;
+
+
+        }
+
         public NewsCategoryDto GetNewsCategoryById(int id)
         {
             var newsCategory = _context.NewsCategory.Find(id);

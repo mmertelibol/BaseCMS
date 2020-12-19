@@ -22,7 +22,7 @@ namespace Data.Domain.Panel
 
         public string RoutingUrl { get; set; }
 
-        public int ViewCount { get; set; }
+        public int? ViewCount { get; set; }
 
         public string Author { get; set; }
 

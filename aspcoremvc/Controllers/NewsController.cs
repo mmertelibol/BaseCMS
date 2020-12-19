@@ -26,8 +26,14 @@ namespace Web.Controllers
             var newsList = _newsService.GetAllNews();
             var categoryList = _newsCategoryService.GetAllNewsCategories();
             // var categories = newsList.GroupBy(u => new { u.Name }).Select(grp => grp.FirstOrDefault()).ToList(); //bunu dinamik olarak author alırsan kullanırsın.
+            //var categoryId = _newsCategoryService.GetCategoryIdByCategoryName();
 
-            ViewBag.Categories = categoryList; 
+            var lastNewsId = _newsService.GetLastNewsId();
+
+            ViewBag.Lastnews = lastNewsId;
+         
+            ViewBag.Categories = categoryList;
+            
 
             return View(newsList);
         }
