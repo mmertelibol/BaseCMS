@@ -1,5 +1,4 @@
-﻿
-
+﻿@model IEnumerable<NewsDto>
 
 @{
     ViewData["Title"] = "News";
@@ -56,9 +55,9 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.Title.Substring(0,5)...</td>
-                                <td>@item.Author.Substring(0,5)...</td>
-                                <td>@item.HTMLContent.Substring(0,5)...</td>
+                                <td>@item.Title.Substring(0, 5)...</td>
+                                <td>@item.Author.Substring(0, 5)...</td>
+                                <td>@item.HTMLContent@*.Substring(0, 5)...*@</td>
                                 <td>@item.MetaDescription.Substring(0, 5)...</td>
                                 <td>@item.MetaKeywords.Substring(0, 5)...</td>
                                 <td>@item.NewsCategory.Name.Substring(0, 5)...</td>
@@ -87,13 +86,13 @@
 
 @section xx{
 
-
+   
     <script>
-        debugger;
+        // debugger;
         $(function () {
 
 
-            debugger;
+            //  debugger;
 
 
             $("#addnews").click(function () {
@@ -118,6 +117,9 @@
                     data: News,
                     success: function (response) {
                         console.log(response);
+                        swal("News Added!", "", "success");
+
+
                     }
 
                 });
