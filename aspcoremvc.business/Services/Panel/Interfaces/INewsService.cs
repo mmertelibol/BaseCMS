@@ -17,7 +17,7 @@ namespace Business.Services.Panel.Interfaces
 
         NewsDto UpdateNews(NewsDto newsDto);
 
-        int GetLastNewsId();
+        
 
 
 

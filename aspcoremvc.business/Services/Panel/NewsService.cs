@@ -108,18 +108,7 @@ namespace Business.Services.Panel
             return newsListDtoModel;
         }
 
-        public int GetLastNewsId()
-        {
-            var newsId = _context.News.OrderByDescending(x => x.Id).Select(x => x.Id).FirstOrDefault();
-            newsId++;
-
-
-
-                //var categories = newsList.GroupBy(u => new { u.Name }).Select(grp => grp.FirstOrDefault()).ToList();
-
-            return newsId;
-        }
-
+       
         public NewsDto GetNewsById(int newsId)
         {
             var news = _context.News.Find(newsId);
