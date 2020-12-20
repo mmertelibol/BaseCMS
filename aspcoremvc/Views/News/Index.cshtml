@@ -74,15 +74,15 @@
                                     <td>@item.Author</td>
                                 }
 
-                                @*@if (item.HTMLContent.ToString().Length > 5 )
+                                @if (item.HTMLContent.ToString().Length > 5 )
                                     {
-                                        <td>@item.HTMLContent.Substring(0, 5)...</td>
+                                        <td>@Html.Raw(item.HTMLContent.Substring(0,5))...</td>
                                     }
                                     else
                                     {
                                         <td>@item.HTMLContent</td>
-                                    }*@
-                                <td>@item.HTMLContent</td>
+                                    }
+                                
 
                                 @if (item.MetaDescription.ToString().Length > 5)
                                 {
@@ -186,8 +186,7 @@
 
 
 
-
-
+       
 
 
 
@@ -200,7 +199,7 @@
 
 
             $("#addnews").click(function () {
-                debugger;
+                CKEDITOR.instances['editor1'].updateElement();
                 let News = {
                     Title: $("#title").val(),
                     Author: $("#author").val(),
@@ -211,9 +210,14 @@
                     HTMLContent: $("#editor1").val(),
                     //Id: $("#newsId").val()
 
+                    
 
 
                 };
+
+                
+                
+              
 
                 $.ajax({
                     type: "post",
@@ -238,6 +242,8 @@
     <script src="~/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script>
         CKEDITOR.replace('editor1');
+       
+
     </script>
 
 
