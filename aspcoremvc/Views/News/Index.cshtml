@@ -76,13 +76,14 @@
                                 }
 
                                 @if (item.HTMLContent.ToString().Length > 5)
-                                {
-                                    <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
-                                }
-                                else
-                                {
-                                    <td>@Html.Raw(item.HTMLContent)</td>
-                                }
+                                    {
+                                        <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@Html.Raw(item.HTMLContent)</td>
+
+                                    }
 
 
                                 @if (item.MetaDescription.ToString().Length > 5)
@@ -128,7 +129,7 @@
                                 <td>@item.ViewCount</td>
                                 <td><a href="#">Details </a></td>
                                 <td>
-                                    <a href="" onclick="newsupdateshow('@item.Id', '@item.Title', '@item.Author', '@item.MetaDescription', '@item.MetaKeywords', '@item.NewsCategoryId', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatenewspopup">Edit</a>
+                                    <a href="" onclick="newsupdateshow('@item.Id', '@item.Title', '@item.Author',  '@item.MetaDescription', '@item.MetaKeywords', '@item.NewsCategoryId', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatenewspopup">Edit</a>
 
                                 </td>
                                 <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup">Delete</a> </td>
@@ -159,13 +160,13 @@
 
     <script>
 
-        function newsupdateshow(id, title, author,  description, keyword, category, routingurl /*title, author,htmlcontent, description, keyword, category,  routingurl*/) {
+        function newsupdateshow(id, title, author, description, keyword, category, routingurl /*title, author,htmlcontent, description, keyword, category,  routingurl*/) {
             // debugger;
 
             $("#newsid").val(id);
             $("#newstitle").val(title);
             $("#newsauthor").val(author);
-            //$("#editor2").val(htmlcontent);
+            //$("#editor1").val(htmlcontent);
             $("#newsdescription").val(description);
             $("#newskeyword").val(keyword);
             $("#newscategory").val(category);
@@ -182,6 +183,7 @@
 
         function newsUpdate() {
             CKEDITOR.instances['editor2'].updateElement();
+
             let id = $(newsid).val();
             let title = $(newstitle).val();
             let author = $(newsauthor).val();
