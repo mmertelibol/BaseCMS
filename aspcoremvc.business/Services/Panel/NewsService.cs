@@ -120,7 +120,7 @@ namespace Business.Services.Panel
 
         public NewsDto UpdateNews(NewsDto newsDto)
         {
-            var news = _context.News.FirstOrDefault(x => x.Id == newsDto.Id);
+            var news = _context.News.Find(newsDto.Id);
 
             news.Id = newsDto.Id;
             news.HTMLContent = newsDto.HTMLContent;

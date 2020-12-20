@@ -20,6 +20,7 @@
             <a class="btn btn-primary" data-toggle="modal" data-target="#modaldemo3" style="width:120px;">Insert News </a>
             @Html.Partial("_AddNewsPopUpPartial")
             @Html.Partial("_DeleteNewsPopUpPartial")
+            @Html.Partial("_UpdateNewsPopUpPartial")
 
 
 
@@ -54,82 +55,85 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.Id</td>
-                                @if (item.Title.ToString().Length > 5)
-                                {
-                                    <td>@item.Title.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.Title</td>
-                                }
+                        <tr>
+                            <td>@item.Id</td>
+                            @if (item.Title.ToString().Length > 5)
+                            {
+                                <td>@item.Title.Substring(0, 5)...</td>
+                            }
+                            else
+                            {
+                                <td>@item.Title</td>
+                            }
 
-                                @if (item.Author.ToString().Length > 5)
-                                {
-                                    <td>@item.Author.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.Author</td>
-                                }
+                            @if (item.Author.ToString().Length > 5)
+                            {
+                                <td>@item.Author.Substring(0, 5)...</td>
+                            }
+                            else
+                            {
+                                <td>@item.Author</td>
+                            }
 
-                                @if (item.HTMLContent.ToString().Length > 5 )
-                                    {
-                                        <td>@Html.Raw(item.HTMLContent.Substring(0,5))...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.HTMLContent</td>
-                                    }
-                                
+                            @*@if (item.HTMLContent.ToString().Length > 5)
+                            {
+                                <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+                            }
+                            else
+                            {
 
-                                @if (item.MetaDescription.ToString().Length > 5)
-                                {
-                                    <td>@item.MetaDescription.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.MetaDescription</td>
-                                }
-                                @if (item.MetaKeywords.ToString().Length > 5)
-                                {
-                                    <td>@item.MetaKeywords.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.MetaKeywords</td>
-                                }
-                                @if (item.NewsCategory.Name.ToString().Length > 5)
-                                {
-                                    <td>@item.NewsCategory.Name.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.NewsCategory.Name</td>
-                                }
+                            }*@
+                            <td>@item.HTMLContent</td>
 
-                                @if (item.RoutingUrl.ToString().Length > 5)
-                                {
-                                    <td>@item.RoutingUrl.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.RoutingUrl</td>
-                                }
+                            @if (item.MetaDescription.ToString().Length > 5)
+                            {
+                                <td>@item.MetaDescription.Substring(0, 5)...</td>
+                            }
+                            else
+                            {
+                                <td>@item.MetaDescription</td>
+                            }
+                            @if (item.MetaKeywords.ToString().Length > 5)
+                            {
+                                <td>@item.MetaKeywords.Substring(0, 5)...</td>
+                            }
+                            else
+                            {
+                                <td>@item.MetaKeywords</td>
+                            }
+                            @if (item.NewsCategory.Name.ToString().Length > 5)
+                            {
+                                <td>@item.NewsCategory.Name.Substring(0, 5)...</td>
+                            }
+                            else
+                            {
+                                <td>@item.NewsCategory.Name</td>
+                            }
 
-
+                            @if (item.RoutingUrl.ToString().Length > 5)
+                            {
+                                <td>@item.RoutingUrl.Substring(0, 5)...</td>
+                            }
+                            else
+                            {
+                                <td>@item.RoutingUrl</td>
+                            }
 
 
 
 
 
-                                <td>@item.ViewCount</td>
-                                <td><a href="#">Details </a></td>
-                                <td><a href="#">Edit</a> </td>
-                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup">Delete</a> </td>
 
-                            </tr>
+
+                            <td>@item.ViewCount</td>
+                            <td><a href="#">Details </a></td>
+                            <td>
+                                <a href="" onclick="newsupdateshow('@item.Id', '@item.Title', '@item.Author', '@item.MetaDescription', '@item.MetaKeywords', '@item.NewsCategoryId', '@item.RoutingUrl')"  data-toggle="modal" data-target="#updatenewspopup">Edit</a>
+                                 
+                            </td>
+                            <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup">Delete</a> </td>
+
+                        </tr>
                         }
 
 
@@ -148,32 +152,108 @@
 
 
 @section xx{
+  
+
+    
+
+
     <script>
 
-        function newsdeleteshow(id) {
+        function newsupdateshow(id,title,author,description,keyword,category,routingurl /*title, author,htmlcontent, description, keyword, category,  routingurl*/) {
             // debugger;
 
-            $("#deletenewsinput").val(id);
+            $("#newsid").val(id);
+            $("#newstitle").val(title);
+            $("#newsauthor").val(author);
+            //$("#newscontent").val(htmlcontent);
+            $("#newsdescription").val(description);
+            $("#newskeyword").val(keyword);
+            $("#newscategory").val(category);
+            $("#newsroutingurl").val(routingurl);
            
+
+
+
 
         }
     </script>
 
     <script>
 
+        function newsUpdate() {
+            let id = $(newsid).val();
+            let title = $(newstitle).val();
+            let author = $(newsauthor).val();
+            //let htmlcontent = $(newscontent).val();
+            let description = $(newsdescription).val();
+            let keyword = $(newskeyword).val();
+            let category = $(newscategory).val();
+            let routingurl = $(newsroutingurl).val();
+           
+           
+            
+            
+
+            $.ajax({
+                type: "put",
+                url: "/News/UpdateNews",
+                data: {
+                    Id: id,
+                    Title: title,
+                    Author: author,
+                    //HTMLContent:htmlcontent,
+                    MetaDescription: description,
+                    MetaKeywords: keyword,
+                    NewsCategoryId:category,
+                    
+                    
+                    RoutingURL: routingurl,
+                    
+                    
+                    
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("NewsUpdated!", "", "success");
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+        function newsdeleteshow(id) {
+            // debugger;
+
+            $("#deletenewsinput").val(id);
+
+
+
+        }
+    </script>
+    <script>
+
         function newsDelete() {
             let id = $(deletenewsinput).val();
+
             $.ajax({
                 type: "delete",
                 url: "/News/DeleteNews",
                 data: {
                     Id: id
+
                 },
                 success: function (response) {
                     if (response) {
                         swal("NewsDeleted!", "", "success");
                     }
-                  
+
                 },
                 error: function () {
                     console.log("Hata Oluştu");
@@ -186,7 +266,7 @@
 
 
 
-       
+
 
 
 
@@ -210,14 +290,14 @@
                     HTMLContent: $("#editor1").val(),
                     //Id: $("#newsId").val()
 
-                    
+
 
 
                 };
 
-                
-                
-              
+
+
+
 
                 $.ajax({
                     type: "post",
@@ -242,7 +322,7 @@
     <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script>
         CKEDITOR.replace('editor1');
-       
+
 
     </script>
 
