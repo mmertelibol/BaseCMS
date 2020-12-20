@@ -39,11 +39,15 @@ namespace Web.Controllers
         }
 
         [HttpPost]
+      
         public JsonResult AddNews(NewsDto newsDto)
         {
             var addednews = _newsService.AddNews(newsDto);
+            return Json(newsDto);
+
             
-            return Json(addednews);
+            
+            
         }
 
         [HttpDelete]
@@ -52,6 +56,7 @@ namespace Web.Controllers
             var deletedNews = _newsService.DeleteNews(id);
 
             return Json(deletedNews);
+           
 
         }
 

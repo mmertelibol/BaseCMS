@@ -39,10 +39,10 @@ namespace Business.Services.Panel
         {
 
 
-            var news = _context.News.Where(x => x.Id == id);
+            var news = _context.News.Find(id);
             var deletedNews = _context.Remove(news);
 
-            var NewsDtoModel = _mapper.Map<NewsDto>(deletedNews);
+            var NewsDtoModel = _mapper.Map<NewsDto>(news);
 
             _context.SaveChanges();
 

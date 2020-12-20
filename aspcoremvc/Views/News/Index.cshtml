@@ -19,6 +19,7 @@
 
             <a class="btn btn-primary" data-toggle="modal" data-target="#modaldemo3" style="width:120px;">Insert News </a>
             @Html.Partial("_AddNewsPopUpPartial")
+            @Html.Partial("_DeleteNewsPopUpPartial")
 
 
 
@@ -55,17 +56,79 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.Title.Substring(0, 5)...</td>
-                                <td>@item.Author.Substring(0, 5)...</td>
-                                <td>@item.HTMLContent@*.Substring(0, 5)...*@</td>
-                                <td>@item.MetaDescription.Substring(0, 5)...</td>
-                                <td>@item.MetaKeywords.Substring(0, 5)...</td>
-                                <td>@item.NewsCategory.Name.Substring(0, 5)...</td>
-                                <td>@item.RoutingUrl.Substring(0, 5)...</td>
+                                @if (item.Title.ToString().Length > 5)
+                                {
+                                    <td>@item.Title.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Title</td>
+                                }
+
+                                @if (item.Author.ToString().Length > 5)
+                                {
+                                    <td>@item.Author.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Author</td>
+                                }
+
+                                @*@if (item.HTMLContent.ToString().Length > 5 )
+                                    {
+                                        <td>@item.HTMLContent.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.HTMLContent</td>
+                                    }*@
+                                <td>@item.HTMLContent</td>
+
+                                @if (item.MetaDescription.ToString().Length > 5)
+                                {
+                                    <td>@item.MetaDescription.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.MetaDescription</td>
+                                }
+                                @if (item.MetaKeywords.ToString().Length > 5)
+                                {
+                                    <td>@item.MetaKeywords.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.MetaKeywords</td>
+                                }
+                                @if (item.NewsCategory.Name.ToString().Length > 5)
+                                {
+                                    <td>@item.NewsCategory.Name.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.NewsCategory.Name</td>
+                                }
+
+                                @if (item.RoutingUrl.ToString().Length > 5)
+                                {
+                                    <td>@item.RoutingUrl.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.RoutingUrl</td>
+                                }
+
+
+
+
+
+
+
                                 <td>@item.ViewCount</td>
-                                <td><a href="#">Details</a> </td>
+                                <td><a href="#">Details </a></td>
                                 <td><a href="#">Edit</a> </td>
-                                <td><a href="#">Delete</a> </td>
+                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup">Delete</a> </td>
+
                             </tr>
                         }
 
@@ -85,9 +148,50 @@
 
 
 @section xx{
-
-   
     <script>
+
+        function newsdeleteshow(id) {
+            // debugger;
+
+            $("#deletenewsinput").val(id);
+           
+
+        }
+    </script>
+
+    <script>
+
+        function newsDelete() {
+            let id = $(deletenewsinput).val();
+            $.ajax({
+                type: "delete",
+                url: "/News/DeleteNews",
+                data: {
+                    Id: id
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("NewsDeleted!", "", "success");
+                    }
+                  
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+
+
+
+
+
+
+
+
         // debugger;
         $(function () {
 
@@ -116,8 +220,10 @@
                     url: "/News/AddNews",
                     data: News,
                     success: function (response) {
-                        console.log(response);
-                        swal("News Added!", "", "success");
+                        if (response) {
+                            swal("News Added!", "", "success");
+                        }
+
 
 
                     }
