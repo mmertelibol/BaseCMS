@@ -31,10 +31,10 @@
             @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
 
             <div>
-                <table id="example2" class="table">
+                <table  id="sergen" class="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                           
                             <th>Title</th>
                             <th>Author</th>
                             <th>Content</th>
@@ -56,7 +56,7 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Id</td>
+                                @*<td>@item.Id</td>
                                 @if (item.Title.ToString().Length > 5)
                                 {
                                     <td>@item.Title.Substring(0, 5)...</td>
@@ -64,7 +64,8 @@
                                 else
                                 {
                                     <td>@item.Title</td>
-                                }
+                                }*@
+                                <td class="text-truncate"> @item.Title</td>
 
                                 @if (item.Author.ToString().Length > 5)
                                 {

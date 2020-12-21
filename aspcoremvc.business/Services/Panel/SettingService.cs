@@ -3,10 +3,13 @@ using Business.Services.Panel.Interfaces;
 using Common.Dto.PanelDto;
 using Data;
 using Data.Domain.Panel;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.Services.Panel
 {
@@ -21,9 +24,22 @@ namespace Business.Services.Panel
             _mapper = mapper;
         }
 
-        public SettingDto AddSetting(SettingDto settingDto)
+        public  SettingDto AddSetting(SettingDto settingDto/*,IFormFile file*/)
         {
             settingDto.AddedDate = DateTime.Now;
+            if (settingDto.file != null)
+            {
+                var uniqueName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniqueName);
+                var stream = new FileStream(path,FileMode.Create);
+                settingDto.file.CopyTo(stream);
+
+                settingDto.FavIconUrl = uniqueName;
+                
+            }
+
+            
+
             var setting = _mapper.Map<Setting>(settingDto);
             var addedSetting = _context.Setting.Add(setting);
 
@@ -40,7 +56,7 @@ namespace Business.Services.Panel
             var setting = _context.Setting.Find(SettingId);
 
             var deletedSetting = _context.Setting.Remove(setting);
-            var dtoModel = _mapper.Map<SettingDto>(deletedSetting);
+            var dtoModel = _mapper.Map<SettingDto>(setting);
 
             _context.SaveChanges();
 

@@ -1,6 +1,273 @@
-﻿
+﻿@model IEnumerable<SettingDto>
 @{
     ViewData["Title"] = "News";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Setting</h1>
+
+
+
+
+
+
+
+<!-- vendor css -->
+<!-- az-header -->
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn btn-primary" data-toggle="modal" data-target="#addsettingpopup" style="width:150px;">Insert Setting </a>
+            @Html.Partial("_AddSettingModalPartial")
+            @*@Html.Partial("_AddNewsCategoryPartial")
+        @Html.Partial("_DeleteNewsCategoryPopUp")
+        @Html.Partial("_UpdateNewsCategoryPartial")*@
+
+
+
+
+
+            <hr class="mg-y-30">
+
+            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+
+            <div>
+                <table id="example2" class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>CompanyName</th>
+                            <th>FaviconUrl</th>
+                            <th>LogoUrl</th>
+
+                            @*<th>Details</th>*@
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+
+                                @if (item.CompanyName.ToString().Length > 5)
+                                {
+                                    <td>@item.CompanyName.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.CompanyName</td>
+                                }
+
+                                <td><img src="~/img/@item.FavIconUrl" style="width:150px; height:150px;"  /></td>
+
+                                <td>@item.LogoUrl</td>
+
+
+
+                                @*<td><a href="#">Details </a></td>*@
+                                <td>
+                                    <a href="" onclick="SettingUpdateShow('@item.Id', '@item.CompanyName', '@item.FavIconUrl', '@item.LogoUrl')" data-toggle="modal" data-target="#updatenewscategorypopup">Edit</a>
+
+                                </td>
+                                <td><a href="" onclick="SettingDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup">Delete</a> </td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+@section xx{
+
+
+
+
+
+    <script>
+
+        function SettingUpdateShow(id, name,favicon,logo ) {
+            // debugger;
+
+            $("#settingid").val(id);
+            $("#companyname").val(name);
+            $("#faviconurl").val(favicon);
+            $("#logourl").val(logo)
+
+        }
+    </script>
+
+    <script>
+
+        function SettingUpdate() {
+            //CKEDITOR.instances['editor2'].updateElement();
+
+            let id = $(categoryid).val();
+            let companyname = $(companyname).val();
+            let faviconurl = $(faviconurl).val();
+            let logourl = $(logourl).val();
+
+
+
+
+
+
+            $.ajax({
+                type: "put",
+                url: "/Setting/UpdateSetting",
+                data: {
+                    Id: id,
+                    CompanyName: companyname,
+                    FavIconUrl: faviconurl,
+                    LogoUrl: logourl
+
+
+
+
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("Setting Updated!", "", "success");
+
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+        function SettingDeleteShow(id) {
+            // debugger;
+
+            $("#settingdeleteid").val(id);
+
+
+
+        }
+    </script>
+    <script>
+
+        function SettingDelete() {
+            let id = $(settingdeleteid).val();
+
+            $.ajax({
+                type: "delete",
+                url: "/Setting/DeleteSetting",
+                data: {
+                    Id: id
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("Setting Deleted!", "", "success");
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+
+
+
+
+
+
+
+        // debugger;
+        $(function () {
+
+
+            //  debugger;
+
+
+            $("#addsetting").click(function () {
+                //CKEDITOR.instances['editor1'].updateElement();
+               
+                let CompanyName= $("#addcompanyname").val();
+                let filefavicon = $("#addfavicon")[0].files[0];
+                //let filelogo = $("addlogo")[0].files[0];
+
+                let formData = new FormData();
+                formData.append("CompanyName", CompanyName);
+
+                if (filefavicon != null) {
+                    formData.append("file", filefavicon, filefavicon.fileName)
+                }
+
+                //if (filelogo != null) {
+                //    formData.append("file", filelogo, filelogo.fileName)
+
+                //}
+                
+
+
+
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/Setting/AddSetting",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response) {
+                            swal("Setting Added!", "", "success");
+                        }
+
+
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+    @*<script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script>
+            CKEDITOR.replace('editor1');
+
+
+        </script>
+        <script>
+            CKEDITOR.replace('editor2');
+
+
+        </script>*@
+
+
+}

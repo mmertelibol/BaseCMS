@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -16,5 +17,7 @@ namespace Common.Dto.PanelDto
         public DateTime? AddedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
+
+        public IFormFile file { get; set; }
     }
 }
