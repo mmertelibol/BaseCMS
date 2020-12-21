@@ -1,4 +1,5 @@
 ﻿using Business.Services.Panel.Interfaces;
+using Common.Dto.PanelDto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -27,24 +28,28 @@ namespace Web.Controllers
             return View(categorylist);
         }
 
-        public JsonResult InsertNewsCategory()
+        public JsonResult AddNewsCategory(NewsCategoryDto newsCategoryDto)
         {
-            return Json("true");
+            var added = _newsCategoryService.AddNewsCategory(newsCategoryDto);
+            return Json(added);
         }
 
-        public JsonResult DeleteNewsCategory()
+        public JsonResult DeleteNewsCategory(int id)
         {
-            return Json("true");
+            var deleted = _newsCategoryService.DeleteNewsCategory(id);
+            return Json(deleted);
         }
 
-        public JsonResult UpdateNewsCategory()
+        public JsonResult UpdateNewsCategory(NewsCategoryDto newsCategoryDto)
         {
-            return Json("true");
+            var updated = _newsCategoryService.UpdateNewsCategory(newsCategoryDto);
+            return Json(updated);
         }
 
-        public JsonResult GetCategoryById()
+        public JsonResult GetCategoryById(int id)
         {
-            return Json("true");
+            var newsCategory = _newsCategoryService.GetNewsCategoryById(id);
+            return Json(newsCategory);
         }
     }
 }

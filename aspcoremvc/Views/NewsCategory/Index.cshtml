@@ -1,6 +1,245 @@
-﻿@model IEnumerable<NewsCategoryDto> 
+﻿@model IEnumerable<NewsCategoryDto>
 @{
     ViewData["Title"] = "News";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>NewsCategory</h1>
+
+
+
+
+
+<!-- vendor css -->
+<!-- az-header -->
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn btn-primary" data-toggle="modal" data-target="#addnewscategorypopup" style="width:120px;">Insert NewsCategory </a>
+            @Html.Partial("_AddNewsCategoryPartial")
+            @Html.Partial("_DeleteNewsCategoryPopUp")
+            @Html.Partial("_UpdateNewsCategoryPartial")
+
+
+
+
+
+            <hr class="mg-y-30">
+
+            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+
+            <div>
+                <table id="example2" class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                           
+                            @*<th>Details</th>*@
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+
+                                @if (item.Name.ToString().Length > 5)
+                                {
+                                    <td>@item.Name.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Name</td>
+                                }
+
+                              
+
+
+                                @*<td><a href="#">Details </a></td>*@
+                                <td>
+                                    <a href="" onclick="newscategoryupdateshow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatenewscategorypopup">Edit</a>
+
+                                </td>
+                                <td><a href="" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup">Delete</a> </td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+@section xx{
+
+
+
+
+
+    <script>
+
+        function newscategoryupdateshow(id, name ) {
+            // debugger;
+
+            $("#categoryid").val(id);
+            $("#categoryname").val(name);
+
+        }
+    </script>
+
+    <script>
+
+        function NewsCategoryUpdate() {
+            //CKEDITOR.instances['editor2'].updateElement();
+
+            let id = $(categoryid).val();
+            let name = $(categoryname).val();
+           
+
+
+
+
+
+            $.ajax({
+                type: "put",
+                url: "/NewsCategory/UpdateNewsCategory",
+                data: {
+                    Id: id,
+                    Name : name
+                   
+
+
+
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("NewsCategoryUpdated!", "", "success");
+
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+        function NewsCategoryDeleteShow(id) {
+            // debugger;
+
+            $("#newscategoryid").val(id);
+
+
+
+        }
+    </script>
+    <script>
+
+        function NewsCategoryDelete() {
+            let id = $(newscategoryid).val();
+
+            $.ajax({
+                type: "delete",
+                url: "/NewsCategory/DeleteNewsCategory",
+                data: {
+                    Id: id
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("NewsCategoryDeleted!", "", "success");
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+
+
+
+
+
+
+
+        // debugger;
+        $(function () {
+
+
+            //  debugger;
+
+
+            $("#addnewscategory").click(function () {
+                //CKEDITOR.instances['editor1'].updateElement();
+                let NewsCategory = {
+                    Name: $("#name").val(),
+                   
+
+                };
+
+
+
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/NewsCategory/AddNewsCategory",
+                    data: NewsCategory,
+                    success: function (response) {
+                        if (response) {
+                            swal("NewsCategory Added!", "", "success");
+                        }
+
+
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+    @*<script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+
+
+    </script>
+    <script>
+        CKEDITOR.replace('editor2');
+
+
+    </script>*@
+
+
+}

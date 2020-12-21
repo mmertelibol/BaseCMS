@@ -1,0 +1,65 @@
+﻿
+
+
+
+
+
+
+<div id="updatenewscategorypopup" class="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">Update NewsCategory</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <input type="text" name="name" id="categoryid" style="display:none" value="" />
+                        </div>
+
+                    </div>
+
+
+                    @*<input type="hidden" name="newsId" id="newsId" value="@ViewBag.Lastnews" />*@
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="categoryname">
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </form>
+
+
+
+
+
+            </div><!-- modal-body -->
+            <div class="modal-footer">
+                <button type="submit" onclick="NewsCategoryUpdate()" class="btn btn-indigo">Update</button>
+                <a asp-action="Index" asp-controller="NewsCategory" class="btn btn-outline-light">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

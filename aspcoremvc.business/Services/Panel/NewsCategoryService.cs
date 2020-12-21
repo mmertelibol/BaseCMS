@@ -38,7 +38,7 @@ namespace Business.Services.Panel
             var newsCategory = _context.NewsCategory.Find(NewsCategoryId);
             var deletedNewsCategory = _context.NewsCategory.Remove(newsCategory);
 
-            var dtoModel = _mapper.Map<NewsCategoryDto>(deletedNewsCategory);
+            var dtoModel = _mapper.Map<NewsCategoryDto>(newsCategory);
 
             _context.SaveChanges();
 
