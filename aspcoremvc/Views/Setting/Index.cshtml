@@ -21,9 +21,10 @@
 
             <a class="btn btn-primary" data-toggle="modal" data-target="#addsettingpopup" style="width:150px;">Insert Setting </a>
             @Html.Partial("_AddSettingModalPartial")
-            @*@Html.Partial("_AddNewsCategoryPartial")
-        @Html.Partial("_DeleteNewsCategoryPopUp")
-        @Html.Partial("_UpdateNewsCategoryPartial")*@
+
+            @Html.Partial("_DeleteSettingPartial")
+            @Html.Partial("_UpdateSettingModalPartial")
+
 
 
 
@@ -66,18 +67,18 @@
                                     <td>@item.CompanyName</td>
                                 }
 
-                                <td><img src="~/img/@item.FavIconUrl" style="width:150px; height:150px;"  /></td>
+                                <td><img src="~/img/@item.FavIconUrl" style="width:150px; height:150px;" /></td>
 
-                                <td>@item.LogoUrl</td>
+                                <td><img src="~/img/@item.LogoUrl" style="width:150px; height:150px;" /></td>
 
 
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="SettingUpdateShow('@item.Id', '@item.CompanyName', '@item.FavIconUrl', '@item.LogoUrl')" data-toggle="modal" data-target="#updatenewscategorypopup">Edit</a>
+                                    <a href="" onclick="SettingUpdateShow('@item.Id', '@item.CompanyName', '@item.FavIconUrl', '@item.LogoUrl')" data-toggle="modal" data-target="#updatesettingpopup">Edit</a>
 
                                 </td>
-                                <td><a href="" onclick="SettingDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup">Delete</a> </td>
+                                <td><a href="" onclick="SettingDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesettingpopup">Delete</a> </td>
 
                             </tr>
                         }
@@ -110,8 +111,8 @@
 
             $("#settingid").val(id);
             $("#companyname").val(name);
-            $("#faviconurl").val(favicon);
-            $("#logourl").val(logo)
+            $("#favicon").val(favicon);
+            $("#logourl").val(logo);
 
         }
     </script>
@@ -121,12 +122,24 @@
         function SettingUpdate() {
             //CKEDITOR.instances['editor2'].updateElement();
 
-            let id = $(categoryid).val();
-            let companyname = $(companyname).val();
-            let faviconurl = $(faviconurl).val();
-            let logourl = $(logourl).val();
+            let settingid = $("#settingid").val();
+            let CompanyName = $("#companyname").val();
+            let filefavicon = $("#favicon")[0].files[0];
+            let filelogo = $("#logourl")[0].files[0];
 
 
+            let formData = new FormData();
+            formData.append("Id", settingid);
+            formData.append("CompanyName", CompanyName);
+
+            if (filefavicon != null) {
+                formData.append("file", filefavicon, filefavicon.fileName)
+            }
+
+            if (filelogo != null) {
+                formData.append("FileLogo", filelogo, filelogo.fileName)
+
+            }
 
 
 
@@ -134,24 +147,20 @@
             $.ajax({
                 type: "put",
                 url: "/Setting/UpdateSetting",
-                data: {
-                    Id: id,
-                    CompanyName: companyname,
-                    FavIconUrl: faviconurl,
-                    LogoUrl: logourl
-
-
-
-
-
-                },
+                data: formData,
+                contentType: false,
+                processData: false,
                 success: function (response) {
                     if (response) {
                         swal("Setting Updated!", "", "success");
-
                     }
 
+
+
+
+
                 },
+              
                 error: function () {
                     console.log("Hata Oluştu");
                 }
@@ -164,7 +173,7 @@
         function SettingDeleteShow(id) {
             // debugger;
 
-            $("#settingdeleteid").val(id);
+            $("#settingid").val(id);
 
 
 
@@ -173,7 +182,7 @@
     <script>
 
         function SettingDelete() {
-            let id = $(settingdeleteid).val();
+            let id = $(settingid).val();
 
             $.ajax({
                 type: "delete",
@@ -216,7 +225,7 @@
                
                 let CompanyName= $("#addcompanyname").val();
                 let filefavicon = $("#addfavicon")[0].files[0];
-                //let filelogo = $("addlogo")[0].files[0];
+                let filelogo = $("#addlogo")[0].files[0];
 
                 let formData = new FormData();
                 formData.append("CompanyName", CompanyName);
@@ -225,10 +234,10 @@
                     formData.append("file", filefavicon, filefavicon.fileName)
                 }
 
-                //if (filelogo != null) {
-                //    formData.append("file", filelogo, filelogo.fileName)
+                if (filelogo != null) {
+                    formData.append("Filelogo", filelogo, filelogo.fileName)
 
-                //}
+                }
                 
 
 

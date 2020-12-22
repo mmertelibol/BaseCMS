@@ -1,1 +1,83 @@
 ﻿
+
+<div id="updatesettingpopup" class="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">Add Setting</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                <input type="type" name="settingid" id="settingid" style="display:none"  />
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">CompanyName</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="companyname" name="name">
+                    </div>
+
+
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">FaviconUrl</label>
+                    <div class="col-sm-10">
+                        <div class="row row-sm">
+                            <div class="col-sm-7 col-md-6 col-lg-4">
+                                <div class="custom-file">
+                                    <input type="file" id="favicon" />
+
+                                </div>
+                            </div><!-- col -->
+                        </div><!-- row -->
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">LogoUrl</label>
+                    <div class="col-sm-10">
+                        <div class="row row-sm">
+                            <div class="col-sm-7 col-md-6 col-lg-4">
+                                <div class="custom-file">
+
+                                    <input type="file"  id="logourl" />
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+            </div><!-- modal-body -->
+            <div class="modal-footer">
+                <input type="submit" onclick="SettingUpdate()" class="btn btn-success btn-sm w-25" value="Add" />
+                @*<button type="submit" id="addsetting" class="btn btn-indigo">Add</button>*@
+                <a asp-action="Index" asp-controller="Setting" class="btn btn-outline-light">Close</a>
+            </div>
+        </div>
+    </div>
+</div>

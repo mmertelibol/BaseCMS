@@ -34,13 +34,15 @@ namespace Web.Controllers
 
             return Json(added);
         }
-        public JsonResult DeleteSetting()
+        public JsonResult DeleteSetting(int id)
         {
-            return Json("");
+            var deleted = _settingService.DeleteSetting(id);
+            return Json(deleted);
         }
-        public JsonResult UpdateSetting()
+        public JsonResult UpdateSetting(SettingDto settingDto)
         {
-            return Json("");
+            var setting = _settingService.UpdateSetting(settingDto);
+            return Json(setting);
         }
 
         public JsonResult GetSettingById()

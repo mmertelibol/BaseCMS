@@ -19,5 +19,7 @@ namespace Common.Dto.PanelDto
         public bool IsDeleted { get; set; }
 
         public IFormFile file { get; set; }
+
+        public IFormFile FileLogo { get; set; }
     }
 }

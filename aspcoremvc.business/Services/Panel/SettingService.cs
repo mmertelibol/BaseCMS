@@ -24,7 +24,7 @@ namespace Business.Services.Panel
             _mapper = mapper;
         }
 
-        public  SettingDto AddSetting(SettingDto settingDto/*,IFormFile file*/)
+        public  SettingDto AddSetting(SettingDto settingDto)
         {
             settingDto.AddedDate = DateTime.Now;
             if (settingDto.file != null)
@@ -32,13 +32,24 @@ namespace Business.Services.Panel
                 var uniqueName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniqueName);
                 var stream = new FileStream(path,FileMode.Create);
-                settingDto.file.CopyTo(stream);
+                settingDto.FileLogo.CopyTo(stream);
 
                 settingDto.FavIconUrl = uniqueName;
                 
             }
 
-            
+            if (settingDto.FileLogo != null)
+            {
+                var uniquePictureName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniquePictureName);
+                var stream = new FileStream(path, FileMode.Create);
+                settingDto.file.CopyTo(stream);
+
+                settingDto.LogoUrl = uniquePictureName;
+
+            }
+
+
 
             var setting = _mapper.Map<Setting>(settingDto);
             var addedSetting = _context.Setting.Add(setting);
@@ -82,12 +93,38 @@ namespace Business.Services.Panel
 
         public SettingDto UpdateSetting(SettingDto settingDto)
         {
+
+            if (settingDto.file != null)
+            {
+                var uniqueName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniqueName);
+                var stream = new FileStream(path, FileMode.Create);
+                settingDto.file.CopyTo(stream);
+
+                settingDto.FavIconUrl = uniqueName;
+
+            }
+
+            if (settingDto.FileLogo != null)
+            {
+                var uniquePictureName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniquePictureName);
+                var stream = new FileStream(path, FileMode.Create);
+                settingDto.FileLogo.CopyTo(stream);
+
+                settingDto.LogoUrl = uniquePictureName;
+
+            }
+
+
+
             var setting = _context.Setting.Find(settingDto.Id);
             setting.Id = settingDto.Id;
             setting.CompanyName = settingDto.CompanyName;
             setting.FavIconUrl = settingDto.FavIconUrl;
             setting.UpdatedDate = DateTime.Now;
             setting.Slogan = settingDto.Slogan;
+            setting.LogoUrl = settingDto.LogoUrl;
 
             _context.Update(setting);
             _context.SaveChanges();
