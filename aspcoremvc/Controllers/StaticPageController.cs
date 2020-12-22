@@ -37,5 +37,12 @@ namespace Web.Controllers
 
             return Json(deleted);
         }
+
+        public JsonResult UpdateStaticPage(StaticPageDto staticPageDto)
+        {
+            var updated = _staticPageService.UpdateStaticPage(staticPageDto);
+
+            return Json(updated);
+        }
     }
 }

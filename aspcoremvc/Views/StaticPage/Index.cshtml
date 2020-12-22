@@ -14,7 +14,7 @@
             <a class="btn btn-primary" data-toggle="modal" data-target="#addstaticpagemodal" style="width:180px;">Insert Page </a>
             @Html.Partial("_AddStaticPagePartial")
             @Html.Partial("_DeleteStaticPagePartial")
-            @*@Html.Partial("_UpdateStaticPagePartial")*@
+            @Html.Partial("_UpdateStaticPagePartial")
 
 
 
@@ -35,7 +35,7 @@
                             <th>Description</th>
                             <th>Keywords</th>
                             <th>RoutingUrl</th>
-                           
+
                             @*<th>Details</th>*@
                             <th>Edit</th>
                             <th>Delete</th>
@@ -48,83 +48,83 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
+                            <tr>
 
-                            @if (item.Name != null)
-                            {
-                                @if (item.Name.ToString().Length > 5)
+                                @if (item.Name != null)
                                 {
-                                    <td>@item.Name.Substring(0, 5)...</td>
+                                    @if (item.Name.ToString().Length > 5)
+                                    {
+                                        <td>@item.Name.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Title</td>
+                                    }
                                 }
-                                else
+
+
+                                @if (item.Title != null)
                                 {
-                                    <td>@item.Title</td>
+                                    @if (item.Title.ToString().Length > 5)
+                                    {
+                                        <td>@item.Title.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Title</td>
+                                    }
                                 }
-                            }
 
 
-                            @if (item.Title != null)
-                            {
-                                @if (item.Title.ToString().Length > 5)
+                                @if (item.HTMLContent != null)
                                 {
-                                    <td>@item.Title.Substring(0, 5)...</td>
+                                    @if (item.HTMLContent.ToString().Length > 5)
+                                    {
+                                        <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@Html.Raw(item.HTMLContent)</td>
+                                    }
                                 }
-                                else
+
+
+                                @if (item.MetaDescription != null)
                                 {
-                                    <td>@item.Title</td>
+                                    @if (item.MetaDescription.ToString().Length > 5)
+                                    {
+                                        <td>@item.MetaDescription.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.MetaDescription</td>
+                                    }
                                 }
-                            }
 
-
-                            @if (item.HTMLContent != null)
-                            {
-                                @if (item.HTMLContent.ToString().Length > 5)
+                                @if (item.MetaKeywords != null)
                                 {
-                                    <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+                                    @if (item.MetaKeywords.ToString().Length > 5)
+                                    {
+                                        <td>@item.MetaKeywords.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.MetaKeywords</td>
+                                    }
                                 }
-                                else
+
+
+                                @if (item.RoutingUrl != null)
                                 {
-                                    <td>@Html.Raw(item.HTMLContent)</td>
+                                    @if (item.RoutingUrl.ToString().Length > 5)
+                                    {
+                                        <td>@item.RoutingUrl.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.RoutingUrl</td>
+                                    }
                                 }
-                            }
-
-
-                            @if (item.MetaDescription != null)
-                            {
-                                @if (item.MetaDescription.ToString().Length > 5)
-                                {
-                                    <td>@item.MetaDescription.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.MetaDescription</td>
-                                }
-                            }
-
-                            @if (item.MetaKeywords != null)
-                            {
-                                @if (item.MetaKeywords.ToString().Length > 5)
-                                {
-                                    <td>@item.MetaKeywords.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.MetaKeywords</td>
-                                }
-                            }
-
-
-                            @if (item.RoutingUrl != null)
-                            {
-                                @if (item.RoutingUrl.ToString().Length > 5)
-                                {
-                                    <td>@item.RoutingUrl.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.RoutingUrl</td>
-                                }
-                            }
 
 
 
@@ -135,17 +135,17 @@
 
 
 
-                            
 
 
-                            @*<td><a href="#">Details </a></td>*@
-                            <td>
-                                <a href="" onclick="newsupdateshow('@item.Id', '@item.Name', '@item.Title', @*'@item.HTMLContent',*@ '@item.MetaDescription', '@item.MetaKeywords', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatenewspopup">Edit</a>
 
-                            </td>
-                            <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup">Delete</a> </td>
+                                @*<td><a href="#">Details </a></td>*@
+                                <td>
+                                    <a href="" onclick="pageupdateshow('@item.Id', '@item.Name', '@item.Title', '@item.MetaDescription', '@item.MetaKeywords', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatestaticpagepopup">Edit</a>
 
-                        </tr>
+                                </td>
+                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup">Delete</a> </td>
+
+                            </tr>
                         }
 
 
@@ -171,17 +171,17 @@
 
     <script>
 
-        function newsupdateshow(id, name, title,/* htmlcontent,*/ description, keyword, routingurl) {
+        function pageupdateshow(id, name, title, description, keyword, routingurl) {
             // debugger;
 
-            $("#id").val(id);
-            $("#name").val(name);
-            $("#title").val(title);
+            $("#pageid").val(id);
+            $("#pagename").val(name);
+            $("#pagetitle").val(title);
             //$("#editor1").val(htmlcontent);
-            $("#description").val(description);
-            $("#keyword").val(keyword);
-            $("#routingurl").val(routingurl);
-            
+            $("#pagedescription").val(description);
+            $("#pagekeyword").val(keyword);
+            $("#pageroutingurl").val(routingurl);
+
 
 
 
@@ -192,17 +192,17 @@
 
     <script>
 
-        function newsUpdate() {
+        function PageUpdate() {
             CKEDITOR.instances['editor2'].updateElement();
 
-            let id = $(id).val();
-            let name = $(name).val();
-            let title = $(title).val();
-            //let htmlcontent = $(editor2).val();
-            let description = $(description).val();
-            let keyword = $(keyword).val();
-           
-            let routingurl = $(routingurl).val();
+            let id = $(pageid).val();
+            let name = $(pagename).val();
+            let title = $(pagetitle).val();
+            let htmlcontent = $(editor2).val();
+            let description = $(pagedescription).val();
+            let keyword = $(pagekeyword).val();
+
+            let routingurl = $(pageroutingurl).val();
 
 
 
@@ -215,13 +215,13 @@
                     Id: id,
                     Name: name,
                     Title: title,
-                    //HTMLContent: htmlcontent,
+                    HTMLContent: htmlcontent,
                     MetaDescription: description,
                     MetaKeywords: keyword,
-                    
 
 
-                    RoutingURL: routingurl,
+
+                    RoutingURL: routingurl
 
 
 
@@ -301,8 +301,8 @@
                     MetaDescription: $("#description").val(),
                     MetaKeywords: $("#keywords").val(),
                     RoutingURL: $("#routingurl").val(),
-                  
-                    HTMLContent: $("#editor1").val(),
+
+                    HTMLContent: $("#editor1").val()
                     //Id: $("#newsId").val()
 
 
@@ -337,9 +337,11 @@
     <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script>
         CKEDITOR.replace('editor1');
-
-
+        
     </script>
+
+
+   
     <script>
         CKEDITOR.replace('editor2');
 

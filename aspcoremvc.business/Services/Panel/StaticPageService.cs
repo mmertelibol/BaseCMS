@@ -5,6 +5,7 @@ using Data;
 using Data.Domain.Panel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -23,6 +24,7 @@ namespace Business.Services.Panel
 
         public StaticPageDto AddStaticPage(StaticPageDto staticPageDto)
         {
+           
             staticPageDto.AddedDate = DateTime.Now;
             var staticPage = _mapper.Map<StaticPage>(staticPageDto);
             var added = _context.StaticPage.Add(staticPage);
