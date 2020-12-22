@@ -35,6 +35,13 @@ namespace Web.Controllers
             var added = _pageComponentService.AddPageComponent(pageComponentDto);
             return Json(added);
         }
+        [HttpDelete]
+        public JsonResult DeletePageComponent(int id)
+        {
+            var deleted = _pageComponentService.DeletePageComponent(id);
+            return Json(deleted);
+        }
+
 
 
 

@@ -17,9 +17,10 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" data-target="#addpagecomponentpopup" style="width:180px;">Insert Component </a>
+
             @Html.Partial("_AddPageComponentPartial")
-            @*@Html.Partial("_DeleteNewsPopUpPartial")
-                @Html.Partial("_UpdateNewsPopUpPartial")*@
+            @Html.Partial("_DeletePageComponentPartial")
+                @*@Html.Partial("_UpdateNewsPopUpPartial")*@
 
 
 
@@ -121,7 +122,7 @@
                                     <a href="" onclick="componentupdateshow('@item.Id', '@item.Title', '@item.Description', '@item.ImageUrl', '@item.Href' ,'@item.PageComponentCategoryId')" data-toggle="modal" data-target="#updatecomponentpopup">Edit</a>
 
                                 </td>
-                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletecomponentpopup">Delete</a> </td>
+                                <td><a href="" onclick="ComponentDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletecomponentpopup">Delete</a> </td>
 
                             </tr>
                         }
@@ -219,10 +220,10 @@
 
     <script>
 
-        function SettingDeleteShow(id) {
+        function ComponentDeleteShow(id) {
             // debugger;
 
-            $("#componentid").val(id);
+            $("#pagecomponentid").val(id);
 
 
 
@@ -230,8 +231,8 @@
     </script>
     <script>
 
-        function SettingDelete() {
-            let id = $(componentid).val();
+        function ComponentDelete() {
+            let id = $(pagecomponentid).val();
 
             $.ajax({
                 type: "delete",
