@@ -36,7 +36,7 @@ namespace Business.Services.Panel
         {
             var staticPage = _context.StaticPage.Find(id);
             var deleted = _context.StaticPage.Remove(staticPage);
-            var dtoModel = _mapper.Map<StaticPageDto>(deleted);
+            var dtoModel = _mapper.Map<StaticPageDto>(staticPage);
 
             _context.SaveChanges();
             return dtoModel;
