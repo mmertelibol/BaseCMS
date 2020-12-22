@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,8 +12,12 @@ namespace Common.Dto.PanelDto
         public string ImageUrl { get; set; }
         public string Href { get; set; }
 
-        public int ComponentCategoryId { get; set; }
-     
+        public int PageComponentCategoryId { get; set; }
+
+        public PageComponentCategoryDto PageComponentCategory { get; set; }
+
+        public IFormFile File { get; set; }
+
 
 
         public int Id { get; set; }

@@ -102,6 +102,7 @@ namespace Data
                 .HasOne(u => u.AddedBy)
                 .WithMany();
 
+
             //builder.Entity<OperationalLog>()
             //   .HasOne(u => u.AddedBy)
             //   .WithMany();

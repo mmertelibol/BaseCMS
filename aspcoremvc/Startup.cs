@@ -136,6 +136,7 @@ namespace Web
             services.AddScoped<INewsCategoryService, NewsCategoryService>();
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IPageComponentService, PageComponentService>();
+            services.AddScoped<IPageComponentCategoryService, PageComponentCategoryService>();
             services.AddScoped<ISettingService, SettingService>();
             services.AddScoped<ISocialMediaService, SocialMediaService>();
             services.AddScoped<IStaticPageService, StaticPageService>();

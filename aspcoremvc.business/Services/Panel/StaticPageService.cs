@@ -66,9 +66,10 @@ namespace Business.Services.Panel
             var staticPage = _context.StaticPage.Find(staticPageDto.Id);
 
             staticPage.Id = staticPageDto.Id;
+            staticPage.HTMLContent = staticPageDto.HTMLContent;
             staticPage.MetaDescription = staticPageDto.MetaDescription;
             staticPage.MetaKeywords = staticPageDto.MetaKeywords;
-            staticPageDto.Name = staticPageDto.Name;
+            staticPage.Name = staticPageDto.Name;
             staticPage.RoutingUrl = staticPageDto.RoutingUrl;
             staticPage.UpdatedDate = DateTime.Now;
 

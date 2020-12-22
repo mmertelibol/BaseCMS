@@ -71,6 +71,7 @@ namespace Business.Services.Panel
             pageComponentCategory.Name = dto.Name;
             pageComponentCategory.UpdatedDate = dto.UpdatedDate;
             
+            
 
             _context.Update(pageComponentCategory);
             _context.SaveChanges();

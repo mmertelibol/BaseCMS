@@ -1,7 +1,337 @@
-﻿
+﻿@model IEnumerable<Common.Dto.PanelDto.PageComponentDto>
 @{
     ViewData["Title"] = "PageComponent";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>PageComponent</h1>
+
+
+
+<!-- vendor css -->
+<!-- az-header -->
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn btn-primary" data-toggle="modal" data-target="#addpagecomponentpopup" style="width:180px;">Insert Component </a>
+            @Html.Partial("_AddPageComponentPartial")
+            @*@Html.Partial("_DeleteNewsPopUpPartial")
+                @Html.Partial("_UpdateNewsPopUpPartial")*@
+
+
+
+
+
+            <hr class="mg-y-30">
+
+            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+
+            <div>
+                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr>
+
+                            <th>Title</th>
+                            <th>Description</th>
+
+                            <th>Href</th>
+                            <th>Category</th>
+                            <th>ImageUrl</th>
+                            @*<th>Keywords</th>
+                                <th>Category</th>
+                                <th>RoutingUrl</th>
+                                <th>ViewCount</th>*@
+                            @*<th>Details</th>*@
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @if (item.Title != null)
+                                {
+                                    @if (item.Title.ToString().Length > 5)
+                                    {
+                                        <td>@item.Title.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Title</td>
+                                    }
+                                }
+
+                                @if (item.Description != null)
+                                {
+                                    @if (item.Description.ToString().Length > 5)
+                                    {
+                                        <td>@item.Description.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Description</td>
+                                    }
+                                }
+
+
+
+
+
+                                @if (item.Href != null)
+                                {
+                                    @if (item.Href.ToString().Length > 5)
+                                    {
+                                        <td>@item.Href.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Href</td>
+                                    }
+                                }
+
+                                @if (item.PageComponentCategory.Name != null)
+                                {
+                                    @if (item.PageComponentCategory.Name.ToString().Length > 5)
+                                    {
+                                        <td>@item.PageComponentCategory.Name.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.PageComponentCategory.Name</td>
+                                    }
+                                }
+
+
+
+
+                                <td><img src="~/img/@item.ImageUrl" style="width:150px; height:150px;" /></td>
+
+
+
+                                @*<td><a href="#">Details </a></td>*@
+                                <td>
+                                    <a href="" onclick="componentupdateshow('@item.Id', '@item.Title', '@item.Description', '@item.ImageUrl', '@item.Href' ,'@item.PageComponentCategoryId')" data-toggle="modal" data-target="#updatecomponentpopup">Edit</a>
+
+                                </td>
+                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletecomponentpopup">Delete</a> </td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+@section xx{
+
+
+
+
+
+
+    <script>
+
+        function ComponentUpdateShow(id, title, description, ımageurl, href, category) {
+            // debugger;
+
+            $("#componentid").val(id);
+            $("#componenttitle").val(title);
+            $("#componentdescription").val(description);
+            $("#componentımageurl").val(ımageurl);
+            $("#componenthref").val(href);
+            $("#componentcategory").val(category);
+
+        }
+    </script>
+
+    <script>
+
+        function ComponentUpdate() {
+            //CKEDITOR.instances['editor2'].updateElement();
+
+            let componentid = $("#componentid").val();
+            let componenttitle = $("#componenttitle").val();
+            let componentdescription = $("#componentdescription").val();
+            let componentimageurl = $("#componentımageurl")[0].files[0];
+            let componenthref = $("#componenthref").val();
+            let componentcategory = $("#componentcategory").val();
+
+            let formData = new FormData();
+            formData.append("Id", componentid);
+            formData.append("Title", componenttitle);
+            formData.append("Description", componentdescription);
+            //formData.append("ImageUrl", componentimageurl);
+            formData.append("Href", componenthref);
+            formData.append("PageComponentCategoryId", componentcategory);
+
+
+            if (componentimageurl != null) {
+                formData.append("File", componentimageurl, componentimageurl)
+            }
+
+
+
+
+
+
+            $.ajax({
+                type: "put",
+                url: "/PageComponent/UpdatePageComponent",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response) {
+                        swal("Component Updated!", "", "success");
+                    }
+
+
+
+
+
+                },
+
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+        function SettingDeleteShow(id) {
+            // debugger;
+
+            $("#componentid").val(id);
+
+
+
+        }
+    </script>
+    <script>
+
+        function SettingDelete() {
+            let id = $(componentid).val();
+
+            $.ajax({
+                type: "delete",
+                url: "/PageComponent/DeletePageComponent",
+                data: {
+                    Id: id
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("Component Deleted!", "", "success");
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+
+
+
+
+
+
+
+        // debugger;
+        $(function () {
+
+
+            //  debugger;
+
+
+            $("#addcomponentcategory").click(function () {
+                //CKEDITOR.instances['editor1'].updateElement();
+
+
+                //let componentid = $("#componentid").val();
+                let componentstitle = $("#componenttitle").val();
+                let componentsdescription = $("#componentdescription").val();
+                let componentimageurl = $("#componentimage")[0].files[0];
+                let componenthref = $("#componenthref").val();
+                let componentcategory = $("#componentcategoryid").val();
+
+                let formData = new FormData();
+                //formData.append("Id", componentid);
+                formData.append("Title", componentstitle);
+                formData.append("Description", componentsdescription);
+                //formData.append("ImageUrl", componentimageurl);
+                formData.append("Href", componenthref);
+                formData.append("PageComponentCategoryId", componentcategory);
+
+
+                if (componentimageurl != null) {
+                    formData.append("File", componentimageurl, componentimageurl.fileName)
+                }
+
+
+
+
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/PageComponent/AddPageComponent",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response) {
+                            swal("Component Added!", "", "success");
+                        }
+
+
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+    @*<script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script>
+            CKEDITOR.replace('editor1');
+
+
+        </script>
+        <script>
+            CKEDITOR.replace('editor2');
+
+
+        </script>*@
+
+
+}
+

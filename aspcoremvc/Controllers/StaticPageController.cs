@@ -24,13 +24,14 @@ namespace Web.Controllers
             var pageList = _staticPageService.GetAllStaticPage();
             return View(pageList);
         }
-
+        [HttpPost]
         public JsonResult AddStaticPage(StaticPageDto staticPageDto)
         {
             var added = _staticPageService.AddStaticPage(staticPageDto);
             return Json(added);
         }
 
+        [HttpDelete]
         public JsonResult DeleteStaticPage(int id)
         {
             var deleted = _staticPageService.DeleteStaticPage(id);
@@ -38,6 +39,7 @@ namespace Web.Controllers
             return Json(deleted);
         }
 
+        [HttpPut]
         public JsonResult UpdateStaticPage(StaticPageDto staticPageDto)
         {
             var updated = _staticPageService.UpdateStaticPage(staticPageDto);

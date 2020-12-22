@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Services.Panel.Interfaces;
+using Common.Dto.PanelDto;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +11,25 @@ namespace Web.Controllers
 {
     public class PageComponentCategoryController : Controller
     {
+        private readonly IPageComponentCategoryService _pageComponentCategoryService;
+        private readonly ILogger<PageComponentCategoryController> _logger;
+
+        public PageComponentCategoryController(IPageComponentCategoryService pageComponentCategoryService, ILogger<PageComponentCategoryController> logger)
+        {
+            _pageComponentCategoryService = pageComponentCategoryService;
+            _logger = logger;
+        }
         public IActionResult Index()
         {
-            return View();
+            var categoryList = _pageComponentCategoryService.GetAllPageComponentCategories();
+            return View(categoryList);
+        }
+
+        [HttpPost]
+        public JsonResult AddPageComponentCategory(PageComponentCategoryDto pageComponentCategoryDto)
+        {
+            var added = _pageComponentCategoryService.AddPageComponentCategory(pageComponentCategoryDto);
+            return Json(added);
         }
     }
 }

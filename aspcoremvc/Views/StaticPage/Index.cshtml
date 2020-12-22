@@ -58,7 +58,7 @@
                                     }
                                     else
                                     {
-                                        <td>@item.Title</td>
+                                        <td>@item.Name</td>
                                     }
                                 }
 
@@ -140,7 +140,7 @@
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="pageupdateshow('@item.Id', '@item.Name', '@item.Title', '@item.MetaDescription', '@item.MetaKeywords', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatestaticpagepopup">Edit</a>
+                                    <a href="" onclick="pageupdateshow('@item.Id', '@item.Name', '@item.Title',  '@item.MetaDescription', '@item.MetaKeywords', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatestaticpagepopup">Edit</a>
 
                                 </td>
                                 <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup">Delete</a> </td>
@@ -173,7 +173,9 @@
 
         function pageupdateshow(id, name, title, description, keyword, routingurl) {
             // debugger;
-
+            //CKEDITOR.instances['editor1'].getData()
+            //CKEDITOR.instances['editor2'].getData()
+            
             $("#pageid").val(id);
             $("#pagename").val(name);
             $("#pagetitle").val(title);
@@ -194,11 +196,16 @@
 
         function PageUpdate() {
             CKEDITOR.instances['editor2'].updateElement();
+            //CKEDITOR.instances['editor1'].getData()
+            //CKEDITOR.instances['editor2'].getData()
+            
 
             let id = $(pageid).val();
             let name = $(pagename).val();
             let title = $(pagetitle).val();
             let htmlcontent = $(editor2).val();
+            //let htmlcontent = $(editor1).val();
+
             let description = $(pagedescription).val();
             let keyword = $(pagekeyword).val();
 
@@ -295,6 +302,7 @@
 
             $("#addstaticpage").click(function () {
                 CKEDITOR.instances['editor1'].updateElement();
+                CKEDITOR.instances['editor1'].getData();
                 let StaticPage = {
                     Title: $("#title").val(),
                     Name: $("#name").val(),

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Data.Domain.Panel
 {
-    [Table("ComponentCategories")]
+    [Table("PageComponentCategories")]
    public class PageComponentCategory:EntityBase
     {
         public string Name { get; set; }
