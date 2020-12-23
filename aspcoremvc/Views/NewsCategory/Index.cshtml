@@ -17,7 +17,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn btn-primary" data-toggle="modal" data-target="#addnewscategorypopup" style="width:120px;">Insert NewsCategory </a>
+            <a class="btn"  data-toggle="modal" data-target="#addnewscategorypopup" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Add NewsCategory</strong> </a>
             @Html.Partial("_AddNewsCategoryPartial")
             @Html.Partial("_DeleteNewsCategoryPopUp")
             @Html.Partial("_UpdateNewsCategoryPartial")
@@ -34,7 +34,7 @@
                 <table id="example2" class="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            @*<th>ID</th>*@
                             <th>Name</th>
                            
                             @*<th>Details</th>*@
@@ -50,16 +50,11 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Id</td>
+                                @*<td>@item.Id</td>*@
 
-                                @if (item.Name.ToString().Length > 5)
-                                {
-                                    <td>@item.Name.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
+                               
                                     <td>@item.Name</td>
-                                }
+                                
 
                               
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,6 +13,7 @@ namespace Common.Dto.PanelDto
         public string Icon { get; set; }
         public string Href { get; set; }
 
+        public IFormFile File { get; set; }
         public int Id { get; set; }
 
         public DateTime? AddedDate { get; set; }

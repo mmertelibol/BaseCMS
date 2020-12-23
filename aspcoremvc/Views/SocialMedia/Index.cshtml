@@ -1,6 +1,318 @@
-﻿
+﻿@model IEnumerable<SocialMediaDto>
+
+
 @{
-    ViewData["Title"] = "News";
+    ViewData["Title"] = "SocialMedia";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>SocialMedia</h1>
+
+
+
+
+<!-- vendor css -->
+<!-- az-header -->
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn" data-toggle="modal" data-target="#addsocialmediapopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Add SocialMedia</strong> </a>
+
+            @Html.Partial("_AddSocialMediaPartial")
+            @Html.Partial("_DeleteSocialMediaPartial")
+            @Html.Partial("_UpdateSocialMediaPartial")
+
+
+
+
+
+            <hr class="mg-y-30">
+
+            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+
+            <div>
+                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr>
+
+                            <th>Name</th>
+                            <th>IsVisible</th>
+
+                            <th>Icon</th>
+                            <th>Href</th>
+                           
+                           
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            @if (item.Name != null)
+                            {
+                                @if (item.Name.ToString().Length > 5)
+                                {
+                                    <td>@item.Name.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Name</td>
+                                }
+                            }
+
+
+
+                            <td>@item.IsVisible</td>
+
+
+                            <td><img src="~/img/@item.Icon" style="width:150px; height:150px;" /></td>
+
+
+
+
+
+
+
+                            @if (item.Href != null)
+                            {
+                                @if (item.Href.ToString().Length > 5)
+                                {
+                                    <td>@item.Href.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Href</td>
+                                }
+                            }
+
+
+
+
+
+                           
+
+
+
+                            @*<td><a href="#">Details </a></td>*@
+                            <td>
+                                <a href="" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup">Edit</a>
+
+                            </td>
+                            <td><a href="" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup">Delete</a> </td>
+
+                        </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+@section xx{
+
+
+
+
+
+
+    <script>
+
+        function SocialMediaUpdateShow(id, name, isvisible, ahref) {
+            // debugger;
+
+            $("#socialid").val(id);
+            $("#socialname").val(name);
+            $("#visible").val(isvisible);
+            //$("#logoicon").val(logoicon);
+            $("#hrefurl").val(ahref);
+            
+
+
+
+
+
+
+        }
+    </script>
+    @*<script>
+        $("#isvisible").on('change', function () {
+            if ($(this).is(':checked')) {
+                $(this).attr('value', 'True');
+            } else {
+                $(this).attr('value', 'False');
+            }
+
+    </script>*@
+    <script>
+
+        function SocialMediaUpdate() {
+            //CKEDITOR.instances['editor2'].updateElement();
+
+            let socialmediaid = $("#socialid").val();
+            let socialmedianame = $("#socialname").val();
+
+            let Isvisible = $("#visible").val();
+            let Icon = $("#logoicon")[0].files[0];
+            let Href = $("#hrefurl").val();
+           
+
+
+            let formData = new FormData();
+            formData.append("Id", socialmediaid);
+            formData.append("Name", socialmedianame);
+            formData.append("IsVisible", Isvisible);
+            formData.append("Href", Href);
+
+            if (Icon != null) {
+                formData.append("File", Icon, Icon.fileName)
+            }
+           
+               
+
+                $.ajax({
+                    type: "put",
+                    url: "/SocialMedia/UpdateSocialMedia",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response) {
+                            swal("Component Updated!", "", "success");
+                        }
+
+                    },
+
+                    error: function () {
+                        console.log("Hata Oluştu");
+                    }
+                })
+           
+        }
+    </script>
+
+    <script>
+
+            function SocialMediaDeleteShow(id) {
+            // debugger;
+
+            $("#socialmediaid").val(id);
+
+
+
+            }
+    </script>
+
+    <script>
+
+        function DeleteSocialMedia() {
+            let id = $(socialmediaid).val();
+
+            $.ajax({
+                type: "delete",
+                url: "/SocialMedia/DeleteSocialMedia",
+                data: {
+                    Id: id
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("Component Deleted!", "", "success");
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+    // debugger;
+        $(function () {
+            //debugger;
+            $("#addsocialmedia").click(function () {
+                //CKEDITOR.instances['editor1'].updateElement();
+
+
+                //let componentid = $("#componentid").val();
+                let socialmedianame = $("#name").val();
+                let IsVisible = $("#isvisible").val();
+                let iconurl = $("#icon")[0].files[0];
+                let href = $("#href").val();
+              
+
+                let formData = new FormData();
+                //formData.append("Id", componentid);
+                formData.append("Name", socialmedianame);
+                formData.append("IsVisible", IsVisible);
+                //formData.append("ImageUrl", componentimageurl);
+                formData.append("Href", href);
+               
+
+
+                if (iconurl != null) {
+                    formData.append("File", iconurl, iconurl.fileName)
+                }
+
+
+
+
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/SocialMedia/AddSocialMedia",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response) {
+                            swal("Component Added!", "", "success");
+                        }
+
+
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+    @*<script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script>
+            CKEDITOR.replace('editor1');
+
+
+        </script>
+        <script>
+            CKEDITOR.replace('editor2');
+
+
+        </script>*@
+
+
+}
+
