@@ -42,6 +42,13 @@ namespace Web.Controllers
             return Json(deleted);
         }
 
+        [HttpPut]
+        public JsonResult UpdatePageComponent(PageComponentDto pageComponentDto)
+        {
+            var updated = _pageComponentService.UpdatePageComponent(pageComponentDto);
+            return Json(updated);
+        }
+
 
 
 

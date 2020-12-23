@@ -81,9 +81,21 @@ namespace Business.Services.Panel
         {
             var pageComponent = _context.PageComponent.Find(pageComponentDto.Id);
 
+
+            if (pageComponentDto.File != null)
+            {
+                var name = Guid.NewGuid() + Path.GetExtension(pageComponentDto.File.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + name);
+                var stream = new FileStream(path, FileMode.Create);
+                pageComponentDto.File.CopyTo(stream);
+
+                pageComponentDto.ImageUrl = name;
+
+            }
+            pageComponent.Title = pageComponentDto.Title;
             pageComponent.Id = pageComponentDto.Id;
             pageComponent.Href = pageComponentDto.Href;
-            pageComponent.ImageUrl = pageComponent.ImageUrl;
+            pageComponent.ImageUrl = pageComponentDto.ImageUrl;
             pageComponent.PageComponentCategoryId = pageComponentDto.PageComponentCategoryId;
             pageComponent.UpdatedDate = DateTime.Now;
             pageComponent.Description = pageComponentDto.Description;
