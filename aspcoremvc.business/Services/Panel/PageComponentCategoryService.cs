@@ -39,8 +39,8 @@ namespace Business.Services.Panel
         {
             var pageComponentCategory = _context.PageComponentCategory.Find(id);
 
-            var deletedSetting = _context.PageComponentCategory.Remove(pageComponentCategory);
-            var dtoModel = _mapper.Map<PageComponentCategoryDto>(deletedSetting);
+            var deletedComponentCategory = _context.PageComponentCategory.Remove(pageComponentCategory);
+            var dtoModel = _mapper.Map<PageComponentCategoryDto>(pageComponentCategory);
 
             _context.SaveChanges();
 
@@ -69,7 +69,7 @@ namespace Business.Services.Panel
             var pageComponentCategory = _context.PageComponentCategory.Find(dto.Id);
             pageComponentCategory.Id = dto.Id;
             pageComponentCategory.Name = dto.Name;
-            pageComponentCategory.UpdatedDate = dto.UpdatedDate;
+            pageComponentCategory.UpdatedDate = DateTime.Now;
             
             
 

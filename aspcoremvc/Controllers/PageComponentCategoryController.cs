@@ -31,5 +31,22 @@ namespace Web.Controllers
             var added = _pageComponentCategoryService.AddPageComponentCategory(pageComponentCategoryDto);
             return Json(added);
         }
+
+        [HttpDelete]
+        public JsonResult DeletePageComponentCategory(int id)
+        {
+            var deleted = _pageComponentCategoryService.DeletePageComponentCategory(id);
+            return Json(deleted);
+        }
+
+
+        [HttpPut]
+        public JsonResult UpdatePageComponentCategory(PageComponentCategoryDto pageComponentCategoryDto)
+        {
+            var updated = _pageComponentCategoryService.UpdatePageComponentCategory(pageComponentCategoryDto);
+            return Json(updated);
+        }
+
+
     }
 }

@@ -1,7 +1,235 @@
 ﻿
+
+@model IEnumerable<PageComponentCategoryDto>
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "PageComponentCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>PageComponentCategory</h1>
+
+
+
+
+<!-- vendor css -->
+<!-- az-header -->
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn btn-primary" data-toggle="modal" data-target="#addcomponentcategorypopup" style="width:120px;">Insert NewsCategory </a>
+            @Html.Partial("_AddComponentCategoryPartial")
+            @Html.Partial("_DeleteComponentCategoryPartial")
+            @Html.Partial("_UpdateComponentCategoryPartial")
+
+
+
+
+
+            <hr class="mg-y-30">
+
+            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+
+            <div>
+                <table id="example2" class="table">
+                    <thead>
+                        <tr>
+                            @*<th>ID</th>*@
+                            <th>Name</th>
+
+                            @*<th>Details</th>*@
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>@item.Id</td>*@
+
+                                @*@if (item.Name.ToString().Length > 5)
+                                    {
+                                        <td>@item.Name.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Name</td>
+                                    }*@
+
+                                <td>@item.Name</td>
+
+
+                                @*<td><a href="#">Details </a></td>*@
+                                <td>
+                                    <a href="" onclick="ComponentCategoryUpdateShow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatecomponentcategorypopup">Edit</a>
+
+                                </td>
+                                <td><a href="" onclick="ComponentCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletepagecategorypopup">Delete</a> </td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+@section xx{
+
+
+
+
+
+    <script>
+
+        function ComponentCategoryUpdateShow(id, name) {
+            // debugger;
+
+            $("#componentcategoryid").val(id);
+            $("#componentcategoryname").val(name);
+
+        }
+    </script>
+
+    <script>
+
+        function ComponentCategoryUpdate() {
+            //CKEDITOR.instances['editor2'].updateElement();
+
+            let id = $(componentcategoryid).val();
+            let name = $(componentcategoryname).val();
+
+
+
+
+
+
+            $.ajax({
+                type: "put",
+                url: "/PageComponentCategory/UpdatePageComponentCategory",
+                data: {
+                    Id: id,
+                    Name: name
+
+
+
+
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("NewsCategoryUpdated!", "", "success");
+
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+        function ComponentCategoryDeleteShow(id) {
+            // debugger;
+
+            $("#componentcategoryid").val(id);
+
+
+
+        }
+    </script>
+    <script>
+
+        function ComponentCategoryDelete() {
+            let id = $(componentcategoryid).val();
+
+            $.ajax({
+                type: "delete",
+                url: "/PageComponentCategory/DeletePageComponentCategory",
+                data: {
+                    Id: id
+
+                },
+                success: function (response) {
+                    if (response) {
+                        swal("NewsCategoryDeleted!", "", "success");
+                    }
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+
+
+
+
+
+
+
+        // debugger;
+        $(function () {
+
+
+            //  debugger;
+
+
+            $("#addpagecomponentcategory").click(function () {
+                //CKEDITOR.instances['editor1'].updateElement();
+                let NewsCategory = {
+                    Name: $("#name").val(),
+
+
+                };
+
+
+
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/PageComponentCategory/AddPageComponentCategory",
+                    data: NewsCategory,
+                    success: function (response) {
+                        if (response) {
+                            swal("NewsCategory Added!", "", "success");
+                        }
+
+
+
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+
+
+}
