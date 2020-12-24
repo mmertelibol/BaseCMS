@@ -90,7 +90,12 @@ namespace Business.Services.Panel
                 pageComponentDto.File.CopyTo(stream);
 
                 pageComponentDto.ImageUrl = name;
+                pageComponent.ImageUrl = pageComponentDto.ImageUrl;
 
+            }
+            else
+            {
+                pageComponent.ImageUrl = pageComponent.ImageUrl;
             }
             pageComponent.Title = pageComponentDto.Title;
             pageComponent.Id = pageComponentDto.Id;
