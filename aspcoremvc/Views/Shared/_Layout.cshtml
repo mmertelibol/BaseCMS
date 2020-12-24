@@ -62,17 +62,17 @@
     <div class="az-header">
         <div class="container">
             <div class="az-header-left">
-                <a href="index.html" class="az-logo"><span></span> azia</a>
+                <a href="index.html" class="az-logo"><span></span>SDFM</a>
                 <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
             </div><!-- az-header-left -->
             <div class="az-header-menu">
                 <div class="az-header-menu-header">
-                    <a href="index.html" class="az-logo"><span></span> azia</a>
+                    <a href="index.html" class="az-logo"><span></span> SDFM </a>
                     <a href="" class="close">&times;</a>
                 </div><!-- az-header-menu-header -->
                 <ul class="nav">
                     <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="StaticPage" class="nav-link "><i class="typcn typcn-chart-area-outline"></i>Static Page</a>
+                        <a asp-action="Index" asp-controller="StaticPage" class="nav-link "><i class="icon ion-ios-list-box"></i>Sayfa Oluştur</a>
                         @*<div class="az-menu-sub">
                             <nav class="nav">
                                 <a href="dashboard-one.html" class="nav-link">CreatePage</a>*@
@@ -91,16 +91,16 @@
                         <!-- az-menu-sub -->
                     </li>
                     <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="SocialMedia" class="nav-link "><i class="typcn typcn-chart-area-outline"></i>Social Media</a>
+                        <a asp-action="Index" asp-controller="SocialMedia" class="nav-link "><i class="icon ion-ios-person"></i>Sosyal Medya</a>
                     </li>
                     <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="Address" class="nav-link "><i class="typcn typcn-chart-area-outline"></i>Address</a>
+                        <a asp-action="Index" asp-controller="Address" class="nav-link "><i class="icon ion-md-globe"></i>Adres</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link with-sub"><i class="typcn typcn-folder"></i> News</a>
+                        <a href="" class="nav-link with-sub"><i class="icon ion-md-paper"> <br /></i> Haber </a>
                         <nav class="az-menu-sub">
-                            <a asp-action="Index" asp-controller="News" class="nav-link">NewsList</a>
-                            <a asp-action="Index" asp-controller="NewsCategory" class="nav-link">NewsCategories</a>
+                            <a asp-action="Index" asp-controller="News" class="nav-link">Tüm Haberler</a>
+                            <a asp-action="Index" asp-controller="NewsCategory" class="nav-link">Haber Kategorileri</a>
                             @*<a href="app-calendar.html" class="nav-link">Products</a>
                                 <a href="app-contacts.html" class="nav-link">Solutions</a>
                                 <a href="app-contacts.html" class="nav-link">Board of Directors</a>
@@ -108,10 +108,10 @@
                         </nav>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link with-sub "><i class="typcn typcn-document"></i>Component</a>
+                        <a href="" class="nav-link with-sub "><i class="icon ion-md-cube"></i>Anasayfa İçerik</a>
                         <nav class="az-menu-sub">
-                            <a asp-action="Index" asp-controller="PageComponent" class="nav-link">ComponentList</a>
-                            <a asp-action="Index" asp-controller="PageComponentCategory" class="nav-link">ComponentCategories</a>
+                            <a asp-action="Index" asp-controller="PageComponent" class="nav-link">İçerik Listesi</a>
+                            <a asp-action="Index" asp-controller="PageComponentCategory" class="nav-link">İçerik Kategorisi</a>
                             @*<a href="page-signin.html" class="nav-link">Sign In</a>
                                 <a href="page-signup.html" class="nav-link">Sign Up</a>
                                 <a href="page-404.html" class="nav-link">Page 404</a>*@
@@ -188,7 +188,7 @@
                     <!--</div>
                     </li>-->
                     <li class="nav-item">
-                        <a asp-action="Index" asp-controller="Slider" class="nav-link "><i class="typcn typcn-tabs-outline"></i> Slider</a>
+                        <a asp-action="Index" asp-controller="Slider" class="nav-link "><i class="icon ion-md-images"></i> Slider</a>
                         @*<nav class="az-menu-sub">
                             <a href="util-background.html" class="nav-link">Sliders</a>*@
                         @*<a href="util-border.html" class="nav-link">Border</a>
@@ -204,7 +204,7 @@
                         @*</nav>*@
                     </li>
                     <li class="nav-item">
-                        <a asp-action="Index" asp-controller="Setting" class="nav-link "><i class="typcn typcn-tabs-outline"></i> Setting</a>
+                        <a asp-action="Index" asp-controller="Setting" class="nav-link "><i class="icon ion-ios-settings"></i> Ayarlar</a>
                         @*<nav class="az-menu-sub">
                             <a href="util-background.html" class="nav-link">Sliders</a>*@
                         @*<a href="util-border.html" class="nav-link">Border</a>
@@ -222,11 +222,11 @@
                 </ul>
             </div><!-- az-header-menu -->
             <div class="az-header-right">
-                <a href="" class="az-header-search-link"><i class="fas fa-search"></i></a>
+                <!--<a href="" class="az-header-search-link"><i class="fas fa-search"></i></a>
                 <div class="az-header-message">
                     <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
-                </div><!-- az-header-message -->
-                <div class="dropdown az-header-notification">
+                </div>--><!-- az-header-message -->
+                <!--<div class="dropdown az-header-notification">
                     <a href="" class="new"><i class="typcn typcn-bell"></i></a>
                     <div class="dropdown-menu">
                         <div class="az-dropdown-header mg-b-20 d-sm-none">
@@ -240,34 +240,34 @@
                                 <div class="media-body">
                                     <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
                                     <span>Mar 15 12:32pm</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                            <div class="media new">
+                                </div>--><!-- media-body -->
+                            <!--</div>--><!-- media -->
+                            <!--<div class="media new">
                                 <div class="az-img-user online"><img src="https://via.placeholder.com/500" alt=""></div>
                                 <div class="media-body">
                                     <p><strong>Joyce Chua</strong> just created a new blog post</p>
                                     <span>Mar 13 04:16am</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                            <div class="media">
+                                </div>--><!-- media-body -->
+                            <!--</div>--><!-- media -->
+                            <!--<div class="media">
                                 <div class="az-img-user"><img src="https://via.placeholder.com/500" alt=""></div>
                                 <div class="media-body">
                                     <p><strong>Althea Cabardo</strong> just created a new blog post</p>
                                     <span>Mar 13 02:56am</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                            <div class="media">
+                                </div>--><!-- media-body -->
+                            <!--</div>--><!-- media -->
+                            <!--<div class="media">
                                 <div class="az-img-user"><img src="https://via.placeholder.com/500" alt=""></div>
                                 <div class="media-body">
                                     <p><strong>Adrian Monino</strong> added new comment on your photo</p>
                                     <span>Mar 12 10:40pm</span>
-                                </div><!-- media-body -->
-                            </div><!-- media -->
-                        </div><!-- az-notification-list -->
-                        <div class="dropdown-footer"><a href="">View All Notifications</a></div>
-                    </div><!-- dropdown-menu -->
-                </div><!-- az-header-notification -->
-                <div class="dropdown az-profile-menu">
+                                </div>--><!-- media-body -->
+                            <!--</div>--><!-- media -->
+                        <!--</div>--><!-- az-notification-list -->
+                        <!--<div class="dropdown-footer"><a href="">View All Notifications</a></div>
+                    </div>--><!-- dropdown-menu -->
+                <!--</div>--><!-- az-header-notification -->
+                <!--<div class="dropdown az-profile-menu">
                     <a href="" class="az-img-user"><img src="https://via.placeholder.com/500" alt=""></a>
                     <div class="dropdown-menu">
                         <div class="az-dropdown-header d-sm-none">
@@ -276,18 +276,18 @@
                         <div class="az-header-profile">
                             <div class="az-img-user">
                                 <img src="https://via.placeholder.com/500" alt="">
-                            </div><!-- az-img-user -->
+                            </div>
                             <h6>Aziana Pechon</h6>
                             <span>Premium Member</span>
-                        </div><!-- az-header-profile -->
+                        </div>
 
                         <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
                         <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
                         <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
                         <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
                         <a href="page-signin.html" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
-                    </div><!-- dropdown-menu -->
-                </div>
+                    </div>--><!-- dropdown-menu -->
+                <!--</div-->
             </div><!-- az-header-right -->
         </div><!-- container -->
     </div><!-- az-header -->

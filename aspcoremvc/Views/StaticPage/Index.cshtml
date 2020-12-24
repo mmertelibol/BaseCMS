@@ -140,7 +140,7 @@
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="pageupdateshow('@item.Id', '@item.Name', '@item.Title',  '@item.MetaDescription', '@item.MetaKeywords', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatestaticpagepopup">Edit</a>
+                                    <a href="" onclick="pageupdateshow('@item.Id', '@item.Name', '@item.Title', '@item.MetaDescription', '@item.MetaKeywords', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatestaticpagepopup">Edit</a>
 
                                 </td>
                                 <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup">Delete</a> </td>
@@ -171,8 +171,8 @@
 
     <script>
 
-        function pageupdateshow(id, name, title, description, keyword, routingurl) {
-            // debugger;
+        function pageupdateshow(id, name, title, /*htmlcontent*/description, keyword, routingurl) {
+            //debugger;
             //CKEDITOR.instances['editor1'].getData()
             //CKEDITOR.instances['editor2'].getData()
             
@@ -180,6 +180,7 @@
             $("#pagename").val(name);
             $("#pagetitle").val(title);
             //$("#editor1").val(htmlcontent);
+            //CKEDITOR.instances.editor2.setData(htmlcontent);
             $("#pagedescription").val(description);
             $("#pagekeyword").val(keyword);
             $("#pageroutingurl").val(routingurl);
@@ -328,7 +329,7 @@
                     data: StaticPage,
                     success: function (response) {
                         if (response) {
-                            swal("News Added!", "", "success");
+                            swal("Page Added!", "", "success");
                         }
 
 

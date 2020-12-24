@@ -95,7 +95,7 @@ namespace Business.Services.Panel
             pageComponent.Title = pageComponentDto.Title;
             pageComponent.Id = pageComponentDto.Id;
             pageComponent.Href = pageComponentDto.Href;
-            pageComponent.ImageUrl = pageComponentDto.ImageUrl;
+            //pageComponent.ImageUrl = pageComponentDto.ImageUrl;
             pageComponent.PageComponentCategoryId = pageComponentDto.PageComponentCategoryId;
             pageComponent.UpdatedDate = DateTime.Now;
             pageComponent.Description = pageComponentDto.Description;
