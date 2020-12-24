@@ -11,7 +11,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn " data-toggle="modal" data-target="#addstaticpagemodal" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Add Page</strong> </a>
+            <a class="btn " data-toggle="modal" data-target="#addstaticpagemodal" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sayfa Ekle</strong> </a>
             @Html.Partial("_AddStaticPagePartial")
             @Html.Partial("_DeleteStaticPagePartial")
             @Html.Partial("_UpdateStaticPagePartial")
@@ -29,16 +29,16 @@
                     <thead>
                         <tr>
 
-                            <th>Name</th>
-                            <th>Title</th>
-                            <th>HTMLContent</th>
-                            <th>Description</th>
-                            <th>Keywords</th>
-                            <th>RoutingUrl</th>
+                            <th>Sayfa Adı</th>
+                            <th>Başlık</th>
+                            <th>İçerik</th>
+                            <th>Açıklama</th>
+                            <th>Anahtar Kelimeler</th>
+                            <th>Url</th>
 
                             @*<th>Details</th>*@
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>DÜZENLE</th>
+                            <th>SİL</th>
 
 
 
@@ -140,10 +140,10 @@
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="pageupdateshow('@item.Id', '@item.Name', '@item.Title', '@item.MetaDescription', '@item.MetaKeywords', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatestaticpagepopup">Edit</a>
+                                    <a href="" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup">Düzenle</a>
 
                                 </td>
-                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup">Delete</a> </td>
+                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup">Sil</a> </td>
 
                             </tr>
                         }
@@ -169,35 +169,40 @@
 
 
 
+  
     <script>
+        function getById(id) {
+            $.ajax({
+                url: "/StaticPage/GetStaticPageById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id:id
+                },
+                success: function (data) {
+                    let gelenObje = jQuery.parseJSON(data);
+                    
+                    $("#pageid").val(gelenObje.Id);
+                    $("#pagename").val(gelenObje.Name);
+                    CKEDITOR.instances.editor2.setData(gelenObje.HTMLContent);
+                    $("#pagetitle").val(gelenObje.Title);
+                    $("#pagekeyword").val(gelenObje.MetaKeywords);  
+                    $("#pagedescription").val(gelenObje.MetaDescription);
+                    $("#gidilecekurl").val(gelenObje.RoutingUrl);
+                    
+                }
 
-        function pageupdateshow(id, name, title, /*htmlcontent*/description, keyword, routingurl) {
-            //debugger;
-            //CKEDITOR.instances['editor1'].getData()
-            //CKEDITOR.instances['editor2'].getData()
-            
-            $("#pageid").val(id);
-            $("#pagename").val(name);
-            $("#pagetitle").val(title);
-            //$("#editor1").val(htmlcontent);
-            //CKEDITOR.instances.editor2.setData(htmlcontent);
-            $("#pagedescription").val(description);
-            $("#pagekeyword").val(keyword);
-            $("#pageroutingurl").val(routingurl);
-
-
-
-
-
-
+            })
         }
-    </script>
 
+    </script>
     <script>
 
         function PageUpdate() {
+           
             CKEDITOR.instances['editor2'].updateElement();
-            //CKEDITOR.instances['editor1'].getData()
+            CKEDITOR.instances['editor2'].getData();
             //CKEDITOR.instances['editor2'].getData()
             
 
@@ -205,12 +210,9 @@
             let name = $(pagename).val();
             let title = $(pagetitle).val();
             let htmlcontent = $(editor2).val();
-            //let htmlcontent = $(editor1).val();
-
             let description = $(pagedescription).val();
             let keyword = $(pagekeyword).val();
-
-            let routingurl = $(pageroutingurl).val();
+            let route = $(gidilecekurl).val();
 
 
 
@@ -226,10 +228,7 @@
                     HTMLContent: htmlcontent,
                     MetaDescription: description,
                     MetaKeywords: keyword,
-
-
-
-                    RoutingURL: routingurl
+                    RoutingURL: route
 
 
 
@@ -237,13 +236,17 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("Page Updated!", "", "success");
+                        //$('updatestaticpagepopup').hide();
+                        $('#updatestaticpagepopup').modal('hide');
+                        
 
                     }
+                    location.href = "/StaticPage/Index";
 
                 },
                 error: function () {
                     console.log("Hata Oluştu");
+                    //swal("Page Updated!", "", "success");
                 }
             })
         }
@@ -252,8 +255,6 @@
     <script>
 
         function newsdeleteshow(id) {
-            // debugger;
-
             $("#deletepageid").val(id);
 
 
@@ -274,12 +275,15 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("Page Deleted!", "", "success");
+                        //swal("Page Deleted!", "", "success");
+                        $('#deletestaticpagepopup').modal('hide');
                     }
+                    location.href = "/StaticPage/Index";
 
                 },
                 error: function () {
                     console.log("Hata Oluştu");
+                    //swal("Page Deleted!", "", "success");
                 }
             })
         }
@@ -303,7 +307,7 @@
 
             $("#addstaticpage").click(function () {
                 CKEDITOR.instances['editor1'].updateElement();
-                CKEDITOR.instances['editor1'].getData();
+                //CKEDITOR.instances['editor1'].getData();
                 let StaticPage = {
                     Title: $("#title").val(),
                     Name: $("#name").val(),
@@ -329,11 +333,17 @@
                     data: StaticPage,
                     success: function (response) {
                         if (response) {
-                            swal("Page Added!", "", "success");
+                            $('#addstaticpagemodal').modal('hide');
+                            //swal("Page Added!", "", "success");
                         }
+                        location.href = "/StaticPage/Index";
 
 
+                    },
 
+                    error: function () {
+                        console.log("Hata Oluştu");
+                        //swal("Page Deleted!", "", "success");
                     }
 
                 });

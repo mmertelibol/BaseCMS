@@ -72,7 +72,7 @@
                 </div><!-- az-header-menu-header -->
                 <ul class="nav">
                     <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="StaticPage" class="nav-link "><i class="icon ion-ios-list-box"></i>Sayfa Oluştur</a>
+                        <a asp-action="Index" asp-controller="StaticPage" class="nav-link ">@*<i class="icon ion-ios-list-box"></i>*@Sayfa Oluştur</a>
                         @*<div class="az-menu-sub">
                             <nav class="nav">
                                 <a href="dashboard-one.html" class="nav-link">CreatePage</a>*@
@@ -91,13 +91,13 @@
                         <!-- az-menu-sub -->
                     </li>
                     <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="SocialMedia" class="nav-link "><i class="icon ion-ios-person"></i>Sosyal Medya</a>
+                        <a asp-action="Index" asp-controller="SocialMedia" class="nav-link ">@*<i class="icon ion-ios-person"></i>*@Sosyal Medya</a>
                     </li>
                     <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="Address" class="nav-link "><i class="icon ion-md-globe"></i>Adres</a>
+                        <a asp-action="Index" asp-controller="Address" class="nav-link ">@*<i class="icon ion-md-globe"></i>*@Adres</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link with-sub"><i class="icon ion-md-paper"> <br /></i> Haber </a>
+                        <a href="" class="nav-link with-sub">@*<i class="icon ion-md-paper"> <br /></i>*@ Haber </a>
                         <nav class="az-menu-sub">
                             <a asp-action="Index" asp-controller="News" class="nav-link">Tüm Haberler</a>
                             <a asp-action="Index" asp-controller="NewsCategory" class="nav-link">Haber Kategorileri</a>
@@ -108,7 +108,7 @@
                         </nav>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link with-sub "><i class="icon ion-md-cube"></i>Anasayfa İçerik</a>
+                        <a href="" class="nav-link with-sub ">@*<i class="icon ion-md-cube"></i>*@Anasayfa İçerik</a>
                         <nav class="az-menu-sub">
                             <a asp-action="Index" asp-controller="PageComponent" class="nav-link">İçerik Listesi</a>
                             <a asp-action="Index" asp-controller="PageComponentCategory" class="nav-link">İçerik Kategorisi</a>
@@ -188,7 +188,7 @@
                     <!--</div>
                     </li>-->
                     <li class="nav-item">
-                        <a asp-action="Index" asp-controller="Slider" class="nav-link "><i class="icon ion-md-images"></i> Slider</a>
+                        <a asp-action="Index" asp-controller="Slider" class="nav-link ">@*<i class="icon ion-md-images"></i>*@ Slider</a>
                         @*<nav class="az-menu-sub">
                             <a href="util-background.html" class="nav-link">Sliders</a>*@
                         @*<a href="util-border.html" class="nav-link">Border</a>
@@ -204,7 +204,7 @@
                         @*</nav>*@
                     </li>
                     <li class="nav-item">
-                        <a asp-action="Index" asp-controller="Setting" class="nav-link "><i class="icon ion-ios-settings"></i> Ayarlar</a>
+                        <a asp-action="Index" asp-controller="Setting" class="nav-link ">@*<i class="icon ion-ios-settings"></i>*@ Ayarlar</a>
                         @*<nav class="az-menu-sub">
                             <a href="util-background.html" class="nav-link">Sliders</a>*@
                         @*<a href="util-border.html" class="nav-link">Border</a>
@@ -297,8 +297,8 @@
 
     <div class="az-footer ht-40">
         <div class="container pd-t-0-f ht-100p">
-            <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
-            <span>Designed by: ThemePixels</span>
+            <span>&copy; CMS</span>
+            <span>Designed by: SDFM</span>
         </div><!-- container -->
     </div><!-- az-footer -->
 
@@ -309,7 +309,7 @@
     <script src="~/Template/v1.1/lib/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Template/v1.1/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
     <script src="~/Template/v1.1/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="~/Template/v1.1/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>-->
+    <script src="~/Template/v1.1/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
     <script src="~/Template/v1.1/lib/select2/js/select2.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -369,18 +369,18 @@
 
             $('#example1').DataTable({
                 language: {
-                    searchPlaceholder: 'Search...',
+                    searchPlaceholder: 'Ara...',
                     sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
+                    lengthMenu: '_MENU_ adet/sayfa',
                 }
             });
 
             $('#example2').DataTable({
                 responsive: true,
                 language: {
-                    searchPlaceholder: 'Search...',
+                    searchPlaceholder: 'Ara...',
                     sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
+                    lengthMenu: '_MENU_ adet/sayfa',
                 }
             });
 

@@ -2,6 +2,7 @@
 using Common.Dto.PanelDtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +45,13 @@ namespace Web.Controllers
         {
             var updated = _staticPageService.UpdateStaticPage(staticPageDto);
 
-            return Json(updated);
+            return Json(JsonConvert.SerializeObject(updated));
+        }
+
+        public JsonResult GetStaticPageById(int id)
+        {
+            var page = _staticPageService.GetStaticPageById(id);
+            return Json(JsonConvert.SerializeObject(page));
         }
     }
 }
