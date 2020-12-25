@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Update SocialMedia</h6>
+                <h6 class="modal-title">Sosyal Medya Güncelle</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,7 +14,7 @@
 
                 <input type="type" name="id" id="socialid" style="display:none" />
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label"> Name</label>
+                    <label class="col-sm-2 col-form-label"> İsim</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="socialname" name="name">
                     </div>
@@ -37,7 +37,7 @@
         </div>*@
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">IsVisible</label>
+                    <label class="col-sm-2 col-form-label">Görünürlük</label>
                     <div class="col-sm-10">
                         <select id="visible" class="form-control select2">
 
@@ -69,7 +69,7 @@
 
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Icon</label>
+                    <label class="col-sm-2 col-form-label">İkon</label>
                     <div class="col-sm-10">
                         <div class="row row-sm">
                             <div class="col-sm-7 col-md-6 col-lg-4">
@@ -95,9 +95,9 @@
 
             </div><!-- modal-body -->
             <div class="modal-footer">
-                <input type="submit" onclick="SocialMediaUpdate()" class="btn btn-info " value="Update" />
+                <input type="submit" onclick="SocialMediaUpdate()" class="btn btn-indigo " value="Güncelle" />
                 @*<button type="submit" id="addsetting" class="btn btn-indigo">Add</button>*@
-                <a asp-action="Index" asp-controller="SocialMedia" class="btn btn-outline-light">Close</a>
+                <a asp-action="Index" asp-controller="SocialMedia" class="btn btn-outline-light">Kapat</a>
             </div>
         </div>
     </div>

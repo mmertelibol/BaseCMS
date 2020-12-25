@@ -6,14 +6,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header d-">
-                <h3 style="color:black ">Are You Sure?</h3>
+                <h3 style="color:black ">Emin misiniz?</h3>
             </div>
             <input type="text" name="name" id="settingid" style="display:none" value="" />
 
             <div class="modal-footer">
                 <span id="deletetext" style="color:red"></span>
-                <a class="btn btn-indigo btn-ok float-left" onclick="SettingDelete()">Yes</a>
-                <a asp-action="Index" asp-controller="Setting" class="btn btn-outline-light">Close</a>
+                @*<a class="btn btn-indigo btn-ok float-left" onclick="SettingDelete()">Yes</a>*@
+                <input type="submit" onclick="SettingDelete()" class="btn btn-indigo " value="Evet" />
+                <a asp-action="Index" asp-controller="Setting" class="btn btn-outline-light">Kapat</a>
 
             </div>
 
