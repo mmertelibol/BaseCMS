@@ -35,6 +35,7 @@ namespace Business.Services.Panel
                 settingDto.FileLogo.CopyTo(stream);
 
                 settingDto.FavIconUrl = uniqueName;
+
                 
             }
 
@@ -93,6 +94,7 @@ namespace Business.Services.Panel
 
         public SettingDto UpdateSetting(SettingDto settingDto)
         {
+            var setting = _context.Setting.Find(settingDto.Id);
 
             if (settingDto.file != null)
             {
@@ -102,9 +104,13 @@ namespace Business.Services.Panel
                 settingDto.file.CopyTo(stream);
 
                 settingDto.FavIconUrl = uniqueName;
+                setting.FavIconUrl = settingDto.FavIconUrl;
 
             }
-
+            else
+            {
+                setting.FavIconUrl = setting.FavIconUrl;
+            }
             if (settingDto.FileLogo != null)
             {
                 var uniquePictureName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
@@ -113,18 +119,23 @@ namespace Business.Services.Panel
                 settingDto.FileLogo.CopyTo(stream);
 
                 settingDto.LogoUrl = uniquePictureName;
+                setting.LogoUrl = settingDto.LogoUrl;
 
             }
 
+            else
+            {
+                setting.LogoUrl = setting.LogoUrl;
+            }
 
 
-            var setting = _context.Setting.Find(settingDto.Id);
+            
             setting.Id = settingDto.Id;
             setting.CompanyName = settingDto.CompanyName;
-            setting.FavIconUrl = settingDto.FavIconUrl;
+            //setting.FavIconUrl = settingDto.FavIconUrl;
             setting.UpdatedDate = DateTime.Now;
             setting.Slogan = settingDto.Slogan;
-            setting.LogoUrl = settingDto.LogoUrl;
+            //setting.LogoUrl = settingDto.LogoUrl;
 
             _context.Update(setting);
             _context.SaveChanges();

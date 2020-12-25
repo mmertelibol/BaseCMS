@@ -28,19 +28,19 @@
 
             <hr class="mg-y-30">
 
-            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+         
 
             <div>
-                <table  id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
+                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr>
-                           
+
                             <th>Title</th>
                             <th>Author</th>
                             <th>Content</th>
                             <th>Description</th>
                             <th>Keywords</th>
-                            <th>Category</th>_
+                            <th>Category</th>
                             <th>RoutingUrl</th>
                             <th>ViewCount</th>
                             @*<th>Details</th>*@
@@ -57,14 +57,14 @@
                         {
                             <tr>
                                 @*<td>@item.Id</td>
-                                @if (item.Title.ToString().Length > 5)
-                                {
-                                    <td>@item.Title.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.Title</td>
-                                }*@
+                                    @if (item.Title.ToString().Length > 5)
+                                    {
+                                        <td>@item.Title.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Title</td>
+                                    }*@
                                 <td class="text-truncate"> @item.Title</td>
 
                                 @if (item.Author.ToString().Length > 5)
@@ -77,14 +77,14 @@
                                 }
 
                                 @if (item.HTMLContent.ToString().Length > 5)
-                                    {
-                                        <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@Html.Raw(item.HTMLContent)</td>
+                                {
+                                    <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+                                }
+                                else
+                                {
+                                    <td>@Html.Raw(item.HTMLContent)</td>
 
-                                    }
+                                }
 
 
                                 @if (item.MetaDescription.ToString().Length > 5)
@@ -132,7 +132,7 @@
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="newsupdateshow('@item.Id', '@item.Title', '@item.Author',  '@item.MetaDescription', '@item.MetaKeywords', '@item.NewsCategoryId', '@item.RoutingUrl')" data-toggle="modal" data-target="#updatenewspopup">Edit</a>
+                                    <a href="" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewspopup">Edit</a>
 
                                 </td>
                                 <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup">Delete</a> </td>
@@ -161,30 +161,44 @@
 
 
 
+ 
+
     <script>
+        function getById(id) {
+            $.ajax({
+                url: "/News/GetNewsById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id: id
+                },
+                success: function (data) {
+                    debugger;
+                    //let gelenObje = jQuery.parseJSON(data);
 
-        function newsupdateshow(id, title, author, description, keyword, category, routingurl /*title, author,htmlcontent, description, keyword, category,  routingurl*/) {
-            // debugger;
+                    $("#newsid").val(data.Id);
+                    $("#newsroute").val(data.RoutingUrl);
+                    $("#newstitle").val(data.Title);
+                    CKEDITOR.instances.editor2.setData(data.HTMLContent);
+                    $("#newsauthor").val(data.Author);
+                    $("#newsdescription").val(data.MetaDescription);
+                    $("#newskeyword").val(data.MetaKeywords);
+                    $("#newscategory").val(data.NewsCategoryId);
+                    
+                    
 
-            $("#newsid").val(id);
-            $("#newstitle").val(title);
-            $("#newsauthor").val(author);
-            //$("#editor1").val(htmlcontent);
-            $("#newsdescription").val(description);
-            $("#newskeyword").val(keyword);
-            $("#newscategory").val(category);
-            $("#newsroutingurl").val(routingurl);
+                }
 
-
-
-
-
+            })
         }
+
     </script>
 
     <script>
 
         function newsUpdate() {
+            debugger
             CKEDITOR.instances['editor2'].updateElement();
 
             let id = $(newsid).val();
@@ -194,7 +208,8 @@
             let description = $(newsdescription).val();
             let keyword = $(newskeyword).val();
             let category = $(newscategory).val();
-            let routingurl = $(newsroutingurl).val();
+            let route = $(newsroute).val();
+
 
 
 
@@ -211,9 +226,7 @@
                     MetaDescription: description,
                     MetaKeywords: keyword,
                     NewsCategoryId: category,
-
-
-                    RoutingURL: routingurl,
+                    RoutingURL: route
 
 
 
@@ -221,13 +234,16 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("NewsUpdated!", "", "success");
+                        $('#updatenewspopup').modal('hide');
                        
+
                     }
+                    location.href = "/News/Index";
 
                 },
                 error: function () {
                     console.log("Hata Oluştu");
+                     //swal("NewsUpdated!", "", "success");
                 }
             })
         }
@@ -258,8 +274,11 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("NewsDeleted!", "", "success");
+                        $('#deletenewspopup').modal('hide');
+                        //swal("NewsDeleted!", "", "success");
+
                     }
+                    location.href = "/News/Index"
 
                 },
                 error: function () {
@@ -312,12 +331,22 @@
                     data: News,
                     success: function (response) {
                         if (response) {
-                            swal("News Added!", "", "success");
+                           
+                            $('#modaldemo3').modal('hide');
                         }
 
+                        location.href = "/News/Index"
 
+
+
+                    },
+                    error: function () {
+                        console.log("hata oluştu");
+                         //swal("News Added!", "", "success");
 
                     }
+
+                    
 
                 });
 

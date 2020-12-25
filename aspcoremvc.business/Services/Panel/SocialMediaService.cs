@@ -85,11 +85,15 @@ namespace Business.Services.Panel
                 socialMediaDto.File.CopyTo(stream);
 
                 socialMediaDto.Icon = uniqueName;
+                socialMedia.Icon = socialMediaDto.Icon;
             }
-
+            else
+            {
+                socialMedia.Icon = socialMedia.Icon;
+            }
             socialMedia.Id = socialMediaDto.Id;
             socialMedia.Href = socialMediaDto.Href;
-            socialMedia.Icon = socialMediaDto.Icon;
+            //socialMedia.Icon = socialMediaDto.Icon;
             socialMedia.IsVisible = socialMediaDto.IsVisible;
             socialMedia.Name = socialMediaDto.Name;
             socialMedia.UpdatedDate = DateTime.Now;

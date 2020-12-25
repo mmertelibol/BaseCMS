@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Common.Dto.PanelDto
@@ -13,6 +14,7 @@ namespace Common.Dto.PanelDto
         public string Icon { get; set; }
         public string Href { get; set; }
 
+        //[Required, FileExtensions(Extensions = ".iso,.rar,.zip", ErrorMessage = "Incorrect file format")]
         public IFormFile File { get; set; }
         public int Id { get; set; }
 
