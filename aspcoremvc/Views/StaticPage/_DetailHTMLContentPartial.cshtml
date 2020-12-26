@@ -1,9 +1,9 @@
 ﻿
-<div id="titledetail" class="modal">
+<div id="htmlcontentpopup" class="modal">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Başlık Detay</h6>
+                <h6 class="modal-title">İçerik Detay</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,7 +13,7 @@
                 <form>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <input type="text" name="name" id="id" style="display:none" value="" />
+                            <input type="text" name="name" id="itemid" style="display:none" value="" />
                         </div>
 
                     </div>
@@ -21,18 +21,18 @@
 
                     @*<input type="hidden" name="newsId" id="newsId" value="@ViewBag.Lastnews" />*@
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Başlık</label>
+                        <label class="col-sm-2 col-form-label">İçerik</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="baslık">
+                            <textarea id="editor3"> </textarea>
                         </div>
                     </div>
                 </form>
-                    <div class="modal-footer">
-                        @*<button type="submit" id="addnews" class="btn btn-indigo">Add</button>*@
-                        <a asp-action="Index" asp-controller="News" class="btn btn-outline-light">Kapat</a>
-                    </div>
-                
-</div>
-</div>
-</div>
+                <div class="modal-footer">
+                    @*<button type="submit" id="addnews" class="btn btn-indigo">Add</button>*@
+                    <a asp-action="Index" asp-controller="SocialMedia" class="btn btn-outline-light">Kapat</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

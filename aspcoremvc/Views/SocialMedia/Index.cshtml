@@ -30,22 +30,22 @@
 
             <hr class="mg-y-30">
 
-          
+
 
             <div>
                 <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr>
 
-                            <th>Name</th>
-                            <th>IsVisible</th>
+                            <th>Ad</th>
+                            <th>Görünürlük</th>
 
-                            <th>Icon</th>
+                            <th>Ikon</th>
                             <th>Href</th>
 
 
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
 
 
 
@@ -55,35 +55,46 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                @if (item.Name != null)
+                        <tr>
+                            @if (item.Name != null)
+                            {
+                                @if (item.Name.ToString().Length > 20)
                                 {
-                                    @if (item.Name.ToString().Length > 5)
-                                    {
-                                        <td>@item.Name.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Name</td>
-                                    }
+                                    <td>@item.Name.Substring(0, 20)...</td>
                                 }
+                                else
+                                {
+                                    <td>@item.Name</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:indigo"> <strong>Eklenmedi!</strong> </p></td>
+                            }
 
-                                <td>
-                                    @if (item.IsVisible)
-                                    {
-                                        <span class="badge badge-success">Evet</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="badge badge-secondary">Hayır</span>
-                                    }
-                                </td>
+                            <td>
+                                @if (item.IsVisible)
+                                {
+                                    <span class="badge badge-success">Evet</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-secondary">Hayır</span>
+                                }
+                            </td>
 
 
-                                @*<td>@item.IsVisible</td>*@
+                            @*<td>@item.IsVisible</td>*@
 
-
+                            @if (item.Icon != null)
+                            {
                                 <td><img src="~/img/@item.Icon" style="width:150px; height:150px;" /></td>
+                            }
+                            else
+                            {
+                                @*<td><img src="#" alt="Eklenmedi!" style="width:150px; height:150px;" /></td>*@
+                                <td><p style="color:indigo"> <strong>Eklenmedi!</strong> </p></td>
+                            }
 
 
 
@@ -91,25 +102,31 @@
 
 
 
-                                @if (item.Href != null)
+
+
+                            @if (item.Href != null)
+                            {
+                                @if (item.Href.ToString().Length > 20)
                                 {
-                                    @if (item.Href.ToString().Length > 5)
-                                    {
-                                        <td>@item.Href.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Href</td>
-                                    }
+                                    <td>@item.Href.Substring(0, 20)...</td>
                                 }
+                                else
+                                {
+                                    <td>@item.Href</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:indigo"> <strong>Eklenmedi!</strong> </p></td>
+                            }
 
-                                <td>
-                                    <a href="" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup">Edit</a>
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup"><i class="far fa-edit"></i></button>
 
-                                </td>
-                                <td><a href="" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup">Delete</a> </td>
+                            </td>
+                            <td><button class="btn btn-sm btn-danger rounded-pill" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup"><i class="far fa-trash-alt"></i></button> </td>
 
-                            </tr>
+                        </tr>
                         }
 
                     </tbody>
@@ -140,7 +157,7 @@
             $("#hrefurl").val(ahref);
         }
     </script>
-   
+
     <script>
 
         function SocialMediaUpdate() {
@@ -170,12 +187,14 @@
                 processData: false,
                 success: function (response) {
                     if (response) {
-                        swal("SocialMedia Updated!", "", "success");
+                        $('#updatesocialmediapopup').modal('hide');
                     }
+                    location.href = "/SocialMedia/Index";
 
                 },
                 error: function () {
                     console.log("Hata Oluştu");
+                    //swal("SocialMedia Updated!", "", "success");
                 }
             })
 
@@ -205,12 +224,15 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("SocialMedia Deleted!", "", "success");
+                       
+                        $('#deletesocialmediapopup').modal('hide');
                     }
+                    location.href = "/SocialMedia/Index";
 
                 },
                 error: function () {
                     console.log("Hata Oluştu");
+                    //swal("SocialMedia Deleted!", "", "success");
                 }
             })
         }
@@ -258,8 +280,11 @@
                     processData: false,
                     success: function (response) {
                         if (response) {
-                            swal("SocialMedia Added!", "", "success");
+                            //swal("SocialMedia Added!", "", "success");
+
+                            $('#addsocialmediapopup').modal('hide');
                         }
+                        location.href = "/SocialMedia/Index";
 
 
 

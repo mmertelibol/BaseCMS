@@ -15,6 +15,7 @@
             @Html.Partial("_AddStaticPagePartial")
             @Html.Partial("_DeleteStaticPagePartial")
             @Html.Partial("_UpdateStaticPagePartial")
+            @Html.Partial("_DetailHTMLContentPartial")
 
 
 
@@ -32,7 +33,7 @@
                             <th>Sayfa Adı</th>
                             <th>Başlık</th>
                             <th>İçerik</th>
-                            <th>Açıklama</th>
+                            <th>Özet</th>
                             <th>Anahtar Kelimeler</th>
                             <th>Url</th>
 
@@ -52,60 +53,85 @@
 
                                 @if (item.Name != null)
                                 {
-                                    @if (item.Name.ToString().Length > 5)
+                                    @if (item.Name.ToString().Length > 15)
                                     {
-                                        <td>@item.Name.Substring(0, 5)...</td>
+                                        <td>@item.Name.Substring(0, 15)...</td>
                                     }
                                     else
                                     {
                                         <td>@item.Name</td>
                                     }
                                 }
-
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
 
                                 @if (item.Title != null)
                                 {
-                                    @if (item.Title.ToString().Length > 5)
+                                    @if (item.Title.ToString().Length > 15)
                                     {
-                                        <td>@item.Title.Substring(0, 5)...</td>
+                                        <td>@item.Title.Substring(0, 15)...</td>
                                     }
                                     else
                                     {
                                         <td>@item.Title</td>
                                     }
                                 }
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
 
 
                                 @if (item.HTMLContent != null)
                                 {
-                                    @if (item.HTMLContent.ToString().Length > 5)
-                                    {
-                                        <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+                                    <td><a onclick="getContentById('@item.Id')" class="btn" data-toggle="modal" data-target="#htmlcontentpopup"><i class="fas fa-search"></i></a> </td>
+
+                                }
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
+
+                                @*@if (item.HTMLContent != null)
+                                        {
+                                        @if (item.HTMLContent.ToString().Length > 5)
+                                        {
+                                            <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@Html.Raw(item.HTMLContent)</td>
+                                        }
                                     }
                                     else
                                     {
-                                        <td>@Html.Raw(item.HTMLContent)</td>
-                                    }
-                                }
+                                        <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                                    }*@
 
 
                                 @if (item.MetaDescription != null)
                                 {
-                                    @if (item.MetaDescription.ToString().Length > 5)
+                                    @if (item.MetaDescription.ToString().Length > 15)
                                     {
-                                        <td>@item.MetaDescription.Substring(0, 5)...</td>
+                                        <td>@item.MetaDescription.Substring(0, 15)...</td>
                                     }
                                     else
                                     {
                                         <td>@item.MetaDescription</td>
                                     }
                                 }
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
 
                                 @if (item.MetaKeywords != null)
                                 {
-                                    @if (item.MetaKeywords.ToString().Length > 5)
+                                    @if (item.MetaKeywords.ToString().Length > 15)
                                     {
-                                        <td>@item.MetaKeywords.Substring(0, 5)...</td>
+                                        <td>@item.MetaKeywords.Substring(0, 15)...</td>
                                     }
                                     else
                                     {
@@ -113,38 +139,36 @@
                                     }
                                 }
 
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
+
+
 
                                 @if (item.RoutingUrl != null)
                                 {
-                                    @if (item.RoutingUrl.ToString().Length > 5)
+                                    @if (item.RoutingUrl.ToString().Length > 15)
                                     {
-                                        <td>@item.RoutingUrl.Substring(0, 5)...</td>
+                                        <td>@item.RoutingUrl.Substring(0, 15)...</td>
                                     }
                                     else
                                     {
                                         <td>@item.RoutingUrl</td>
                                     }
                                 }
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
 
-
-
-
-
-
-
-
-
-
-
-
-
+                                }
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup">Düzenle</a>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup"><i class="far fa-edit"></i></button>
 
                                 </td>
-                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup">Sil</a> </td>
+                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup"><i class="far fa-trash-alt"></i></button> </td>
 
                             </tr>
                         }
@@ -169,8 +193,29 @@
 
 
 
+    <script>
+        function getContentById(id) {
+            $.ajax({
+                url: "/StaticPage/GetStaticPageById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id: id
+                },
+                success: function (data) {
+                    let gelenObje = jQuery.parseJSON(data);
 
-  
+                    $("#itemid").val(gelenObje.Id);
+                    CKEDITOR.instances.editor3.setData(gelenObje.HTMLContent);
+
+                }
+
+            })
+        }
+    </script>
+
+
     <script>
         function getById(id) {
             $.ajax({
@@ -179,19 +224,19 @@
                 contentType: "application/json; charset=utf8",
                 dataType: "json",
                 data: {
-                    Id:id
+                    Id: id
                 },
                 success: function (data) {
                     let gelenObje = jQuery.parseJSON(data);
-                    
+
                     $("#pageid").val(gelenObje.Id);
                     $("#pagename").val(gelenObje.Name);
                     CKEDITOR.instances.editor2.setData(gelenObje.HTMLContent);
                     $("#pagetitle").val(gelenObje.Title);
-                    $("#pagekeyword").val(gelenObje.MetaKeywords);  
+                    $("#pagekeyword").val(gelenObje.MetaKeywords);
                     $("#pagedescription").val(gelenObje.MetaDescription);
                     $("#gidilecekurl").val(gelenObje.RoutingUrl);
-                    
+
                 }
 
             })
@@ -201,11 +246,11 @@
     <script>
 
         function PageUpdate() {
-           
+
             CKEDITOR.instances['editor2'].updateElement();
             CKEDITOR.instances['editor2'].getData();
             //CKEDITOR.instances['editor2'].getData()
-            
+
 
             let id = $(pageid).val();
             let name = $(pagename).val();
@@ -239,7 +284,7 @@
                     if (response) {
                         //$('updatestaticpagepopup').hide();
                         $('#updatestaticpagepopup').modal('hide');
-                        
+
 
                     }
                     location.href = "/StaticPage/Index";
@@ -357,13 +402,18 @@
     <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script>
         CKEDITOR.replace('editor1');
-        
+
     </script>
 
 
-   
+
     <script>
         CKEDITOR.replace('editor2');
+
+
+    </script>
+    <script>
+        CKEDITOR.replace('editor3');
 
 
     </script>

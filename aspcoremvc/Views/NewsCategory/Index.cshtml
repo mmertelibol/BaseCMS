@@ -17,7 +17,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn"  data-toggle="modal" data-target="#addnewscategorypopup" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Add NewsCategory</strong> </a>
+            <a class="btn"  data-toggle="modal" data-target="#addnewscategorypopup" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Haber Kategorisi Ekle</strong> </a>
             @Html.Partial("_AddNewsCategoryPartial")
             @Html.Partial("_DeleteNewsCategoryPopUp")
             @Html.Partial("_UpdateNewsCategoryPartial")
@@ -35,11 +35,11 @@
                     <thead>
                         <tr>
                             @*<th>ID</th>*@
-                            <th>Name</th>
+                            <th>Kategori Adı</th>
                            
                             @*<th>Details</th>*@
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
 
 
 
@@ -61,10 +61,10 @@
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="newscategoryupdateshow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatenewscategorypopup">Edit</a>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="newscategoryupdateshow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatenewscategorypopup"><i class="far fa-edit" ></i></button>
 
                                 </td>
-                                <td><a href="" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup">Delete</a> </td>
+                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup"><i class="far fa-trash-alt"></i></button> </td>
 
                             </tr>
                         }
@@ -128,13 +128,14 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("NewsCategoryUpdated!", "", "success");
-
+                        
+                        $('#updatenewscategorypopup').modal('hide');
                     }
-
+                    location.href = "/NewsCategory/Index";
                 },
                 error: function () {
                     console.log("Hata Oluştu");
+                    //swal("NewsCategoryUpdated!", "", "success");
                 }
             })
         }
@@ -165,12 +166,14 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("NewsCategoryDeleted!", "", "success");
+                        $('#deletenewscategorypopup').modal('hide');
+                        location.href = "/NewsCategory/Index";
                     }
 
                 },
                 error: function () {
                     console.log("Hata Oluştu");
+                //    swal("NewsCategoryDeleted!", "", "success");
                 }
             })
         }
@@ -210,11 +213,16 @@
                     data: NewsCategory,
                     success: function (response) {
                         if (response) {
-                            swal("NewsCategory Added!", "", "success");
+                            $('addnewscategorypopup').modal('hide');
                         }
+                        location.href = "/NewsCategory/Index";
 
 
 
+                    },
+                    error: function () {
+                        console.log("Hata Oluştu");
+                       //swal("NewsCategory Added!", "", "success");
                     }
 
                 });
