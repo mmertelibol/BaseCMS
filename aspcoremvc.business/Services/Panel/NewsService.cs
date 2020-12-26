@@ -123,6 +123,7 @@ namespace Business.Services.Panel
             var news = _context.News.Find(newsDto.Id);
 
             news.Id = newsDto.Id;
+            news.Title = newsDto.Title;
             news.HTMLContent = newsDto.HTMLContent;
             news.MetaDescription = newsDto.MetaDescription;
             news.MetaKeywords = newsDto.MetaKeywords;

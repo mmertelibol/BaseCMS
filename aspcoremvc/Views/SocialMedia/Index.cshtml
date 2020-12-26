@@ -30,7 +30,7 @@
 
             <hr class="mg-y-30">
 
-            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+          
 
             <div>
                 <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
@@ -42,8 +42,8 @@
 
                             <th>Icon</th>
                             <th>Href</th>
-                           
-                           
+
+
                             <th>Edit</th>
                             <th>Delete</th>
 
@@ -55,72 +55,67 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            @if (item.Name != null)
-                            {
-                                @if (item.Name.ToString().Length > 5)
+                            <tr>
+                                @if (item.Name != null)
                                 {
-                                    <td>@item.Name.Substring(0, 5)...</td>
+                                    @if (item.Name.ToString().Length > 5)
+                                    {
+                                        <td>@item.Name.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Name</td>
+                                    }
                                 }
-                                else
+
+                                <td>
+                                    @if (item.IsVisible)
+                                    {
+                                        <span class="badge badge-success">Evet</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-secondary">Hayır</span>
+                                    }
+                                </td>
+
+
+                                @*<td>@item.IsVisible</td>*@
+
+
+                                <td><img src="~/img/@item.Icon" style="width:150px; height:150px;" /></td>
+
+
+
+
+
+
+
+                                @if (item.Href != null)
                                 {
-                                    <td>@item.Name</td>
+                                    @if (item.Href.ToString().Length > 5)
+                                    {
+                                        <td>@item.Href.Substring(0, 5)...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@item.Href</td>
+                                    }
                                 }
-                            }
 
+                                <td>
+                                    <a href="" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup">Edit</a>
 
+                                </td>
+                                <td><a href="" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup">Delete</a> </td>
 
-                            <td>@item.IsVisible</td>
-
-
-                            <td><img src="~/img/@item.Icon" style="width:150px; height:150px;" /></td>
-
-
-
-
-
-
-
-                            @if (item.Href != null)
-                            {
-                                @if (item.Href.ToString().Length > 5)
-                                {
-                                    <td>@item.Href.Substring(0, 5)...</td>
-                                }
-                                else
-                                {
-                                    <td>@item.Href</td>
-                                }
-                            }
-
-
-
-
-
-                           
-
-
-
-                            @*<td><a href="#">Details </a></td>*@
-                            <td>
-                                <a href="" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup">Edit</a>
-
-                            </td>
-                            <td><a href="" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup">Delete</a> </td>
-
-                        </tr>
+                            </tr>
                         }
-
-
 
                     </tbody>
                 </table>
             </div>
-
-
             <div class="ht-40"></div>
-
-
         </div><!-- az-content-body -->
     </div><!-- container -->
 </div><!-- az-content -->
@@ -143,24 +138,9 @@
             $("#visible").val(isvisible);
             //$("#logoicon").val(logoicon);
             $("#hrefurl").val(ahref);
-            
-
-
-
-
-
-
         }
     </script>
-    @*<script>
-        $("#isvisible").on('change', function () {
-            if ($(this).is(':checked')) {
-                $(this).attr('value', 'True');
-            } else {
-                $(this).attr('value', 'False');
-            }
-
-    </script>*@
+   
     <script>
 
         function SocialMediaUpdate() {
@@ -168,12 +148,9 @@
 
             let socialmediaid = $("#socialid").val();
             let socialmedianame = $("#socialname").val();
-
             let Isvisible = $("#visible").val();
             let Icon = $("#logoicon")[0].files[0];
             let Href = $("#hrefurl").val();
-           
-
 
             let formData = new FormData();
             formData.append("Id", socialmediaid);
@@ -184,40 +161,34 @@
             if (Icon != null) {
                 formData.append("File", Icon, Icon.fileName)
             }
-           
-               
 
-                $.ajax({
-                    type: "put",
-                    url: "/SocialMedia/UpdateSocialMedia",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-                        if (response) {
-                            swal("SocialMedia Updated!", "", "success");
-                        }
-
-                    },
-
-                    error: function () {
-                        console.log("Hata Oluştu");
+            $.ajax({
+                type: "put",
+                url: "/SocialMedia/UpdateSocialMedia",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response) {
+                        swal("SocialMedia Updated!", "", "success");
                     }
-                })
-           
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+
         }
     </script>
 
     <script>
 
-            function SocialMediaDeleteShow(id) {
+        function SocialMediaDeleteShow(id) {
             // debugger;
 
             $("#socialmediaid").val(id);
-
-
-
-            }
+        }
     </script>
 
     <script>
@@ -247,7 +218,7 @@
 
     <script>
 
-    // debugger;
+        // debugger;
         $(function () {
             //debugger;
             $("#addsocialmedia").click(function () {
@@ -259,7 +230,7 @@
                 let IsVisible = $("#isvisible").val();
                 let iconurl = $("#icon")[0].files[0];
                 let href = $("#href").val();
-              
+
 
                 let formData = new FormData();
                 //formData.append("Id", componentid);
@@ -267,7 +238,7 @@
                 formData.append("IsVisible", IsVisible);
                 //formData.append("ImageUrl", componentimageurl);
                 formData.append("Href", href);
-               
+
 
 
                 if (iconurl != null) {

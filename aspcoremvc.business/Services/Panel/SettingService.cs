@@ -113,7 +113,7 @@ namespace Business.Services.Panel
             }
             if (settingDto.FileLogo != null)
             {
-                var uniquePictureName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
+                var uniquePictureName = Guid.NewGuid() + Path.GetExtension(settingDto.FileLogo.FileName);
                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniquePictureName);
                 var stream = new FileStream(path, FileMode.Create);
                 settingDto.FileLogo.CopyTo(stream);

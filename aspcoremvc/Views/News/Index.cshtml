@@ -21,6 +21,8 @@
             @Html.Partial("_AddNewsPopUpPartial")
             @Html.Partial("_DeleteNewsPopUpPartial")
             @Html.Partial("_UpdateNewsPopUpPartial")
+            @Html.Partial("_DetailNewsTitle")
+
 
 
 
@@ -28,98 +30,141 @@
 
             <hr class="mg-y-30">
 
-         
+
 
             <div>
                 <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr>
 
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Content</th>
-                            <th>Description</th>
-                            <th>Keywords</th>
-                            <th>Category</th>
+                            <th>Baslık</th>
+                            <th>Yazar</th>
+                            @*<th>İçerik</th>*@
+                            <th>Özet</th>
+                            <th>Anahtar Kelimeler</th>
+                            <th>Kategori</th>
                             <th>RoutingUrl</th>
-                            <th>ViewCount</th>
-                            @*<th>Details</th>*@
-                            <th>Edit</th>
-                            <th>Delete</th>
-
-
-
+                            @*<th>ViewCount</th>*@
+                            <th>Güncelle</th>
+                            <th>Sil</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                @*<td>@item.Id</td>
-                                    @if (item.Title.ToString().Length > 5)
-                                    {
-                                        <td>@item.Title.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Title</td>
-                                    }*@
-                                <td class="text-truncate"> @item.Title</td>
-
-                                @if (item.Author.ToString().Length > 5)
+                        <tr>
+                            @*<td>@item.ıd</td>*@
+                            @if (item.Title != null)
+                            {
+                                @if (item.Title.ToString().Length > 10)
                                 {
-                                    <td>@item.Author.Substring(0, 5)...</td>
+                                    <td>@item.Title.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Title</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+                            <!--<td>--> @*@item.Title*@<!--<button onclick="getTitleById('@item.Id')" type="button" style="width:auto;"  class="btn btn-indigo rounded-pill btn-sm" data-toggle="modal" data-target="#titledetail"><i class="fas fa-search"></i></button> </td>-->
+
+                            @if (item.Author != null)
+                            {
+                                @if (item.Author.ToString().Length > 10)
+                                {
+                                    <td>@item.Author.Substring(0, 10)...</td>
                                 }
                                 else
                                 {
                                     <td>@item.Author</td>
                                 }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
 
-                                @if (item.HTMLContent.ToString().Length > 5)
+
+                            @*@if (item.HTMLContent.ToString().Length > 5)
+        {
+            <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
+        }
+
+        else
+        {
+            <td>@Html.Raw(item.HTMLContent)</td>
+
+        }*@
+
+                            @if (item.MetaDescription != null)
+                            {
+                                @if (item.MetaDescription.ToString().Length > 10)
                                 {
-                                    <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
-                                }
-                                else
-                                {
-                                    <td>@Html.Raw(item.HTMLContent)</td>
-
-                                }
-
-
-                                @if (item.MetaDescription.ToString().Length > 5)
-                                {
-                                    <td>@item.MetaDescription.Substring(0, 5)...</td>
+                                    <td>@item.MetaDescription.Substring(0, 10)...</td>
                                 }
                                 else
                                 {
                                     <td>@item.MetaDescription</td>
                                 }
-                                @if (item.MetaKeywords.ToString().Length > 5)
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+
+                            @if (item.MetaKeywords != null)
+                            {
+                                @if (item.MetaKeywords.ToString().Length > 10)
                                 {
-                                    <td>@item.MetaKeywords.Substring(0, 5)...</td>
+                                    <td>@item.MetaKeywords.Substring(0, 10)...</td>
                                 }
                                 else
                                 {
                                     <td>@item.MetaKeywords</td>
                                 }
-                                @if (item.NewsCategory.Name.ToString().Length > 5)
+
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+                            @if (item.NewsCategory.Name != null)
+                            {
+                                @if (item.NewsCategory.Name.ToString().Length > 10)
                                 {
-                                    <td>@item.NewsCategory.Name.Substring(0, 5)...</td>
+                                    <td>@item.NewsCategory.Name.Substring(0, 10)...</td>
                                 }
                                 else
                                 {
                                     <td>@item.NewsCategory.Name</td>
                                 }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
 
-                                @if (item.RoutingUrl.ToString().Length > 5)
+                            @if (item.RoutingUrl != null)
+                            {
+                                @if (item.RoutingUrl.ToString().Length > 10)
                                 {
-                                    <td>@item.RoutingUrl.Substring(0, 5)...</td>
+                                    <td>@item.RoutingUrl.Substring(0, 10)...</td>
                                 }
                                 else
                                 {
                                     <td>@item.RoutingUrl</td>
                                 }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
 
 
 
@@ -127,17 +172,18 @@
 
 
 
-                                <td>@item.ViewCount</td>
+
+                            @*<td>@item.ViewCount</td>*@
 
 
-                                @*<td><a href="#">Details </a></td>*@
-                                <td>
-                                    <a href="" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewspopup">Edit</a>
+                            @*<td><a href="#">Details </a></td>*@
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewspopup"><i class="far fa-edit"></i></button>
 
-                                </td>
-                                <td><a href="" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup">Delete</a> </td>
+                            </td>
+                            <td><button class="btn btn-sm btn-danger rounded-pill" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup"><i class="far fa-trash-alt"></i></button> </td>
 
-                            </tr>
+                        </tr>
                         }
 
 
@@ -159,9 +205,32 @@
 
 
 
+    @*<script>
+            function getTitleById(id) {
+                $.ajax({
+                    url: "/News/GetNewsById",
+                    type: "Get",
+                    contentType: "application/json; charset=utf8",
+                    dataType: "json",
+                    data: {
+                        Id: id
+                    },
+                    success: function (data) {
+                        debugger;
+                        //let gelenObje = jQuery.parseJSON(data);
+
+                        $("#id").val(data.Id);
+                        $("#baslık").val(data.Title);
+
+                    }
+
+                })
+            }
 
 
- 
+        </script>*@
+
+
 
     <script>
         function getById(id) {
@@ -185,8 +254,6 @@
                     $("#newsdescription").val(data.MetaDescription);
                     $("#newskeyword").val(data.MetaKeywords);
                     $("#newscategory").val(data.NewsCategoryId);
-                    
-                    
 
                 }
 
@@ -210,11 +277,6 @@
             let category = $(newscategory).val();
             let route = $(newsroute).val();
 
-
-
-
-
-
             $.ajax({
                 type: "put",
                 url: "/News/UpdateNews",
@@ -228,22 +290,20 @@
                     NewsCategoryId: category,
                     RoutingURL: route
 
-
-
-
                 },
                 success: function (response) {
                     if (response) {
                         $('#updatenewspopup').modal('hide');
-                       
+
 
                     }
                     location.href = "/News/Index";
 
+
                 },
                 error: function () {
                     console.log("Hata Oluştu");
-                     //swal("NewsUpdated!", "", "success");
+                    //swal("NewsUpdated!", "", "success");
                 }
             })
         }
@@ -331,7 +391,7 @@
                     data: News,
                     success: function (response) {
                         if (response) {
-                           
+
                             $('#modaldemo3').modal('hide');
                         }
 
@@ -342,11 +402,11 @@
                     },
                     error: function () {
                         console.log("hata oluştu");
-                         //swal("News Added!", "", "success");
+                        //swal("News Added!", "", "success");
 
                     }
 
-                    
+
 
                 });
 
