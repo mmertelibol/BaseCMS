@@ -35,19 +35,19 @@
                     <thead>
                         <tr>
 
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>Başlık</th>
+                            <th>Özet</th>
 
                             <th>Href</th>
-                            <th>Category</th>
-                            <th>ImageUrl</th>
+                            <th>Kategori</th>
+                            <th>Resim</th>
                             @*<th>Keywords</th>
                                 <th>Category</th>
                                 <th>RoutingUrl</th>
                                 <th>ViewCount</th>*@
                             @*<th>Details</th>*@
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
 
 
 
@@ -57,74 +57,90 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                @if (item.Title != null)
+                        <tr>
+                            @if (item.Title != null)
+                            {
+                                @if (item.Title.ToString().Length > 5)
                                 {
-                                    @if (item.Title.ToString().Length > 5)
-                                    {
-                                        <td>@item.Title.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Title</td>
-                                    }
+                                    <td>@item.Title.Substring(0, 5)...</td>
                                 }
-
-                                @if (item.Description != null)
+                                else
                                 {
-                                    @if (item.Description.ToString().Length > 5)
-                                    {
-                                        <td>@item.Description.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Description</td>
-                                    }
+                                    <td>@item.Title</td>
                                 }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
 
-
-
-
-
-                                @if (item.Href != null)
+                            @if (item.Description != null)
+                            {
+                                @if (item.Description.ToString().Length > 5)
                                 {
-                                    @if (item.Href.ToString().Length > 5)
-                                    {
-                                        <td>@item.Href.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Href</td>
-                                    }
+                                    <td>@item.Description.Substring(0, 5)...</td>
                                 }
-
-                                @if (item.PageComponentCategory.Name != null)
+                                else
                                 {
-                                    @if (item.PageComponentCategory.Name.ToString().Length > 5)
-                                    {
-                                        <td>@item.PageComponentCategory.Name.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.PageComponentCategory.Name</td>
-                                    }
+                                    <td>@item.Description</td>
                                 }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
 
 
 
 
-                                <td><img src="~/img/@item.ImageUrl" style="width:150px; height:150px;" /></td>
+
+                            @if (item.Href != null)
+                            {
+                                @if (item.Href.ToString().Length > 5)
+                                {
+                                    <td>@item.Href.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Href</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+                            @if (item.PageComponentCategory.Name != null)
+                            {
+                                @if (item.PageComponentCategory.Name.ToString().Length > 5)
+                                {
+                                    <td>@item.PageComponentCategory.Name.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.PageComponentCategory.Name</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
 
 
 
-                                @*<td><a href="#">Details </a></td>*@
-                                <td>
-                                    <a href="" onclick="ComponentUpdateShow('@item.Id', '@item.Title', '@item.Description','@item.Href','@item.PageComponentCategoryId')" data-toggle="modal" data-target="#updatepagecomponentpopup">Edit</a>
 
-                                </td>
-                                <td><a href="" onclick="ComponentDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletecomponentpopup">Delete</a> </td>
+                            <td><img src="~/img/@item.ImageUrl" style="width:150px; height:150px;" /></td>
 
-                            </tr>
+
+
+                            @*<td><a href="#">Details </a></td>*@
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentUpdateShow('@item.Id', '@item.Title', '@item.Description','@item.Href','@item.PageComponentCategoryId')" data-toggle="modal" data-target="#updatepagecomponentpopup"><i class="far fa-edit"></i></button>
+
+                            </td>
+                            <td><button class="btn btn-sm btn-danger rounded-pill" onclick="ComponentDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletecomponentpopup"><i class="far fa-trash-alt"></i></button> </td>
+
+                        </tr>
                         }
 
 
@@ -151,14 +167,14 @@
 
     <script>
 
-        function ComponentUpdateShow(id, title, description, href, category) {
+        function ComponentUpdateShow(id,title,description,ahref,category) {
             // debugger;
 
             $("#id").val(id);
             $("#title").val(title);
             $("#description").val(description);
             //$("#imageurl").val(imageurl);
-            $("#hrefurl").val(href);
+            $("#hrefurl").val(ahref);
             $("#categoryid").val(category);
 
 
@@ -208,8 +224,10 @@
                 processData: false,
                 success: function (response) {
                     if (response) {
-                        swal("Component Updated!", "", "success");
+                        //swal("Component Updated!", "", "success");
+                        $('updatepagecomponentpopup').modal('hide');
                     }
+                    location.href = "/PageComponent/Index";
 
 
 
@@ -249,8 +267,10 @@
                 },
                 success: function (response) {
                     if (response) {
-                        swal("Component Deleted!", "", "success");
+                       
+                        $('deletecomponentpopup').modal('hide');
                     }
+                    location.href = "/PageComponent/Index";
 
                 },
                 error: function () {
@@ -313,11 +333,16 @@
                     processData: false,
                     success: function (response) {
                         if (response) {
-                            swal("Component Added!", "", "success");
+                            //swal("Component Added!", "", "success");
+                            $('addpagecomponentpopup').modal('hide');
                         }
+                        location.href = "/PageComponent/Index";
 
 
 
+                    },
+                    error: function () {
+                        console.log("Hata Oluştu");
                     }
 
                 });

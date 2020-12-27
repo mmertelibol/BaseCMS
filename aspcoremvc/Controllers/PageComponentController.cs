@@ -47,6 +47,14 @@ namespace Web.Controllers
         {
             var updated = _pageComponentService.UpdatePageComponent(pageComponentDto);
             return Json(updated);
+        
+        
+        }
+        [HttpGet]
+        public JsonResult GetPageComponentById(int id)
+        {
+            var component = _pageComponentService.GetPageComponentById(id);
+            return Json(component);
         }
 
 
