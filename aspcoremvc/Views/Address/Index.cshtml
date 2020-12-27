@@ -1,7 +1,410 @@
-﻿
+﻿@model IEnumerable<AddressDto>
+
 @{
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Address</h1>
+
+
+<!-- vendor css -->
+<!-- az-header -->
+
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn btn-primary" data-toggle="modal" data-target="#addressmodal" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Adres Ekle</strong> </a>
+            @Html.Partial("_AddAddressPopUp")
+            @Html.Partial("_DeleteAddressPopUp")
+            @Html.Partial("_UpdateAddressPopUp")
+           
+
+
+
+
+
+
+            <hr class="mg-y-30">
+
+
+
+            <div>
+                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr>
+
+                            <th>İsim</th>
+                            <th>Email</th>
+                            <th>Telefon</th>
+                            <th>Şehir</th>
+                            <th>İlçe</th>
+                            <th>Tam Adres</th>
+                            <th>Enlem</th>
+                            <th>Boylam</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            @*<td>@item.ıd</td>*@
+                            @if (item.Name != null)
+                            {
+                                @if (item.Name.ToString().Length > 10)
+                                {
+                                    <td>@item.Name.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Name</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+                            <!--<td>--> @*@item.Title*@<!--<button onclick="getTitleById('@item.Id')" type="button" style="width:auto;"  class="btn btn-indigo rounded-pill btn-sm" data-toggle="modal" data-target="#titledetail"><i class="fas fa-search"></i></button> </td>-->
+
+                            @if (item.Email != null)
+                            {
+                                @if (item.Email.ToString().Length > 10)
+                                {
+                                    <td>@item.Email.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Email</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+
+
+                            @if (item.Phone != null)
+                            {
+                                @if (item.Phone.ToString().Length > 10)
+                                {
+                                    <td>@item.Phone.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Phone</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+
+                            @if (item.City != null)
+                            {
+                                @if (item.City.ToString().Length > 10)
+                                {
+                                    <td>@item.City.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.City</td>
+                                }
+
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+                            @if (item.County != null)
+                            {
+                                @if (item.County.ToString().Length > 10)
+                                {
+                                    <td>@item.County.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.County</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+                            @if (item.FullAdress != null)
+                            {
+                                @if (item.FullAdress.ToString().Length > 10)
+                                {
+                                    <td>@item.FullAdress.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.FullAdress</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+
+                            @if (item.Longitude != null)
+                            {
+                                @if (item.Longitude.ToString().Length > 10)
+                                {
+                                    <td>@item.Longitude.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Longitude</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+
+                            @if (item.Latitude != null)
+                            {
+                                @if (item.Latitude.ToString().Length > 10)
+                                {
+                                    <td>@item.Latitude.Substring(0, 10)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Latitude</td>
+                                }
+                            }
+                            else
+                            {
+                                <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                            }
+
+
+
+
+
+
+
+
+                            @*<td>@item.ViewCount</td>*@
+
+
+                            @*<td><a href="#">Details </a></td>*@
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="GetAddressById('@item.Id')" data-toggle="modal" data-target="#updateaddressmodal"><i class="far fa-edit"></i></button>
+
+                            </td>
+                            <td><button class="btn btn-sm btn-danger rounded-pill" onclick="DeleteGetById('@item.Id')" data-toggle="modal" data-target="#deleteaddresspopup"><i class="far fa-trash-alt"></i></button> </td>
+
+                        </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+@section xx{
+
+
+
+
+
+    <script>
+        function GetAddressById(id) {
+            $.ajax({
+                url: "/Address/GetAddressById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id: id
+                },
+                success: function (data) {
+                    debugger;
+                   
+
+                    $("#adresid").val(data.Id);
+                    $("#adresadı").val(data.Name)
+                    $("#mail").val(data.Email);
+                    $("#telefon").val(data.Phone);
+                    $("#sehir").val(data.City);
+                    $("#ilce").val(data.County);
+                    $("#tamadres").val(data.FullAdress);
+                    $("#boylam").val(data.Longitude);
+                    $("#enlem").val(data.Latitude);
+
+                }
+
+            })
+        }
+
+    </script>
+
+    <script>
+
+        function AddressUpdate() {
+            debugger
+           
+
+            let id = $(adresid).val();
+            let name = $(adresadı).val();
+            let email = $(mail).val();
+            let phone = $(telefon).val();
+            let city = $(sehir).val();
+            let county = $(ilce).val();
+            let fulladdress = $(tamadres).val();
+            let longitude = $(boylam).val();
+            let latitude = $(enlem).val();
+
+            $.ajax({
+                type: "put",
+                url: "/Address/UpdateAddress",
+                data: {
+                    Id: id,
+                    Name: name,
+                    Email: email,
+                    Phone: phone,
+                    City: city,
+                    County: county,
+                    FullAdress: fulladdress,
+                    Longitude: longitude,
+                    Latitude: latitude
+
+                },
+                success: function (response) {
+                    if (response) {
+                        $('#updateaddressmodal').modal('hide');
+
+
+                    }
+                    location.href = "/Address/Index";
+
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                    //swal("NewsUpdated!", "", "success");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+        function DeleteGetById(id) {
+            // debugger;
+
+            $("#deleteaddress").val(id);
+        }
+    </script>
+
+    <script>
+
+        function DeleteAddress() {
+            let id = $(deleteaddress).val();
+
+            $.ajax({
+                type: "delete",
+                url: "/Address/DeleteAddress",
+                data: {
+                    Id: id
+
+                },
+                success: function (response) {
+                    if (response) {
+                        $('#deleteaddresspopup').modal('hide');
+                        //swal("NewsDeleted!", "", "success");
+
+                    }
+                    location.href = "/Address/Index"
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+
+    <script>
+
+
+
+
+
+
+
+
+        // debugger;
+        $(function () {
+
+
+            //  debugger;
+
+
+            $("#addaddress").click(function () {
+               
+                let Address = {
+                    Name: $("#addressname").val(),
+                    Email: $("#email").val(),
+                    Phone: $("#phone").val(),
+                    City: $("#city").val(),
+                    County: $("#county").val(),
+                    FullAdress: $("#fulladdress").val(),
+                    Longitude: $("#longitude").val(),
+                    Latitude: $("#latitude").val(),
+                   
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/Address/AddAddress",
+                    data: Address,
+                    success: function (response) {
+                        if (response) {
+
+                            $('#addressmodal').modal('hide');
+                        }
+
+                        location.href = "/Address/Index"
+
+                    },
+                    error: function () {
+                        console.log("hata oluştu");
+                        //swal("News Added!", "", "success");
+
+                    }
+
+
+
+                });
+
+            });
+
+        });
+    </script>
+
+   
+
+}

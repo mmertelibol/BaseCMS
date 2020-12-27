@@ -14,7 +14,7 @@ namespace Common.Dto.PanelDto
         public string Icon { get; set; }
         public string Href { get; set; }
 
-        //[Required, FileExtensions(Extensions = ".iso,.rar,.zip", ErrorMessage = "Incorrect file format")]
+        //[Required, FileExtensions(Extensions = ".png", ErrorMessage = "Incorrect file format")]
         public IFormFile File { get; set; }
         public int Id { get; set; }
 

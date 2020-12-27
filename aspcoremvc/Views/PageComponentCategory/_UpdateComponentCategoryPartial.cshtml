@@ -9,7 +9,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Update ComponentCategory</h6>
+                <h6 class="modal-title">İçerik Kategorisi Güncelle</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -27,7 +27,7 @@
 
                     @*<input type="hidden" name="newsId" id="newsId" value="@ViewBag.Lastnews" />*@
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Name</label>
+                        <label class="col-sm-2 col-form-label">Kategori Adı</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="componentcategoryname">
                         </div>
@@ -46,8 +46,8 @@
 
             </div><!-- modal-body -->
             <div class="modal-footer">
-                <button type="submit" onclick="ComponentCategoryUpdate()" class="btn btn-indigo">Update</button>
-                <a asp-action="Index" asp-controller="PageComponentCategory" class="btn btn-outline-light">Close</a>
+                <button type="submit" onclick="ComponentCategoryUpdate()" class="btn btn-indigo">Güncelle</button>
+                <a asp-action="Index" asp-controller="PageComponentCategory" class="btn btn-outline-light">Kapat</a>
             </div>
         </div>
     </div>

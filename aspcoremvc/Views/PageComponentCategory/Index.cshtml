@@ -19,7 +19,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn btn-primary" data-toggle="modal" data-target="#addcomponentcategorypopup" style="width:120px;  background-color:#5b47fb"><strong style="color:white">Add ComponentCategory</strong> </a>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#addcomponentcategorypopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Kategori Ekle</strong> </a>
             @Html.Partial("_AddComponentCategoryPartial")
             @Html.Partial("_DeleteComponentCategoryPartial")
             @Html.Partial("_UpdateComponentCategoryPartial")
@@ -37,11 +37,11 @@
                     <thead>
                         <tr>
                             @*<th>ID</th>*@
-                            <th>Name</th>
+                            <th>KATEGORİ ADI</th>
 
                             @*<th>Details</th>*@
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th>GÜNCELLE</th>
+                            <th>SİL</th>
 
 
 
@@ -52,26 +52,16 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                @*<td>@item.Id</td>*@
-
-                                @*@if (item.Name.ToString().Length > 5)
-                                    {
-                                        <td>@item.Name.Substring(0, 5)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Name</td>
-                                    }*@
-
+                              
                                 <td>@item.Name</td>
 
 
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
-                                    <a href="" onclick="ComponentCategoryUpdateShow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatecomponentcategorypopup">Edit</a>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentCategoryUpdateShow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatecomponentcategorypopup"><i class="far fa-edit"></i></button>
 
                                 </td>
-                                <td><a href="" onclick="ComponentCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletepagecategorypopup">Delete</a> </td>
+                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="ComponentCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletepagecategorypopup"><i class="far fa-trash-alt"></i></button> </td>
 
                             </tr>
                         }

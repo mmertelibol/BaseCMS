@@ -37,7 +37,7 @@ namespace Business.Services.Panel
         {
             var address = _context.Adress.Find(addressId);
             var deletedAddress = _context.Adress.Remove(address);
-            var dtoModel = _mapper.Map<AddressDto>(deletedAddress);
+            var dtoModel = _mapper.Map<AddressDto>(address);
 
             _context.SaveChanges();
             return dtoModel;
