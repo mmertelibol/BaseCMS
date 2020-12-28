@@ -154,16 +154,16 @@
 
                     görünürlük: { required: true },
 
-                    uzantı: {required:true}
+                    uzantı: { required: true }
 
                 },
                 messages: {
                     sosyaladı: { required: "Lütfen Sosyal Medya Adı Giriniz!" },
                     dosya: { extension: "Png formatında dosya yükeyiniz!", required: "Lütfen dosya yükleyiniz!" },
                     görünürlük: { required: "Görünürlük Seçiniz!" },
-                    uzantı: {required: "Lütfen href giriniz!"}
-                    
-                   },
+                    uzantı: { required: "Lütfen href giriniz!" }
+
+                },
                 submitHandler: function (form) {
                     let socialmedianame = $("#name").val();
                     let IsVisible = $("#isvisible").val();
@@ -189,7 +189,7 @@
                         processData: false,
                         success: function (response) {
                             if (response) {
-                               
+
 
                                 $('#addsocialmediapopup').modal('hide');
                             }
@@ -201,66 +201,14 @@
 
                     });
 
-
-                    
-
-
-
                 }
             });
         });
 
 
 
-   </script>
-   
-    @*<script>
+    </script>
 
-        // debugger;
-        $(function () {
-            //debugger;
-            $("#addsocialmedia").click(function () {
-               
-                let socialmedianame = $("#name").val();
-                let IsVisible = $("#isvisible").val();
-                let iconurl = $("#icon")[0].files[0];
-                let href = $("#href").val();
-
-
-                let formData = new FormData();//formData.append("Id", componentid);
-                formData.append("Name", socialmedianame);
-                formData.append("IsVisible", IsVisible);
-                formData.append("Href", href);
-
-                if (iconurl != null) {
-                    formData.append("File", iconurl, iconurl.fileName)
-                }
-
-                // debugger;
-                $.ajax({
-                    type: "post",
-                    url: "/SocialMedia/AddSocialMedia",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-                        if (response) {
-                            swal("SocialMedia Added!", "", "success");
-
-                            $('#addsocialmediapopup').modal('hide');
-                        }
-                        location.href = "/SocialMedia/Index";
-
-
-
-                    }
-
-                });
-
-            });
-
-        });
-    </script>*@
 
 
     <script>
@@ -271,58 +219,14 @@
             $("#socialid").val(id);
             $("#socialname").val(name);
             $("#visible").val(isvisible);
-            //$("#logoicon").val(logoicon);
             $("#hrefurl").val(ahref);
         }
     </script>
 
-    <script>
-
-        function SocialMediaUpdate() {
-           
-
-            let socialmediaid = $("#socialid").val();
-            let socialmedianame = $("#socialname").val();
-            let Isvisible = $("#visible").val();
-            let Icon = $("#logoicon")[0].files[0];
-            let Href = $("#hrefurl").val();
-
-            let formData = new FormData();
-            formData.append("Id", socialmediaid);
-            formData.append("Name", socialmedianame);
-            formData.append("IsVisible", Isvisible);
-            formData.append("Href", Href);
-
-            if (Icon != null) {
-                formData.append("File", Icon, Icon.fileName)
-            }
-
-            $.ajax({
-                type: "put",
-                url: "/SocialMedia/UpdateSocialMedia",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    if (response) {
-                        $('#updatesocialmediapopup').modal('hide');
-                    }
-                    location.href = "/SocialMedia/Index";
-
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                    //swal("SocialMedia Updated!", "", "success");
-                }
-            })
-
-        }
-    </script>
-
+  
     <script>
 
         function SocialMediaDeleteShow(id) {
-            // debugger;
 
             $("#socialmediaid").val(id);
         }
@@ -356,6 +260,68 @@
         }
     </script>
 
+    <script>
+        $("#updatesocialmedia").click(function () {
+            $("#updateform").validate({
+                rules: {
+                    adısosyal: { required: true },
+
+                    fileinput: { extension: "png", required: false },
+
+                    gorunurluk: { required: true },
+
+                    href: { required: true }
+
+                },
+                messages: {
+                    adısosyal: { required: "Lütfen Sosyal Medya Adı Giriniz!" },
+                    fileinput: { extension: "Png formatında dosya yükleyiniz!" },
+                    gorunurluk: { required: "Görünürlük Seçiniz!" },
+                    href: { required: "Lütfen href giriniz!" }
+
+                },
+                submitHandler: function (form) {
+                    let socialmediaid = $("#socialid").val();
+                    let socialmedianame = $("#socialname").val();
+                    let Isvisible = $("#visible").val();
+                    let Icon = $("#logoicon")[0].files[0];
+                    let Href = $("#hrefurl").val();
+
+                    let formData = new FormData();
+                    formData.append("Id", socialmediaid);
+                    formData.append("Name", socialmedianame);
+                    formData.append("IsVisible", Isvisible);
+                    formData.append("Href", Href);
+
+                    if (Icon != null) {
+                        formData.append("File", Icon, Icon.fileName)
+                    }
+
+                    $.ajax({
+                        type: "put",
+                        url: "/SocialMedia/UpdateSocialMedia",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            if (response) {
+                                $('#updatesocialmediapopup').modal('hide');
+                            }
+                            location.href = "/SocialMedia/Index";
+
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
+                            //swal("SocialMedia Updated!", "", "success");
+                        }
+
+
+                    });
+
+                }
+            });
+        });
+    </script>
 
 
 

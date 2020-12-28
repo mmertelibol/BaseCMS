@@ -1,15 +1,5 @@
 ﻿
-
-
-
-<style>
-    .error {
-        color: red;
-        font-family: 'Times New Roman', Times, serif;
-    }
-</style>
-
-<form id="updatesocialform">
+<form id="updateform">
     <div id="updatesocialmediapopup" class="modal">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal-content-demo">
@@ -19,16 +9,14 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <div class="modal-body">
 
-                    <input type="text" id="socialid" style="display:none"/>
+
+                    <input type="text" name="id" id="socialid" style="display:none" />
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">İsim</label>
-
+                        <label class="col-sm-2 col-form-label"> İsim</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="socialname" name="sosyaladı">
-
+                            <input type="text" class="form-control" id="socialname" name="adısosyal">
                         </div>
 
 
@@ -36,13 +24,14 @@
                     </div>
 
 
+
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Görünürlük</label>
                         <div class="col-sm-10">
-                            <select id="visible" name="görünürlük" class="form-control select2">
+                            <select id="visible" class="form-control select2" name="gorunurluk">
 
-                                <option value="True">Evet</option>
-                                <option value="False">Hayır</option>
+                                <option>True</option>
+                                <option>False</option>
 
                             </select>
                         </div>
@@ -53,18 +42,33 @@
 
 
 
+
+
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Href</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="hrefurl" name="href">
+                        </div>
+
+
+
+                    </div>
+
+
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">İkon</label>
                         <div class="col-sm-10">
                             <div class="row row-sm">
                                 <div class="col-sm-7 col-md-6 col-lg-4">
-                                    <div>
-                                        <input type="file" id="logoicon" name="dosya">
+                                    <div class="custom-file">
+                                        <input type="file" id="logoicon" name="fileinput" />
                                         <label for="dosya" data-browse="Dosya Seç"></label>
 
                                     </div>
-                                </div><!-- col -->
-                            </div><!-- row -->
+                                </div>
+                            </div>
 
                         </div>
 
@@ -72,28 +76,22 @@
 
                     </div>
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Href</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="hrefurl" name="uzantı">
-                        </div>
 
 
 
-                    </div>
+
+
+
+
                 </div>
                 <div class="modal-footer">
-                   
-                    <button onclick="SocialMediaUpdate()" class="btn btn-indigo" type="submit">Güncelle</button>
+                    <button type="submit" id="updatesocialmedia" class="btn btn-indigo " value="Güncelle" >Güncelle</button>
 
                     <a asp-action="Index" asp-controller="SocialMedia" class="btn btn-outline-light">Kapat</a>
                 </div>
-             
-
             </div>
-
         </div>
     </div>
-
 </form>
+
 
