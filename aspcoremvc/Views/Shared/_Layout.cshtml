@@ -71,12 +71,12 @@
     <div class="az-header">
         <div class="container">
             <div class="az-header-left">
-                <a href="index.html" class="az-logo"><span></span>SDFM</a>
-                <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
+                <a asp-action="Index" asp-controller="HomePage" class="az-logo"><span></span>SDFM</a>
+                <a asp-action="Index" asp-controller="HomePage" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
             </div><!-- az-header-left -->
             <div class="az-header-menu">
                 <div class="az-header-menu-header">
-                    <a href="index.html" class="az-logo"><span></span> SDFM </a>
+                    <a asp-action="Index" asp-controller="HomePage" class="az-logo"><span></span> SDFM </a>
                     <a href="" class="close">&times;</a>
                 </div><!-- az-header-menu-header -->
                 <ul class="nav">
@@ -317,7 +317,8 @@
             <span>Designed by: SDFM</span>
         </div><!-- container -->
     </div><!-- az-footer -->
-
+  
+ 
     <script src="~/Template/v1.1/lib/jquery/jquery.min.js"></script>
     <script src="~/Template/v1.1/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/Template/v1.1/lib/ionicons/ionicons.js"></script>
@@ -327,10 +328,12 @@
     <script src="~/Template/v1.1/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Template/v1.1/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
     <script src="~/Template/v1.1/lib/select2/js/select2.min.js"></script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
 
     <script src="~/Template/v1.1/js/azia.js"></script>
 

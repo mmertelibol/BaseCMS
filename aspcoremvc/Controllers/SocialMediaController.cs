@@ -22,15 +22,19 @@ namespace Web.Controllers
         public IActionResult Index()
         {
             var socialMediaList = _socialMediaService.GetAllList();
-
+          
             return View(socialMediaList);
         }
 
         [HttpPost]
         public JsonResult AddSocialMedia(SocialMediaDto socialMediaDto)
         {
-            var added = _socialMediaService.AddSocialMedia(socialMediaDto);
-            return Json(added);
+           
+                var added = _socialMediaService.AddSocialMedia(socialMediaDto);
+                return Json(added);
+            
+           
+            
         }
 
 

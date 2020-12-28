@@ -77,7 +77,7 @@ namespace Business.Services.Panel
         public SocialMediaDto UpdateSocialMedia(SocialMediaDto socialMediaDto)
         {
             var socialMedia = _context.SocialMedia.Find(socialMediaDto.Id);
-            if (socialMediaDto.File != null/* && socialMediaDto.File.ContentType=="image/png"*/)
+            if (socialMediaDto.File != null)
             {
                 var uniqueName = Guid.NewGuid() + Path.GetExtension(socialMediaDto.File.FileName);
                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniqueName);
