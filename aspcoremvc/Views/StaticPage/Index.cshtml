@@ -38,8 +38,7 @@
                             <th>Url</th>
 
                             @*<th>Details</th>*@
-                            <th>DÜZENLE</th>
-                            <th>SİL</th>
+                            <th></th> 
 
 
 
@@ -164,11 +163,10 @@
                                 }
 
                                 @*<td><a href="#">Details </a></td>*@
-                                <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup"><i class="far fa-edit"></i></button>
-
-                                </td>
-                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup"><i class="far fa-trash-alt"></i></button> </td>
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup"><i class="far fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger rounded-pill" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup"><i class="far fa-trash-alt"></i></button>
+                            </td> 
 
                             </tr>
                         }
@@ -264,16 +262,9 @@
                 htmlcontent: { required: "Sayfa İçeriği zorunlu!" },
                 url: {required: "Url alanı Zorunlu"}
 
-
-
-
-
             },
             submitHandler: function (form) {
                 CKEDITOR.instances['editor2'].updateElement();
-
-                //CKEDITOR.instances['editor2'].getData()
-
 
                 let id = $(pageid).val();
                 let name = $(pagename).val();
@@ -282,7 +273,6 @@
                 let description = $(pagedescription).val();
                 let keyword = $(pagekeyword).val();
                 let route = $(gidilecekurl).val();
-
 
                 $.ajax({
                     type: "put",
@@ -296,15 +286,11 @@
                         MetaKeywords: keyword,
                         RoutingURL: route
 
-
-
-
                     },
                     success: function (response) {
                         if (response) {
                             //$('updatestaticpagepopup').hide();
                             $('#updatestaticpagepopup').modal('hide');
-
 
                         }
                         location.href = "/StaticPage/Index";
@@ -320,57 +306,7 @@
         });
     });
 </script>
-    @*<script>
-
-        $("#updatestaticpage").click(function () {
-            CKEDITOR.instances['editor2'].updateElement();
-          
-            //CKEDITOR.instances['editor2'].getData()
-
-
-            let id = $(pageid).val();
-            let name = $(pagename).val();
-            let title = $(pagetitle).val();
-            let htmlcontent = $(editor2).val();
-            let description = $(pagedescription).val();
-            let keyword = $(pagekeyword).val();
-            let route = $(gidilecekurl).val();
-
-
-            $.ajax({
-                type: "put",
-                url: "/StaticPage/UpdateStaticPage",
-                data: {
-                    Id: id,
-                    Name: name,
-                    Title: title,
-                    HTMLContent: htmlcontent,
-                    MetaDescription: description,
-                    MetaKeywords: keyword,
-                    RoutingURL: route
-
-
-
-
-                },
-                success: function (response) {
-                    if (response) {
-                        //$('updatestaticpagepopup').hide();
-                        $('#updatestaticpagepopup').modal('hide');
-
-
-                    }
-                    location.href = "/StaticPage/Index";
-
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                    //swal("Page Updated!", "", "success");
-                }
-            });
-        });
-               
-    </script>*@
+   
 
     <script>
 
@@ -381,6 +317,7 @@
 
         }
     </script>
+
     <script>
 
         function StaticPageDelete() {
@@ -409,38 +346,38 @@
         }
     </script>
 
-    <script>
+  
+<script>
+    $("#addstaticpage").click(function () {
+        $("#addstaticpageform").validate({
+            ignore: [],
+            debug: false,
+            rules: {
+                pagename: { required: true },
+                pagetitle: { required: true },
+                content: { required: true },
+                //description: { required: true },
+                //keyword: { required: true },
+                url: { required: true },
+            },
+            messages: {
+                pagename: { required: "Sayfa Adı zorunlu!" },
+                pagetitle: { required: "Sayfa başlık alanı zorunlu!" },
+                content: { required: "Sayfa İçeriği zorunlu!" },
+                url: { required: "Url alanı Zorunlu" }
 
-
-
-        // debugger;
-        $(function () {
-
-
-            //  debugger;
-
-
-            $("#addstaticpage").click(function () {
+            },
+            submitHandler: function (form) {
                 CKEDITOR.instances['editor1'].updateElement();
-                //CKEDITOR.instances['editor1'].getData();
                 let StaticPage = {
                     Title: $("#title").val(),
                     Name: $("#name").val(),
                     MetaDescription: $("#description").val(),
                     MetaKeywords: $("#keywords").val(),
                     RoutingURL: $("#routingurl").val(),
-
                     HTMLContent: $("#editor1").val()
-                    //Id: $("#newsId").val()
-
-
-
-
+                   
                 };
-
-
-
-
 
                 $.ajax({
                     type: "post",
@@ -463,12 +400,11 @@
 
                 });
 
-            });
-
+            }
         });
+    });
 
-
-    </script>
+</script>
 
     <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript">
 
