@@ -232,7 +232,7 @@
                     $("#pageid").val(gelenObje.Id);
                     $("#pagename").val(gelenObje.Name);
                     CKEDITOR.instances.editor2.setData(gelenObje.HTMLContent);
-                    $("#pagetitle").val(gelenObje.Title);
+                    $("#pagebaslık").val(gelenObje.Title);
                     $("#pagekeyword").val(gelenObje.MetaKeywords);
                     $("#pagedescription").val(gelenObje.MetaDescription);
                     $("#gidilecekurl").val(gelenObje.RoutingUrl);
@@ -243,12 +243,88 @@
         }
 
     </script>
-    <script>
 
-        function PageUpdate() {
 
+<script>
+    $("#updatestaticpage").click(function () {
+        $("#updateform").validate({
+            ignore: [],
+            debug: false,
+            rules: {
+                sayfaadı: { required: true },
+                baslık: { required: true },
+                htmlcontent: { required: true },
+                //description: { required: true },
+                //keyword: { required: true },
+                url: { required: true },
+            },
+            messages: {
+                sayfaadı: { required: "Sayfa Adı zorunlu!" },
+                baslık: { required: "Sayfa başlık alanı zorunlu!" },
+                htmlcontent: { required: "Sayfa İçeriği zorunlu!" },
+                url: {required: "Url alanı Zorunlu"}
+
+
+
+
+
+            },
+            submitHandler: function (form) {
+                CKEDITOR.instances['editor2'].updateElement();
+
+                //CKEDITOR.instances['editor2'].getData()
+
+
+                let id = $(pageid).val();
+                let name = $(pagename).val();
+                let title = $(pagebaslık).val();
+                let htmlcontent = $(editor2).val();
+                let description = $(pagedescription).val();
+                let keyword = $(pagekeyword).val();
+                let route = $(gidilecekurl).val();
+
+
+                $.ajax({
+                    type: "put",
+                    url: "/StaticPage/UpdateStaticPage",
+                    data: {
+                        Id: id,
+                        Name: name,
+                        Title: title,
+                        HTMLContent: htmlcontent,
+                        MetaDescription: description,
+                        MetaKeywords: keyword,
+                        RoutingURL: route
+
+
+
+
+                    },
+                    success: function (response) {
+                        if (response) {
+                            //$('updatestaticpagepopup').hide();
+                            $('#updatestaticpagepopup').modal('hide');
+
+
+                        }
+                        location.href = "/StaticPage/Index";
+
+                    },
+                    error: function () {
+                        console.log("Hata Oluştu");
+                        //swal("Page Updated!", "", "success");
+                    }
+                });
+
+            }
+        });
+    });
+</script>
+    @*<script>
+
+        $("#updatestaticpage").click(function () {
             CKEDITOR.instances['editor2'].updateElement();
-            CKEDITOR.instances['editor2'].getData();
+          
             //CKEDITOR.instances['editor2'].getData()
 
 
@@ -259,9 +335,6 @@
             let description = $(pagedescription).val();
             let keyword = $(pagekeyword).val();
             let route = $(gidilecekurl).val();
-
-
-
 
 
             $.ajax({
@@ -294,9 +367,10 @@
                     console.log("Hata Oluştu");
                     //swal("Page Updated!", "", "success");
                 }
-            })
-        }
-    </script>
+            });
+        });
+               
+    </script>*@
 
     <script>
 
@@ -336,11 +410,6 @@
     </script>
 
     <script>
-
-
-
-
-
 
 
 
@@ -397,9 +466,13 @@
             });
 
         });
+
+
     </script>
 
-    <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript">
+
+    </script>
     <script>
         CKEDITOR.replace('editor1');
 
@@ -420,3 +493,4 @@
 
 
 }
+

@@ -72,6 +72,7 @@ namespace Business.Services.Panel
             staticPage.Name = staticPageDto.Name;
             staticPage.RoutingUrl = staticPageDto.RoutingUrl;
             staticPage.UpdatedDate = DateTime.Now;
+            staticPage.Title = staticPageDto.Title;
 
             _context.StaticPage.Update(staticPage);
 
