@@ -38,6 +38,7 @@ namespace Business.Services.Panel
 
                 
             }
+          
 
             if (settingDto.FileLogo != null)
             {

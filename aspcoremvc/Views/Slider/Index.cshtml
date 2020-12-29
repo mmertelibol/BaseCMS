@@ -1,6 +1,218 @@
-﻿
+﻿@model IEnumerable<SliderDto>
 @{
     ViewData["Title"] = "Slider";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Slider</h1>
+
+<a class="btn" data-toggle="modal" data-target="#addslidermodal" style="width:180px;  background-color:#5b47fb; margin-left:50px;margin-top:50px;"><strong style="color:white">Slider Ekle</strong> </a>
+
+@Html.Partial("_AddSliderPartial")
+@Html.Partial("_DeleteSliderPartial")
+@Html.Partial("_UpdateSliderPartial")
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+
+
+                <div class="card" style="width: 28rem;    margin-left:30px; margin-top:30px;">
+                    <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:445px; height:294px;  ">
+                    <!--<div class="card-body">-->
+                    @*<h5 class="card-title">Card title</h5>*@
+                    @*<p class="card-text">
+                            @item.Description
+                        </p>*@
+
+
+                    <!--</div>-->
+                    <div class="card-footer">
+                        <button onclick="getSliderById('@item.Id')" data-target="#updateslidermodal" data-toggle="modal" style="float:right; margin-left:10px;" class="btn btn-sm btn-indigo rounded-pill"> <i class="far fa-edit"></i></button>
+                        <button onclick="sliderDeleteShow('@item.Id')" data-target="#deleteslidermodal" data-toggle="modal" style="float:right; " class="btn btn-sm btn-danger rounded-pill"><i class="far fa-trash-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@section xx{
+
+    <script>
+        function getSliderById(id) {
+            debugger;
+            $.ajax({
+                url: "/Slider/GetSliderById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id: id
+                },
+                success: function (data) {
+                    debugger;
+                    //let gelenObje = jQuery.parseJSON(data);
+
+                    $("#idslider").val(data.Id);
+                    $("#sliderhref").val(data.Href);
+                    //$("#sliderimage").val(data.ImageUrl);
+                    $("#descriptionslider").val(data.Description);
+                    $("#orderslider").val(data.Order);
+
+
+                }
+
+            })
+        }
+    </script>
+    @*<script>
+            function sliderUpdate() {
+
+                let id = $(idslider).val();
+                let href = $(sliderhref).val();
+                //let image = $(sliderimage).val();
+                let sliderdescription = $(descriptionslider).val();
+                let sliderorder = $(orderslider).val();
+
+
+                $.ajax({
+                    type: "put",
+                    url: "/Slider/UpdateSlider",
+                    data: {
+                        Id: id,
+                        Href: href,
+                        //ImageUrl: image,
+                        Description: sliderdescription,
+                        Order: sliderorder
+
+                    },
+                    success: function (response) {
+                        if (response) {
+                            $('#updateslidermodal').modal('hide');
+                        }
+                        location.href = "/Slider/Index";
+
+                    },
+                    error: function () {
+                        console.log("Hata Oluştu");
+                        //swal("NewsUpdated!", "", "success");
+                    }
+                })
+            }
+        </script>*@
+
+    <script>
+
+        function sliderUpdate() {
+
+            let sliderid = $("#idslider").val();
+            let href = $("#sliderhref").val();
+            let description = $("#descriptionslider").val();
+            let sliderimageurl = $("#imageslider")[0].files[0];
+            let order = $("#orderslider").val();
+          
+            let formData = new FormData();
+            formData.append("Id", sliderid);
+            formData.append("Href", href);
+            formData.append("Description", description);
+
+            if (sliderimageurl != null) {
+                formData.append("SliderFile", sliderimageurl, sliderimageurl.fileName);
+            }
+            formData.append("Order", order);
+            
+            $.ajax({
+                type: "put",
+                url: "/Slider/UpdateSlider",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response) {
+                       
+                        $('updateslidermodal').modal('hide');
+                    }
+                    location.href = "/Slider/Index";
+                },
+
+                error: function () {
+                    console.log("Hata Oluştu");
+                }
+            })
+        }
+    </script>
+    <script>
+
+        function sliderDeleteShow(id) {
+
+            $("#sliderid").val(id);
+        }
+    </script>
+    <script>
+
+        function sliderDelete() {
+            let id = $(sliderid).val();
+
+            $.ajax({
+                type: "delete",
+                url: "/Slider/DeleteSlider",
+                data: {
+                    Id: id
+
+                },
+                success: function (response) {
+                    if (response) {
+
+                        $('#deletesliderpopup').modal('hide');
+                    }
+                    location.href = "/Slider/Index";
+
+                },
+                error: function () {
+                    console.log("Hata Oluştu");
+                    //swal("SocialMedia Deleted!", "", "success");
+                }
+            })
+        }
+    </script>
+
+
+    <script>
+
+        $(function () {
+            //  debugger;
+            $("#addslider").click(function () {
+                let href = $("#href").val();
+                let ordernumber = $("#ordernumber").val();
+                let description = $("#description").val();
+                let sliderimage = $("#sliderimage")[0].files[0];
+
+                let formData = new FormData();
+                formData.append("Href", href);
+                formData.append("Order", ordernumber);
+                formData.append("Description", description);
+                if (sliderimage != null) {
+                    formData.append("SliderFile", sliderimage, sliderimage.fileName);
+                }
+                $.ajax({
+                    type: "post",
+                    url: "/Slider/AddSlider",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        if (response) {
+                            swal("Slider Added!", "", "success");
+                        }
+                    }
+
+                });
+
+            });
+
+        });
+    </script>
+}

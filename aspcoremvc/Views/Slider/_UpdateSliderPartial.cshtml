@@ -1,0 +1,80 @@
+﻿
+
+<div id="updateslidermodal" class="modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">Slider Güncelle</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+
+                   <input id="idslider" name="idslider" style="display:none;" />
+
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Href</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="sliderhref" name="sliderhref" />
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Slider Resim</label>
+                        <div class="col-sm-10">
+                            <div class="row row-sm">
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <div class="custom-file">
+                                        <input type="file" id="imageslider" name="sliderimage" />
+
+                                    </div>
+                                </div><!-- col -->
+                            </div><!-- row -->
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control"  id="descriptionslider" name="sliderdescription"></textarea>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Sıra No</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="orderslider" name="sliderorder" />
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </form>
+            </div><!-- modal-body -->
+            <div class="modal-footer">
+                <button type="submit" onclick="sliderUpdate()" class="btn btn-indigo">Güncelle</button>
+                <a asp-action="Index" asp-controller="Slider" class="btn btn-outline-light">Kapat</a>
+            </div>
+        </div>
+    </div>
+</div>
+

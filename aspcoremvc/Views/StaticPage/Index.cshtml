@@ -18,8 +18,8 @@
             @Html.Partial("_DetailHTMLContentPartial")
 
 
-
-
+        @*<div id="globalModal"></div>
+        $("#globalModal").html(data)*@
 
             <hr class="mg-y-30">
 
@@ -273,6 +273,7 @@
                 let description = $(pagedescription).val();
                 let keyword = $(pagekeyword).val();
                 let route = $(gidilecekurl).val();
+                
 
                 $.ajax({
                     type: "put",
@@ -285,6 +286,7 @@
                         MetaDescription: description,
                         MetaKeywords: keyword,
                         RoutingURL: route
+                        
 
                     },
                     success: function (response) {
@@ -311,6 +313,8 @@
     <script>
 
         function newsdeleteshow(id) {
+            debugger;
+
             $("#deletepageid").val(id);
 
 

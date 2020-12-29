@@ -19,7 +19,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn" data-toggle="modal" data-target="#addsocialmediapopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
+            <a class="btn" data-toggle="modal" data-target="#addstaticpagemodal" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
             @Html.Partial("_AddSocialMediaPartial")
             @Html.Partial("_DeleteSocialMediaPartial")
             @Html.Partial("_UpdateSocialMediaPartial")
@@ -124,10 +124,15 @@
                                     <button class="btn btn-sm btn-indigo rounded-pill" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup"><i class="far fa-edit"></i></button>
 
                                 </td>
-                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup"><i class="far fa-trash-alt"></i></button> </td>
+                                <td>
+                                   
+                                        <button type="submit" class="btn btn-sm btn-danger rounded-pill" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup"><i class="far fa-trash-alt"></i></button>
+                                    
+                               
+                                </td>
 
                             </tr>
-                        }
+                         }
 
                     </tbody>
                 </table>
@@ -140,8 +145,8 @@
 
 @section xx{
 
-
-
+  
+    
 
 
     <script>
@@ -230,9 +235,8 @@
 
             $("#socialmediaid").val(id);
         }
-    </script>
-
-    <script>
+        </script>
+<script>
 
         function DeleteSocialMedia() {
             let id = $(socialmediaid).val();

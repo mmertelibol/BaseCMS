@@ -5,6 +5,7 @@ using Data;
 using Data.Domain;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -24,6 +25,18 @@ namespace Business.Services.Panel
         public SliderDto AddSlider(SliderDto sliderDto)
         {
             sliderDto.AddedDate = DateTime.Now;
+
+            if (sliderDto.SliderFile!= null)
+            {
+                var uniquePath = Guid.NewGuid() + Path.GetExtension(sliderDto.SliderFile.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniquePath);
+                var stream = new FileStream(path, FileMode.Create);
+                sliderDto.SliderFile.CopyTo(stream);
+
+                sliderDto.ImageUrl = uniquePath;
+               
+            }
+
             var slider = _mapper.Map<Slider>(sliderDto);
             var addedSlider = _context.Slider.Add(slider);
             var sliderDtoModel = _mapper.Map<SliderDto>(slider);
@@ -37,7 +50,7 @@ namespace Business.Services.Panel
         {
             var slider = _context.Slider.Find(sliderId);
             var deleted = _context.Slider.Remove(slider);
-            var sliderDtoModel = _mapper.Map<SliderDto>(deleted);
+            var sliderDtoModel = _mapper.Map<SliderDto>(slider);
 
             _context.SaveChanges();
             return sliderDtoModel;
@@ -64,10 +77,26 @@ namespace Business.Services.Panel
         public SliderDto UpdateSlider(SliderDto sliderDto)
         {
             var slider = _context.Slider.Find(sliderDto.Id);
+            if (sliderDto.SliderFile!= null)
+            {
+                var uniquePath = Guid.NewGuid() + Path.GetExtension(sliderDto.SliderFile.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniquePath);
+                var stream = new FileStream(path, FileMode.Create);
+                sliderDto.SliderFile.CopyTo(stream);
+
+                sliderDto.ImageUrl = uniquePath;
+                slider.ImageUrl = sliderDto.ImageUrl;
+            }
+
+            else
+            {
+                slider.ImageUrl = slider.ImageUrl;
+            }
+
             slider.Description = sliderDto.Description;
             slider.Order = sliderDto.Order;
             slider.Id = sliderDto.Id;
-            slider.ImageUrl = sliderDto.ImageUrl;
+            //slider.ImageUrl = sliderDto.ImageUrl;
             slider.UpdatedDate = DateTime.Now;
             slider.Href = sliderDto.Href;
 

@@ -208,14 +208,6 @@
             formData.append("Href", componenthref);
             formData.append("PageComponentCategoryId", componentscategory);
 
-
-           
-
-
-
-
-
-
             $.ajax({
                 type: "put",
                 url: "/PageComponent/UpdatePageComponent",
@@ -228,11 +220,6 @@
                         $('updatepagecomponentpopup').modal('hide');
                     }
                     location.href = "/PageComponent/Index";
-
-
-
-
-
                 },
 
                 error: function () {
@@ -245,7 +232,7 @@
     <script>
 
         function ComponentDeleteShow(id) {
-            // debugger;
+            
 
             $("#pagecomponentid").val(id);
 
