@@ -19,7 +19,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn" data-toggle="modal" data-target="#addstaticpagemodal" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
+            <a class="btn" data-toggle="modal" data-target="#addsocialmediapopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
             @Html.Partial("_AddSocialMediaPartial")
             @Html.Partial("_DeleteSocialMediaPartial")
             @Html.Partial("_UpdateSocialMediaPartial")
@@ -44,8 +44,8 @@
                             <th>Href</th>
 
 
-                            <th>Düzenle</th>
-                            <th>Sil</th>
+                            @*<th>Düzenle</th>*@
+                            <th></th>
 
 
 
@@ -58,14 +58,8 @@
                             <tr>
                                 @if (item.Name != null)
                                 {
-                                    @if (item.Name.ToString().Length > 20)
-                                    {
-                                        <td>@item.Name.Substring(0, 20)...</td>
-                                    }
-                                    else
-                                    {
                                         <td>@item.Name</td>
-                                    }
+                                    
                                 }
                                 else
                                 {
@@ -92,7 +86,7 @@
                                 }
                                 else
                                 {
-                                    @*<td><img src="#" alt="Eklenmedi!" style="width:150px; height:150px;" /></td>*@
+                                  
                                     <td><p style="color:indigo"> <strong>Eklenmedi!</strong> </p></td>
                                 }
 
@@ -106,30 +100,21 @@
 
                                 @if (item.Href != null)
                                 {
-                                    @if (item.Href.ToString().Length > 20)
-                                    {
-                                        <td>@item.Href.Substring(0, 20)...</td>
-                                    }
-                                    else
-                                    {
+                                   
+                                    
                                         <td>@item.Href</td>
-                                    }
+                                    
                                 }
                                 else
                                 {
                                     <td><p style="color:indigo"> <strong>Eklenmedi!</strong> </p></td>
                                 }
 
-                                <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup"><i class="far fa-edit"></i></button>
-
-                                </td>
-                                <td>
-                                   
-                                        <button type="submit" class="btn btn-sm btn-danger rounded-pill" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup"><i class="far fa-trash-alt"></i></button>
-                                    
-                               
-                                </td>
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup"><i class="far fa-edit"></i></button>
+                                <button type="submit" class="btn btn-sm btn-danger rounded-pill" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                                
 
                             </tr>
                          }

@@ -45,8 +45,8 @@
                             <th>Kategori</th>
                             <th>RoutingUrl</th>
                             @*<th>ViewCount</th>*@
-                            <th>Güncelle</th>
-                            <th>Sil</th>
+                            @*<th>Güncelle</th>*@
+                            <th></th>
 
                         </tr>
                     </thead>
@@ -175,11 +175,11 @@
 
 
                                 @*<td><a href="#">Details </a></td>*@
-                                <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewspopup"><i class="far fa-edit"></i></button>
-
-                                </td>
-                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup"><i class="far fa-trash-alt"></i></button> </td>
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewspopup"><i class="far fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger rounded-pill" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletenewspopup"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                               
 
                             </tr>
                         }

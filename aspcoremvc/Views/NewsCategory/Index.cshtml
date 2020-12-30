@@ -24,49 +24,29 @@
 
 
 
-
-
             <hr class="mg-y-30">
 
-            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
+         
 
             <div>
                 <table id="example2" class="table">
                     <thead>
                         <tr>
-                            @*<th>ID</th>*@
                             <th>Kategori Adı</th>
-                           
-                            @*<th>Details</th>*@
-                            <th>Güncelle</th>
-                            <th>Sil</th>
-
-
-
-
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                @*<td>@item.Id</td>*@
-
-                               
-                                    <td>@item.Name</td>
-                                
-
-                              
-
-
-                                @*<td><a href="#">Details </a></td>*@
-                                <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="newscategoryupdateshow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatenewscategorypopup"><i class="far fa-edit" ></i></button>
-
-                                </td>
-                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup"><i class="far fa-trash-alt"></i></button> </td>
-
-                            </tr>
+                        <tr>
+                          
+                            <td>@item.Name</td>
+                            <td>
+                                <button  class="btn btn-sm btn-indigo rounded-pill" onclick="newscategoryupdateshow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatenewscategorypopup"><i class="far fa-edit"></i></button>
+                                <button  class="btn btn-sm btn-danger rounded-pill" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup"><i class="far fa-trash-alt"></i></button>
+                            </td> 
+                        </tr>
                         }
 
 
@@ -104,27 +84,17 @@
     <script>
 
         function NewsCategoryUpdate() {
-            //CKEDITOR.instances['editor2'].updateElement();
+           
 
             let id = $(categoryid).val();
             let name = $(categoryname).val();
            
-
-
-
-
-
             $.ajax({
                 type: "put",
                 url: "/NewsCategory/UpdateNewsCategory",
                 data: {
                     Id: id,
                     Name : name
-                   
-
-
-
-
                 },
                 success: function (response) {
                     if (response) {
@@ -181,14 +151,6 @@
 
     <script>
 
-
-
-
-
-
-
-
-        // debugger;
         $(function () {
 
 
@@ -196,16 +158,10 @@
 
 
             $("#addnewscategory").click(function () {
-                //CKEDITOR.instances['editor1'].updateElement();
+               
                 let NewsCategory = {
-                    Name: $("#name").val(),
-                   
-
+                    Name: $("#name").val(),        
                 };
-
-
-
-
 
                 $.ajax({
                     type: "post",
@@ -216,9 +172,6 @@
                             $('addnewscategorypopup').modal('hide');
                         }
                         location.href = "/NewsCategory/Index";
-
-
-
                     },
                     error: function () {
                         console.log("Hata Oluştu");
@@ -232,17 +185,7 @@
         });
     </script>
 
-    @*<script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript"></script>
-    <script>
-        CKEDITOR.replace('editor1');
-
-
-    </script>
-    <script>
-        CKEDITOR.replace('editor2');
-
-
-    </script>*@
+   
 
 
 }

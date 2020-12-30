@@ -16,7 +16,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn btn-primary" data-toggle="modal" data-target="#addpagecomponentpopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Add Component</strong> </a>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#addpagecomponentpopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Component Ekle</strong> </a>
 
             @Html.Partial("_AddPageComponentPartial")
             @Html.Partial("_DeletePageComponentPartial")
@@ -41,13 +41,10 @@
                             <th>Href</th>
                             <th>Kategori</th>
                             <th>Resim</th>
-                            @*<th>Keywords</th>
-                                <th>Category</th>
-                                <th>RoutingUrl</th>
-                                <th>ViewCount</th>*@
-                            @*<th>Details</th>*@
-                            <th>Güncelle</th>
-                            <th>Sil</th>
+                          
+                           
+                            @*<th>Güncelle</th>*@
+                            <th></th>
 
 
 
@@ -134,11 +131,11 @@
 
 
                             @*<td><a href="#">Details </a></td>*@
-                            <td>
-                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentUpdateShow('@item.Id', '@item.Title', '@item.Description','@item.Href','@item.PageComponentCategoryId')" data-toggle="modal" data-target="#updatepagecomponentpopup"><i class="far fa-edit"></i></button>
-
-                            </td>
-                            <td><button class="btn btn-sm btn-danger rounded-pill" onclick="ComponentDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletecomponentpopup"><i class="far fa-trash-alt"></i></button> </td>
+                        <td>
+                            <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentUpdateShow('@item.Id', '@item.Title', '@item.Description','@item.Href','@item.PageComponentCategoryId')" data-toggle="modal" data-target="#updatepagecomponentpopup"><i class="far fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger rounded-pill" onclick="ComponentDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletecomponentpopup"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                           
 
                         </tr>
                         }

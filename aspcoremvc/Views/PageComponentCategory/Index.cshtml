@@ -36,15 +36,9 @@
                 <table id="example2" class="table">
                     <thead>
                         <tr>
-                            @*<th>ID</th>*@
+                           
                             <th>KATEGORİ ADI</th>
-
-                            @*<th>Details</th>*@
-                            <th>GÜNCELLE</th>
-                            <th>SİL</th>
-
-
-
+                            <th></th>
 
                         </tr>
                     </thead>
@@ -56,12 +50,12 @@
                                 <td>@item.Name</td>
 
 
-                                @*<td><a href="#">Details </a></td>*@
-                                <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentCategoryUpdateShow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatecomponentcategorypopup"><i class="far fa-edit"></i></button>
-
-                                </td>
-                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="ComponentCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletepagecategorypopup"><i class="far fa-trash-alt"></i></button> </td>
+                               
+                            <td>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentCategoryUpdateShow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatecomponentcategorypopup"><i class="far fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger rounded-pill" onclick="ComponentCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletepagecategorypopup"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                                
 
                             </tr>
                         }

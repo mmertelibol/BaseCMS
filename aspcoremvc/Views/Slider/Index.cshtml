@@ -53,9 +53,7 @@
                     Id: id
                 },
                 success: function (data) {
-                    debugger;
-                    //let gelenObje = jQuery.parseJSON(data);
-
+                    
                     $("#idslider").val(data.Id);
                     $("#sliderhref").val(data.Href);
                     //$("#sliderimage").val(data.ImageUrl);
@@ -68,42 +66,7 @@
             })
         }
     </script>
-    @*<script>
-            function sliderUpdate() {
-
-                let id = $(idslider).val();
-                let href = $(sliderhref).val();
-                //let image = $(sliderimage).val();
-                let sliderdescription = $(descriptionslider).val();
-                let sliderorder = $(orderslider).val();
-
-
-                $.ajax({
-                    type: "put",
-                    url: "/Slider/UpdateSlider",
-                    data: {
-                        Id: id,
-                        Href: href,
-                        //ImageUrl: image,
-                        Description: sliderdescription,
-                        Order: sliderorder
-
-                    },
-                    success: function (response) {
-                        if (response) {
-                            $('#updateslidermodal').modal('hide');
-                        }
-                        location.href = "/Slider/Index";
-
-                    },
-                    error: function () {
-                        console.log("Hata Oluştu");
-                        //swal("NewsUpdated!", "", "success");
-                    }
-                })
-            }
-        </script>*@
-
+  
     <script>
 
         function sliderUpdate() {

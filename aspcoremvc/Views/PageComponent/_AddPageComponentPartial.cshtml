@@ -7,7 +7,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Message Preview</h6>
+                <h6 class="modal-title">Component Ekle</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,7 +17,7 @@
 
                     @*<input type="hidden" name="newsId" id="newsId" value="@ViewBag.Lastnews" />*@
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Title</label>
+                        <label class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="componenttitle" name="title">
                         </div>
@@ -29,9 +29,10 @@
 
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Description</label>
+                        <label class="col-sm-2 col-form-label">Özet</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="componentdescription" name="title">
+                            <textarea class="form-control" id="componentdescription" name="title"></textarea>
+                           
                         </div>
 
 
@@ -40,7 +41,7 @@
 
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Image</label>
+                        <label class="col-sm-2 col-form-label">Foroğraf</label>
                         <div class="col-sm-10">
                             <div class="row row-sm">
                                 <div class="col-sm-7 col-md-6 col-lg-4">
@@ -73,7 +74,7 @@
 
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">Category</label>
+                        <label class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
                             <select id="componentcategoryid" class="form-control select2">
                                 @foreach (var item in ViewBag.ComponentCategories)
@@ -96,8 +97,8 @@
                 </form>
             </div><!-- modal-body -->
             <div class="modal-footer">
-                <button type="submit" id="addcomponentcategory" class="btn btn-indigo">Add</button>
-                <a asp-action="Index" asp-controller="PageComponent" class="btn btn-outline-light">Close</a>
+                <button type="submit" id="addcomponentcategory" class="btn btn-indigo">Ekle</button>
+                <a asp-action="Index" asp-controller="PageComponent" class="btn btn-outline-light">Kapat</a>
             </div>
         </div>
     </div>

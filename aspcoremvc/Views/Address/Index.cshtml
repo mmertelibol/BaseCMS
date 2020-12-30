@@ -44,8 +44,8 @@
                             <th>Tam Adres</th>
                             <th>Enlem</th>
                             <th>Boylam</th>
-                            <th>Güncelle</th>
-                            <th>Sil</th>
+                            @*<th>Güncelle</th>*@
+                            <th></th>
 
                         </tr>
                     </thead>
@@ -200,11 +200,11 @@
 
 
                                 @*<td><a href="#">Details </a></td>*@
-                                <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="GetAddressById('@item.Id')" data-toggle="modal" data-target="#updateaddressmodal"><i class="far fa-edit"></i></button>
-
-                                </td>
-                                <td><button class="btn btn-sm btn-danger rounded-pill" onclick="DeleteGetById('@item.Id')" data-toggle="modal" data-target="#deleteaddresspopup"><i class="far fa-trash-alt"></i></button> </td>
+                            <td>
+                                <button  class="btn btn-sm btn-indigo rounded-pill" onclick="GetAddressById('@item.Id')" data-toggle="modal" data-target="#updateaddressmodal"><i class="far fa-edit"></i></button>
+                                <button class="btn btn-sm btn-danger rounded-pill" onclick="DeleteGetById('@item.Id')" data-toggle="modal" data-target="#deleteaddresspopup"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                                
 
                             </tr>
                         }

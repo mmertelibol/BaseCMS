@@ -19,7 +19,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn" data-toggle="modal" data-target="#addsettingpopup" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Add Setting</strong> </a>
+            @*<a class="btn" data-toggle="modal" data-target="#addsettingpopup" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Ayar Ekle</strong> </a>*@
             @Html.Partial("_AddSettingModalPartial")
 
             @Html.Partial("_DeleteSettingPartial")
@@ -45,8 +45,8 @@
                             <th>FavIcon</th>
 
                             @*<th>Details</th>*@
-                            <th>Güncelle</th>
-                            <th>Sil</th>
+                            @*<th>Güncelle</th>*@
+                            <th></th>
 
 
 
@@ -56,42 +56,42 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            @*<td>@item.Id</td>*@
+                            <tr>
+                                @*<td>@item.Id</td>*@
 
-                            @if (item.CompanyName.ToString().Length > 5)
-                            {
-                                <td>@item.CompanyName.Substring(0, 5)...</td>
-                            }
-                            else
-                            {
-                                <td>@item.CompanyName</td>
-                            }
+                                @if (item.CompanyName.ToString().Length > 5)
+                                {
+                                    <td>@item.CompanyName.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.CompanyName</td>
+                                }
 
-                            @if (item.Slogan.ToString().Length > 5)
-                            {
-                                <td>@item.Slogan.Substring(0, 5)...</td>
-                            }
-                            else
-                            {
-                                <td>@item.Slogan</td>
-                            }
+                                @if (item.Slogan.ToString().Length > 5)
+                                {
+                                    <td>@item.Slogan.Substring(0, 5)...</td>
+                                }
+                                else
+                                {
+                                    <td>@item.Slogan</td>
+                                }
 
-                            <td><img src="~/img/@item.FavIconUrl" style="width:150px; height:150px;" /></td>
+                                <td><img src="~/img/@item.FavIconUrl" style="width:150px; height:150px;" /></td>
 
-                            <td><img src="~/img/@item.LogoUrl" style="width:150px; height:150px;" /></td>
+                                <td><img src="~/img/@item.LogoUrl" style="width:150px; height:150px;" /></td>
 
 
 
-                            @*<td><a href="#">Details </a></td>*@
-                            <td>
-                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="SettingUpdateShow('@item.Id', '@item.CompanyName', '@item.Slogan', '@item.FavIconUrl', '@item.LogoUrl')" data-toggle="modal" data-target="#updatesettingpopup"><i class="far fa-edit"></i></button>
+                                @*<td><a href="#">Details </a></td>*@
+                                <td>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="SettingUpdateShow('@item.Id', '@item.CompanyName', '@item.Slogan', '@item.FavIconUrl', '@item.LogoUrl')" data-toggle="modal" data-target="#updatesettingpopup"><i class="far fa-edit"></i></button>
+                                    @*<button class="btn btn-sm btn-danger rounded-pill" onclick="SettingDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesettingpopup"><i class="far fa-trash-alt"></i></button>*@
+                                </td>
 
-                            </td>
-                            <td><button class="btn btn-sm btn-danger rounded-pill" onclick="SettingDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesettingpopup"><i class="far fa-trash-alt"></i></button> </td>
 
-                        </tr>
-                        }
+                            </tr>
+                         }
 
 
 
@@ -116,7 +116,7 @@
 
     <script>
 
-        function SettingUpdateShow(id, name,slogan,favicon,logo ) {
+        function SettingUpdateShow(id, name, slogan, favicon, logo) {
             // debugger;
 
             $("#settingid").val(id);
@@ -167,7 +167,7 @@
                         //swal("Setting Updated!", "", "success");
                     }
                 },
-              
+
                 error: function () {
                     console.log("Hata Oluştu");
                 }
@@ -217,7 +217,7 @@
             //  debugger;
             $("#addsetting").click(function () {
                 //CKEDITOR.instances['editor1'].updateElement();
-               
+
                 let CompanyName = $("#addcompanyname").val();
                 let slogan = $("#addcompanyslogan").val();
                 let filefavicon = $("#addfavicon")[0].files[0];
@@ -235,7 +235,7 @@
                     formData.append("FileLogo", filelogo, filelogo.fileName)
 
                 }
-                
+
                 $.ajax({
                     type: "post",
                     url: "/Setting/AddSetting",
