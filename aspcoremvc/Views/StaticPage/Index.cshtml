@@ -4,7 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<style>
+    #selector[class*="sort"]:before,
+    #selector[class*="sort"]:after {
+        content: "" !important;
+    }
+</style>
 
 <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
@@ -13,7 +18,7 @@
 
             <a class="btn " data-toggle="modal" data-target="#addstaticpagemodal" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sayfa Ekle</strong> </a>
             @Html.Partial("_AddStaticPagePartial")
-            @Html.Partial("_DeleteStaticPagePartial")
+          
             @Html.Partial("_UpdateStaticPagePartial")
             @Html.Partial("_DetailHTMLContentPartial")
 
@@ -37,7 +42,7 @@
                             <th>Url</th>
 
                             @*<th>Details</th>*@
-                            <th></th>
+                            <th id="selector"></th>
 
                         </tr>
                     </thead>

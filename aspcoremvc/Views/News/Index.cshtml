@@ -1,18 +1,22 @@
 ﻿@model IEnumerable<NewsDto>
 
 @{
-    ViewData["Title"] = "News";
+    ViewData["Title"] = "Haberler";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 
 }
+<style>
+   
+
+    #selector[class*="sort"]:before,
+   #selector[class*="sort"]:after {
+        content: "" !important;
+    }
+    
 
 
-
-
-<!-- vendor css -->
-<!-- az-header -->
-
+</style>
 
 <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
@@ -21,18 +25,10 @@
 
             <a class="btn btn-primary" data-toggle="modal" data-target="#modaldemo3" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Haber Ekle</strong> </a>
             @Html.Partial("_AddNewsPopUpPartial")
-            @Html.Partial("_DeleteNewsPopUpPartial")
             @Html.Partial("_UpdateNewsPopUpPartial")
             @Html.Partial("_DetailNewsContent")
 
-
-
-
-
-
             <hr class="mg-y-30">
-
-
 
             <div>
                 <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
@@ -46,15 +42,13 @@
                             <th>Anahtar Kelimeler</th>
                             <th>Kategori</th>
                             <th>RoutingUrl</th>
-                            <th></th>
+                            <th id="selector"></th>
 
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-
-
                             <tr>
                                 @if (!string.IsNullOrWhiteSpace(item.Title))
                                 {
@@ -138,11 +132,7 @@
                     </tbody>
                 </table>
             </div>
-
-
             <div class="ht-40"></div>
-
-
         </div><!-- az-content-body -->
     </div><!-- container -->
 </div><!-- az-content -->
@@ -154,7 +144,6 @@
         $(document).on('click', '.newsdelete', function () {
 
             var id = $(this).data("id");
-
             Swal.fire({
                 title: 'Emin Misin?',
                 text: "Haber Silinecek!",
@@ -171,7 +160,7 @@
                         url: '/News/DeleteNews?Id=' + id,
                         success: function (data) {
                             if (data) {
-                                
+
                                 location.href = "/News/Index";
 
                             }
@@ -201,12 +190,8 @@
                 },
                 success: function (data) {
                     debugger;
-                    //let gelenObje = jQuery.parseJSON(data);
-
                     $("#newsid").val(data.Id);
                     CKEDITOR.instances.editor3.setData(data.HTMLContent);
-
-
                 }
 
             })
@@ -228,8 +213,6 @@
                     Id: id
                 },
                 success: function (data) {
-                    debugger;
-                    //let gelenObje = jQuery.parseJSON(data);
 
                     $("#newsid").val(data.Id);
                     $("#newsroute").val(data.RoutingUrl);
@@ -241,7 +224,6 @@
                     $("#newscategory").val(data.NewsCategoryId);
 
                 }
-
             })
         }
 
@@ -280,11 +262,8 @@
                     if (response) {
                         $('#updatenewspopup').modal('hide');
 
-
                     }
                     location.href = "/News/Index";
-
-
                 },
                 error: function () {
                     console.log("Hata Oluştu");
@@ -294,16 +273,9 @@
         }
     </script>
 
-   
+
     <script>
-
-        // debugger;
         $(function () {
-
-
-            //  debugger;
-
-
             $("#addnews").click(function () {
                 CKEDITOR.instances['editor1'].updateElement();
                 let News = {
@@ -314,16 +286,8 @@
                     RoutingURL: $("#routingurl").val(),
                     NewsCategoryId: $("#secim").val(),
                     HTMLContent: $("#editor1").val(),
-                    //Id: $("#newsId").val()
-
-
-
 
                 };
-
-
-
-
 
                 $.ajax({
                     type: "post",
@@ -336,17 +300,12 @@
                         }
 
                         location.href = "/News/Index"
-
-
-
                     },
                     error: function () {
                         console.log("hata oluştu");
                         //swal("News Added!", "", "success");
 
                     }
-
-
 
                 });
 
@@ -359,18 +318,17 @@
     <script>
         CKEDITOR.replace('editor1');
 
-
     </script>
     <script>
         CKEDITOR.replace('editor2');
 
-
     </script>
     <script>
         CKEDITOR.replace('editor3');
-
-
     </script>
 
-
+    <script>
+        $("#selector").css("background", "none");
+    </script>
+   
 }

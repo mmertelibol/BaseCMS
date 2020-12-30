@@ -7,6 +7,12 @@
 
 }
 
+<style>
+    #selector[class*="sort"]:before,
+    #selector[class*="sort"]:after {
+        content: "" !important;
+    }
+</style>
 
 <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
@@ -15,7 +21,7 @@
 
             <a class="btn" data-toggle="modal" data-target="#addsocialmediapopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
             @Html.Partial("_AddSocialMediaPartial")
-            @Html.Partial("_DeleteSocialMediaPartial")
+            
             @Html.Partial("_UpdateSocialMediaPartial")
 
             <hr class="mg-y-30">
@@ -30,7 +36,7 @@
                             <th>Ikon</th>
                             <th>Href</th>
                             @*<th>Düzenle</th>*@
-                            <th></th>
+                            <th id="selector"></th>
 
                         </tr>
                     </thead>
@@ -148,11 +154,8 @@
             $("#submitForm").validate({
                 rules: {
                     sosyaladı: { required: true },
-
                     dosya: { extension: "png", required: true },
-
                     görünürlük: { required: true },
-
                     uzantı: { required: true }
 
                 },

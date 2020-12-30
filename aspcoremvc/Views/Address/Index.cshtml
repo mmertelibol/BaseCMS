@@ -1,38 +1,28 @@
 ﻿@model IEnumerable<AddressDto>
 
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Adres";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-<!-- vendor css -->
-<!-- az-header -->
-
-
+<style>
+    #selector[class*="sort"]:before,
+    #selector[class*="sort"]:after {
+        content: "" !important;
+    }
+</style>
 <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" data-target="#addressmodal" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Adres Ekle</strong> </a>
-            @Html.Partial("_AddAddressPopUp")
-            @Html.Partial("_DeleteAddressPopUp")
+            @Html.Partial("_AddAddressPopUp")  
             @Html.Partial("_UpdateAddressPopUp")
 
-
-
-
-
-
-
             <hr class="mg-y-30">
-
-
-
             <div>
-                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
+                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info" >
                     <thead>
                         <tr>
 
@@ -44,8 +34,8 @@
                             <th>Tam Adres</th>
                             <th>Enlem</th>
                             <th>Boylam</th>
-                            @*<th>Güncelle</th>*@
-                            <th></th>
+                            
+                            <th id="selector"></th>
 
                         </tr>
                     </thead>
@@ -53,7 +43,6 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                @*<td>@item.ıd</td>*@
                                 @if (item.Name != null)
                                 {
                                     @if (item.Name.ToString().Length > 10)
@@ -86,8 +75,6 @@
                                 {
                                     <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
                                 }
-
-
 
                                 @if (item.Phone != null)
                                 {
@@ -189,42 +176,26 @@
                                     <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
                                 }
 
-
-
-
-
-
-
-
                                 @*<td>@item.ViewCount</td>*@
-
-
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
                                     <button class="btn btn-sm btn-indigo rounded-pill" onclick="GetAddressById('@item.Id')" data-toggle="modal" data-target="#updateaddressmodal"><i class="far fa-edit"></i></button>
                                     <button class="btn btn-sm btn-danger rounded-pill addressdelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                 </td>
-
-
                             </tr>
                         }
-
-
 
                     </tbody>
                 </table>
             </div>
-
-
             <div class="ht-40"></div>
-
-
         </div><!-- az-content-body -->
     </div><!-- container -->
 </div><!-- az-content -->
 
 
 @section xx{
+
 
 
     <script type="text/javascript">
@@ -264,8 +235,6 @@
         });
     </script>
 
-
-
     <script>
         function GetAddressById(id) {
             $.ajax({
@@ -278,8 +247,6 @@
                 },
                 success: function (data) {
                     debugger;
-
-
                     $("#adresid").val(data.Id);
                     $("#adresadı").val(data.Name)
                     $("#mail").val(data.Email);
