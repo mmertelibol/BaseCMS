@@ -223,39 +223,7 @@
     </script>
 
 
-    @*<script>
-
-            function socialMediaDeleteShow(id) {
-
-                $("#socialmediaid").val(id);
-            }
-        </script>
-        <script>
-
-            function DeleteSocialMedia() {
-                let id = $(socialmediaid).val();
-
-                $.ajax({
-                    type: "delete",
-                    url: "/SocialMedia/DeleteSocialMedia",
-                    data: {
-                        Id: id
-                    },
-                    success: function (response) {
-                        if (response) {
-
-                            $('#deletesocialmediapopup').modal('hide');
-                        }
-                        location.href = "/SocialMedia/Index";
-                    },
-                    error: function () {
-                        console.log("Hata Oluştu");
-                        //swal("SocialMedia Deleted!", "", "success");
-                    }
-                })
-            }
-        </script>*@
-
+  
     <script>
         $("#updatesocialmedia").click(function () {
             $("#updateform").validate({

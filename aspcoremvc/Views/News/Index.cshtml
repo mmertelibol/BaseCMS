@@ -294,53 +294,8 @@
         }
     </script>
 
-    @*<script>
-
-        function newsdeleteshow(id) {
-            // debugger;
-
-            $("#deletenewsinput").val(id);
-
-
-
-        }
-    </script>
+   
     <script>
-
-        function newsDelete() {
-            let id = $(deletenewsinput).val();
-
-            $.ajax({
-                type: "delete",
-                url: "/News/DeleteNews",
-                data: {
-                    Id: id
-
-                },
-                success: function (response) {
-                    if (response) {
-                        $('#deletenewspopup').modal('hide');
-                        //swal("NewsDeleted!", "", "success");
-
-                    }
-                    location.href = "/News/Index"
-
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                }
-            })
-        }
-    </script>*@
-
-    <script>
-
-
-
-
-
-
-
 
         // debugger;
         $(function () {

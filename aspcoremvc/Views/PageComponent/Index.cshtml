@@ -218,34 +218,7 @@
         }
     </script>
 
-    @*<script>
-        function ComponentDeleteShow(id) {
-
-            $("#pagecomponentid").val(id);
-        }
-    </script>
-    <script>
-        function ComponentDelete() {
-            let id = $(pagecomponentid).val();
-
-            $.ajax({
-                type: "delete",
-                url: "/PageComponent/DeletePageComponent",
-                data: {
-                    Id: id
-                },
-                success: function (response) {
-                    if (response) {
-                        $('deletecomponentpopup').modal('hide');
-                    }
-                    location.href = "/PageComponent/Index";
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                }
-            })
-        }
-    </script>*@
+  
 
     <script>
 

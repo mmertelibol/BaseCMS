@@ -152,40 +152,7 @@
         }
     </script>
 
-    @*<script>
-
-        function ComponentCategoryDeleteShow(id) {
-            // debugger;
-            $("#componentcategoryid").val(id);
-        }
-
-    </script>
-
-
-    <script>
-
-        function ComponentCategoryDelete() {
-            let id = $(componentcategoryid).val();
-
-            $.ajax({
-                type: "delete",
-                url: "/PageComponentCategory/DeletePageComponentCategory",
-                data: {
-                    Id: id
-
-                },
-                success: function (response) {
-                    if (response) {
-                        swal("ComponentCategory Deleted!", "", "success");
-                    }
-
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                }
-            })
-        }
-    </script>*@
+  
 
     <script>
         // debugger;

@@ -294,46 +294,7 @@
     </script>
 
 
-    @*<script>
-
-        function newsdeleteshow(id) {
-            debugger;
-
-            $("#deletepageid").val(id);
-
-
-
-        }
-    </script>
-
-    <script>
-
-        function StaticPageDelete() {
-            let id = $(deletepageid).val();
-
-            $.ajax({
-                type: "delete",
-                url: "/StaticPage/DeleteStaticPage",
-                data: {
-                    Id: id
-
-                },
-                success: function (response) {
-                    if (response) {
-                        //swal("Page Deleted!", "", "success");
-                        $('#deletestaticpagepopup').modal('hide');
-                    }
-                    location.href = "/StaticPage/Index";
-
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                    //swal("Page Deleted!", "", "success");
-                }
-            })
-        }
-    </script>*@
-
+   
 
     <script>
         $("#addstaticpage").click(function () {

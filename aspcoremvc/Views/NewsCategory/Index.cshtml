@@ -149,44 +149,6 @@
         }
     </script>
 
-    @*<script>
-
-        function NewsCategoryDeleteShow(id) {
-            // debugger;
-
-            $("#newscategoryid").val(id);
-
-
-
-        }
-    </script>
-    <script>
-
-        function NewsCategoryDelete() {
-            let id = $(newscategoryid).val();
-
-            $.ajax({
-                type: "delete",
-                url: "/NewsCategory/DeleteNewsCategory",
-                data: {
-                    Id: id
-
-                },
-                success: function (response) {
-                    if (response) {
-                        $('#deletenewscategorypopup').modal('hide');
-                        location.href = "/NewsCategory/Index";
-                    }
-
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                    //    swal("NewsCategoryDeleted!", "", "success");
-                }
-            })
-        }
-    </script>*@
-
     <script>
 
         $(function () {
@@ -213,7 +175,7 @@
                     },
                     error: function () {
                         console.log("Hata Oluştu");
-                        //swal("NewsCategory Added!", "", "success");
+                       
                     }
 
                 });
