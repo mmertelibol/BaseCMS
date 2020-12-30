@@ -82,8 +82,11 @@ namespace Web
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+
+
 
             services.Configure<IdentityOptions>(options =>
             {

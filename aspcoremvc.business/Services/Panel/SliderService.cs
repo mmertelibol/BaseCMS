@@ -68,7 +68,7 @@ namespace Business.Services.Panel
 
         public List<SliderDto> GetAllSliders()
         {
-            var sliderList = _context.Slider.Where(x => x.IsDeleted == false).ToList();
+            var sliderList = _context.Slider.Where(x => x.IsDeleted == false).OrderBy(x=>x.Order).ToList();
             var sliderDtoModel = _mapper.Map<List<SliderDto>>(sliderList);
 
             return sliderDtoModel;

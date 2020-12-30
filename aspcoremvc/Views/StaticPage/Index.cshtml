@@ -18,8 +18,8 @@
             @Html.Partial("_DetailHTMLContentPartial")
 
 
-        @*<div id="globalModal"></div>
-        $("#globalModal").html(data)*@
+            @*<div id="globalModal"></div>
+                $("#globalModal").html(data)*@
 
             <hr class="mg-y-30">
 
@@ -29,19 +29,15 @@
                 <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr>
-
                             <th>Sayfa Adı</th>
                             <th>Başlık</th>
-                            <th>İçerik</th>
+                            @*<th>İçerik</th>*@
                             <th>Özet</th>
                             <th>Anahtar Kelimeler</th>
                             <th>Url</th>
 
                             @*<th>Details</th>*@
-                            <th ></th> 
-
-
-
+                            <th></th>
 
                         </tr>
                     </thead>
@@ -50,92 +46,55 @@
                         {
                             <tr>
 
-                                @if (item.Name != null)
+                                @if (!string.IsNullOrWhiteSpace(item.Name))
                                 {
-                                    @if (item.Name.ToString().Length > 15)
-                                    {
-                                        <td>@item.Name.Substring(0, 15)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Name</td>
-                                    }
-                                }
-                                else
-                                {
-                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
-                                }
 
-                                @if (item.Title != null)
-                                {
-                                    @if (item.Title.ToString().Length > 15)
-                                    {
-                                        <td>@item.Title.Substring(0, 15)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Title</td>
-                                    }
-                                }
-                                else
-                                {
-                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
-                                }
-
-
-                                @if (item.HTMLContent != null)
-                                {
-                                    <td><a onclick="getContentById('@item.Id')" class="btn" data-toggle="modal" data-target="#htmlcontentpopup"><i class="fas fa-search"></i></a> </td>
+                                    <td>@item.Name</td>
 
                                 }
                                 else
                                 {
                                     <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
                                 }
+
+                                @if (!string.IsNullOrWhiteSpace(item.Title))
+                                {
+
+                                    <td>@item.Title</td>
+
+                                }
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
+
 
                                 @*@if (item.HTMLContent != null)
-                                        {
-                                        @if (item.HTMLContent.ToString().Length > 5)
-                                        {
-                                            <td>@Html.Raw(item.HTMLContent.Substring(0, 5))...</td>
-                                        }
-                                        else
-                                        {
-                                            <td>@Html.Raw(item.HTMLContent)</td>
-                                        }
+                                    {
+                                        <td><a onclick="getContentById('@item.Id')" class="btn" data-toggle="modal" data-target="#htmlcontentpopup"><i class="fas fa-search"></i></a> </td>
+
                                     }
                                     else
                                     {
-                                        <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                                        <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
                                     }*@
 
-
-                                @if (item.MetaDescription != null)
+                                @if (!string.IsNullOrWhiteSpace(item.MetaDescription))
                                 {
-                                    @if (item.MetaDescription.ToString().Length > 15)
-                                    {
-                                        <td>@item.MetaDescription.Substring(0, 15)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.MetaDescription</td>
-                                    }
+
+                                    <td>@item.MetaDescription</td>
+
                                 }
                                 else
                                 {
                                     <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
                                 }
 
-                                @if (item.MetaKeywords != null)
+                                @if (!string.IsNullOrWhiteSpace(item.MetaKeywords))
                                 {
-                                    @if (item.MetaKeywords.ToString().Length > 15)
-                                    {
-                                        <td>@item.MetaKeywords.Substring(0, 15)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.MetaKeywords</td>
-                                    }
+
+                                    <td>@item.MetaKeywords</td>
+
                                 }
 
                                 else
@@ -143,18 +102,11 @@
                                     <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
                                 }
 
-
-
-                                @if (item.RoutingUrl != null)
+                                @if (!string.IsNullOrWhiteSpace(item.RoutingUrl))
                                 {
-                                    @if (item.RoutingUrl.ToString().Length > 15)
-                                    {
-                                        <td>@item.RoutingUrl.Substring(0, 15)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.RoutingUrl</td>
-                                    }
+
+                                    <td>@item.RoutingUrl</td>
+
                                 }
                                 else
                                 {
@@ -163,15 +115,13 @@
                                 }
 
                                 @*<td><a href="#">Details </a></td>*@
-                            <td>
-                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup"><i class="far fa-edit"></i></button>
-                                <button class="btn btn-sm btn-danger rounded-pill" onclick="newsdeleteshow('@item.Id')" data-toggle="modal" data-target="#deletestaticpagepopup"><i class="far fa-trash-alt"></i></button>
-                            </td> 
+                                <td>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill deletepage" data-id="@item.Id" type="submit"name="delete"><i class="far fa-trash-alt"></i></button>
+                                </td>
 
                             </tr>
                         }
-
-
 
                     </tbody>
                 </table>
@@ -188,6 +138,44 @@
 
 @section xx{
 
+
+    <script type="text/javascript">
+        $(document).on('click', '.deletepage', function () {
+
+            var id = $(this).data("id");
+
+            Swal.fire({
+                title: 'Sayfa Silinecek!',
+                text: "Silmek istediğinize emin misiniz?",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal!',
+                closeOnConfirm: false
+            }).then(function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: 'delete',
+                        url: '/StaticPage/DeleteStaticPage?Id=' + id,
+                        success: function (data) {
+                            if (data) {
+                                //swal('Silindi!', 'Kategori silindi?', 'success');
+                                location.href = "/StaticPage/Index";
+                            }
+
+                            else {
+                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
+                                return false;
+                            }
+                        }
+                    });
+
+                }
+            });
+        });
+    </script>
 
 
 
@@ -206,7 +194,6 @@
 
                     $("#itemid").val(gelenObje.Id);
                     CKEDITOR.instances.editor3.setData(gelenObje.HTMLContent);
-
                 }
 
             })
@@ -243,72 +230,72 @@
     </script>
 
 
-<script>
-    $("#updatestaticpage").click(function () {
-        $("#updateform").validate({
-            ignore: [],
-            debug: false,
-            rules: {
-                sayfaadı: { required: true },
-                baslık: { required: true },
-                htmlcontent: { required: true },
-                //description: { required: true },
-                //keyword: { required: true },
-                url: { required: true },
-            },
-            messages: {
-                sayfaadı: { required: "Sayfa Adı zorunlu!" },
-                baslık: { required: "Sayfa başlık alanı zorunlu!" },
-                htmlcontent: { required: "Sayfa İçeriği zorunlu!" },
-                url: {required: "Url alanı Zorunlu"}
+    <script>
+        $("#updatestaticpage").click(function () {
+            $("#updateform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    sayfaadı: { required: true },
+                    baslık: { required: true },
+                    htmlcontent: { required: true },
+                    //description: { required: true },
+                    //keyword: { required: true },
+                    url: { required: true },
+                },
+                messages: {
+                    sayfaadı: { required: "Sayfa Adı zorunlu!" },
+                    baslık: { required: "Sayfa başlık alanı zorunlu!" },
+                    htmlcontent: { required: "Sayfa İçeriği zorunlu!" },
+                    url: { required: "Url alanı Zorunlu" }
 
-            },
-            submitHandler: function (form) {
-                CKEDITOR.instances['editor2'].updateElement();
+                },
+                submitHandler: function (form) {
+                    CKEDITOR.instances['editor2'].updateElement();
 
-                let id = $(pageid).val();
-                let name = $(pagename).val();
-                let title = $(pagebaslık).val();
-                let htmlcontent = $(editor2).val();
-                let description = $(pagedescription).val();
-                let keyword = $(pagekeyword).val();
-                let route = $(gidilecekurl).val();
-                
+                    let id = $(pageid).val();
+                    let name = $(pagename).val();
+                    let title = $(pagebaslık).val();
+                    let htmlcontent = $(editor2).val();
+                    let description = $(pagedescription).val();
+                    let keyword = $(pagekeyword).val();
+                    let route = $(gidilecekurl).val();
 
-                $.ajax({
-                    type: "put",
-                    url: "/StaticPage/UpdateStaticPage",
-                    data: {
-                        Id: id,
-                        Name: name,
-                        Title: title,
-                        HTMLContent: htmlcontent,
-                        MetaDescription: description,
-                        MetaKeywords: keyword,
-                        RoutingURL: route
-                        
 
-                    },
-                    success: function (response) {
-                        if (response) {
-                            //$('updatestaticpagepopup').hide();
-                            $('#updatestaticpagepopup').modal('hide');
+                    $.ajax({
+                        type: "put",
+                        url: "/StaticPage/UpdateStaticPage",
+                        data: {
+                            Id: id,
+                            Name: name,
+                            Title: title,
+                            HTMLContent: htmlcontent,
+                            MetaDescription: description,
+                            MetaKeywords: keyword,
+                            RoutingURL: route
 
+
+                        },
+                        success: function (response) {
+                            if (response) {
+                                //$('updatestaticpagepopup').hide();
+                                $('#updatestaticpagepopup').modal('hide');
+
+                            }
+                            location.href = "/StaticPage/Index";
+
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
+                            //swal("Page Updated!", "", "success");
                         }
-                        location.href = "/StaticPage/Index";
+                    });
 
-                    },
-                    error: function () {
-                        console.log("Hata Oluştu");
-                        //swal("Page Updated!", "", "success");
-                    }
-                });
-
-            }
+                }
+            });
         });
-    });
-</script>
-   
+    </script>
+
 
     <script>
 
@@ -350,65 +337,65 @@
         }
     </script>
 
-  
-<script>
-    $("#addstaticpage").click(function () {
-        $("#addstaticpageform").validate({
-            ignore: [],
-            debug: false,
-            rules: {
-                pagename: { required: true },
-                pagetitle: { required: true },
-                content: { required: true },
-                //description: { required: true },
-                //keyword: { required: true },
-                url: { required: true },
-            },
-            messages: {
-                pagename: { required: "Sayfa Adı zorunlu!" },
-                pagetitle: { required: "Sayfa başlık alanı zorunlu!" },
-                content: { required: "Sayfa İçeriği zorunlu!" },
-                url: { required: "Url alanı Zorunlu" }
 
-            },
-            submitHandler: function (form) {
-                CKEDITOR.instances['editor1'].updateElement();
-                let StaticPage = {
-                    Title: $("#title").val(),
-                    Name: $("#name").val(),
-                    MetaDescription: $("#description").val(),
-                    MetaKeywords: $("#keywords").val(),
-                    RoutingURL: $("#routingurl").val(),
-                    HTMLContent: $("#editor1").val()
-                   
-                };
+    <script>
+        $("#addstaticpage").click(function () {
+            $("#addstaticpageform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    pagename: { required: true },
+                    pagetitle: { required: true },
+                    content: { required: true },
+                    //description: { required: true },
+                    //keyword: { required: true },
+                    url: { required: true },
+                },
+                messages: {
+                    pagename: { required: "Sayfa Adı zorunlu!" },
+                    pagetitle: { required: "Sayfa başlık alanı zorunlu!" },
+                    content: { required: "Sayfa İçeriği zorunlu!" },
+                    url: { required: "Url alanı Zorunlu" }
 
-                $.ajax({
-                    type: "post",
-                    url: "/StaticPage/AddStaticPage",
-                    data: StaticPage,
-                    success: function (response) {
-                        if (response) {
-                            $('#addstaticpagemodal').modal('hide');
-                            //swal("Page Added!", "", "success");
+                },
+                submitHandler: function (form) {
+                    CKEDITOR.instances['editor1'].updateElement();
+                    let StaticPage = {
+                        Title: $("#title").val(),
+                        Name: $("#name").val(),
+                        MetaDescription: $("#description").val(),
+                        MetaKeywords: $("#keywords").val(),
+                        RoutingURL: $("#routingurl").val(),
+                        HTMLContent: $("#editor1").val()
+
+                    };
+
+                    $.ajax({
+                        type: "post",
+                        url: "/StaticPage/AddStaticPage",
+                        data: StaticPage,
+                        success: function (response) {
+                            if (response) {
+                                $('#addstaticpagemodal').modal('hide');
+                                //swal("Page Added!", "", "success");
+                            }
+                            location.href = "/StaticPage/Index";
+
+
+                        },
+
+                        error: function () {
+                            console.log("Hata Oluştu");
+                            //swal("Page Deleted!", "", "success");
                         }
-                        location.href = "/StaticPage/Index";
 
+                    });
 
-                    },
-
-                    error: function () {
-                        console.log("Hata Oluştu");
-                        //swal("Page Deleted!", "", "success");
-                    }
-
-                });
-
-            }
+                }
+            });
         });
-    });
 
-</script>
+    </script>
 
     <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript">
 

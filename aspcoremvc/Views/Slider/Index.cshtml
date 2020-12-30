@@ -14,11 +14,11 @@
 
         @foreach (var item in Model)
         {
-            <div class="col-md-6">
+            <div class="col-md-4">
 
 
-                <div class="card" style="width: 28rem;    margin-left:30px; margin-top:30px;">
-                    <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:445px; height:294px;  ">
+                <div class="card" style="width: 23rem;    margin-top:30px;">
+                    <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:365px; height:294px;  ">
                     <!--<div class="card-body">-->
                     @*<h5 class="card-title">Card title</h5>*@
                     @*<p class="card-text">
@@ -28,8 +28,9 @@
 
                     <!--</div>-->
                     <div class="card-footer">
+                        <p style="float:left;"><strong>@item.Order</strong></p>
                         <button onclick="getSliderById('@item.Id')" data-target="#updateslidermodal" data-toggle="modal" style="float:right; margin-left:10px;" class="btn btn-sm btn-indigo rounded-pill"> <i class="far fa-edit"></i></button>
-                        <button onclick="sliderDeleteShow('@item.Id')" data-target="#deleteslidermodal" data-toggle="modal" style="float:right; " class="btn btn-sm btn-danger rounded-pill"><i class="far fa-trash-alt"></i></button>
+                        <button  class="btn btn-sm btn-danger rounded-pill deleteslider" data-id="@item.Id" type="submit"name="delete" style="float:right"><i class="far fa-trash-alt"></i></button>
                     </div>
                 </div>
             </div>
@@ -40,6 +41,48 @@
 
 
 @section xx{
+
+    <script type="text/javascript">
+        $(document).on('click', '.deleteslider', function () {
+
+            var id = $(this).data("id");
+
+            Swal.fire({
+                title: 'Slider Silinecek!',
+                text: "Silmek istediğinize emin misiniz?",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal!',
+                closeOnConfirm: false
+            }).then(function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: 'delete',
+                        url: '/Slider/DeleteSlider?Id=' + id,
+                        success: function (data) {
+                            if (data) {
+                                //swal('Silindi!', 'Kategori silindi?', 'success');
+                                location.href = "/Slider/Index";
+
+                            }
+
+                            else {
+                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
+                                return false;
+                            }
+                        }
+                    });
+
+                }
+            });
+        });
+    </script>
+
+
+
 
     <script>
         function getSliderById(id) {
@@ -53,12 +96,12 @@
                     Id: id
                 },
                 success: function (data) {
-                    
+
                     $("#idslider").val(data.Id);
                     $("#sliderhref").val(data.Href);
-                    //$("#sliderimage").val(data.ImageUrl);
                     $("#descriptionslider").val(data.Description);
                     $("#orderslider").val(data.Order);
+                    $("#imageslider").val(data.ImageUrl);
 
 
                 }
@@ -66,7 +109,7 @@
             })
         }
     </script>
-  
+
     <script>
 
         function sliderUpdate() {
@@ -76,7 +119,7 @@
             let description = $("#descriptionslider").val();
             let sliderimageurl = $("#imageslider")[0].files[0];
             let order = $("#orderslider").val();
-          
+
             let formData = new FormData();
             formData.append("Id", sliderid);
             formData.append("Href", href);
@@ -86,7 +129,7 @@
                 formData.append("SliderFile", sliderimageurl, sliderimageurl.fileName);
             }
             formData.append("Order", order);
-            
+
             $.ajax({
                 type: "put",
                 url: "/Slider/UpdateSlider",
@@ -95,7 +138,7 @@
                 processData: false,
                 success: function (response) {
                     if (response) {
-                       
+
                         $('updateslidermodal').modal('hide');
                     }
                     location.href = "/Slider/Index";

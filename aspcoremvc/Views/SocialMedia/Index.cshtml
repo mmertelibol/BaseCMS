@@ -8,12 +8,6 @@
 }
 
 
-
-
-<!-- vendor css -->
-<!-- az-header -->
-
-
 <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
 
@@ -24,13 +18,7 @@
             @Html.Partial("_DeleteSocialMediaPartial")
             @Html.Partial("_UpdateSocialMediaPartial")
 
-
-
-
-
             <hr class="mg-y-30">
-
-
 
             <div>
                 <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
@@ -39,16 +27,10 @@
 
                             <th>Ad</th>
                             <th>Görünürlük</th>
-
                             <th>Ikon</th>
                             <th>Href</th>
-
-
                             @*<th>Düzenle</th>*@
                             <th></th>
-
-
-
 
                         </tr>
                     </thead>
@@ -56,10 +38,10 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                @if (item.Name != null)
+                                @if (!string.IsNullOrWhiteSpace(item.Name))
                                 {
-                                        <td>@item.Name</td>
-                                    
+                                    <td>@item.Name</td>
+
                                 }
                                 else
                                 {
@@ -78,46 +60,37 @@
                                 </td>
 
 
-                                @*<td>@item.IsVisible</td>*@
-
-                                @if (item.Icon != null)
+                                @if (!string.IsNullOrWhiteSpace(item.Icon))
                                 {
                                     <td><img src="~/img/@item.Icon" style="width:150px; height:150px;" /></td>
                                 }
                                 else
                                 {
-                                  
+
                                     <td><p style="color:indigo"> <strong>Eklenmedi!</strong> </p></td>
                                 }
 
 
-
-
-
-
-
-
-
-                                @if (item.Href != null)
+                                @if (!string.IsNullOrWhiteSpace(item.Href))
                                 {
-                                   
-                                    
-                                        <td>@item.Href</td>
-                                    
+
+
+                                    <td>@item.Href</td>
+
                                 }
                                 else
                                 {
                                     <td><p style="color:indigo"> <strong>Eklenmedi!</strong> </p></td>
                                 }
 
-                            <td>
-                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="SocialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup"><i class="far fa-edit"></i></button>
-                                <button type="submit" class="btn btn-sm btn-danger rounded-pill" onclick="SocialMediaDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesocialmediapopup"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                                
+                                <td>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="socialMediaUpdateShow('@item.Id', '@item.Name', '@item.IsVisible', '@item.Href')" data-toggle="modal" data-target="#updatesocialmediapopup"><i class="far fa-edit"></i></button>
+                                    <button data-id="@item.Id" type="submit" name="delete" class="btn btn-sm btn-danger rounded-pill deletesocialmedia" ><i class="far fa-trash-alt"></i></button>
+                                </td>
+
 
                             </tr>
-                         }
+                        }
 
                     </tbody>
                 </table>
@@ -130,8 +103,45 @@
 
 @section xx{
 
-  
-    
+
+    <script type="text/javascript">
+        $(document).on('click', '.deletesocialmedia', function () {
+
+            var id = $(this).data("id");
+
+            Swal.fire({
+                title: 'Sosyal Medya Silinecek!',
+                text: "Silmek istediğinize emin misiniz?",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, sil!',
+                cancelButtonText: 'İptal!',
+                closeOnConfirm: false
+            }).then(function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        type: 'delete',
+                        url: '/SocialMedia/DeleteSocialMedia?Id=' + id,
+                        success: function (data) {
+                            if (data) {
+                                //swal('Silindi!', 'Kategori silindi?', 'success');
+                                location.href = "/SocialMedia/Index";
+                            }
+
+                            else {
+                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
+                                return false;
+                            }
+                        }
+                    });
+
+                }
+            });
+        });
+    </script>
+
 
 
     <script>
@@ -203,7 +213,7 @@
 
     <script>
 
-        function SocialMediaUpdateShow(id, name, isvisible, ahref) {
+        function socialMediaUpdateShow(id, name, isvisible, ahref) {
             // debugger;
 
             $("#socialid").val(id);
@@ -213,15 +223,15 @@
         }
     </script>
 
-  
+
     <script>
 
-        function SocialMediaDeleteShow(id) {
+        function socialMediaDeleteShow(id) {
 
             $("#socialmediaid").val(id);
         }
-        </script>
-<script>
+    </script>
+    <script>
 
         function DeleteSocialMedia() {
             let id = $(socialmediaid).val();
@@ -231,7 +241,6 @@
                 url: "/SocialMedia/DeleteSocialMedia",
                 data: {
                     Id: id
-
                 },
                 success: function (response) {
                     if (response) {
@@ -239,7 +248,6 @@
                         $('#deletesocialmediapopup').modal('hide');
                     }
                     location.href = "/SocialMedia/Index";
-
                 },
                 error: function () {
                     console.log("Hata Oluştu");
@@ -253,39 +261,34 @@
         $("#updatesocialmedia").click(function () {
             $("#updateform").validate({
                 rules: {
-                    adısosyal: { required: true },
-
+                    socialmedianame: { required: true },
                     fileinput: { extension: "png", required: false },
-
-                    gorunurluk: { required: true },
-
+                    visibility: { required: true },
                     href: { required: true }
 
                 },
                 messages: {
-                    adısosyal: { required: "Lütfen Sosyal Medya Adı Giriniz!" },
+                    socialmedianame: { required: "Lütfen Sosyal Medya Adı Giriniz!" },
                     fileinput: { extension: "Png formatında dosya yükleyiniz!" },
-                    gorunurluk: { required: "Görünürlük Seçiniz!" },
+                    visibility: { required: "Görünürlük Seçiniz!" },
                     href: { required: "Lütfen href giriniz!" }
 
                 },
                 submitHandler: function (form) {
                     let socialmediaid = $("#socialid").val();
                     let socialmedianame = $("#socialname").val();
-                    let Isvisible = $("#visible").val();
-                    let Icon = $("#logoicon")[0].files[0];
-                    let Href = $("#hrefurl").val();
-
+                    let isvisible = $("#visible").val();
+                    let icon = $("#logoicon")[0].files[0];
+                    let href = $("#hrefurl").val();
                     let formData = new FormData();
                     formData.append("Id", socialmediaid);
                     formData.append("Name", socialmedianame);
-                    formData.append("IsVisible", Isvisible);
-                    formData.append("Href", Href);
+                    formData.append("IsVisible", isvisible);
+                    formData.append("Href", href);
 
                     if (Icon != null) {
-                        formData.append("File", Icon, Icon.fileName)
+                        formData.append("File", icon, icon.fileName)
                     }
-
                     $.ajax({
                         type: "put",
                         url: "/SocialMedia/UpdateSocialMedia",
@@ -297,7 +300,6 @@
                                 $('#updatesocialmediapopup').modal('hide');
                             }
                             location.href = "/SocialMedia/Index";
-
                         },
                         error: function () {
                             console.log("Hata Oluştu");

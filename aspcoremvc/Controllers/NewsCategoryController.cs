@@ -28,18 +28,21 @@ namespace Web.Controllers
             return View(categorylist);
         }
 
+        [HttpPost]
         public JsonResult AddNewsCategory(NewsCategoryDto newsCategoryDto)
         {
             var added = _newsCategoryService.AddNewsCategory(newsCategoryDto);
             return Json(added);
         }
 
+        [HttpDelete]
         public JsonResult DeleteNewsCategory(int id)
         {
             var deleted = _newsCategoryService.DeleteNewsCategory(id);
             return Json(deleted);
         }
 
+        [HttpPut]
         public JsonResult UpdateNewsCategory(NewsCategoryDto newsCategoryDto)
         {
             var updated = _newsCategoryService.UpdateNewsCategory(newsCategoryDto);
