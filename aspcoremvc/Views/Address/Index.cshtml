@@ -17,12 +17,12 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" data-target="#addressmodal" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Adres Ekle</strong> </a>
-            @Html.Partial("_AddAddressPopUp")  
+            @Html.Partial("_AddAddressPopUp")
             @Html.Partial("_UpdateAddressPopUp")
 
             <hr class="mg-y-30">
             <div>
-                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info" >
+                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
                     <thead>
                         <tr>
 
@@ -34,7 +34,7 @@
                             <th>Tam Adres</th>
                             <th>Enlem</th>
                             <th>Boylam</th>
-                            
+
                             <th id="selector"></th>
 
                         </tr>
@@ -43,66 +43,10 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                @if (item.Name != null)
+                                @if (!string.IsNullOrWhiteSpace(item.Name))
                                 {
-                                    @if (item.Name.ToString().Length > 10)
-                                    {
-                                        <td>@item.Name.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Name</td>
-                                    }
-                                }
-                                else
-                                {
-                                    <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
-                                }
-                                <!--<td>--> @*@item.Title*@<!--<button onclick="getTitleById('@item.Id')" type="button" style="width:auto;"  class="btn btn-indigo rounded-pill btn-sm" data-toggle="modal" data-target="#titledetail"><i class="fas fa-search"></i></button> </td>-->
 
-                                @if (item.Email != null)
-                                {
-                                    @if (item.Email.ToString().Length > 10)
-                                    {
-                                        <td>@item.Email.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Email</td>
-                                    }
-                                }
-                                else
-                                {
-                                    <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
-                                }
-
-                                @if (item.Phone != null)
-                                {
-                                    @if (item.Phone.ToString().Length > 10)
-                                    {
-                                        <td>@item.Phone.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Phone</td>
-                                    }
-                                }
-                                else
-                                {
-                                    <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
-                                }
-
-
-                                @if (item.City != null)
-                                {
-                                    @if (item.City.ToString().Length > 10)
-                                    {
-                                        <td>@item.City.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.City</td>
-                                    }
+                                    <td>@item.Name</td>
 
                                 }
                                 else
@@ -110,32 +54,24 @@
                                     <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
                                 }
 
-                                @if (item.County != null)
+
+                                @if (!string.IsNullOrWhiteSpace(item.Email))
                                 {
-                                    @if (item.County.ToString().Length > 10)
-                                    {
-                                        <td>@item.County.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.County</td>
-                                    }
+
+                                    <td>@item.Email</td>
+
                                 }
                                 else
                                 {
                                     <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
                                 }
 
-                                @if (item.FullAdress != null)
+                                @if (!string.IsNullOrWhiteSpace(item.Phone))
                                 {
-                                    @if (item.FullAdress.ToString().Length > 10)
-                                    {
-                                        <td>@item.FullAdress.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.FullAdress</td>
-                                    }
+
+
+                                    <td>@item.Phone</td>
+
                                 }
                                 else
                                 {
@@ -143,16 +79,34 @@
                                 }
 
 
-                                @if (item.Longitude != null)
+                                @if (!string.IsNullOrWhiteSpace(item.City))
                                 {
-                                    @if (item.Longitude.ToString().Length > 10)
-                                    {
-                                        <td>@item.Longitude.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Longitude</td>
-                                    }
+
+                                    <td>@item.City</td>
+
+
+                                }
+                                else
+                                {
+                                    <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                                }
+
+                                @if (!string.IsNullOrWhiteSpace(item.County))
+                                {
+
+                                    <td>@item.County</td>
+
+                                }
+                                else
+                                {
+                                    <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                                }
+
+                                @if (!string.IsNullOrWhiteSpace(item.FullAdress))
+                                {
+
+                                    <td>@item.FullAdress</td>
+
                                 }
                                 else
                                 {
@@ -160,26 +114,32 @@
                                 }
 
 
-                                @if (item.Latitude != null)
+                                @if (!string.IsNullOrWhiteSpace(item.Longitude))
                                 {
-                                    @if (item.Latitude.ToString().Length > 10)
-                                    {
-                                        <td>@item.Latitude.Substring(0, 10)...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>@item.Latitude</td>
-                                    }
+
+                                    <td>@item.Longitude</td>
+
                                 }
                                 else
                                 {
                                     <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
                                 }
 
-                                @*<td>@item.ViewCount</td>*@
-                                @*<td><a href="#">Details </a></td>*@
+
+                                @if (!string.IsNullOrWhiteSpace(item.Latitude))
+                                {
+
+
+                                    <td>@item.Latitude</td>
+
+                                }
+                                else
+                                {
+                                    <td><p style="color:red"><strong>Eklenmedi!</strong></p></td>
+                                }
+
                                 <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="GetAddressById('@item.Id')" data-toggle="modal" data-target="#updateaddressmodal"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getAddressById('@item.Id')" data-toggle="modal" data-target="#updateaddressmodal"><i class="far fa-edit"></i></button>
                                     <button class="btn btn-sm btn-danger rounded-pill addressdelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
@@ -236,7 +196,7 @@
     </script>
 
     <script>
-        function GetAddressById(id) {
+        function getAddressById(id) {
             $.ajax({
                 url: "/Address/GetAddressById",
                 type: "Get",
@@ -247,15 +207,15 @@
                 },
                 success: function (data) {
                     debugger;
-                    $("#adresid").val(data.Id);
-                    $("#adresadı").val(data.Name)
-                    $("#mail").val(data.Email);
-                    $("#telefon").val(data.Phone);
-                    $("#sehir").val(data.City);
-                    $("#ilce").val(data.County);
-                    $("#tamadres").val(data.FullAdress);
-                    $("#boylam").val(data.Longitude);
-                    $("#enlem").val(data.Latitude);
+                    $("#addressid").val(data.Id);
+                    $("#addressnameid").val(data.Name)
+                    $("#mailid").val(data.Email);
+                    $("#phoneid").val(data.Phone);
+                    $("#cityid").val(data.City);
+                    $("#idcounty").val(data.County);
+                    $("#fulladdressid").val(data.FullAdress);
+                    $("#longitudeid").val(data.Longitude);
+                    $("#latitudeid").val(data.Latitude);
 
                 }
 
@@ -269,37 +229,36 @@
                 ignore: [],
                 debug: false,
                 rules: {
-                    adresadı: { required: true },
+                    addressname: { required: true },
                     mail: { required: true, email: true },
-                    sehir: { required: true },
-                    ilce: { required: true },
-                    tamadres: { required: true },
-                    //telefon: { required: true },
-                    //boylam: { required: true },
-                    //enlem: { required: true },
-
+                    city: { required: true },
+                    county: { required: true },
+                    fulladdress: { required: true },
+                    //phone: { required: true },
+                    //longitude: { required: true },
+                    //latitude: { required: true },
                 },
                 messages: {
-                    adresadı: { required: "Adres Adı zorunlu!" },
-                    mail: { required: "Sayfa başlık alanı zorunlu!", email: "Email formatı geçerli değil!" },
-                    sehir: { required: "Şehir bilgisi zorunlu!" },
-                    ilce: { required: "İlçe Bilgisi zorunlu!" },
-                    tamadres: { required: "Açık adres bilgisi zorunlu!" },
-                    //boylam: { required: "Boylam bilgisi zorunlu!" },
-                    //enlem: { required: "Enlem bilgisi zorunlu!" },
+                    addressname: { required: "Adres Adı zorunlu!" },
+                    mail: { required: "Mail alanı zorunlu!", email: "Email formatı geçerli değil!" },
+                    city: { required: "Şehir bilgisi zorunlu!" },
+                    county: { required: "İlçe Bilgisi zorunlu!" },
+                    fulladdress: { required: "Açık adres bilgisi zorunlu!" },
+                    //longitude: { required: "Boylam bilgisi zorunlu!" },
+                    //latitude: { required: "Enlem bilgisi zorunlu!" },
 
-                    //telefon: { required: "Telefon bilgisi zorunlu!" },
+                    //phone: { required: "Telefon bilgisi zorunlu!" },
                 },
                 submitHandler: function (form) {
-                    let id = $(adresid).val();
-                    let name = $(adresadı).val();
-                    let email = $(mail).val();
-                    let phone = $(telefon).val();
-                    let city = $(sehir).val();
-                    let county = $(ilce).val();
-                    let fulladdress = $(tamadres).val();
-                    let longitude = $(boylam).val();
-                    let latitude = $(enlem).val();
+                    let id = $(addressid).val();
+                    let name = $(addressnameid).val();
+                    let email = $(mailid).val();
+                    let phone = $(phoneid).val();
+                    let city = $(cityid).val();
+                    let county = $(idcounty).val();
+                    let fulladdress = $(fulladdressid).val();
+                    let longitude = $(longitudeid).val();
+                    let latitude = $(latitudeid).val();
 
                     $.ajax({
                         type: "put",
@@ -333,7 +292,7 @@
     </script>
 
 
-  
+
 
 
     <script>

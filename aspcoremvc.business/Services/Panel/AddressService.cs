@@ -71,6 +71,8 @@ namespace Business.Services.Panel
             address.Phone = addressDto.Phone;
             address.UpdatedDate = DateTime.Now;
             address.FullAdress = addressDto.FullAdress;
+            address.County = addressDto.County;
+            address.City = addressDto.City;
 
             _context.Adress.Update(address);
             _context.SaveChanges();
