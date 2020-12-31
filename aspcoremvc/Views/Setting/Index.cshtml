@@ -146,8 +146,11 @@
                 processData: false,
                 success: function (response) {
                     if (response) {
-                        //swal("Setting Updated!", "", "success");
+                        $('#updatesettingpopup').modal('hide');
+
+
                     }
+                    location.href="/Setting/Index"
                 },
 
                 error: function () {

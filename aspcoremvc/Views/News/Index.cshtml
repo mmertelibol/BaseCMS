@@ -287,7 +287,7 @@
                         },
                         error: function () {
                             console.log("Hata Oluştu");
-                            //swal("NewsUpdated!", "", "success");
+                            
                         }
                     })
 
@@ -295,50 +295,7 @@
             });
         });
     </script>
-    @*<script>
-
-        function newsUpdate() {
-            debugger
-            CKEDITOR.instances['editor2'].updateElement();
-
-            let id = $(newsid).val();
-            let title = $(newstitle).val();
-            let author = $(newsauthor).val();
-            let htmlcontent = $(editor2).val();
-            let description = $(newsdescription).val();
-            let keyword = $(newskeyword).val();
-            let category = $(newscategory).val();
-            let route = $(newsroute).val();
-
-            $.ajax({
-                type: "put",
-                url: "/News/UpdateNews",
-                data: {
-                    Id: id,
-                    Title: title,
-                    Author: author,
-                    HTMLContent: htmlcontent,
-                    MetaDescription: description,
-                    MetaKeywords: keyword,
-                    NewsCategoryId: category,
-                    RoutingURL: route
-
-                },
-                success: function (response) {
-                    if (response) {
-                        $('#updatenewspopup').modal('hide');
-
-                    }
-                    location.href = "/News/Index";
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                    //swal("NewsUpdated!", "", "success");
-                }
-            })
-        }
-    </script>*@
-
+   
     <script>
 
         $("#addnews").click(function () {

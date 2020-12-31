@@ -111,8 +111,6 @@
     <script>
 
         function newscategoryupdateshow(id, name) {
-            // debugger;
-
             $("#categoryid").val(id);
             $("#categoryname").val(name);
 
@@ -120,72 +118,81 @@
     </script>
 
     <script>
-
-        function NewsCategoryUpdate() {
-
-
-            let id = $(categoryid).val();
-            let name = $(categoryname).val();
-
-            $.ajax({
-                type: "put",
-                url: "/NewsCategory/UpdateNewsCategory",
-                data: {
-                    Id: id,
-                    Name: name
+        $("#updatenewscategory").click(function () {
+            $("#updatecategoryform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    name: { required: true }
                 },
-                success: function (response) {
-                    if (response) {
-
-                        $('#updatenewscategorypopup').modal('hide');
-                    }
-                    location.href = "/NewsCategory/Index";
+                messages: {
+                    name: { required: "Ad alanı zorunlu!" }
                 },
-                error: function () {
-                    console.log("Hata Oluştu");
-                    //swal("NewsCategoryUpdated!", "", "success");
-                }
-            })
-        }
-    </script>
+                submitHandler: function (form) {
+                    let id = $(categoryid).val();
+                    let name = $(categoryname).val();
 
-    <script>
+                    $.ajax({
+                        type: "put",
+                        url: "/NewsCategory/UpdateNewsCategory",
+                        data: {
+                            Id: id,
+                            Name: name
+                        },
+                        success: function (response) {
+                            if (response) {
 
-        $(function () {
+                                $('#updatenewscategorypopup').modal('hide');
+                            }
+                            location.href = "/NewsCategory/Index";
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
 
-
-            //  debugger;
-
-
-            $("#addnewscategory").click(function () {
-
-                let NewsCategory = {
-                    Name: $("#name").val(),
-                };
-
-                $.ajax({
-                    type: "post",
-                    url: "/NewsCategory/AddNewsCategory",
-                    data: NewsCategory,
-                    success: function (response) {
-                        if (response) {
-                            $('addnewscategorypopup').modal('hide');
                         }
-                        location.href = "/NewsCategory/Index";
-                    },
-                    error: function () {
-                        console.log("Hata Oluştu");
-                       
-                    }
+                    })
 
-                });
-
+                }
             });
-
         });
     </script>
+  
+    <script>
+        $("#addnewscategory").click(function () {
+            $("#addcategoryform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    name: { required: true }
+                },
+                messages: {
+                    name: { required: "Ad alanı zorunlu!" }         
+                },
+                submitHandler: function (form) {
+                    let NewsCategory = {
+                        Name: $("#name").val()
+                    };
 
+                    $.ajax({
+                        type: "post",
+                        url: "/NewsCategory/AddNewsCategory",
+                        data: NewsCategory,
+                        success: function (response) {
+                            if (response) {
+                                $('addnewscategorypopup').modal('hide');
+                            }
+                            location.href = "/NewsCategory/Index";
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
 
+                        }
+
+                    });
+                }
+            });
+        });
+    </script>
 
 
 }
