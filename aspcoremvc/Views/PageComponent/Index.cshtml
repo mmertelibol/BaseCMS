@@ -19,7 +19,7 @@
             <a class="btn btn-primary" data-toggle="modal" data-target="#addpagecomponentpopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Component Ekle</strong> </a>
 
             @Html.Partial("_AddPageComponentPartial")
-            
+
             @Html.Partial("_UpdatePageComponentPartial")
 
 
@@ -98,7 +98,7 @@
 
 
                                 <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentUpdateShow('@item.Id', '@item.Title', '@item.Description','@item.Href','@item.PageComponentCategoryId')" data-toggle="modal" data-target="#updatepagecomponentpopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatepagecomponentpopup"><i class="far fa-edit"></i></button>
                                     <button class="btn btn-sm btn-danger rounded-pill componentdelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                 </td>
 
@@ -161,22 +161,34 @@
             });
         });
     </script>
-
-
     <script>
+        function getById(id) {
+            $.ajax({
+                url: "/PageComponent/GetPageComponentById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id: id
+                },
+                success: function (data) {
+                    $("#id").val(data.Id);
+                    $("#title").val(data.Title);
+                    $("#description").val(data.Description);
+                    $("#hrefurl").val(data.Href);
+                    $("#categoryid").val(data.PageComponentCategoryId);
+                    $("#imageurl").val(data.ImageUrl);
 
-        function ComponentUpdateShow(id, title, description, ahref, category) {
-            $("#id").val(id);
-            $("#title").val(title);
-            $("#description").val(description);
-            //$("#imageurl").val(imageurl);
-            $("#hrefurl").val(ahref);
-            $("#categoryid").val(category);
 
+                }
+            })
         }
+
     </script>
 
-    <script>
+
+
+    @*<script>
 
         function ComponentUpdate() {
             let componentsid = $("#id").val();
@@ -216,57 +228,139 @@
                 }
             })
         }
+    </script>*@
+
+    <script>
+        $("#updatepagecomponent").click(function () {
+            $("#updatecomponentform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    title: { required: true },
+                    description: { required: true },
+                    image: { required: true, extension: "png"  },
+                    href: { required: true },
+                    category: { required: true }
+
+                },
+                messages: {
+                    title: { required: "Başlık alanı zorunlu!" },
+                    description: { required: "Özet alanı zorunlu!" },
+                    image: { required: "Fotoğraf alanı zorunlu!", extension:"Lütfen png formatında dosya yükleyiniz!" },
+                    href: { required: "Href alanı zorunlu!" },
+                    category: { required: "Kategori alanı zorunlu!" }
+
+                },
+                submitHandler: function (form) {
+                    let componentsid = $("#id").val();
+                    let componentstitle = $("#title").val();
+                    let componentsdescription = $("#description").val();
+                    let componentimageurl = $("#imageurl")[0].files[0];
+                    let componenthref = $("#hrefurl").val();
+                    let componentscategory = $("#categoryid").val();
+
+                    let formData = new FormData();
+                    formData.append("Id", componentsid);
+                    formData.append("Title", componentstitle);
+                    formData.append("Description", componentsdescription);
+
+                    if (componentimageurl != null) {
+                        formData.append("File", componentimageurl, componentimageurl.fileName)
+                    }
+                    formData.append("Href", componenthref);
+                    formData.append("PageComponentCategoryId", componentscategory);
+
+                    $.ajax({
+                        type: "put",
+                        url: "/PageComponent/UpdatePageComponent",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            if (response) {
+                                //swal("Component Updated!", "", "success");
+                                $('updatepagecomponentpopup').modal('hide');
+                            }
+                            location.href = "/PageComponent/Index";
+                        },
+
+                        error: function () {
+                            console.log("Hata Oluştu");
+                        }
+                    })
+
+
+
+                }
+            });
+        });
+
+         
     </script>
 
-  
 
     <script>
 
         $(function () {
-
-
-            //  debugger;
-
-
             $("#addcomponentcategory").click(function () {
+                $("#addcomponentform").validate({
+                    ignore: [],
+                    debug: false,
+                    rules: {
+                        title: { required: true },
+                        description: { required: true },
+                        image: { required: true },
+                        href: { required: true },
+                        category: { required: true }
 
-
-                let componentstitle = $("#componenttitle").val();
-                let componentsdescription = $("#componentdescription").val();
-                let componentimageurl = $("#componentimage")[0].files[0];
-                let componenthref = $("#componenthref").val();
-                let componentcategory = $("#componentcategoryid").val();
-
-                let formData = new FormData();
-                formData.append("Title", componentstitle);
-                formData.append("Description", componentsdescription);
-                formData.append("Href", componenthref);
-                formData.append("PageComponentCategoryId", componentcategory);
-
-
-                if (componentimageurl != null) {
-                    formData.append("File", componentimageurl, componentimageurl.fileName)
-                }
-
-                $.ajax({
-                    type: "post",
-                    url: "/PageComponent/AddPageComponent",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-                        if (response) {
-                            //swal("Component Added!", "", "success");
-                            $('addpagecomponentpopup').modal('hide');
-                        }
-                        location.href = "/PageComponent/Index";
                     },
-                    error: function () {
-                        console.log("Hata Oluştu");
+                    messages: {
+                        title: { required: "Başlık alanı zorunlu!" },
+                        description: { required: "Özet alanı zorunlu!" },
+                        image: { required: "Fotoğraf alanı zorunlu!" },
+                        href: { required: "Href alanı zorunlu!" },
+                        category: { required: "Kategori alanı zorunlu!" }
+
+                    },
+                    submitHandler: function (form) {
+
+                        let componentstitle = $("#componenttitle").val();
+                        let componentsdescription = $("#componentdescription").val();
+                        let componentimageurl = $("#componentimage")[0].files[0];
+                        let componenthref = $("#componenthref").val();
+                        let componentcategory = $("#componentcategoryid").val();
+
+                        let formData = new FormData();
+                        formData.append("Title", componentstitle);
+                        formData.append("Description", componentsdescription);
+                        formData.append("Href", componenthref);
+                        formData.append("PageComponentCategoryId", componentcategory);
+
+
+                        if (componentimageurl != null) {
+                            formData.append("File", componentimageurl, componentimageurl.fileName)
+                        }
+
+                        $.ajax({
+                            type: "post",
+                            url: "/PageComponent/AddPageComponent",
+                            data: formData,
+                            contentType: false,
+                            processData: false,
+                            success: function (response) {
+                                if (response) {
+                                    //swal("Component Added!", "", "success");
+                                    $('addpagecomponentpopup').modal('hide');
+                                }
+                                location.href = "/PageComponent/Index";
+                            },
+                            error: function () {
+                                console.log("Hata Oluştu");
+                            }
+
+                        });
                     }
-
                 });
-
             });
 
         });
