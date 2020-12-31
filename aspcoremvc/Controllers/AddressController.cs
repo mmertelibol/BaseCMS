@@ -37,7 +37,7 @@ namespace Web.Controllers
             var deleted = _addressService.DeleteAddress(id);
             return Json(deleted);
         }
-        [HttpPut]
+        [HttpPost]
         public JsonResult UpdateAddress(AddressDto addressDto)
         {
             var updated = _addressService.UpdateAddress(addressDto);

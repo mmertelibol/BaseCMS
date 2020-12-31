@@ -1,6 +1,5 @@
 ﻿
 
-
 <style>
     .error {
         color: red;
@@ -10,12 +9,13 @@
 
 
 
+
 <form id="updateform">
     <div id="updatestaticpagepopup" class="modal">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Sayfa Güncelle</h6>
+                    <h6 class="modal-title">Sayfa Yönetimi</h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -35,7 +35,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Sayfa Adı</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pagename" name="sayfaadı">
+                            <input type="text" class="form-control" id="pagename" name="name">
                         </div>
                     </div>
 
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Başlık</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pagebaslık" name="baslık">
+                            <input type="text" class="form-control" id="pagetitle" name="title">
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label"> URL</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="gidilecekurl" name="url">
+                            <input type="text" class="form-control" id="routingurl" name="url">
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@
 
                 </div><!-- modal-body -->
                 <div class="modal-footer">
-                    <button type="submit" id="updatestaticpage" class="btn btn-indigo">Güncelle</button>
+                    <button type="submit" id="updatestaticpage" class="btn btn-indigo">Kaydet</button>
                     <a asp-action="Index" asp-controller="StaticPage" class="btn btn-outline-light">Kapat</a>
                 </div>
             </div>

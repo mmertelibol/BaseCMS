@@ -45,9 +45,10 @@ namespace Web.Controllers
             return Json(setting);
         }
 
-        public JsonResult GetSettingById()
+        public JsonResult GetSettingById(int id)
         {
-            return Json("");
+            var setting = _settingService.GetSettingById(id);
+            return Json(setting);
         }
 
     }

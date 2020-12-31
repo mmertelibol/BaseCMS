@@ -40,7 +40,7 @@ namespace Web.Controllers
             return Json(deleted);
         }
 
-        [HttpPut]
+        [HttpPost]
         public JsonResult UpdateSlider(SliderDto sliderDto)
         {
             var updated = _sliderService.UpdateSlider(sliderDto);

@@ -40,7 +40,7 @@ namespace Web.Controllers
             return Json(deleted);
         }
 
-        [HttpPut]
+        [HttpPost]
         public JsonResult UpdateStaticPage(StaticPageDto staticPageDto)
         {
             var updated = _staticPageService.UpdateStaticPage(staticPageDto);

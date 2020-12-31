@@ -16,8 +16,8 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn btn-primary" data-toggle="modal" data-target="#addressmodal" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Adres Ekle</strong> </a>
-            @Html.Partial("_AddAddressPopUp")
+            <a class="btn btn-primary" data-toggle="modal" id="btnAddAddress" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Adres Ekle</strong> </a>
+            @*@Html.Partial("_AddAddressPopUp")*@
             @Html.Partial("_UpdateAddressPopUp")
 
             <hr class="mg-y-30">
@@ -195,6 +195,31 @@
         });
     </script>
 
+
+    <script>
+
+        $("#btnAddAddress").on("click", function () {
+
+            $("#addressid").val(0);
+            $("#addressnameid").val("")
+            $("#mailid").val("");
+            $("#phoneid").val("");
+            $("#cityid").val("");
+            $("#idcounty").val("");
+            $("#fulladdressid").val("");
+            $("#longitudeid").val("");
+            $("#latitudeid").val("");
+            
+
+            $("#updateaddressmodal").modal("show");
+
+        });
+
+
+    </script>
+
+
+
     <script>
         function getAddressById(id) {
             $.ajax({
@@ -224,7 +249,7 @@
 
     </script>
     <script>
-        $("#updateaddress").click(function () {
+        $("#addEditAddress").click(function () {
             $("#updateaddressform").validate({
                 ignore: [],
                 debug: false,
@@ -261,8 +286,8 @@
                     let latitude = $(latitudeid).val();
 
                     $.ajax({
-                        type: "put",
-                        url: "/Address/UpdateAddress",
+                        type: "post",
+                        url: id==0 ? "/Address/AddAddress" : "/Address/UpdateAddress",
                         data: {
                             Id: id,
                             Name: name,
@@ -295,7 +320,7 @@
 
 
 
-    <script>
+    @*<script>
 
         $("#addaddress").click(function () {
             $("#addaddressform").validate({
@@ -360,6 +385,6 @@
             });
         });
 
-    </script>
+    </script>*@
 
 }

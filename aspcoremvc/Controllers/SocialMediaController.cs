@@ -45,7 +45,7 @@ namespace Web.Controllers
             return Json(deleted);
         }
 
-        [HttpPut]
+        [HttpPost]
         public JsonResult UpdateSocialMedia(SocialMediaDto socialMediaDto)
         {
             var updated = _socialMediaService.UpdateSocialMedia(socialMediaDto);
@@ -53,7 +53,11 @@ namespace Web.Controllers
         }
 
 
-
+        public JsonResult GetSocialMediaById(int id)
+        {
+            var socialMedia = _socialMediaService.GetSocialMediaById(id);
+            return Json(socialMedia);
+        }
 
 
 

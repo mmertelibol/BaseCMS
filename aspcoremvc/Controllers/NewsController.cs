@@ -59,7 +59,7 @@ namespace Web.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPost]
         public JsonResult UpdateNews(NewsDto newsDto)
         {
             var updatedNews = _newsService.UpdateNews(newsDto);

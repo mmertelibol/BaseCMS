@@ -74,7 +74,7 @@
                             <td><img src="~/img/@item.LogoUrl" style="width:150px; height:150px;" /></td>
 
                             <td>
-                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="SettingUpdateShow('@item.Id', '@item.CompanyName', '@item.Slogan', '@item.FavIconUrl', '@item.LogoUrl')" data-toggle="modal" data-target="#updatesettingpopup"><i class="far fa-edit"></i></button>
+                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatesettingpopup"><i class="far fa-edit"></i></button>
                                 @*<button class="btn btn-sm btn-danger rounded-pill" onclick="SettingDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesettingpopup"><i class="far fa-trash-alt"></i></button>*@
                             </td>
 
@@ -100,24 +100,32 @@
 @section xx{
 
 
+<script>
+    function getById(id) {
+        $.ajax({
+            url: "/Setting/GetSettingById",
+            type: "Get",
+            contentType: "application/json; charset=utf8",
+            dataType: "json",
+            data: {
+                Id: id
+            },
+            success: function (data) {
 
+                $("#settingid").val(data.Id);
+                $("#companyname").val(data.CompanyName);
+                $("#companyslogan").val(data.Slogan);
+                $("#favicon").val(data.FavIconUrl);
+                $("#logourl").val(data.LogoUrl);
 
+            }
+        })
+    }
+</script>
 
     <script>
 
-        function SettingUpdateShow(id, name, slogan, favicon, logo) {
-            $("#settingid").val(id);
-            $("#companyname").val(name);
-            $("#companyslogan").val(slogan);
-            $("#favicon").val(favicon);
-            $("#logourl").val(logo);
-
-        }
-    </script>
-
-    <script>
-
-        function SettingUpdate() {
+        function settingUpdate() {
             let settingid = $("#settingid").val();
             let CompanyName = $("#companyname").val();
             let slogan = $("#companyslogan").val();

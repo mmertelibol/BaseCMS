@@ -17,8 +17,8 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn" data-toggle="modal" data-target="#addnewscategorypopup" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Haber Kategorisi Ekle</strong> </a>
-            @Html.Partial("_AddNewsCategoryPartial")
+            <a class="btn" data-toggle="modal" id="btnAddCategory" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Haber Kategorisi Ekle</strong> </a>
+            @*@Html.Partial("_AddNewsCategoryPartial")*@
        
             @Html.Partial("_UpdateNewsCategoryPartial")
 
@@ -44,7 +44,7 @@
                                 <td>@item.Name</td>
                                 <td>
 
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="newscategoryupdateshow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatenewscategorypopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewscategory"><i class="far fa-edit"></i></button>
                                    
                                         <button class="btn btn-sm btn-danger rounded-pill categorydelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                     
@@ -107,17 +107,88 @@
         });
     </script>
 
+    <script>
+        $("#btnAddCategory").on("click", function () {
+
+            $("#categoryid").val(0);
+            $("#categoryname").val("");
+
+            $("#updatenewscategory").modal("show");
+
+        });
+
+    </script>
 
     <script>
+        function getById(id) {
+            $.ajax({
+                url: "/NewsCategory/GetNewsCategoryById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id: id
+                },
+                success: function (data) {
+
+                    $("#categoryid").val(data.Id);
+                    $("#categoryname").val(data.Name);
+                }
+            })
+        }
+
+    </script>
+<script>
+
+    $("#addeditnewscategory").click(function () {
+        $("#addeditcategoryform").validate({
+            ignore: [],
+            debug: false,
+            rules: {
+                categoryname: { required: true }
+
+            },
+            messages: {
+                categoryname: { required: "Kategori Ad alanı zorunlu!" }
+
+            },
+            submitHandler: function (form) {
+
+                let id = $("#categoryid").val();
+                let name = $("#categoryname").val();
+
+                $.ajax({
+                    type: "post",
+                    url: id == 0 ? "/NewsCategory/AddNewsCategory" : "/NewsCategory/UpdateNewsCategory",
+                    data: {
+                        Id: id,
+                        Name: name
+                    },
+                    success: function (response) {
+                        if (response) {
+                            $("#updatenewscategorypopup").modal('hide');
+                        }
+                        location.href = "/NewsCategory/Index"
+                    },
+                    error: function () {
+                        console.log("Hata Oluştu");
+                    }
+                })
+            }
+        });
+    });
+</script>
+
+    @*<script>
 
         function newscategoryupdateshow(id, name) {
             $("#categoryid").val(id);
             $("#categoryname").val(name);
 
         }
-    </script>
+    </script>*@
 
-    <script>
+    @*<script>
         $("#updatenewscategory").click(function () {
             $("#updatecategoryform").validate({
                 ignore: [],
@@ -155,9 +226,9 @@
                 }
             });
         });
-    </script>
+    </script>*@
   
-    <script>
+    @*<script>
         $("#addnewscategory").click(function () {
             $("#addcategoryform").validate({
                 ignore: [],
@@ -192,7 +263,7 @@
                 }
             });
         });
-    </script>
+    </script>*@
 
 
 }

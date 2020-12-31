@@ -21,10 +21,11 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn btn-primary" data-toggle="modal" data-target="#addcomponentcategorypopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Kategori Ekle</strong> </a>
-            @Html.Partial("_AddComponentCategoryPartial")
-          
-            @Html.Partial("_UpdateComponentCategoryPartial")
+            <a class="btn btn-primary" data-toggle="modal" id="btnAddCategory" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Kategori Ekle</strong> </a>
+
+
+            @Html.Partial("_AddEditComponentCategoryPartial")
+
 
 
 
@@ -54,11 +55,9 @@
 
 
                                 <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="ComponentCategoryUpdateShow('@item.Id', '@item.Name')" data-toggle="modal" data-target="#updatecomponentcategorypopup"><i class="far fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-danger rounded-pill componentcategorydelete" data-id="@item.Id" type="submit" name="delete"  ><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatecomponentcategorypopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill componentcategorydelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                 </td>
-
-
                             </tr>
                         }
 
@@ -78,6 +77,8 @@
 
 
 @section xx{
+
+
 
     <script type="text/javascript">
         $(document).on('click', '.componentcategorydelete', function () {
@@ -101,6 +102,7 @@
                         success: function (data) {
                             if (data) {
                                 //swal('Silindi!', 'Kategori silindi?', 'success');
+                                //TODO: burası değiştirilecek.
                                 location.href = "/PageComponentCategory/Index";
                             }
 
@@ -114,71 +116,73 @@
                 }
             });
         });
-    </script>
+
+        $("#btnAddCategory").on("click", function () {
+
+            $("#componentcategoryid").val(0);
+            $("#categoryname").val("");
+
+            $("#updatecomponentcategorypopup").modal("show");
+
+        });
+       
+
+        $("#addupdatecategory").click(function () {
+            $("#addeditcategoryform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    categoryname: { required: true }
+
+                },
+                messages: {
+                    categoryname: { required: "Kategori Ad alanı zorunlu!" }
+
+                },
+                submitHandler: function (form) {
+
+                    let id = $("#componentcategoryid").val();
+                    let name = $("#categoryname").val();
+
+                    $.ajax({
+                        type: "post",
+                        url: id == 0 ? "/PageComponentCategory/AddPageComponentCategory" : "/PageComponentCategory/UpdatePageComponentCategory",
+                        data: {
+                            Id: id,
+                            Name: name
+                        },
+                        success: function (response) {
+                            if (response) {
+                                $("#updatecomponentcategorypopup").modal('hide');
+                            }
+                            location.href = "/PageComponentCategory/Index"
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
+                        }
+                    })
+                }
+            });
+        });
 
 
-
-    <script>
-
-        function ComponentCategoryUpdateShow(id, name) {
-            $("#componentcategoryid").val(id);
-            $("#componentcategoryname").val(name);
-        }
-    </script>
-
-    <script>
-
-        function ComponentCategoryUpdate() {
-            let id = $(componentcategoryid).val();
-            let name = $(componentcategoryname).val();
-
+        function getById(id) {
             $.ajax({
-                type: "put",
-                url: "/PageComponentCategory/UpdatePageComponentCategory",
+                url: "/PageComponentCategory/GetPageComponentCategoryById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
                 data: {
-                    Id: id,
-                    Name: name
+                    Id: id
                 },
-                success: function (response) {
-                    if (response) {
-                        swal("ComponentCategory Updated!", "", "success");
-                    }
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
+                success: function (data) {
+
+                    $("#componentcategoryid").val(data.Id);
+                    $("#categoryname").val(data.Name);
                 }
             })
         }
-    </script>
 
-  
-
-    <script>
-        // debugger;
-        $(function () {
-
-            $("#addpagecomponentcategory").click(function () {
-
-                let NewsCategory = {
-                    Name: $("#name").val(),
-                };
-
-                $.ajax({
-                    type: "post",
-                    url: "/PageComponentCategory/AddPageComponentCategory",
-                    data: NewsCategory,
-                    success: function (response) {
-                        if (response) {
-                            swal("ComponentCategory Added!", "", "success");
-                        }
-
-                    }
-
-                });
-
-            });
-
-        });
     </script>
 
 

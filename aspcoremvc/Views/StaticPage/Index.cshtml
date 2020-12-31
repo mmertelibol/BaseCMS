@@ -16,9 +16,8 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn " data-toggle="modal" data-target="#addstaticpagemodal" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sayfa Ekle</strong> </a>
-            @Html.Partial("_AddStaticPagePartial")
-          
+            <a class="btn " data-toggle="modal" id="btnAddPage" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sayfa Ekle</strong> </a>
+           
             @Html.Partial("_UpdateStaticPagePartial")
             @Html.Partial("_DetailHTMLContentPartial")
 
@@ -122,7 +121,7 @@
                                 @*<td><a href="#">Details </a></td>*@
                                 <td>
                                     <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup"><i class="far fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-danger rounded-pill deletepage" data-id="@item.Id" type="submit"name="delete"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill deletepage" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                 </td>
 
                             </tr>
@@ -221,10 +220,10 @@
                     $("#pageid").val(gelenObje.Id);
                     $("#pagename").val(gelenObje.Name);
                     CKEDITOR.instances.editor2.setData(gelenObje.HTMLContent);
-                    $("#pagebaslık").val(gelenObje.Title);
+                    $("#pagetitle").val(gelenObje.Title);
                     $("#pagekeyword").val(gelenObje.MetaKeywords);
                     $("#pagedescription").val(gelenObje.MetaDescription);
-                    $("#gidilecekurl").val(gelenObje.RoutingUrl);
+                    $("#routingurl").val(gelenObje.RoutingUrl);
 
                 }
 
@@ -233,6 +232,24 @@
 
     </script>
 
+<script>
+
+    $("#btnAddPage").on("click", function () {
+        CKEDITOR.instances['editor2'].updateElement();
+        $("#pageid").val(0);
+        $("#pagename").val("");
+        $("#editor2").val("");
+        $("#pagetitle").val("");
+        $("#pagekeyword").val("");
+        $("#pagedescription").val("");
+        $("#routingurl").val("");
+
+        $("#updatestaticpagepopup").modal("show");
+
+    });
+
+
+</script>
 
     <script>
         $("#updatestaticpage").click(function () {
@@ -240,18 +257,18 @@
                 ignore: [],
                 debug: false,
                 rules: {
-                    sayfaadı: { required: true },
-                    baslık: { required: true },
+                    name: { required: true },
+                    title: { required: true },
                     htmlcontent: { required: true },
                     //description: { required: true },
                     //keyword: { required: true },
-                    url: { required: true },
+                    url: { required: true }
                 },
                 messages: {
-                    sayfaadı: { required: "Sayfa Adı zorunlu!" },
-                    baslık: { required: "Sayfa başlık alanı zorunlu!" },
+                    name: { required: "Sayfa Adı zorunlu!" },
+                    title: { required: "Sayfa başlık alanı zorunlu!" },
                     htmlcontent: { required: "Sayfa İçeriği zorunlu!" },
-                    url: { required: "Url alanı Zorunlu" }
+                    url: { required: "Url alanı Zorunlu!" }
 
                 },
                 submitHandler: function (form) {
@@ -259,16 +276,16 @@
 
                     let id = $(pageid).val();
                     let name = $(pagename).val();
-                    let title = $(pagebaslık).val();
+                    let title = $(pagetitle).val();
                     let htmlcontent = $(editor2).val();
                     let description = $(pagedescription).val();
                     let keyword = $(pagekeyword).val();
-                    let route = $(gidilecekurl).val();
+                    let route = $(routingurl).val();
 
 
                     $.ajax({
-                        type: "put",
-                        url: "/StaticPage/UpdateStaticPage",
+                        type: "post",
+                        url: id==0 ? "/StaticPage/AddStaticPage" : "/StaticPage/UpdateStaticPage",
                         data: {
                             Id: id,
                             Name: name,
@@ -280,7 +297,7 @@
                         },
                         success: function (response) {
                             if (response) {
-                                //$('updatestaticpagepopup').hide();
+
                                 $('#updatestaticpagepopup').modal('hide');
 
                             }
@@ -299,66 +316,9 @@
     </script>
 
 
-   
-
-    <script>
-        $("#addstaticpage").click(function () {
-            $("#addstaticpageform").validate({
-                ignore: [],
-                debug: false,
-                rules: {
-                    pagename: { required: true },
-                    pagetitle: { required: true },
-                    content: { required: true },
-                    //description: { required: true },
-                    //keyword: { required: true },
-                    url: { required: true },
-                },
-                messages: {
-                    pagename: { required: "Sayfa Adı zorunlu!" },
-                    pagetitle: { required: "Sayfa başlık alanı zorunlu!" },
-                    content: { required: "Sayfa İçeriği zorunlu!" },
-                    url: { required: "Url alanı Zorunlu" }
-
-                },
-                submitHandler: function (form) {
-                    CKEDITOR.instances['editor1'].updateElement();
-                    let StaticPage = {
-                        Title: $("#title").val(),
-                        Name: $("#name").val(),
-                        MetaDescription: $("#description").val(),
-                        MetaKeywords: $("#keywords").val(),
-                        RoutingURL: $("#routingurl").val(),
-                        HTMLContent: $("#editor1").val()
-
-                    };
-
-                    $.ajax({
-                        type: "post",
-                        url: "/StaticPage/AddStaticPage",
-                        data: StaticPage,
-                        success: function (response) {
-                            if (response) {
-                                $('#addstaticpagemodal').modal('hide');
-                                //swal("Page Added!", "", "success");
-                            }
-                            location.href = "/StaticPage/Index";
 
 
-                        },
-
-                        error: function () {
-                            console.log("Hata Oluştu");
-                            //swal("Page Deleted!", "", "success");
-                        }
-
-                    });
-
-                }
-            });
-        });
-
-    </script>
+  
 
     <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript">
 

@@ -57,7 +57,7 @@ namespace Business.Services.Panel
 
         public PageComponentCategoryDto GetPageComponentCategoryById(int id)
         {
-            var pageComponentCategory = _context.Setting.Find(id);
+            var pageComponentCategory = _context.PageComponentCategory.Find(id);
 
             var dtoModel = _mapper.Map<PageComponentCategoryDto>(pageComponentCategory);
 

@@ -40,13 +40,17 @@ namespace Web.Controllers
         }
 
 
-        [HttpPut]
+        [HttpPost]
         public JsonResult UpdatePageComponentCategory(PageComponentCategoryDto pageComponentCategoryDto)
         {
             var updated = _pageComponentCategoryService.UpdatePageComponentCategory(pageComponentCategoryDto);
             return Json(updated);
         }
 
-
+        public JsonResult GetPageComponentCategoryById(int id)
+        {
+            var pageComponentCategory = _pageComponentCategoryService.GetPageComponentCategoryById(id);
+            return Json(pageComponentCategory);
+        }
     }
 }

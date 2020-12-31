@@ -16,7 +16,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn btn-primary" data-toggle="modal" data-target="#addpagecomponentpopup" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Component Ekle</strong> </a>
+            <a class="btn btn-primary" data-toggle="modal"id="btnAddPageComponent" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Component Ekle</strong> </a>
 
             @Html.Partial("_AddPageComponentPartial")
 
@@ -161,6 +161,22 @@
             });
         });
     </script>
+
+<script>
+    $("#btnAddPageComponent").on("click", function () {
+
+        $("#id").val(0);
+        $("#title").val("");
+        $("#description").val("");
+        $("#hrefurl").val("");
+        $("#categoryid").val("");
+        $("#imageurl").val("");
+
+        $("#updatepagecomponentpopup").modal("show");
+
+    });
+</script>
+
     <script>
         function getById(id) {
             $.ajax({
@@ -188,57 +204,15 @@
 
 
 
-    @*<script>
-
-        function ComponentUpdate() {
-            let componentsid = $("#id").val();
-            let componentstitle = $("#title").val();
-            let componentsdescription = $("#description").val();
-            let componentimageurl = $("#imageurl")[0].files[0];
-            let componenthref = $("#hrefurl").val();
-            let componentscategory = $("#categoryid").val();
-
-            let formData = new FormData();
-            formData.append("Id", componentsid);
-            formData.append("Title", componentstitle);
-            formData.append("Description", componentsdescription);
-
-            if (componentimageurl != null) {
-                formData.append("File", componentimageurl, componentimageurl.fileName)
-            }
-            formData.append("Href", componenthref);
-            formData.append("PageComponentCategoryId", componentscategory);
-
-            $.ajax({
-                type: "put",
-                url: "/PageComponent/UpdatePageComponent",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    if (response) {
-                        //swal("Component Updated!", "", "success");
-                        $('updatepagecomponentpopup').modal('hide');
-                    }
-                    location.href = "/PageComponent/Index";
-                },
-
-                error: function () {
-                    console.log("Hata Oluştu");
-                }
-            })
-        }
-    </script>*@
-
     <script>
         $("#updatepagecomponent").click(function () {
-            $("#updatecomponentform").validate({
+            $("#addupdatecomponentform").validate({
                 ignore: [],
                 debug: false,
                 rules: {
                     title: { required: true },
                     description: { required: true },
-                    image: { required: true, extension: "png"  },
+                    image: { extension: "png"  },
                     href: { required: true },
                     category: { required: true }
 
@@ -246,7 +220,7 @@
                 messages: {
                     title: { required: "Başlık alanı zorunlu!" },
                     description: { required: "Özet alanı zorunlu!" },
-                    image: { required: "Fotoğraf alanı zorunlu!", extension:"Lütfen png formatında dosya yükleyiniz!" },
+                    image: { extension:"Lütfen png formatında dosya yükleyiniz!" },
                     href: { required: "Href alanı zorunlu!" },
                     category: { required: "Kategori alanı zorunlu!" }
 
@@ -271,8 +245,8 @@
                     formData.append("PageComponentCategoryId", componentscategory);
 
                     $.ajax({
-                        type: "put",
-                        url: "/PageComponent/UpdatePageComponent",
+                        type: "post",
+                        url: componentsid == 0 ? "/PageComponent/AddPageComponent" : "/PageComponent/UpdatePageComponent",
                         data: formData,
                         contentType: false,
                         processData: false,
@@ -299,7 +273,7 @@
     </script>
 
 
-    <script>
+    @*<script>
 
         $(function () {
             $("#addcomponentcategory").click(function () {
@@ -364,7 +338,7 @@
             });
 
         });
-    </script>
+    </script>*@
 
 
 }

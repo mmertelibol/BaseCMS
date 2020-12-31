@@ -42,14 +42,14 @@ namespace Web.Controllers
             return Json(deleted);
         }
 
-        [HttpPut]
+        [HttpPost]
         public JsonResult UpdateNewsCategory(NewsCategoryDto newsCategoryDto)
         {
             var updated = _newsCategoryService.UpdateNewsCategory(newsCategoryDto);
             return Json(updated);
         }
 
-        public JsonResult GetCategoryById(int id)
+        public JsonResult GetNewsCategoryById(int id)
         {
             var newsCategory = _newsCategoryService.GetNewsCategoryById(id);
             return Json(newsCategory);
