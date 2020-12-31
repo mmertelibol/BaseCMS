@@ -21,9 +21,9 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" id="btnAddNews" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Haber Ekle</strong> </a>
-            @*@Html.Partial("_AddNewsPopUpPartial")*@
-            @Html.Partial("_UpdateNewsPopUpPartial")
-            @*@Html.Partial("_DetailNewsContent")*@
+           
+            @Html.Partial("_AddEditNews")
+           
 
             <hr class="mg-y-30">
 
@@ -135,7 +135,7 @@
 </div><!-- az-content -->
 
 
-@section xx{
+@section Section{
 
     <script type="text/javascript">
         $(document).on('click', '.newsdelete', function () {

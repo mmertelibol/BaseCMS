@@ -6,9 +6,9 @@
 
 <a class="btn" data-toggle="modal" id="btnAddSlider" style="width:180px;  background-color:#5b47fb; margin-left:50px;margin-top:50px;"><strong style="color:white">Slider Ekle</strong> </a>
 
-@Html.Partial("_AddSliderPartial")
 
-@Html.Partial("_UpdateSliderPartial")
+
+@Html.Partial("_AddEditSlider")
 <div class="container">
     <div class="row">
 
@@ -19,14 +19,7 @@
 
                 <div class="card" style="width: 23rem;    margin-top:30px;">
                     <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:365px; height:294px;  ">
-                    <!--<div class="card-body">-->
-                    @*<h5 class="card-title">Card title</h5>*@
-                    @*<p class="card-text">
-                            @item.Description
-                        </p>*@
-
-
-                    <!--</div>-->
+                    
                     <div class="card-footer">
                         <p style="float:left;"><strong>@item.Order</strong></p>
                         <button onclick="getSliderById('@item.Id')" data-target="#updateslidermodal" data-toggle="modal" style="float:right; margin-left:10px;" class="btn btn-sm btn-indigo rounded-pill"> <i class="far fa-edit"></i></button>
@@ -40,7 +33,7 @@
 </div>
 
 
-@section xx{
+@section Section{
 
     <script type="text/javascript">
         $(document).on('click', '.deleteslider', function () {

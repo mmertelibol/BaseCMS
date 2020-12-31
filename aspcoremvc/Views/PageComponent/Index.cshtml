@@ -18,9 +18,9 @@
 
             <a class="btn btn-primary" data-toggle="modal"id="btnAddPageComponent" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Component Ekle</strong> </a>
 
-            @Html.Partial("_AddPageComponentPartial")
+           
 
-            @Html.Partial("_UpdatePageComponentPartial")
+            @Html.Partial("_AddEditPageComponent")
 
 
 
@@ -121,7 +121,7 @@
 </div><!-- az-content -->
 
 
-@section xx{
+@section Section{
 
 
 
@@ -273,72 +273,7 @@
     </script>
 
 
-    @*<script>
-
-        $(function () {
-            $("#addcomponentcategory").click(function () {
-                $("#addcomponentform").validate({
-                    ignore: [],
-                    debug: false,
-                    rules: {
-                        title: { required: true },
-                        description: { required: true },
-                        image: { required: true },
-                        href: { required: true },
-                        category: { required: true }
-
-                    },
-                    messages: {
-                        title: { required: "Başlık alanı zorunlu!" },
-                        description: { required: "Özet alanı zorunlu!" },
-                        image: { required: "Fotoğraf alanı zorunlu!" },
-                        href: { required: "Href alanı zorunlu!" },
-                        category: { required: "Kategori alanı zorunlu!" }
-
-                    },
-                    submitHandler: function (form) {
-
-                        let componentstitle = $("#componenttitle").val();
-                        let componentsdescription = $("#componentdescription").val();
-                        let componentimageurl = $("#componentimage")[0].files[0];
-                        let componenthref = $("#componenthref").val();
-                        let componentcategory = $("#componentcategoryid").val();
-
-                        let formData = new FormData();
-                        formData.append("Title", componentstitle);
-                        formData.append("Description", componentsdescription);
-                        formData.append("Href", componenthref);
-                        formData.append("PageComponentCategoryId", componentcategory);
-
-
-                        if (componentimageurl != null) {
-                            formData.append("File", componentimageurl, componentimageurl.fileName)
-                        }
-
-                        $.ajax({
-                            type: "post",
-                            url: "/PageComponent/AddPageComponent",
-                            data: formData,
-                            contentType: false,
-                            processData: false,
-                            success: function (response) {
-                                if (response) {
-                                    //swal("Component Added!", "", "success");
-                                    $('addpagecomponentpopup').modal('hide');
-                                }
-                                location.href = "/PageComponent/Index";
-                            },
-                            error: function () {
-                                console.log("Hata Oluştu");
-                            }
-
-                        });
-                    }
-                });
-            });
-
-        });
-    </script>*@
+   
 
 
 }

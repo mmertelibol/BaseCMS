@@ -154,7 +154,7 @@
 </div><!-- az-content -->
 
 
-@section xx{
+@section Section{
 
 
 
@@ -320,71 +320,5 @@
 
 
 
-    @*<script>
-
-        $("#addaddress").click(function () {
-            $("#addaddressform").validate({
-                ignore: [],
-                debug: false,
-                rules: {
-                    name: { required: true },
-                    email: { required: true, email: true },
-                    city: { required: true },
-                    county: { required: true },
-                    fulladdress: { required: true },
-                    //phone: { required: true },
-                    //longitude: { required: true },
-                    //latitude: { required: true },
-
-                },
-                messages: {
-                    name: { required: "Adres Adı zorunlu!" },
-                    email: { required: "Sayfa başlık alanı zorunlu!", email: "Email formatı geçerli değil!" },
-                    city: { required: "Şehir bilgisi zorunlu!" },
-                    county: { required: "İlçe Bilgisi zorunlu!" },
-                    fulladdress: { required: "Açık adres bilgisi zorunlu!" },
-                    //longitude: { required: "Boylam bilgisi zorunlu!" },
-                    //latitude: { required: "Enlem bilgisi zorunlu!" },
-
-                    //phone: { required: "Telefon bilgisi zorunlu!" },
-                },
-                submitHandler: function (form) {
-
-                    let Address = {
-                        Name: $("#addressname").val(),
-                        Email: $("#email").val(),
-                        Phone: $("#phone").val(),
-                        City: $("#city").val(),
-                        County: $("#county").val(),
-                        FullAdress: $("#fulladdress").val(),
-                        Longitude: $("#longitude").val(),
-                        Latitude: $("#latitude").val(),
-
-                    };
-
-                    $.ajax({
-                        type: "post",
-                        url: "/Address/AddAddress",
-                        data: Address,
-                        success: function (response) {
-                            if (response) {
-
-                                $('#addressmodal').modal('hide');
-                            }
-
-                            location.href = "/Address/Index"
-                        },
-                        error: function () {
-                            console.log("hata oluştu");
-                            //swal("News Added!", "", "success");
-
-                        }
-
-                    });
-                }
-            });
-        });
-
-    </script>*@
 
 }

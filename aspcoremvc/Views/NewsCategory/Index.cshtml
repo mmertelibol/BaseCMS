@@ -18,9 +18,9 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn" data-toggle="modal" id="btnAddCategory" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Haber Kategorisi Ekle</strong> </a>
-            @*@Html.Partial("_AddNewsCategoryPartial")*@
+            
        
-            @Html.Partial("_UpdateNewsCategoryPartial")
+            @Html.Partial("_AddEditNewsCategory")
 
 
 
@@ -68,7 +68,8 @@
 </div><!-- az-content -->
 
 
-@section xx{
+@section Section{
+
     <script type="text/javascript">
         $(document).on('click', '.categorydelete', function () {
 
@@ -178,92 +179,6 @@
         });
     });
 </script>
-
-    @*<script>
-
-        function newscategoryupdateshow(id, name) {
-            $("#categoryid").val(id);
-            $("#categoryname").val(name);
-
-        }
-    </script>*@
-
-    @*<script>
-        $("#updatenewscategory").click(function () {
-            $("#updatecategoryform").validate({
-                ignore: [],
-                debug: false,
-                rules: {
-                    name: { required: true }
-                },
-                messages: {
-                    name: { required: "Ad alanı zorunlu!" }
-                },
-                submitHandler: function (form) {
-                    let id = $(categoryid).val();
-                    let name = $(categoryname).val();
-
-                    $.ajax({
-                        type: "put",
-                        url: "/NewsCategory/UpdateNewsCategory",
-                        data: {
-                            Id: id,
-                            Name: name
-                        },
-                        success: function (response) {
-                            if (response) {
-
-                                $('#updatenewscategorypopup').modal('hide');
-                            }
-                            location.href = "/NewsCategory/Index";
-                        },
-                        error: function () {
-                            console.log("Hata Oluştu");
-
-                        }
-                    })
-
-                }
-            });
-        });
-    </script>*@
-  
-    @*<script>
-        $("#addnewscategory").click(function () {
-            $("#addcategoryform").validate({
-                ignore: [],
-                debug: false,
-                rules: {
-                    name: { required: true }
-                },
-                messages: {
-                    name: { required: "Ad alanı zorunlu!" }         
-                },
-                submitHandler: function (form) {
-                    let NewsCategory = {
-                        Name: $("#name").val()
-                    };
-
-                    $.ajax({
-                        type: "post",
-                        url: "/NewsCategory/AddNewsCategory",
-                        data: NewsCategory,
-                        success: function (response) {
-                            if (response) {
-                                $('addnewscategorypopup').modal('hide');
-                            }
-                            location.href = "/NewsCategory/Index";
-                        },
-                        error: function () {
-                            console.log("Hata Oluştu");
-
-                        }
-
-                    });
-                }
-            });
-        });
-    </script>*@
 
 
 }
