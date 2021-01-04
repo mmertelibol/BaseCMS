@@ -171,6 +171,9 @@
             $("#hrefurl").val("");
             $("#categoryid").val("");
             $("#imageurl").val("");
+            $("#currentPhoto").val("");
+            $("#currentPhotoDiv").fadeOut(1);
+
 
             $("#updatepagecomponentpopup").modal("show");
 
@@ -179,6 +182,7 @@
 
     <script>
         function getById(id) {
+            debugger;
             $.ajax({
                 url: "/PageComponent/GetPageComponentById",
                 type: "Get",
@@ -193,7 +197,9 @@
                     $("#description").val(data.Description);
                     $("#hrefurl").val(data.Href);
                     $("#categoryid").val(data.PageComponentCategoryId);
-                    $("#imageurl").val(data.ImageUrl);
+                    //$("#imageurl").val(data.ImageUrl);
+                    
+                    $("#currentPhoto").attr("src", "/img/" + data.ImageUrl);
 
 
                 }
