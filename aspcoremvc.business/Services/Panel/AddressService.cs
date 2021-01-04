@@ -73,6 +73,7 @@ namespace Business.Services.Panel
             address.FullAdress = addressDto.FullAdress;
             address.County = addressDto.County;
             address.City = addressDto.City;
+            address.Email = addressDto.Email;
 
             _context.Adress.Update(address);
             _context.SaveChanges();

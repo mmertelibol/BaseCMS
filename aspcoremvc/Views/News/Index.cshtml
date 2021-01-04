@@ -21,9 +21,9 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" id="btnAddNews" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Haber Ekle</strong> </a>
-           
+
             @Html.Partial("_AddEditNews")
-           
+
 
             <hr class="mg-y-30">
 
@@ -245,7 +245,7 @@
 
     </script>
     <script>
-        $("#updatenews").click(function(){
+        $("#updatenews").click(function () {
             $("#updatenewsform").validate({
                 ignore: [],
                 debug: false,
@@ -299,14 +299,26 @@
                         },
                         success: function (response) {
                             if (response) {
-                                $('#updatenewspopup').modal('hide');
+                                $.ajax({
+                                    url: "/News/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
 
+                                        $("#updatenewsform").modal('hide');
+                                        $("#tableBody").html(data);
+
+
+
+                                    }
+
+                                });
                             }
-                            location.href = "/News/Index";
                         },
                         error: function () {
                             console.log("Hata Oluştu");
-                            
+
                         }
                     })
 
@@ -314,73 +326,73 @@
             });
         });
     </script>
-   
+
     @*<script>
 
-        $("#addnews").click(function () {
-            $("#addnewsform").validate({
-                ignore: [],
-                debug: false,
-                rules: {
-                    title: { required: true },
-                    author: { required: true },
-                    description: { required: true },
-                    keywords: { required: true },
-                    url: { required: true },
-                    categoryselect: { required: true },
-                    editor1: { required: true }
-                   
+            $("#addnews").click(function () {
+                $("#addnewsform").validate({
+                    ignore: [],
+                    debug: false,
+                    rules: {
+                        title: { required: true },
+                        author: { required: true },
+                        description: { required: true },
+                        keywords: { required: true },
+                        url: { required: true },
+                        categoryselect: { required: true },
+                        editor1: { required: true }
 
-                },
-                messages: {
-                    title: { required: "Başlık alanı zorunlu!" },
-                    author: { required: "Yazar alanı zorunlu!" },
-                    description: { required: "Özet alanı zorunlu!" },
-                    keywords: { required: "Anahtar Kelime alanı zorunlu!" },
-                    url: { required: "Url alanı zorunlu!" },
-                    categoryselect: { required: "Kategori alanı zorunlu!" },
-                    editor1: { required: "İçerik alanı zorunlu!" }
 
-                    
-                },
-                submitHandler: function (form) {
+                    },
+                    messages: {
+                        title: { required: "Başlık alanı zorunlu!" },
+                        author: { required: "Yazar alanı zorunlu!" },
+                        description: { required: "Özet alanı zorunlu!" },
+                        keywords: { required: "Anahtar Kelime alanı zorunlu!" },
+                        url: { required: "Url alanı zorunlu!" },
+                        categoryselect: { required: "Kategori alanı zorunlu!" },
+                        editor1: { required: "İçerik alanı zorunlu!" }
 
-                    CKEDITOR.instances['editor1'].updateElement();
-                    let News = {
-                        Title: $("#title").val(),
-                        Author: $("#author").val(),
-                        MetaDescription: $("#description").val(),
-                        MetaKeywords: $("#keywords").val(),
-                        RoutingURL: $("#routingurl").val(),
-                        NewsCategoryId: $("#categoryselect").val(),
-                        HTMLContent: $("#editor1").val(),
 
-                    };
+                    },
+                    submitHandler: function (form) {
 
-                    $.ajax({
-                        type: "post",
-                        url: "/News/AddNews",
-                        data: News,
-                        success: function (response) {
-                            if (response) {
+                        CKEDITOR.instances['editor1'].updateElement();
+                        let News = {
+                            Title: $("#title").val(),
+                            Author: $("#author").val(),
+                            MetaDescription: $("#description").val(),
+                            MetaKeywords: $("#keywords").val(),
+                            RoutingURL: $("#routingurl").val(),
+                            NewsCategoryId: $("#categoryselect").val(),
+                            HTMLContent: $("#editor1").val(),
 
-                                $('#modaldemo3').modal('hide');
+                        };
+
+                        $.ajax({
+                            type: "post",
+                            url: "/News/AddNews",
+                            data: News,
+                            success: function (response) {
+                                if (response) {
+
+                                    $('#modaldemo3').modal('hide');
+                                }
+
+                                location.href = "/News/Index"
+                            },
+                            error: function () {
+                                console.log("hata oluştu");
+
+
                             }
 
-                            location.href = "/News/Index"
-                        },
-                        error: function () {
-                            console.log("hata oluştu");
-                           
-
-                        }
-
-                    });
-                }
+                        });
+                    }
+                });
             });
-        });
 
-    </script>*@
+        </script>*@
 
 
 
@@ -399,6 +411,6 @@
         CKEDITOR.replace('editor3');
     </script>
 
-    
+
 
 }

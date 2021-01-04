@@ -167,9 +167,22 @@
                     },
                     success: function (response) {
                         if (response) {
-                            $("#updatenewscategorypopup").modal('hide');
+                            $.ajax({
+                                url: "/NewsCategory/Index",
+                                type: "get",
+                                dataType: "html",
+                                contentType: "application/json; ",
+                                success: function (data) {
+
+                                    $("#updatenewscategory").modal('hide');
+                                    $("#tableBody").html(data);
+
+
+
+                                }
+
+                            });
                         }
-                        location.href = "/NewsCategory/Index"
                     },
                     error: function () {
                         console.log("Hata Oluştu");

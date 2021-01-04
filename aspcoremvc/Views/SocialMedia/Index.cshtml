@@ -233,14 +233,21 @@
                         contentType: false,
                         processData: false,
                         success: function (response) {
-                            if (response) {
+                            $.ajax({
+                                url: "/SocialMedia/Index",
+                                type: "get",
+                                dataType: "html",
+                                contentType: "application/json; ",
+                                success: function (data) {
 
-                                $('#addsocialmediapopup').modal('hide');
-                            }
-                            location.href = "/SocialMedia/Index";
+                                    $("#addsocialmediapopup").modal('hide');
+                                    $("#tableBody").html(data);
 
 
 
+                                }
+
+                            });
                         }
 
                     });

@@ -17,15 +17,15 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn " data-toggle="modal" id="btnAddPage" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sayfa Ekle</strong> </a>
-           
+
             @Html.Partial("_AddEditStaticPage")
-          
+
 
 
 
             <hr class="mg-y-30">
 
-         
+
 
             <div>
                 <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
@@ -230,24 +230,24 @@
 
     </script>
 
-<script>
+    <script>
 
-    $("#btnAddPage").on("click", function () {
-        CKEDITOR.instances['editor2'].updateElement();
-        $("#pageid").val(0);
-        $("#pagename").val("");
-        $("#editor2").val("");
-        $("#pagetitle").val("");
-        $("#pagekeyword").val("");
-        $("#pagedescription").val("");
-        $("#routingurl").val("");
+        $("#btnAddPage").on("click", function () {
+            CKEDITOR.instances['editor2'].updateElement();
+            $("#pageid").val(0);
+            $("#pagename").val("");
+            $("#editor2").val("");
+            $("#pagetitle").val("");
+            $("#pagekeyword").val("");
+            $("#pagedescription").val("");
+            $("#routingurl").val("");
 
-        $("#updatestaticpagepopup").modal("show");
+            $("#updatestaticpagepopup").modal("show");
 
-    });
+        });
 
 
-</script>
+    </script>
 
     <script>
         $("#updatestaticpage").click(function () {
@@ -283,7 +283,7 @@
 
                     $.ajax({
                         type: "post",
-                        url: id==0 ? "/StaticPage/AddStaticPage" : "/StaticPage/UpdateStaticPage",
+                        url: id == 0 ? "/StaticPage/AddStaticPage" : "/StaticPage/UpdateStaticPage",
                         data: {
                             Id: id,
                             Name: name,
@@ -295,11 +295,22 @@
                         },
                         success: function (response) {
                             if (response) {
+                                $.ajax({
+                                    url: "/StaticPage/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
 
-                                $('#updatestaticpagepopup').modal('hide');
+                                        $("#updatestaticpagepopup").modal('hide');
+                                        $("#tableBody").html(data);
 
+
+
+                                    }
+
+                                });
                             }
-                            location.href = "/StaticPage/Index";
 
                         },
                         error: function () {
@@ -316,7 +327,7 @@
 
 
 
-  
+
 
     <script src="~/NewFolder/ckeditor/ckeditor.js" type="text/javascript">
 

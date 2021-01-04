@@ -32,8 +32,8 @@
                             <th>Şehir</th>
                             <th>İlçe</th>
                             <th>Tam Adres</th>
-                            <th>Enlem</th>
                             <th>Boylam</th>
+                            <th>Enlem</th>
 
                             <th id="selector"></th>
 
@@ -277,7 +277,7 @@
                 submitHandler: function (form) {
                     let id = $(addressid).val();
                     let name = $(addressnameid).val();
-                    let email = $(mailid).val();
+                    let email = $(mailId).val();
                     let phone = $(phoneid).val();
                     let city = $(cityid).val();
                     let county = $(idcounty).val();
@@ -301,9 +301,22 @@
                         },
                         success: function (response) {
                             if (response) {
-                                $('#updateaddressmodal').modal('hide');
+                                $.ajax({
+                                    url: "/Address/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+
+                                        $("#updateaddressmodal").modal('hide');
+                                        $("#tableBody").html(data);
+
+
+
+                                    }
+                                });
                             }
-                            location.href = "/Address/Index";
+                            
                         },
                         error: function () {
                             console.log("Hata Oluştu");

@@ -160,9 +160,22 @@
                             processData: false,
                             success: function (response) {
                                 if (response) {
-                                    $('#updateslidermodal').modal('hide');
+                                    $.ajax({
+                                        url: "/Slider/Index",
+                                        type: "get",
+                                        dataType: "html",
+                                        contentType: "application/json; ",
+                                        success: function (data) {
+
+                                            $("#updateslidermodal").modal('hide');
+                                            $("#tableBody").html(data);
+
+
+
+                                        }
+
+                                    });
                                 }
-                                location.href = "/Slider/Index";
                             }
 
                         })
