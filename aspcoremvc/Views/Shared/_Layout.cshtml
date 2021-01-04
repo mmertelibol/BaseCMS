@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130582519-1"></script>
     <script>
@@ -68,27 +68,29 @@
     <link rel="stylesheet" href="~/Template/v1.1/css/azia.css">
 
 </head>
-<body class="az-minimal">
+<body class="az-minimal" id="tableBody" >
+   
 
-    <div class="az-header">
-        <div class="container">
-            <div class="az-header-left">
-                <a asp-action="Index" asp-controller="HomePage" class="az-logo"><span></span>SDFM</a>
-                <a asp-action="Index" asp-controller="HomePage" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
-            </div><!-- az-header-left -->
-            <div class="az-header-menu">
-                <div class="az-header-menu-header">
-                    <a asp-action="Index" asp-controller="HomePage" class="az-logo"><span></span> SDFM </a>
-                    <a href="" class="close">&times;</a>
-                </div><!-- az-header-menu-header -->
-                <ul class="nav">
-                    <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="StaticPage" class="nav-link ">@*<i class="icon ion-ios-list-box"></i>*@Sayfa Yönetimi</a>
-                        @*<div class="az-menu-sub">
+
+        <div class="az-header">
+            <div class="container">
+                <div class="az-header-left">
+                    <a asp-action="Index" asp-controller="HomePage" class="az-logo"><span></span>SDFM</a>
+                    <a asp-action="Index" asp-controller="HomePage" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
+                </div><!-- az-header-left -->
+                <div class="az-header-menu">
+                    <div class="az-header-menu-header">
+                        <a asp-action="Index" asp-controller="HomePage" class="az-logo"><span></span> SDFM </a>
+                        <a href="" class="close">&times;</a>
+                    </div><!-- az-header-menu-header -->
+                    <ul class="nav">
+                        <li class="nav-item ">
+                            <a asp-action="Index" asp-controller="StaticPage" class="nav-link ">@*<i class="icon ion-ios-list-box"></i>*@Sayfa Yönetimi</a>
+                            @*<div class="az-menu-sub">
                             <nav class="nav">
                                 <a href="dashboard-one.html" class="nav-link">CreatePage</a>*@
-                        @*<a href="dashboard-one.html" class="nav-link">PageCategory</a>*@
-                        @*<a href="dashboard-two.html" class="nav-link">sales monitoring</a>
+                            @*<a href="dashboard-one.html" class="nav-link">PageCategory</a>*@
+                            @*<a href="dashboard-two.html" class="nav-link">sales monitoring</a>
                             <a href="dashboard-three.html" class="nav-link">ad campaign</a>
                             <a href="dashboard-four.html" class="nav-link">event management</a>
                             <a href="dashboard-five.html" class="nav-link">helpdesk management</a>
@@ -97,38 +99,38 @@
                             <a href="dashboard-eight.html" class="nav-link">executive / saas</a>
                             <a href="dashboard-nine.html" class="nav-link">campaign monitoring</a>
                             <a href="dashboard-ten.html" class="nav-link">Product Management</a>*@
-                        <!--</nav>
+                            <!--</nav>
                         </div>-->
-                        <!-- az-menu-sub -->
-                    </li>
-                    <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="SocialMedia" class="nav-link ">@*<i class="icon ion-ios-person"></i>*@Sosyal Medya</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a asp-action="Index" asp-controller="Address" class="nav-link ">@*<i class="icon ion-md-globe"></i>*@Adres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link with-sub">@*<i class="icon ion-md-paper"> <br /></i>*@ Haber </a>
-                        <nav class="az-menu-sub">
-                            <a asp-action="Index" asp-controller="News" class="nav-link">Tüm Haberler</a>
-                            <a asp-action="Index" asp-controller="NewsCategory" class="nav-link">Haber Kategorileri</a>
-                            @*<a href="app-calendar.html" class="nav-link">Products</a>
+                            <!-- az-menu-sub -->
+                        </li>
+                        <li class="nav-item ">
+                            <a asp-action="Index" asp-controller="SocialMedia" class="nav-link ">@*<i class="icon ion-ios-person"></i>*@Sosyal Medya</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a asp-action="Index" asp-controller="Address" class="nav-link ">@*<i class="icon ion-md-globe"></i>*@Adres</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link with-sub">@*<i class="icon ion-md-paper"> <br /></i>*@ Haber </a>
+                            <nav class="az-menu-sub">
+                                <a asp-action="Index" asp-controller="News" class="nav-link">Tüm Haberler</a>
+                                <a asp-action="Index" asp-controller="NewsCategory" class="nav-link">Haber Kategorileri</a>
+                                @*<a href="app-calendar.html" class="nav-link">Products</a>
                                 <a href="app-contacts.html" class="nav-link">Solutions</a>
                                 <a href="app-contacts.html" class="nav-link">Board of Directors</a>
                                 <a href="app-contacts.html" class="nav-link">References</a>*@
-                        </nav>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link with-sub ">@*<i class="icon ion-md-cube"></i>*@Componentler</a>
-                        <nav class="az-menu-sub">
-                            <a asp-action="Index" asp-controller="PageComponent" class="nav-link">Component Listesi</a>
-                            <a asp-action="Index" asp-controller="PageComponentCategory" class="nav-link">Component Kategorisi</a>
-                            @*<a href="page-signin.html" class="nav-link">Sign In</a>
+                            </nav>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link with-sub ">@*<i class="icon ion-md-cube"></i>*@Componentler</a>
+                            <nav class="az-menu-sub">
+                                <a asp-action="Index" asp-controller="PageComponent" class="nav-link">Component Listesi</a>
+                                <a asp-action="Index" asp-controller="PageComponentCategory" class="nav-link">Component Kategorisi</a>
+                                @*<a href="page-signin.html" class="nav-link">Sign In</a>
                                 <a href="page-signup.html" class="nav-link">Sign Up</a>
                                 <a href="page-404.html" class="nav-link">Page 404</a>*@
-                        </nav>
-                    </li>
-                    <!--<li class="nav-item">
+                            </nav>
+                        </li>
+                        <!--<li class="nav-item">
                     <a href="" class="nav-link with-sub"><i class="typcn typcn-book"></i> Components</a>
                     <div class="az-menu-sub az-menu-sub-mega">
                         <div class="container">
@@ -195,14 +197,14 @@
                                 </nav>
                             </div>
                         </div>-->
-                    <!-- container -->
-                    <!--</div>
+                        <!-- container -->
+                        <!--</div>
                     </li>-->
-                    <li class="nav-item">
-                        <a asp-action="Index" asp-controller="Slider" class="nav-link ">@*<i class="icon ion-md-images"></i>*@ Slider</a>
-                        @*<nav class="az-menu-sub">
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Slider" class="nav-link ">@*<i class="icon ion-md-images"></i>*@ Slider</a>
+                            @*<nav class="az-menu-sub">
                             <a href="util-background.html" class="nav-link">Sliders</a>*@
-                        @*<a href="util-border.html" class="nav-link">Border</a>
+                            @*<a href="util-border.html" class="nav-link">Border</a>
                             <a href="util-display.html" class="nav-link">Display</a>
                             <a href="util-flex.html" class="nav-link">Flex</a>
                             <a href="util-height.html" class="nav-link">Height</a>
@@ -212,13 +214,13 @@
                             <a href="util-typography.html" class="nav-link">Typography</a>
                             <a href="util-width.html" class="nav-link">Width</a>
                             <a href="util-extras.html" class="nav-link">Extras</a>*@
-                        @*</nav>*@
-                    </li>
-                    <li class="nav-item">
-                        <a asp-action="Index" asp-controller="Setting" class="nav-link ">@*<i class="icon ion-ios-settings"></i>*@ Ayarlar</a>
-                        @*<nav class="az-menu-sub">
+                            @*</nav>*@
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Setting" class="nav-link ">@*<i class="icon ion-ios-settings"></i>*@ Ayarlar</a>
+                            @*<nav class="az-menu-sub">
                             <a href="util-background.html" class="nav-link">Sliders</a>*@
-                        @*<a href="util-border.html" class="nav-link">Border</a>
+                            @*<a href="util-border.html" class="nav-link">Border</a>
                             <a href="util-display.html" class="nav-link">Display</a>
                             <a href="util-flex.html" class="nav-link">Flex</a>
                             <a href="util-height.html" class="nav-link">Height</a>
@@ -228,17 +230,17 @@
                             <a href="util-typography.html" class="nav-link">Typography</a>
                             <a href="util-width.html" class="nav-link">Width</a>
                             <a href="util-extras.html" class="nav-link">Extras</a>*@
-                        @*</nav>*@
-                    </li>
-                </ul>
-            </div><!-- az-header-menu -->
-            <div class="az-header-right">
-                <!--<a href="" class="az-header-search-link"><i class="fas fa-search"></i></a>
+                            @*</nav>*@
+                        </li>
+                    </ul>
+                </div><!-- az-header-menu -->
+                <div class="az-header-right">
+                    <!--<a href="" class="az-header-search-link"><i class="fas fa-search"></i></a>
                 <div class="az-header-message">
                     <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
                 </div>-->
-                <!-- az-header-message -->
-                <!--<div class="dropdown az-header-notification">
+                    <!-- az-header-message -->
+                    <!--<div class="dropdown az-header-notification">
                     <a href="" class="new"><i class="typcn typcn-bell"></i></a>
                     <div class="dropdown-menu">
                         <div class="az-dropdown-header mg-b-20 d-sm-none">
@@ -253,38 +255,38 @@
                                     <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
                                     <span>Mar 15 12:32pm</span>
                                 </div>-->
-                <!-- media-body -->
-                <!--</div>--><!-- media -->
-                <!--<div class="media new">
+                    <!-- media-body -->
+                    <!--</div>--><!-- media -->
+                    <!--<div class="media new">
                     <div class="az-img-user online"><img src="https://via.placeholder.com/500" alt=""></div>
                     <div class="media-body">
                         <p><strong>Joyce Chua</strong> just created a new blog post</p>
                         <span>Mar 13 04:16am</span>
                     </div>-->
-                <!-- media-body -->
-                <!--</div>--><!-- media -->
-                <!--<div class="media">
+                    <!-- media-body -->
+                    <!--</div>--><!-- media -->
+                    <!--<div class="media">
                     <div class="az-img-user"><img src="https://via.placeholder.com/500" alt=""></div>
                     <div class="media-body">
                         <p><strong>Althea Cabardo</strong> just created a new blog post</p>
                         <span>Mar 13 02:56am</span>
                     </div>-->
-                <!-- media-body -->
-                <!--</div>--><!-- media -->
-                <!--<div class="media">
+                    <!-- media-body -->
+                    <!--</div>--><!-- media -->
+                    <!--<div class="media">
                     <div class="az-img-user"><img src="https://via.placeholder.com/500" alt=""></div>
                     <div class="media-body">
                         <p><strong>Adrian Monino</strong> added new comment on your photo</p>
                         <span>Mar 12 10:40pm</span>
                     </div>-->
-                <!-- media-body -->
-                <!--</div>--><!-- media -->
-                <!--</div>--><!-- az-notification-list -->
-                <!--<div class="dropdown-footer"><a href="">View All Notifications</a></div>
+                    <!-- media-body -->
+                    <!--</div>--><!-- media -->
+                    <!--</div>--><!-- az-notification-list -->
+                    <!--<div class="dropdown-footer"><a href="">View All Notifications</a></div>
                 </div>-->
-                <!-- dropdown-menu -->
-                <!--</div>--><!-- az-header-notification -->
-                <!--<div class="dropdown az-profile-menu">
+                    <!-- dropdown-menu -->
+                    <!--</div>--><!-- az-header-notification -->
+                    <!--<div class="dropdown az-profile-menu">
                     <a href="" class="az-img-user"><img src="https://via.placeholder.com/500" alt=""></a>
                     <div class="dropdown-menu">
                         <div class="az-dropdown-header d-sm-none">
@@ -304,11 +306,13 @@
                         <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
                         <a href="page-signin.html" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
                     </div>-->
-                <!-- dropdown-menu -->
-                <!--</div-->
-            </div><!-- az-header-right -->
-        </div><!-- container -->
-    </div><!-- az-header -->
+                    <!-- dropdown-menu -->
+                    <!--</div-->
+                </div><!-- az-header-right -->
+            </div><!-- container -->
+        </div>
+   <!-- az-header -->
+
 
     @RenderBody()
 
@@ -343,7 +347,7 @@
     <script src="~/Template/v1.1/js/azia.js"></script>
 
 
-
+   
     <script>
         $(function () {
             'use strict'

@@ -46,7 +46,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="row_@item.Id">
                                 @if (!string.IsNullOrWhiteSpace(item.Title))
                                 {
                                     <td>@item.Title</td>
@@ -158,7 +158,7 @@
                         success: function (data) {
                             if (data) {
 
-                                location.href = "/News/Index";
+                                $("#row_" + data.Id).remove();
 
                             }
 

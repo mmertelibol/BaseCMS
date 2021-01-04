@@ -17,8 +17,8 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" id="btnAddAddress" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Adres Ekle</strong> </a>
-            @*@Html.Partial("_AddAddressPopUp")*@
-            @Html.Partial("_UpdateAddressPopUp")
+          
+            @Html.Partial("_AddEditAddress")
 
             <hr class="mg-y-30">
             <div>
@@ -42,7 +42,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="row_@item.Id">
                                 @if (!string.IsNullOrWhiteSpace(item.Name))
                                 {
 
@@ -180,7 +180,7 @@
                         success: function (data) {
                             if (data) {
                                 //swal('Silindi!', 'Kategori silindi?', 'success');
-                                location.href = "/Address/Index";
+                                $("#row_" + data.Id).remove();
                             }
 
                             else {

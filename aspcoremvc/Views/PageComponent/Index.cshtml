@@ -16,9 +16,9 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn btn-primary" data-toggle="modal"id="btnAddPageComponent" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Component Ekle</strong> </a>
+            <a class="btn btn-primary" data-toggle="modal" id="btnAddPageComponent" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Component Ekle</strong> </a>
 
-           
+
 
             @Html.Partial("_AddEditPageComponent")
 
@@ -46,7 +46,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="row_@item.Id">
                                 @if (!string.IsNullOrWhiteSpace(item.Title))
                                 {
 
@@ -147,7 +147,7 @@
                         success: function (data) {
                             if (data) {
                                 //swal('Silindi!', 'Kategori silindi?', 'success');
-                                location.href = "/PageComponent/Index";
+                                $("#row_" + data.Id).remove();
                             }
 
                             else {
@@ -162,20 +162,20 @@
         });
     </script>
 
-<script>
-    $("#btnAddPageComponent").on("click", function () {
+    <script>
+        $("#btnAddPageComponent").on("click", function () {
 
-        $("#id").val(0);
-        $("#title").val("");
-        $("#description").val("");
-        $("#hrefurl").val("");
-        $("#categoryid").val("");
-        $("#imageurl").val("");
+            $("#id").val(0);
+            $("#title").val("");
+            $("#description").val("");
+            $("#hrefurl").val("");
+            $("#categoryid").val("");
+            $("#imageurl").val("");
 
-        $("#updatepagecomponentpopup").modal("show");
+            $("#updatepagecomponentpopup").modal("show");
 
-    });
-</script>
+        });
+    </script>
 
     <script>
         function getById(id) {
@@ -212,7 +212,7 @@
                 rules: {
                     title: { required: true },
                     description: { required: true },
-                    image: { extension: "png"  },
+                    image: { extension: "png" },
                     href: { required: true },
                     category: { required: true }
 
@@ -220,7 +220,7 @@
                 messages: {
                     title: { required: "Başlık alanı zorunlu!" },
                     description: { required: "Özet alanı zorunlu!" },
-                    image: { extension:"Lütfen png formatında dosya yükleyiniz!" },
+                    image: { extension: "Lütfen png formatında dosya yükleyiniz!" },
                     href: { required: "Href alanı zorunlu!" },
                     category: { required: "Kategori alanı zorunlu!" }
 
@@ -250,13 +250,29 @@
                         data: formData,
                         contentType: false,
                         processData: false,
-                        success: function (response) {
+                        success: function (response) {                           
                             if (response) {
-                                //swal("Component Updated!", "", "success");
-                                $('updatepagecomponentpopup').modal('hide');
+                                $.ajax({
+                                    url: "/PageComponentCategory/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+
+                                        $("#updatepagecomponentpopup").modal('hide');
+                                        $("#tableBody").html(data);
+
+
+
+                                    }
+                                });
+
+
+
                             }
-                            location.href = "/PageComponent/Index";
                         },
+
+
 
                         error: function () {
                             console.log("Hata Oluştu");
@@ -269,11 +285,11 @@
             });
         });
 
-         
+
     </script>
 
 
-   
+
 
 
 }

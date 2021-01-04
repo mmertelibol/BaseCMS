@@ -39,7 +39,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="row_@item.Id">
 
                                 <td>@item.Name</td>
                                 <td>
@@ -92,7 +92,7 @@
                         success: function (data) {
                             if (data) {
                                 //swal('Silindi!', 'Kategori silindi?', 'success');
-                                location.href = "/NewsCategory/Index";
+                                $("#row_" + data.Id).remove();
                                   
                             }
                             

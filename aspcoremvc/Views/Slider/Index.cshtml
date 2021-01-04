@@ -17,7 +17,7 @@
             <div class="col-md-4">
 
 
-                <div class="card" style="width: 23rem;    margin-top:30px;">
+                <div id="card_@item.Id" class="card" style="width: 23rem;    margin-top:30px;">
                     <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:365px; height:294px;  ">
                     
                     <div class="card-footer">
@@ -57,7 +57,7 @@
                         success: function (data) {
                             if (data) {
 
-                                location.href = "/Slider/Index";
+                                $("#card_" + data.Id).remove();
                             }
 
                             else {

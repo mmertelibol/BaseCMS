@@ -43,7 +43,7 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="row_@item.Id">
                                 @if (!string.IsNullOrWhiteSpace(item.Name))
                                 {
                                     <td>@item.Name</td>
@@ -132,7 +132,7 @@
                         success: function (data) {
                             if (data) {
                                 //swal('Silindi!', 'Kategori silindi?', 'success');
-                                location.href = "/SocialMedia/Index";
+                                $("#row_" + data.Id).remove();
                             }
 
                             else {
