@@ -158,6 +158,8 @@
             $("#visibility").val("");
             $("#icon").val("");
             $("#ahref").val("");
+            $("#currentIcon").val("");
+            $("#currentIconDiv").fadeOut(1);
 
 
 
@@ -181,6 +183,7 @@
                     $("#visibility").val(data.IsVisible);
                     //$("#icon").val(data.Icon);
                     $("#ahref").val(data.Href);
+                    $("#currentIcon").attr("src", "/img/" + data.Icon);
 
 
 

@@ -146,7 +146,7 @@
                         url: '/PageComponent/DeletePageComponent?Id=' + id,
                         success: function (data) {
                             if (data) {
-                                //swal('Silindi!', 'Kategori silindi?', 'success');
+                                //Swal.fire('Silindi!', 'Kategori silindi?', 'success');
                                 $("#row_" + data.Id).remove();
                             }
 

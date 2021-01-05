@@ -1,131 +1,126 @@
-﻿@model IEnumerable<SettingDto>
+﻿@model SettingDto
 @{
-    ViewData["Title"] = "News";
+    ViewData["Title"] = "Ayarlar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<style>
-    #selector[class*="sort"]:before,
-    #selector[class*="sort"]:after {
-        content: "" !important;
-    }
-</style>
+@*<div class="container" style="margin-top:35px;">
+        <a class="btn btn-primary" id="updateSettings" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Değişiklikleri Kaydet</strong> </a>
+    </div>*@
+<input type="text" id="settingid" style="display:none;" value="@Model.Id" />
 
-<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
-    <div class="container">
+<div class="container" style="margin-top:50px; margin-bottom:50px;">
+    <div class="row">
+        <div class="col-md-10 col-lg-8 col-xl-12">
+            <div class="card card-body pd-40">
+               
+                <div class="row" style="margin-top:-25px;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="az-content-label tx-11 tx-medium tx-gray-600">ŞİRKET ADI</label>
+                            <input class="form-control"  type="text" id="companyname"  value="@Model.CompanyName">
+                        </div><!-- form-group -->
+                    </div>
 
-        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="az-content-label tx-11 tx-medium tx-gray-600">SLOGAN</label>
+                            <div class="pos-relative">
+                                <input class="form-control pd-r-80" id="companyslogan" type="text" value="@Model.Slogan">
 
-            @*<a class="btn" data-toggle="modal" data-target="#addsettingpopup" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Ayar Ekle</strong> </a>*@
-            @Html.Partial("_AddSettingModalPartial")
-
-           
-            @Html.Partial("_UpdateSettingModalPartial")
-
-
-
-
-
-
-            <hr class="mg-y-30">
-
-            @*<a class="btn btn-az-primary" style="width:130px;" href="#">Insert News</a>*@
-
-            <div>
-                <table id="example2" class="table">
-                    <thead>
-                        <tr>
-                           
-                            <th>Şirket Adı</th>
-                            <th>Slogan</th>
-                            <th>Logo</th>
-                            <th>FavIcon</th>
-                            <th id="selector"></th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                        <tr>
-
-
-                            @if (!string.IsNullOrWhiteSpace(item.CompanyName))
-                            {
-
-                                <td>@item.CompanyName</td>
-                            }
-                            else
-                            {
-                                <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
-                            }
-                            @if (!string.IsNullOrWhiteSpace(item.Slogan))
-                            {
-                                <td>@item.Slogan</td>
-                            }
-                            else
-                            {
-                                <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
-                            }
-
-                            <td><img src="~/img/@item.FavIconUrl" style="width:150px; height:150px;" /></td>
-
-                            <td><img src="~/img/@item.LogoUrl" style="width:150px; height:150px;" /></td>
-
-                            <td>
-                                <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatesettingpopup"><i class="far fa-edit"></i></button>
-                                @*<button class="btn btn-sm btn-danger rounded-pill" onclick="SettingDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletesettingpopup"><i class="far fa-trash-alt"></i></button>*@
-                            </td>
-
-
-                        </tr>
-                        }
+                            </div>
+                        </div><!-- form-group -->
+                    </div>
+                </div>
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-md-6">
+                       
+                        <div class="card" style="width: 13rem; float:right">
+                            <label class="az-content-label tx-11 tx-medium tx-gray-600">FAVIKON</label>
+                            <img class="card-img-top" src="~/img/@Model.FavIconUrl" style="width:205px; height:180px;">
+                            <div class="card-footer">
+                                <div class="input-group mb-3">
+                                    @*<div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button">Kaydet</button>
+                </div>*@
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="favicon" name="logo">
+                                        <label class="custom-file-label" for="logo">Dosya seç</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <div class="card" style="width: 13rem; float:left">
+                            <label class="az-content-label tx-11 tx-medium tx-gray-600">LOGO</label>
+                            <img class="card-img-top" src="~/img/@Model.LogoUrl" style="width:205px; height:180px;">
+                            <div class="card-footer">
+                                <div class="input-group mb-3">
+                                    @*<div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary" type="button">Kaydet</button>
+                </div>*@
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="logourl" name="logo">
+                                        <label class="custom-file-label" for="logo">Dosya seç</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
 
 
 
-                    </tbody>
-                </table>
-            </div>
 
 
-            <div class="ht-40"></div>
+                    <button class="btn btn-indigo"  id="updateSettings" style="margin-top:40px; margin-left:20%; margin-right:20%;">Değişiklikleri Kaydet</button>
+                </div><!-- card -->
+            </div><!-- col -->
+    </div>
+
+</div>
 
 
-        </div><!-- az-content-body -->
-    </div><!-- container -->
-</div><!-- az-content -->
+
+
+
 
 
 @section Section{
 
 
-<script>
-    function getById(id) {
-        $.ajax({
-            url: "/Setting/GetSettingById",
-            type: "Get",
-            contentType: "application/json; charset=utf8",
-            dataType: "json",
-            data: {
-                Id: id
-            },
-            success: function (data) {
+    <script>
+            function getById(id) {
+                $.ajax({
+                    url: "/Setting/GetSettingById",
+                    type: "Get",
+                    contentType: "application/json; charset=utf8",
+                    dataType: "json",
+                    data: {
+                        Id: id
+                    },
+                    success: function (data) {
 
-                $("#settingid").val(data.Id);
-                $("#companyname").val(data.CompanyName);
-                $("#companyslogan").val(data.Slogan);
-                $("#favicon").val(data.FavIconUrl);
-                $("#logourl").val(data.LogoUrl);
+                        $("#settingid").val(data.Id);
+                        $("#companyname").val(data.CompanyName);
+                        $("#companyslogan").val(data.Slogan);
+                        $("#favicon").val(data.FavIconUrl);
+                        $("#logourl").val(data.LogoUrl);
 
+                    }
+                })
             }
-        })
-    }
-</script>
+        </script>
 
     <script>
 
-        function settingUpdate() {
+
+        $("#updateSettings").click(function () {
+
+
             let settingid = $("#settingid").val();
             let CompanyName = $("#companyname").val();
             let slogan = $("#companyslogan").val();
@@ -154,18 +149,31 @@
                 processData: false,
                 success: function (response) {
                     if (response) {
-                        $('#updatesettingpopup').modal('hide');
 
+                        $.ajax({
+                            url: "/Setting/Index",
+                            type: "get",
+                            dataType: "html",
+                            contentType: "application/json; ",
+                            success: function (data) {
+
+
+                                $("#tableBody").html(data);
+                            }
+                        });
 
                     }
-                    location.href="/Setting/Index"
+
                 },
 
                 error: function () {
                     console.log("Hata Oluştu");
                 }
             })
-        }
+
+
+        });
+
     </script>
 
     <script>

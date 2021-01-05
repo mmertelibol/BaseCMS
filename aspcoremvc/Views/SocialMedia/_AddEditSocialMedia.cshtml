@@ -20,7 +20,7 @@
 
                 <div class="modal-body">
 
-                    <input type="text"  id="socialmediaid" style="display:none" />
+                    <input type="text" id="socialmediaid" style="display:none" />
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">İsim</label>
 
@@ -38,11 +38,30 @@
                         <label class="col-sm-2 col-form-label">Görünürlük</label>
                         <div class="col-sm-10">
                             <select id="visibility" name="isvisible" class="form-control select2">
-                                
-                                <option  value="True">Evet</option>
-                                <option  value="False">Hayır</option>
+
+                                <option value="True">Evet</option>
+                                <option value="False">Hayır</option>
 
                             </select>
+                        </div>
+
+
+
+                    </div>
+
+                    <div id="currentIconDiv" class="form-group row">
+                        <label class="col-sm-2 col-form-label">Mevcut Fotoğraf</label>
+                        <div class="col-sm-10">
+                            <div class="row row-sm">
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    @*<div class="custom-file">
+                            <input type="file" id="imageurl" name="image" />
+                            <label for="image" data-browse="Dosya Seç"></label>
+                        </div>*@
+                                    <img src="" id="currentIcon" style="width:150px; height:150px;" />
+                                </div><!-- col -->
+                            </div><!-- row -->
+
                         </div>
 
 

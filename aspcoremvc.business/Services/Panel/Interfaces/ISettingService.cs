@@ -15,5 +15,8 @@ namespace Business.Services.Panel.Interfaces
         SettingDto GetSettingById(int SettingId);
 
         SettingDto UpdateSetting(SettingDto settingDto);
+
+        SettingDto GetSetting();
     }
+
 }

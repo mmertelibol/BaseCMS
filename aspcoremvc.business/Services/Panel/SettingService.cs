@@ -84,6 +84,15 @@ namespace Business.Services.Panel
             return dtoModel;
         }
 
+        public SettingDto GetSetting()
+        {
+            var setting = _context.Setting.FirstOrDefault(x => x.IsDeleted == false);
+
+            var dtoModel = _mapper.Map<SettingDto>(setting);
+
+            return dtoModel;
+        }
+
         public SettingDto GetSettingById(int settingId)
         {
             var setting = _context.Setting.Find(settingId);

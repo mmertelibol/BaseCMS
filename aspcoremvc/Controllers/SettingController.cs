@@ -23,8 +23,8 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
-            var settingList = _settingService.GetAllSettings();
-            return View(settingList);
+            var setting = _settingService.GetSetting();
+            return View(setting);
         }
         public JsonResult AddSetting(SettingDto settingdto)
         {
