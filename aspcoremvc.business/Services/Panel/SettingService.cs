@@ -24,65 +24,65 @@ namespace Business.Services.Panel
             _mapper = mapper;
         }
 
-        public  SettingDto AddSetting(SettingDto settingDto)
-        {
-            settingDto.AddedDate = DateTime.Now;
-            if (settingDto.file != null)
-            {
-                var uniqueName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniqueName);
-                var stream = new FileStream(path,FileMode.Create);
-                settingDto.FileLogo.CopyTo(stream);
+        //public  SettingDto AddSetting(SettingDto settingDto)
+        //{
+        //    settingDto.AddedDate = DateTime.Now;
+        //    if (settingDto.file != null)
+        //    {
+        //        var uniqueName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
+        //        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniqueName);
+        //        var stream = new FileStream(path,FileMode.Create);
+        //        settingDto.FileLogo.CopyTo(stream);
 
-                settingDto.FavIconUrl = uniqueName;
+        //        settingDto.FavIconUrl = uniqueName;
 
                 
-            }
+        //    }
           
 
-            if (settingDto.FileLogo != null)
-            {
-                var uniquePictureName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniquePictureName);
-                var stream = new FileStream(path, FileMode.Create);
-                settingDto.file.CopyTo(stream);
+        //    if (settingDto.FileLogo != null)
+        //    {
+        //        var uniquePictureName = Guid.NewGuid() + Path.GetExtension(settingDto.file.FileName);
+        //        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/" + uniquePictureName);
+        //        var stream = new FileStream(path, FileMode.Create);
+        //        settingDto.file.CopyTo(stream);
 
-                settingDto.LogoUrl = uniquePictureName;
+        //        settingDto.LogoUrl = uniquePictureName;
 
-            }
+        //    }
 
 
 
-            var setting = _mapper.Map<Setting>(settingDto);
-            var addedSetting = _context.Setting.Add(setting);
+        //    var setting = _mapper.Map<Setting>(settingDto);
+        //    var addedSetting = _context.Setting.Add(setting);
 
-            var dtoModel = _mapper.Map<SettingDto>(setting);
+        //    var dtoModel = _mapper.Map<SettingDto>(setting);
 
-            _context.SaveChanges();
-            return dtoModel;
+        //    _context.SaveChanges();
+        //    return dtoModel;
 
             
-        }
+        //}
 
-        public SettingDto DeleteSetting(int SettingId)
-        {
-            var setting = _context.Setting.Find(SettingId);
+        //public SettingDto DeleteSetting(int SettingId)
+        //{
+        //    var setting = _context.Setting.Find(SettingId);
 
-            var deletedSetting = _context.Setting.Remove(setting);
-            var dtoModel = _mapper.Map<SettingDto>(setting);
+        //    var deletedSetting = _context.Setting.Remove(setting);
+        //    var dtoModel = _mapper.Map<SettingDto>(setting);
 
-            _context.SaveChanges();
+        //    _context.SaveChanges();
 
-            return dtoModel;
-        }
+        //    return dtoModel;
+        //}
 
-        public List<SettingDto> GetAllSettings()
-        {
-            var settingList = _context.Setting.Where(x => x.IsDeleted == false).ToList();
-            var dtoModel = _mapper.Map<List<SettingDto>>(settingList);
+        //public List<SettingDto> GetAllSettings()
+        //{
+        //    var settingList = _context.Setting.Where(x => x.IsDeleted == false).ToList();
+        //    var dtoModel = _mapper.Map<List<SettingDto>>(settingList);
 
-            return dtoModel;
-        }
+        //    return dtoModel;
+        //}
 
         public SettingDto GetSetting()
         {
@@ -93,14 +93,14 @@ namespace Business.Services.Panel
             return dtoModel;
         }
 
-        public SettingDto GetSettingById(int settingId)
-        {
-            var setting = _context.Setting.Find(settingId);
+        //public SettingDto GetSettingById(int settingId)
+        //{
+        //    var setting = _context.Setting.Find(settingId);
 
-            var dtoModel = _mapper.Map<SettingDto>(setting);
+        //    var dtoModel = _mapper.Map<SettingDto>(setting);
 
-            return dtoModel;
-        }
+        //    return dtoModel;
+        //}
 
         public SettingDto UpdateSetting(SettingDto settingDto)
         {

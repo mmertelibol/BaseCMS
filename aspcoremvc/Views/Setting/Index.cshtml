@@ -5,12 +5,9 @@
 }
 
 
-@*<div class="container" style="margin-top:35px;">
-        <a class="btn btn-primary" id="updateSettings" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Değişiklikleri Kaydet</strong> </a>
-    </div>*@
 <input type="text" id="settingid" style="display:none;" value="@Model.Id" />
 
-<div class="container" style="margin-top:50px; margin-bottom:50px;">
+<div class="container" style="padding:40px;">
     <div class="row">
         <div class="col-md-10 col-lg-8 col-xl-12">
             <div class="card card-body pd-40">
@@ -34,16 +31,18 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top:25px;">
+                  
                     <div class="col-md-6">
-                       
-                        <div class="card" style="width: 13rem; float:right">
-                            <label class="az-content-label tx-11 tx-medium tx-gray-600">FAVIKON</label>
+                        <label class="az-content-label tx-11 tx-medium tx-gray-600">FAVIKON</label>
+
+                        <div class="card" style="width: 13rem; ">
+
                             <img class="card-img-top" src="~/img/@Model.FavIconUrl" style="width:205px; height:180px;">
                             <div class="card-footer">
                                 <div class="input-group mb-3">
                                     @*<div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button">Kaydet</button>
-                </div>*@
+                        <button class="btn btn-outline-secondary" type="button">Kaydet</button>
+                    </div>*@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="favicon" name="logo">
                                         <label class="custom-file-label" for="logo">Dosya seç</label>
@@ -52,16 +51,17 @@
                             </div>
                         </div>
                     </div>
+                  
                     <div class="col-md-6">
-                        
-                        <div class="card" style="width: 13rem; float:left">
-                            <label class="az-content-label tx-11 tx-medium tx-gray-600">LOGO</label>
-                            <img class="card-img-top" src="~/img/@Model.LogoUrl" style="width:205px; height:180px;">
+                        <label class="az-content-label tx-11 tx-medium tx-gray-600">LOGO</label>
+                        <div class="card" style="width: 13rem;  ">
+
+                            <img class="card-img-top" src="~/img/@Model.LogoUrl" style="width:205px; height:180px; ">
                             <div class="card-footer">
                                 <div class="input-group mb-3">
                                     @*<div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary" type="button">Kaydet</button>
-                </div>*@
+                        <button class="btn btn-outline-secondary" type="button">Kaydet</button>
+                    </div>*@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="logourl" name="logo">
                                         <label class="custom-file-label" for="logo">Dosya seç</label>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
 
 
 
@@ -92,7 +92,7 @@
 @section Section{
 
 
-    <script>
+    @*<script>
             function getById(id) {
                 $.ajax({
                     url: "/Setting/GetSettingById",
@@ -113,7 +113,7 @@
                     }
                 })
             }
-        </script>
+        </script>*@
 
     <script>
 
@@ -176,76 +176,9 @@
 
     </script>
 
-    <script>
+  
 
-        function SettingDeleteShow(id) {
-            // debugger;
-            $("#settingid").val(id);
-        }
-    </script>
-    <script>
-
-        function SettingDelete() {
-            let id = $(settingid).val();
-            $.ajax({
-                type: "delete",
-                url: "/Setting/DeleteSetting",
-                data: {
-                    Id: id
-
-                },
-                success: function (response) {
-                    if (response) {
-                        swal("Setting Deleted!", "", "success");
-                    }
-
-                },
-                error: function () {
-                    console.log("Hata Oluştu");
-                }
-            })
-        }
-    </script>
-
-    <script>
-        $(function () {
-            $("#addsetting").click(function () {
-                let CompanyName = $("#addcompanyname").val();
-                let slogan = $("#addcompanyslogan").val();
-                let filefavicon = $("#addfavicon")[0].files[0];
-                let filelogo = $("#addlogo")[0].files[0];
-
-                let formData = new FormData();
-                formData.append("CompanyName", CompanyName);
-                formData.append("Slogan", slogan);
-
-                if (filefavicon != null) {
-                    formData.append("file", filefavicon, filefavicon.fileName)
-                }
-
-                if (filelogo != null) {
-                    formData.append("FileLogo", filelogo, filelogo.fileName)
-
-                }
-
-                $.ajax({
-                    type: "post",
-                    url: "/Setting/AddSetting",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-                        if (response) {
-                            swal("Setting Added!", "", "success");
-                        }
-                    }
-
-                });
-
-            });
-
-        });
-    </script>
+   
 
 
 

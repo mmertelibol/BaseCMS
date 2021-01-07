@@ -36,7 +36,7 @@
                             @*<th>İçerik</th>*@
                             <th>Özet</th>
                             <th>Anahtar Kelimeler</th>
-                            <th>Url</th>
+                            <th>RoutingUrl</th>
 
                             @*<th>Details</th>*@
                             <th id="selector"></th>
@@ -107,7 +107,7 @@
                                 @if (!string.IsNullOrWhiteSpace(item.RoutingUrl))
                                 {
 
-                                    <td>@item.RoutingUrl</td>
+                                    <td><a href="@item.RoutingUrl">@item.RoutingUrl</a></td>
 
                                 }
                                 else
@@ -178,8 +178,6 @@
         });
     </script>
 
-
-
     <script>
         function getContentById(id) {
             $.ajax({
@@ -200,7 +198,6 @@
             })
         }
     </script>
-
 
     <script>
         function getById(id) {

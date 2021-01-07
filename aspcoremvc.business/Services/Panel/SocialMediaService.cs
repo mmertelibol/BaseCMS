@@ -66,6 +66,8 @@ namespace Business.Services.Panel
             return dtoModel;
         }
 
+       
+
         public SocialMediaDto GetSocialMediaById(int id)
         {
             var socialMedia = _context.SocialMedia.Find(id);

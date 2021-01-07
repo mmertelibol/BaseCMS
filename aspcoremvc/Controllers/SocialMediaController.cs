@@ -21,8 +21,10 @@ namespace Web.Controllers
         }
         public IActionResult Index()
         {
+            
+
             var socialMediaList = _socialMediaService.GetAllList();
-          
+
             return View(socialMediaList);
         }
 

@@ -107,7 +107,7 @@
                                 @if (!string.IsNullOrWhiteSpace(item.RoutingUrl))
                                 {
 
-                                    <td>@item.RoutingUrl</td>
+                                    <td><a href="@item.RoutingUrl"> @item.RoutingUrl</a></td>
 
                                 }
                                 else
@@ -206,7 +206,7 @@
             $("#newsroute").val("");
             $("#newstitle").val("");
             //CKEDITOR.instances.editor2.setData(data.HTMLContent);
-            $("editor2").val("")
+            $("#editor2").val("")
             $("#newsauthor").val("");
             $("#newsdescription").val("");
             $("#newskeyword").val("");

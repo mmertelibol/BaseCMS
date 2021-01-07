@@ -21,32 +21,26 @@ namespace Web.Controllers
             _logger = logger;
             _newsCategoryService = newsCategoryService;
         }
+
         public IActionResult Index()
         {
 
             var newsList = _newsService.GetAllNews();
             var categoryList = _newsCategoryService.GetAllNewsCategories().Distinct().ToList();
-            // var categories = newsList.GroupBy(u => new { u.Name }).Select(grp => grp.FirstOrDefault()).ToList(); //bunu dinamik olarak author alırsan kullanırsın.
-            //var categoryId = _newsCategoryService.GetCategoryIdByCategoryName();
 
-            
-         
             ViewBag.Categories = categoryList;
-            
+
 
             return View(newsList);
         }
 
         [HttpPost]
-      
+
         public JsonResult AddNews(NewsDto newsDto)
         {
             var addednews = _newsService.AddNews(newsDto);
             return Json(newsDto);
 
-            
-            
-            
         }
 
         [HttpDelete]
@@ -55,8 +49,6 @@ namespace Web.Controllers
             var deletedNews = _newsService.DeleteNews(id);
 
             return Json(deletedNews);
-           
-
         }
 
         [HttpPost]
@@ -64,7 +56,6 @@ namespace Web.Controllers
         {
             var updatedNews = _newsService.UpdateNews(newsDto);
             return Json(updatedNews);
-
         }
 
         [HttpGet]
@@ -72,14 +63,8 @@ namespace Web.Controllers
         {
             var news = _newsService.GetNewsById(id);
             return Json(news);
-
         }
 
-
-
-
     }
-
-
 
 }

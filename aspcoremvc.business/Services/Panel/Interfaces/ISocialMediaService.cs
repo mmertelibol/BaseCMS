@@ -16,6 +16,8 @@ namespace Business.Services.Panel.Interfaces
 
         SocialMediaDto UpdateSocialMedia(SocialMediaDto socialMediaDto);
 
+      
+
 
     }
 }

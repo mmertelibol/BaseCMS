@@ -81,7 +81,7 @@
                                 {
 
 
-                                    <td>@item.Href</td>
+                                    <td><a href="@item.Href">@item.Href</a></td>
 
                                 }
                                 else
@@ -155,7 +155,7 @@
 
             $("#socialmediaid").val(0);
             $("#name").val("");
-            $("#visibility").val("");
+            $("#is-visible2").val("");
             $("#icon").val("");
             $("#ahref").val("");
             $("#currentIcon").val("");
@@ -177,10 +177,12 @@
                 data: {
                     Id: id
                 },
+               
                 success: function (data) {
+                   
                     $("#socialmediaid").val(data.Id);
                     $("#name").val(data.Name);
-                    $("#visibility").val(data.IsVisible);
+                    $("#is-visible2").val(data.IsVisible);
                     //$("#icon").val(data.Icon);
                     $("#ahref").val(data.Href);
                     $("#currentIcon").attr("src", "/img/" + data.Icon);
@@ -213,7 +215,7 @@
                 submitHandler: function (form) {
                     let id = $("#socialmediaid").val();
                     let socialmedianame = $("#name").val();
-                    let visible = $("#visibility").val();
+                    let visible = $("#is-visible2").val();
                     let iconurl = $("#icon")[0].files[0];
                     let href = $("#ahref").val();
 
