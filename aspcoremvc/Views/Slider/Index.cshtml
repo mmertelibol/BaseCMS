@@ -25,8 +25,8 @@
                     <div class="col-md-4">
 
 
-                        <div id="card_@item.Id" class="card" style="width: 23rem;    margin-top:30px;">
-                            <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:365px; height:294px;  ">
+                        <div id="card_@item.Id" class="card" style="width: 23rem;    margin-top:30px; max-width:100%;" >
+                            <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:365px; height:294px; max-width:100%; ">
 
                             <div class="card-footer">
                                 <p style="float:left;"><strong>@item.Order</strong></p>
@@ -69,6 +69,7 @@
                             if (data) {
 
                                 $("#card_" + data.Id).remove();
+                                //location.href="/Slider/Index"
                             }
 
                             else {
@@ -103,7 +104,7 @@
                     $("#href").val(data.Href);
                     $("#description").val(data.Description);
                     $("#ordernumber").val(data.Order);
-                    $("#sliderimage").val(data.ImageUrl);
+                    $("#current-slider").attr("src", "/img/" + data.ImageUrl);
 
 
                 }
@@ -120,6 +121,8 @@
             $("#description").val("");
             $("#sliderimage").val("");
             $("#ordernumber").val("");
+            $("#current-slider-div").fadeOut(1);
+
 
             $("#updateslidermodal").modal("show");
 

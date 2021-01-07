@@ -19,7 +19,7 @@
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-            <a class="btn" data-toggle="modal" id="btnAddSocialMedia" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
+            <a class="btn" data-toggle="modal" id="btn-add-social-media" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
             @Html.Partial("_AddEditSocialMedia")
 
            
@@ -90,8 +90,8 @@
                                 }
 
                                 <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#addsocialmediapopup"><i class="far fa-edit"></i></button>
-                                    <button data-id="@item.Id" type="submit" name="delete" class="btn btn-sm btn-danger rounded-pill deletesocialmedia"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#add-social-media-popup"><i class="far fa-edit"></i></button>
+                                    <button data-id="@item.Id" type="submit" name="delete" class="btn btn-sm btn-danger rounded-pill deleteSocialMedia"><i class="far fa-trash-alt"></i></button>
                                 </td>
 
 
@@ -111,7 +111,7 @@
 
 
     <script type="text/javascript">
-        $(document).on('click', '.deletesocialmedia', function () {
+        $(document).on('click', '.deleteSocialMedia', function () {
 
             var id = $(this).data("id");
 
@@ -151,73 +151,72 @@
 
     <script>
 
-        $("#btnAddSocialMedia").on("click", function () {
-
-            $("#socialmediaid").val(0);
+        $("#btn-add-social-media").on("click", function () {
+            debugger;
+            $("#add-social-media-popup").modal("show");
+            $("#social-media-id").val(0);
             $("#name").val("");
-            $("#is-visible2").val("");
+            $("#is-visible").val("");
             $("#icon").val("");
-            $("#ahref").val("");
-            $("#currentIcon").val("");
-            $("#currentIconDiv").fadeOut(1);
-
-
-
-            $("#addsocialmediapopup").modal("show");
+            $("#href").val("");
+            $("#current-icon").val("");
+            $("#current-icon-div").fadeOut(1);
 
         });
 
-    
+    </script>
+    <script>
         function getById(id) {
+            debugger;
             $.ajax({
                 url: "/SocialMedia/GetSocialMediaById",
                 type: "Get",
-                contentType: "application/json; charset=utf8",
+                contentType: "application/json; ",
                 dataType: "json",
                 data: {
                     Id: id
+                    
                 },
-               
+
                 success: function (data) {
-                   
-                    $("#socialmediaid").val(data.Id);
+                    debugger;
+                    $("#social-media-id").val(data.Id);
                     $("#name").val(data.Name);
-                    $("#is-visible2").val(data.IsVisible);
-                    //$("#icon").val(data.Icon);
-                    $("#ahref").val(data.Href);
-                    $("#currentIcon").attr("src", "/img/" + data.Icon);
-
-
+                    $("#is-visible").val(data.IsVisible.toString());
+                    //$("#is-visible").val(data.IsVisible);
+                    $("#href").val(data.Href);
+                    $("#current-icon").attr("src", "/img/" + data.Icon);
 
                 }
             })
         }
-            
-         $("#addsocialmedia").click(function () {
-            $("#submitForm").validate({
+    </script>
+    <script>
+        $("#add-social-media").click(function () {
+            $("#social-media-form").validate({
                 rules: {
                     name: { required: true },
-                    isvisible:{ required: true },
+                    isvisible: { required: true },
 
-                   
+
                     href: { required: true },
                     icon: { extension: "png" }
 
                 },
                 messages: {
                     name: { required: " Sosyal Medya ad alanı zorunlu!" },
-                    isvisible: {required:"Görünürlük alanı zorunlu!"},
-                   
+                    isvisible: { required: "Görünürlük alanı zorunlu!" },
+
                     href: { required: "Href Alanı Zorunlu" },
                     icon: { extension: "Lütfen png tipinde dosya seçiniz!" }
 
                 },
                 submitHandler: function (form) {
-                    let id = $("#socialmediaid").val();
+                    let id = $("#social-media-id").val();
                     let socialmedianame = $("#name").val();
-                    let visible = $("#is-visible2").val();
+                    let visible = $("#is-visible").val();
                     let iconurl = $("#icon")[0].files[0];
-                    let href = $("#ahref").val();
+                    let href = $("#href").val();
 
 
                     let formData = new FormData();
@@ -244,8 +243,7 @@
                                 dataType: "html",
                                 contentType: "application/json; ",
                                 success: function (data) {
-
-                                    $("#addsocialmediapopup").modal('hide');
+                                    
                                     $("#tableBody").html(data);
 
 
