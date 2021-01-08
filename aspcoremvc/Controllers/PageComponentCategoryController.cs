@@ -13,11 +13,13 @@ namespace Web.Controllers
     {
         private readonly IPageComponentCategoryService _pageComponentCategoryService;
         private readonly ILogger<PageComponentCategoryController> _logger;
+        private readonly IPageComponentService _pageComponentService;
 
-        public PageComponentCategoryController(IPageComponentCategoryService pageComponentCategoryService, ILogger<PageComponentCategoryController> logger)
+        public PageComponentCategoryController(IPageComponentCategoryService pageComponentCategoryService, ILogger<PageComponentCategoryController> logger, IPageComponentService pageComponentService)
         {
             _pageComponentCategoryService = pageComponentCategoryService;
             _logger = logger;
+            _pageComponentService = pageComponentService;
         }
         public IActionResult Index()
         {
@@ -35,8 +37,13 @@ namespace Web.Controllers
         [HttpDelete]
         public JsonResult DeletePageComponentCategory(int id)
         {
-            var deleted = _pageComponentCategoryService.DeletePageComponentCategory(id);
-            return Json(deleted);
+            var pageComponent = _pageComponentService.GetPageComponentByCategoryId(id);
+            if (pageComponent.Count == 0)
+            {
+                var deleted = _pageComponentCategoryService.DeletePageComponentCategory(id);
+                return Json(deleted);
+            }
+            return Json(false);
         }
 
 

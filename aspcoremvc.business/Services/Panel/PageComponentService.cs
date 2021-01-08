@@ -111,6 +111,12 @@ namespace Business.Services.Panel
             return pageComponentDto;
         }
 
+        public List<PageComponentDto> GetPageComponentByCategoryId(int categoryId)
+        {
+            var pageComponentList = _context.PageComponent.Where(x => x.IsDeleted == false && x.PageComponentCategoryId == categoryId).ToList();
+            var dtoModel = _mapper.Map<List<PageComponentDto>>(pageComponentList);
 
+            return dtoModel;
+        }
     }
 }

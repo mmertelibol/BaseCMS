@@ -18,9 +18,10 @@
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn" data-toggle="modal" id="btnAddCategory" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Haber Kategorisi Ekle</strong> </a>
-            
-       
+
+
             @Html.Partial("_AddEditNewsCategory")
+            @Html.Partial("_DeleteCategoryPartial")
 
 
 
@@ -45,9 +46,9 @@
                                 <td>
 
                                     <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewscategory"><i class="far fa-edit"></i></button>
-                                   
-                                        <button class="btn btn-sm btn-danger rounded-pill categorydelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
-                                    
+
+                                    <button class="btn btn-sm btn-danger rounded-pill categorydelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+
                                     @*<button class="btn btn-sm btn-danger rounded-pill" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup"><i class="far fa-trash-alt"></i></button>*@
                                 </td>
                             </tr>
@@ -74,6 +75,8 @@
         $(document).on('click', '.categorydelete', function () {
 
             var id = $(this).data("id");
+            
+            
 
             Swal.fire({
                 title: 'Emin Misin?',
@@ -91,14 +94,18 @@
                         url: '/NewsCategory/DeleteNewsCategory?Id=' + id,
                         success: function (data) {
                             if (data) {
-                                //swal('Silindi!', 'Kategori silindi?', 'success');
+                                
                                 $("#row_" + data.Id).remove();
-                                  
+                              
                             }
                             
                             else {
-                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
-                                return false;
+
+                                $("#exampleModalCenter").modal("show");
+                                Swal.fire('HATA!', 'Kategoriyle bağlantılı haberler var!', 'warning');
+                               
+
+                              
                             }
                         }
                     });

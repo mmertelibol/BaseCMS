@@ -32,7 +32,10 @@
                 </div>
                 <div class="row" style="margin-top:25px;">
                   
-                    <div class="col-md-6">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-4">
                         <label class="az-content-label tx-11 tx-medium tx-gray-600">FAVIKON</label>
 
                         <div class="card" style="width: 13rem; ">
@@ -72,10 +75,6 @@
                     </div>
                 </div>
 
-
-
-
-
                     <button class="btn btn-indigo"  id="updateSettings" style="margin-top:40px; margin-left:20%; margin-right:20%;">Değişiklikleri Kaydet</button>
                 </div><!-- card -->
             </div><!-- col -->
@@ -92,28 +91,6 @@
 @section Section{
 
 
-    @*<script>
-            function getById(id) {
-                $.ajax({
-                    url: "/Setting/GetSettingById",
-                    type: "Get",
-                    contentType: "application/json; charset=utf8",
-                    dataType: "json",
-                    data: {
-                        Id: id
-                    },
-                    success: function (data) {
-
-                        $("#settingid").val(data.Id);
-                        $("#companyname").val(data.CompanyName);
-                        $("#companyslogan").val(data.Slogan);
-                        $("#favicon").val(data.FavIconUrl);
-                        $("#logourl").val(data.LogoUrl);
-
-                    }
-                })
-            }
-        </script>*@
 
     <script>
 

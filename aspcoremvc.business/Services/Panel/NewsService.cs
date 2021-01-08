@@ -50,6 +50,15 @@ namespace Business.Services.Panel
 
         }
 
+        //public int FindNewsByNewsCategoryId(int newsCategoryId)
+        //{
+        //    var news = _context.News.FirstOrDefault(x => x.NewsCategoryId == newsCategoryId).Id;
+            
+            
+
+        //    return 1;
+        //}
+
         public List<NewsDto> GetAllNews()
         {
             //var newsList = _context.News.Join(
@@ -108,7 +117,16 @@ namespace Business.Services.Panel
             return newsListDtoModel;
         }
 
-       
+        public List<NewsDto> GetNewsByCategoryId(int id)
+        {
+            var newsList = _context.News.Where(x => x.IsDeleted == false && x.NewsCategoryId == id).ToList();
+            var dtoModel = _mapper.Map<List<NewsDto>>(newsList);
+
+            return dtoModel;
+
+
+        }
+
         public NewsDto GetNewsById(int newsId)
         {
             var news = _context.News.Find(newsId);

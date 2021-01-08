@@ -16,5 +16,7 @@ namespace Business.Services.Panel.Interfaces
         PageComponentDto AddPageComponent(PageComponentDto pageComponentDto);
 
         PageComponentDto UpdatePageComponent(PageComponentDto pageComponentDto);
+
+        List<PageComponentDto> GetPageComponentByCategoryId(int categoryId);
     }
 }

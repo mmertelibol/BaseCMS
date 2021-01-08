@@ -12,13 +12,15 @@ namespace Web.Controllers
     public class NewsCategoryController : Controller
     {
         private readonly INewsCategoryService _newsCategoryService;
+        private readonly INewsService _newsService;
         private readonly ILogger<NewsCategoryController> _logger;
         
 
-        public NewsCategoryController(INewsCategoryService newsCategoryService, ILogger<NewsCategoryController> logger)
+        public NewsCategoryController(INewsCategoryService newsCategoryService, ILogger<NewsCategoryController> logger, INewsService newsService)
         {
             _newsCategoryService = newsCategoryService;
             _logger = logger;
+            _newsService = newsService;
         }
         public IActionResult Index()
         {
@@ -38,9 +40,19 @@ namespace Web.Controllers
         [HttpDelete]
         public JsonResult DeleteNewsCategory(int id)
         {
-            var deleted = _newsCategoryService.DeleteNewsCategory(id);
-            return Json(deleted);
+            var newsList = _newsService.GetNewsByCategoryId(id);
+            if (newsList.Count==0)
+            {
+                var deleted = _newsCategoryService.DeleteNewsCategory(id);
+                return Json(deleted);
+            }
+            return Json(false);
         }
+
+           
+            
+            
+        
 
         [HttpPost]
         public JsonResult UpdateNewsCategory(NewsCategoryDto newsCategoryDto)

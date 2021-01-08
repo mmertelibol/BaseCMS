@@ -7,7 +7,7 @@ namespace Common.Dto.PanelDto
 {
    public class NewsCategoryDto
     {
-        [Required(ErrorMessage ="Ad Zorunlu Bir Alan")]
+        
         public string Name { get; set; }
 
         public int Id { get; set; }
@@ -19,5 +19,7 @@ namespace Common.Dto.PanelDto
         public bool IsDeleted { get; set; }
 
         public List<NewsDto> NewsDto { get; set; }
+
+        
     }
 }

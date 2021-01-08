@@ -6,10 +6,6 @@
 
 
 
-
-
-
-
 @Html.Partial("_AddEditSlider")
 <div class="container pd-40">
 
@@ -22,6 +18,7 @@
 
                 @foreach (var item in Model)
                 {
+
                     <div class="col-md-4">
 
 
@@ -41,7 +38,6 @@
         </div>
     </div>
 </div>
-
 
 
 @section Section{
@@ -69,7 +65,7 @@
                             if (data) {
 
                                 $("#card_" + data.Id).remove();
-                                //location.href="/Slider/Index"
+                                //location.href = "/Slider/Index";
                             }
 
                             else {

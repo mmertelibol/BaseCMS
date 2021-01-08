@@ -106,16 +106,14 @@
                             success: function (data) {
                                 if (data) {
                                     $("#row_" + data.Id).remove();
-                                    //swal('Silindi!', 'Kategori silindi?', 'success');
-                                    //TODO: burası değiştirilecek.
-                                    //location.href = "/PageComponentCategory/Index";
+                                    
 
                                 }
 
 
                                 else {
-                                    Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
-                                    return false;
+                                    Swal.fire('Hata Oluştu!', 'Silinecek Kategori ile Bağlantılı Haberler Var!', 'warning');
+                                    
                                 }
                             }
                         });

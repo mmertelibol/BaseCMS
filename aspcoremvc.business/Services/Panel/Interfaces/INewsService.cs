@@ -17,6 +17,8 @@ namespace Business.Services.Panel.Interfaces
 
         NewsDto UpdateNews(NewsDto newsDto);
 
+        List<NewsDto> GetNewsByCategoryId(int newsCategoryId);
+
         
 
 
