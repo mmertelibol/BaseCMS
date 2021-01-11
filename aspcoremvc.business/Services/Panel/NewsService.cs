@@ -109,7 +109,7 @@ namespace Business.Services.Panel
             return newsListDtoModel;
         }
 
-        public List<NewsDto> GetNewsByCategoryId(int id)
+        public List<NewsDto> GetNewsByNewsCategoryId(int id)
         {
             var newsList = _context.News.Where(x => x.IsDeleted == false && x.NewsCategoryId == id).ToList();
             var dtoModel = _mapper.Map<List<NewsDto>>(newsList);

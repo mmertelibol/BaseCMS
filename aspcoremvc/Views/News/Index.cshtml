@@ -116,8 +116,8 @@
                                 }
 
                                 <td>
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewspopup"><i class="far fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-danger rounded-pill newsdelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updateNewsPopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill newsDelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                 </td>
 
 
@@ -138,7 +138,7 @@
 @section Section{
 
     <script type="text/javascript">
-        $(document).on('click', '.newsdelete', function () {
+        $(document).on('click', '.newsDelete', function () {
 
             var id = $(this).data("id");
             Swal.fire({
@@ -175,44 +175,24 @@
     </script>
 
 
-    <script>
-        function getContentById(id) {
-            $.ajax({
-                url: "/News/GetNewsById",
-                type: "Get",
-                contentType: "application/json; charset=utf8",
-                dataType: "json",
-                data: {
-                    Id: id
-                },
-                success: function (data) {
-                    debugger;
-                    $("#newsid").val(data.Id);
-                    CKEDITOR.instances.editor3.setData(data.HTMLContent);
-                }
-
-            })
-        }
-
-
-    </script>
+   
 
     <script>
 
         $("#btnAddNews").on("click", function () {
             CKEDITOR.instances['editor2'].updateElement();
-            $("#newsid").val(0);
-            $("#categoryname").val("");
-            $("#newsroute").val("");
-            $("#newstitle").val("");
+            $("#newsId").val(0);
+            $("#categoryName").val("");
+            $("#newsRoute").val("");
+            $("#newsTitle").val("");
             //CKEDITOR.instances.editor2.setData(data.HTMLContent);
             $("#editor2").val("")
-            $("#newsauthor").val("");
-            $("#newsdescription").val("");
-            $("#newskeyword").val("");
-            $("#newscategory").val("");
+            $("#newsAuthor").val("");
+            $("#newsDescription").val("");
+            $("#newsKeyword").val("");
+            $("#newsCategory").val("");
 
-            $("#updatenewspopup").modal("show");
+            $("#updateNewsPopup").modal("show");
 
         });
 
@@ -230,14 +210,14 @@
                 },
                 success: function (data) {
 
-                    $("#newsid").val(data.Id);
-                    $("#newsroute").val(data.RoutingUrl);
-                    $("#newstitle").val(data.Title);
+                    $("#newsId").val(data.Id);
+                    $("#newsRoute").val(data.RoutingUrl);
+                    $("#newsTitle").val(data.Title);
                     CKEDITOR.instances.editor2.setData(data.HTMLContent);
-                    $("#newsauthor").val(data.Author);
-                    $("#newsdescription").val(data.MetaDescription);
-                    $("#newskeyword").val(data.MetaKeywords);
-                    $("#newscategory").val(data.NewsCategoryId);
+                    $("#newsAuthor").val(data.Author);
+                    $("#newsDescription").val(data.MetaDescription);
+                    $("#newsKeyword").val(data.MetaKeywords);
+                    $("#newsCategory").val(data.NewsCategoryId);
 
                 }
             })
@@ -245,8 +225,8 @@
 
     </script>
     <script>
-        $("#updatenews").click(function () {
-            $("#updatenewsform").validate({
+        $("#addUpdatenews").click(function () {
+            $("#updateNewsForm").validate({
                 ignore: [],
                 debug: false,
                 rules: {
@@ -274,14 +254,14 @@
                 submitHandler: function (form) {
                     CKEDITOR.instances['editor2'].updateElement();
 
-                    let id = $(newsid).val();
-                    let title = $(newstitle).val();
-                    let author = $(newsauthor).val();
-                    let htmlcontent = $(editor2).val();
-                    let description = $(newsdescription).val();
-                    let keyword = $(newskeyword).val();
-                    let category = $(newscategory).val();
-                    let route = $(newsroute).val();
+                    let id = $(newsId).val();
+                    let title = $(newsTitle).val();
+                    let author = $(newsAuthor).val();
+                    let content = $(editor2).val();
+                    let description = $(newsDescription).val();
+                    let keyword = $(newsKeyword).val();
+                    let category = $(newsCategory).val();
+                    let route = $(newsRoute).val();
 
                     $.ajax({
                         type: "post",
@@ -290,7 +270,7 @@
                             Id: id,
                             Title: title,
                             Author: author,
-                            HTMLContent: htmlcontent,
+                            HTMLContent: content,
                             MetaDescription: description,
                             MetaKeywords: keyword,
                             NewsCategoryId: category,
@@ -306,7 +286,7 @@
                                     contentType: "application/json; ",
                                     success: function (data) {
 
-                                        $("#updatenewsform").modal('hide');
+                                        $("#updateNewsPopup").modal('hide');
                                         $("#tableBody").html(data);
 
 
@@ -327,72 +307,6 @@
         });
     </script>
 
-    @*<script>
-
-            $("#addnews").click(function () {
-                $("#addnewsform").validate({
-                    ignore: [],
-                    debug: false,
-                    rules: {
-                        title: { required: true },
-                        author: { required: true },
-                        description: { required: true },
-                        keywords: { required: true },
-                        url: { required: true },
-                        categoryselect: { required: true },
-                        editor1: { required: true }
-
-
-                    },
-                    messages: {
-                        title: { required: "Başlık alanı zorunlu!" },
-                        author: { required: "Yazar alanı zorunlu!" },
-                        description: { required: "Özet alanı zorunlu!" },
-                        keywords: { required: "Anahtar Kelime alanı zorunlu!" },
-                        url: { required: "Url alanı zorunlu!" },
-                        categoryselect: { required: "Kategori alanı zorunlu!" },
-                        editor1: { required: "İçerik alanı zorunlu!" }
-
-
-                    },
-                    submitHandler: function (form) {
-
-                        CKEDITOR.instances['editor1'].updateElement();
-                        let News = {
-                            Title: $("#title").val(),
-                            Author: $("#author").val(),
-                            MetaDescription: $("#description").val(),
-                            MetaKeywords: $("#keywords").val(),
-                            RoutingURL: $("#routingurl").val(),
-                            NewsCategoryId: $("#categoryselect").val(),
-                            HTMLContent: $("#editor1").val(),
-
-                        };
-
-                        $.ajax({
-                            type: "post",
-                            url: "/News/AddNews",
-                            data: News,
-                            success: function (response) {
-                                if (response) {
-
-                                    $('#modaldemo3').modal('hide');
-                                }
-
-                                location.href = "/News/Index"
-                            },
-                            error: function () {
-                                console.log("hata oluştu");
-
-
-                            }
-
-                        });
-                    }
-                });
-            });
-
-        </script>*@
 
 
 
@@ -407,10 +321,7 @@
         CKEDITOR.replace('editor2');
 
     </script>
-    <script>
-        CKEDITOR.replace('editor3');
-    </script>
-
+   
 
 
 }

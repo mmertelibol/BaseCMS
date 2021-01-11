@@ -25,14 +25,50 @@ namespace Business.Services.Panel
         {
             dto.AddedDate = DateTime.Now;
             var pageComponentCategory = _mapper.Map<PageComponentCategory>(dto);
-            var addedPageComponentCategory = _context.PageComponentCategory.Add(pageComponentCategory);
+             _context.PageComponentCategory.Add(pageComponentCategory);
 
-            var dtoModel = _mapper.Map<PageComponentCategoryDto>(pageComponentCategory);
+            //var dtoModel = _mapper.Map<PageComponentCategoryDto>(pageComponentCategory);
 
             _context.SaveChanges();
-            return dtoModel;
+            return dto;
 
 
+        }
+
+        public PageComponentCategoryDto DeleteAndAssignComponentCategory(PageComponentCategoryDto dto)
+        {
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var newsList = _context.PageComponent
+                        .Where(x => x.PageComponentCategoryId == dto.Id)
+                        .ToList();
+                    foreach (var item in newsList)
+                    {
+                        if (item.PageComponentCategoryId != dto.PageComponentCategoryId)
+                        {
+                            item.PageComponentCategoryId = dto.PageComponentCategoryId;
+                            item.UpdatedDate = DateTime.Now;
+
+                            _context.Update(item);
+                            _context.SaveChanges();
+                        }
+                    }
+                    var deletedCategory = _context.PageComponentCategory
+                        .Find(dto.Id);
+                    _context.Remove(deletedCategory);
+                    _context.SaveChanges();
+
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                }
+            }
+
+            return dto;
         }
 
         public PageComponentCategoryDto DeletePageComponentCategory(int id)

@@ -17,5 +17,8 @@ namespace Common.Dto.PanelDto
         public bool IsDeleted { get; set; }
 
         public List<PageComponentDto> PageComponentDto { get; set; }
+
+
+        public int PageComponentCategoryId { get; set; } //deleteandassign için
     }
 }

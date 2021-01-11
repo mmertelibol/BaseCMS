@@ -20,6 +20,8 @@ namespace Business.Services.Panel.Interfaces
 
         NewsCategoryDto DeleteAndAssignNewsCategory(NewsCategoryDto newsCategoryDto);
 
+        List<NewsCategoryDto> GetCategoriesWithoutDeletedCategory(int id);
+
 
 
 

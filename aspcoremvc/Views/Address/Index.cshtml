@@ -140,7 +140,7 @@
 
                                 <td>
                                     <button class="btn btn-sm btn-indigo rounded-pill" onclick="getAddressById('@item.Id')" data-toggle="modal" data-target="#updateaddressmodal"><i class="far fa-edit"></i></button>
-                                    <button class="btn btn-sm btn-danger rounded-pill addressdelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill addressDelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                         }
@@ -159,7 +159,7 @@
 
 
     <script type="text/javascript">
-        $(document).on('click', '.addressdelete', function () {
+        $(document).on('click', '.addressDelete', function () {
 
             var id = $(this).data("id");
 
@@ -179,7 +179,7 @@
                         url: '/Address/DeleteAddress?Id=' + id,
                         success: function (data) {
                             if (data) {
-                                //swal('Silindi!', 'Kategori silindi?', 'success');
+                               
                                 $("#row_" + data.Id).remove();
                             }
 
@@ -200,15 +200,15 @@
 
         $("#btnAddAddress").on("click", function () {
 
-            $("#addressid").val(0);
-            $("#addressnameid").val("")
-            $("#mailid").val("");
-            $("#phoneid").val("");
-            $("#cityid").val("");
-            $("#idcounty").val("");
-            $("#fulladdressid").val("");
-            $("#longitudeid").val("");
-            $("#latitudeid").val("");
+            $("#addressId").val(0);
+            $("#addressNameId").val("")
+            $("#mailId").val("");
+            $("#phoneId").val("");
+            $("#cityId").val("");
+            $("#idCounty").val("");
+            $("#fullAddressId").val("");
+            $("#longitudeId").val("");
+            $("#latitudeId").val("");
             
 
             $("#updateaddressmodal").modal("show");
@@ -232,15 +232,15 @@
                 },
                 success: function (data) {
                     debugger;
-                    $("#addressid").val(data.Id);
-                    $("#addressnameid").val(data.Name)
+                    $("#addressId").val(data.Id);
+                    $("#addressNameId").val(data.Name)
                     $("#mailId").val(data.Email);
-                    $("#phoneid").val(data.Phone);
-                    $("#cityid").val(data.City);
-                    $("#idcounty").val(data.County);
-                    $("#fulladdressid").val(data.FullAdress);
-                    $("#longitudeid").val(data.Longitude);
-                    $("#latitudeid").val(data.Latitude);
+                    $("#phoneId").val(data.Phone);
+                    $("#cityId").val(data.City);
+                    $("#idCounty").val(data.County);
+                    $("#fullAddressId").val(data.FullAdress);
+                    $("#longitudeId").val(data.Longitude);
+                    $("#latitudeId").val(data.Latitude);
 
                 }
 
@@ -275,15 +275,15 @@
                     //phone: { required: "Telefon bilgisi zorunlu!" },
                 },
                 submitHandler: function (form) {
-                    let id = $(addressid).val();
-                    let name = $(addressnameid).val();
+                    let id = $(addressId).val();
+                    let name = $(addressNameId).val();
                     let email = $(mailId).val();
-                    let phone = $(phoneid).val();
-                    let city = $(cityid).val();
-                    let county = $(idcounty).val();
-                    let fulladdress = $(fulladdressid).val();
-                    let longitude = $(longitudeid).val();
-                    let latitude = $(latitudeid).val();
+                    let phone = $(phoneId).val();
+                    let city = $(cityId).val();
+                    let county = $(idCounty).val();
+                    let fulladdress = $(fullAddressId).val();
+                    let longitude = $(longitudeId).val();
+                    let latitude = $(latitudeId).val();
 
                     $.ajax({
                         type: "post",

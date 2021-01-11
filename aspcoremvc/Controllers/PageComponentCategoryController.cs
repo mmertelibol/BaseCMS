@@ -24,6 +24,7 @@ namespace Web.Controllers
         public IActionResult Index()
         {
             var categoryList = _pageComponentCategoryService.GetAllPageComponentCategories();
+            ViewBag.ComponentCategories = categoryList;
             return View(categoryList);
         }
 
@@ -50,7 +51,7 @@ namespace Web.Controllers
 
         [HttpPost]
         public JsonResult UpdatePageComponentCategory(PageComponentCategoryDto pageComponentCategoryDto)
-        {
+        {   
             var updated = _pageComponentCategoryService.UpdatePageComponentCategory(pageComponentCategoryDto);
             return Json(updated);
         }
@@ -59,6 +60,19 @@ namespace Web.Controllers
         {
             var pageComponentCategory = _pageComponentCategoryService.GetPageComponentCategoryById(id);
             return Json(pageComponentCategory);
+        }
+
+        public JsonResult DeleteAndAssignComponentCategory(PageComponentCategoryDto pageComponentCategoryDto)
+        {
+
+            var deletedAndAssign = _pageComponentCategoryService.DeleteAndAssignComponentCategory(pageComponentCategoryDto);
+            if (pageComponentCategoryDto.Id!=pageComponentCategoryDto.PageComponentCategoryId)
+            {
+                return Json(deletedAndAssign);
+            }
+
+            return Json(false);
+           
         }
     }
 }

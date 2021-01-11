@@ -45,11 +45,11 @@
                                 <td>@item.Name</td>
                                 <td>
 
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewscategory"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#addUpdateNewsCategoryPopup"><i class="far fa-edit"></i></button>
 
-                                    <button class="btn btn-sm btn-danger rounded-pill categorydelete" data-name="@item.Name" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill categoryDelete" data-name="@item.Name" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
 
-                                    @*<button class="btn btn-sm btn-danger rounded-pill" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup"><i class="far fa-trash-alt"></i></button>*@
+
                                 </td>
                             </tr>
                         }
@@ -73,7 +73,7 @@
 @section Section{
 
     <script type="text/javascript">
-        $(document).on('click', '.categorydelete', function () {
+        $(document).on('click', '.categoryDelete', function () {
 
             var id = $(this).data("id");
             var name = $(this).data("name");
@@ -98,22 +98,29 @@
 
                         success: function (data) {
                             if (data) {
+                                $.ajax({
+                                    url: "/NewsCategory/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
 
-                                $("#row_" + data.Id).remove();
+                                        $("#tableBody").html(data);
+                                    }
 
-
+                                });
                             }
 
                             else {
-                                $("#exampleModalCenter").modal('show');
-                                $("#deletedCategory").text(name);
+                                $("#deleteNewsCategory").modal('show');
+                                $("#deletedCategory").val(name);
                                 $("#categoryId").val(id);
 
-                                $("#btn-remove-assign").click(function () {
+                                $("#btnRemoveAndAssign").click(function () {
 
                                     let id = $(categoryId).val();
                                     let newsCategoryId = $(otherCategories).val();
-                                    let name = $(deletedCategory).val();
+                                   
 
                                     $.ajax({
                                         type: "post",
@@ -121,8 +128,8 @@
                                         dataType: "json",
                                         data: {
                                             Id: id,
-                                            NewsCategoryId: newsCategoryId,
-                                            Name:name
+                                            NewsCategoryId: newsCategoryId
+                                            
                                         },
                                         cache: false,
                                         success: function (data) {
@@ -133,13 +140,21 @@
                                                     dataType: "html",
                                                     contentType: "application/json; ",
                                                     success: function (data) {
+                                                        if (data) {
 
-                                                        $("#exampleModalCenter").modal('hide');
-                                                        $("#tableBody").html(data);
+                                                            $("#deleteNewsCategory").modal('hide');
+                                                            $("#tableBody").html(data);
+                                                        }
+                                                        else {
+                                                            Swal.fire('Hata Oluştu!', 'Silinecek kategori başka komponentlere aktarılamaz!', 'warning');
+                                                        }
+                                                       
+
                                                     }
 
                                                 });
                                             }
+
                                         }
                                     });
                                 });
@@ -155,10 +170,10 @@
     <script>
         $("#btnAddCategory").on("click", function () {
 
-            $("#categoryid").val(0);
-            $("#categoryname").val("");
+            $("#categoryId").val(0);
+            $("#categoryName").val("");
 
-            $("#updatenewscategory").modal("show");
+            $("#addUpdateNewsCategoryPopup").modal("show");
 
         });
 
@@ -176,8 +191,8 @@
                 },
                 success: function (data) {
 
-                    $("#categoryid").val(data.Id);
-                    $("#categoryname").val(data.Name);
+                    $("#categoryId").val(data.Id);
+                    $("#categoryName").val(data.Name);
                 }
             })
         }
@@ -185,8 +200,8 @@
     </script>
     <script>
 
-        $("#addeditnewscategory").click(function () {
-            $("#addeditcategoryform").validate({
+        $("#btnAddUpdateNewsCategory").click(function () {
+            $("#addUpdateCategoryForm").validate({
                 ignore: [],
                 debug: false,
                 rules: {
@@ -199,8 +214,8 @@
                 },
                 submitHandler: function (form) {
 
-                    let id = $("#categoryid").val();
-                    let name = $("#categoryname").val();
+                    let id = $("#categoryId").val();
+                    let name = $("#categoryName").val();
 
                     $.ajax({
                         type: "post",
@@ -218,7 +233,7 @@
                                     contentType: "application/json; ",
                                     success: function (data) {
 
-                                        $("#updatenewscategory").modal('hide');
+                                        $("#addUpdateNewsCategoryPopup").modal('hide');
                                         $("#tableBody").html(data);
 
 

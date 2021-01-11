@@ -42,10 +42,10 @@ namespace Web.Controllers
         }
 
         [HttpDelete]
-        public JsonResult DeleteNewsCategory(int id)
+        public IActionResult DeleteNewsCategory(int id)
         {
             
-            var newsList = _newsService.GetNewsByCategoryId(id);
+            var newsList = _newsService.GetNewsByNewsCategoryId(id);
 
             if (newsList.Count==0)
             {
@@ -59,12 +59,18 @@ namespace Web.Controllers
 
 
         [HttpPost]
-        public JsonResult DeleteAndAssignNewsCategory(NewsCategoryDto newsCategoryDto)
+        public  JsonResult DeleteAndAssignNewsCategory(NewsCategoryDto newsCategoryDto)
         {
             
             var deletedAndAssignedCategory = _newsCategoryService.DeleteAndAssignNewsCategory(newsCategoryDto);
 
-            return Json(deletedAndAssignedCategory);
+            if (newsCategoryDto.Id != newsCategoryDto.NewsCategoryId)
+            {
+                return Json(deletedAndAssignedCategory);
+            }
+
+            return Json(false);
+            
             
         }
 

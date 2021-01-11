@@ -101,7 +101,14 @@ namespace Business.Services.Panel
             return dtoModel;
         }
 
-       
+        public List<NewsCategoryDto> GetCategoriesWithoutDeletedCategory(int id)
+        {
+            var categoryList = _context.NewsCategory.Where(x => x.IsDeleted == false && x.Id != id).ToList();
+            var dtoModel = _mapper.Map<List<NewsCategoryDto>>(categoryList);
+
+            return dtoModel;
+        }
+
         public NewsCategoryDto GetNewsCategoryById(int id)
         {
             var newsCategory = _context.NewsCategory.Find(id);

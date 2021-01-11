@@ -8,23 +8,22 @@
     }
 </style>
 
-<form id="addeditcategoryform">
+<form id="addUpdateCategoryForm">
 
-    <div id="updatenewscategory" class="modal">
+    <div id="addUpdateNewsCategoryPopup" class="modal">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
                     <h6 class="modal-title">Haber Kategorisi</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    
+                    
                 </div>
                 <div class="modal-body">
 
 
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <input type="text" id="categoryid" style="display:none" value="" />
+                            <input type="text" id="categoryId" style="display:none" value="" />
                         </div>
 
                     </div>
@@ -34,13 +33,13 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Kategori Adı</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="categoryname" name="categoryname">
+                            <input type="text" class="form-control" id="categoryName" name="categoryname">
                         </div>
                     </div>
 
                 </div><!-- modal-body -->
                 <div class="modal-footer">
-                    <button type="submit" id="addeditnewscategory" class="btn btn-indigo">Kaydet</button>
+                    <button type="submit" id="btnAddUpdateNewsCategory" class="btn btn-indigo">Kaydet</button>
                     <a asp-action="Index" asp-controller="NewsCategory" class="btn btn-outline-light">Kapat</a>
                 </div>
             </div>

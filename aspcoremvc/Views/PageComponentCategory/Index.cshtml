@@ -16,193 +16,238 @@
 </style>
 
 
-    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
-        <div class="container">
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
 
-            <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
-                <a class="btn btn-primary" data-toggle="modal" id="btnAddCategory" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Kategori Ekle</strong> </a>
-
-
-                @Html.Partial("_AddEditComponentCategoryPartial")
+            <a class="btn btn-primary" data-toggle="modal" id="btnAddCategory" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Kategori Ekle</strong> </a>
 
 
-
+            @Html.Partial("_AddEditComponentCategoryPartial")
+            @Html.Partial("_DeleteComponentCategory")
 
 
 
-                <hr class="mg-y-30">
 
 
 
-                <div>
-                    <table id="example2" class="table">
-                        <thead>
-                            <tr>
+            <hr class="mg-y-30">
 
-                                <th>KATEGORİ ADI</th>
-                                <th id="selector"></th>
 
+
+            <div>
+                <table id="example2" class="table">
+                    <thead>
+                        <tr>
+
+                            <th>KATEGORİ ADI</th>
+                            <th id="selector"></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr id="row_@item.Id">
+
+                                <td>@item.Name</td>
+
+
+
+                                <td>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatecomponentcategorypopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill componentcategorydelete" data-id="@item.Id" data-name="@item.Name" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach (var item in Model)
-                            {
-
-                                <tr id="row_@item.Id">
-
-                                    <td>@item.Name</td>
+                        }
 
 
 
-                                    <td>
-                                        <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatecomponentcategorypopup"><i class="far fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger rounded-pill componentcategorydelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
-                                    </td>
-                                </tr>
-                            }
+                    </tbody>
+                </table>
+            </div>
 
 
-
-                        </tbody>
-                    </table>
-                </div>
+            <div class="ht-40"></div>
 
 
-                <div class="ht-40"></div>
-
-
-            </div><!-- az-content-body -->
-        </div><!-- container -->
-    </div><!-- az-content -->
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
 
 
 
 
 @section Section{
 
-  
+
 
     <script type="text/javascript">
-                $(document).on('click', '.componentcategorydelete', function () {
+        $(document).on('click', '.componentcategorydelete', function () {
 
-                var id = $(this).data("id");
+            var id = $(this).data("id");
+            var name = $(this).data("name");
 
-                Swal.fire({
-                    title: 'Emin Misin?',
-                    text: "Kategori Silinecek!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Evet, Sil!',
-                    cancelButtonText: 'İptal'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            type: 'delete',
-                            url: '/PageComponentCategory/DeletePageComponentCategory?Id=' + id,
-                            success: function (data) {
-                                if (data) {
-                                    $("#row_" + data.Id).remove();
-                                    
-
-                                }
+            Swal.fire({
+                title: 'Emin Misin?',
+                text: "Kategori Silinecek!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, Sil!',
+                cancelButtonText: 'İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'delete',
+                        url: '/PageComponentCategory/DeletePageComponentCategory?Id=' + id,
+                        success: function (data) {
+                            if (data) {
+                                $("#row_" + data.Id).remove();
 
 
-                                else {
-                                    Swal.fire('Hata Oluştu!', 'Silinecek Kategori ile Bağlantılı Haberler Var!', 'warning');
-                                    
-                                }
                             }
-                        });
-
-                    }
-                });
-            });
-
-            $("#btnAddCategory").on("click", function () {
-
-                $("#componentcategoryid").val(0);
-                $("#categoryname").val("");
-
-                $("#updatecomponentcategorypopup").modal("show");
-
-            });
 
 
-            $("#addupdatecategory").click(function () {
-                $("#addeditcategoryform").validate({
-                    ignore: [],
-                    debug: false,
-                    rules: {
-                        categoryname: { required: true }
+                            else {
+                                $("#deletedComponentCategory").modal('show');
+                                $("#deletedCategory").val(name);
+                                $("#categoryId").val(id);
 
-                    },
-                    messages: {
-                        categoryname: { required: "Kategori Ad alanı zorunlu!" }
+                                $("#btn-remove-assign").click(function () {
 
-                    },
-                    submitHandler: function (form) {
+                                    let id = $(categoryId).val();
+                                    let pageComponentCategoryId = $(otherCategories).val();
+                                   
 
-                        let id = $("#componentcategoryid").val();
-                        let name = $("#categoryname").val();
-
-                        $.ajax({
-                            type: "post",
-                            url: id == 0 ? "/PageComponentCategory/AddPageComponentCategory" : "/PageComponentCategory/UpdatePageComponentCategory",
-                            data: {
-                                Id: id,
-                                Name: name
-                            },
-                            success: function (response) {
-                                if (response) {
                                     $.ajax({
-                                        url: "/PageComponentCategory/Index",
-                                        type: "get",
-                                        dataType: "html",
-                                        contentType: "application/json; ",
+                                        type: "post",
+                                        url: "/PageComponentCategory/DeleteAndAssignComponentCategory",
+                                        dataType: "json",
+                                        data: {
+                                            Id: id,
+                                            PageComponentCategoryId: pageComponentCategoryId,
+                                            
+                                        },
+                                        cache: false,
                                         success: function (data) {
-                                           
-                                            $("#updatecomponentcategorypopup").modal('hide');
-                                            $("#tableBody").html(data);
+                                            if (data) {
+                                                $.ajax({
+                                                    url: "/PageComponentCategory/Index",
+                                                    type: "get",
+                                                    dataType: "html",
+                                                    contentType: "application/json; ",
+                                                    success: function (data) {
+                                                        if (data) {
 
+                                                            $("#deletedComponentCategory").modal('hide');
+                                                            $("#tableBody").html(data);
+                                                        }
+                                                        else {
+                                                            Swal.fire('Hata Oluştu!', 'Silinecek kategori başka komponentlere aktarılamaz!', 'warning');
+                                                        }
+                                                        
+                                                    }
 
-                                           
+                                                });
+                                            }
+                                            
                                         }
                                     });
-
-
-
-                                }
-                              
-                            },
-                            error: function () {
-                                console.log("Hata Oluştu");
+                                });
                             }
-                        })
-                    }
-                });
+                        }
+                    });
+
+                }
             });
+        });
+
+        $("#btnAddCategory").on("click", function () {
+
+            $("#componentcategoryid").val(0);
+            $("#categoryname").val("");
+
+            $("#updatecomponentcategorypopup").modal("show");
+
+        });
 
 
-            function getById(id) {
-                $.ajax({
-                    url: "/PageComponentCategory/GetPageComponentCategoryById",
-                    type: "Get",
-                    contentType: "application/json; charset=utf8",
-                    dataType: "json",
-                    data: {
-                        Id: id
-                    },
-                    success: function (data) {
+        $("#addupdatecategory").click(function () {
+            $("#addeditcategoryform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    categoryname: { required: true }
 
-                        $("#componentcategoryid").val(data.Id);
-                        $("#categoryname").val(data.Name);
-                    }
-                })
-            }
+                },
+                messages: {
+                    categoryname: { required: "Kategori Ad alanı zorunlu!" }
+
+                },
+                submitHandler: function (form) {
+
+                    let id = $("#componentcategoryid").val();
+                    let name = $("#categoryname").val();
+
+                    $.ajax({
+                        type: "post",
+                        url: id == 0 ? "/PageComponentCategory/AddPageComponentCategory" : "/PageComponentCategory/UpdatePageComponentCategory",
+                        data: {
+                            Id: id,
+                            Name: name
+                        },
+                        success: function (response) {
+                            if (response) {
+                                $.ajax({
+                                    url: "/PageComponentCategory/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+
+                                        $("#updatecomponentcategorypopup").modal('hide');
+                                        $("#tableBody").html(data);
+
+
+
+                                    }
+                                });
+
+
+
+                            }
+
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
+                        }
+                    })
+                }
+            });
+        });
+
+
+        function getById(id) {
+            $.ajax({
+                url: "/PageComponentCategory/GetPageComponentCategoryById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    Id: id
+                },
+                success: function (data) {
+
+                    $("#componentcategoryid").val(data.Id);
+                    $("#categoryname").val(data.Name);
+                }
+            })
+        }
 
     </script>
 
