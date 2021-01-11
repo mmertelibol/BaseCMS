@@ -50,14 +50,7 @@ namespace Business.Services.Panel
 
         }
 
-        //public int FindNewsByNewsCategoryId(int newsCategoryId)
-        //{
-        //    var news = _context.News.FirstOrDefault(x => x.NewsCategoryId == newsCategoryId).Id;
-            
-            
-
-        //    return 1;
-        //}
+        
 
         public List<NewsDto> GetAllNews()
         {
@@ -113,7 +106,6 @@ namespace Business.Services.Panel
 
 
             var newsListDtoModel = _mapper.Map<List<NewsDto>>(newsList);
-
             return newsListDtoModel;
         }
 

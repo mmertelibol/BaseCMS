@@ -1,4 +1,5 @@
 ﻿using Common.Dto.PanelDto;
+using Common.Dto.PanelDtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Business.Services.Panel.Interfaces
     {
         NewsCategoryDto AddNewsCategory(NewsCategoryDto newsCategoryDto);
 
-        NewsCategoryDto DeleteNewsCategory(int NewsCategoryId);
+        NewsCategoryDto DeleteNewsCategory(int newsCategoryId);
 
         NewsCategoryDto UpdateNewsCategory(NewsCategoryDto newsCategoryDto);
 
@@ -17,9 +18,13 @@ namespace Business.Services.Panel.Interfaces
 
         List<NewsCategoryDto> GetAllNewsCategories();
 
-        //NewsCategoryDto GetCategoryIdByCategoryName(string categoryName);
+        NewsCategoryDto DeleteAndAssignNewsCategory(NewsCategoryDto newsCategoryDto);
 
-        //int GetNewsCategoryIdById(int id);
+
+
+
+
+      
 
 
 

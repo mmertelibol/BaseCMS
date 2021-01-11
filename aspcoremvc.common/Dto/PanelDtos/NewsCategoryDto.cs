@@ -12,6 +12,7 @@ namespace Common.Dto.PanelDto
 
         public int Id { get; set; }
 
+
         public DateTime? AddedDate { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
@@ -20,6 +21,9 @@ namespace Common.Dto.PanelDto
 
         public List<NewsDto> NewsDto { get; set; }
 
-        
+
+        public int NewsCategoryId { get; set; }
+
+
     }
 }

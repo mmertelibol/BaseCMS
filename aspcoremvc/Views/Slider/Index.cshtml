@@ -7,12 +7,12 @@
 
 
 @Html.Partial("_AddEditSlider")
-<div class="container pd-40">
+<div class="container pd-40 ">
 
     <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40 ">
         <a class="btn" data-toggle="modal" id="btnAddSlider" style="width:180px;  background-color:#5b47fb;"><strong style="color:white;">Slider Ekle</strong> </a>
 
-        <div class="container">
+        @*<div class="container">*@
 
             <div class="row">
 
@@ -22,8 +22,8 @@
                     <div class="col-md-4">
 
 
-                        <div id="card_@item.Id" class="card" style="width: 23rem;    margin-top:30px; max-width:100%;" >
-                            <img class="card-img-top" src="~/img/@item.ImageUrl" style="object-fit:cover; width:365px; height:294px; max-width:100%; ">
+                        <div id="card_@item.Id" class="card" style="width: 23rem;    margin-top:30px; max-width:100% " >
+                            <img class="card-img-top" src="~/img/@item.ImageUrl" style=" width:365px; height:294px; max-width:100%  ">
 
                             <div class="card-footer">
                                 <p style="float:left;"><strong>@item.Order</strong></p>
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-</div>
+@*</div>*@
 
 
 @section Section{
@@ -65,7 +65,7 @@
                             if (data) {
 
                                 $("#card_" + data.Id).remove();
-                                //location.href = "/Slider/Index";
+                                location.href = "/Slider/Index";
                             }
 
                             else {

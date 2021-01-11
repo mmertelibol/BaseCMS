@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Business.Services.Panel.Interfaces;
 using Common.Dto.PanelDto;
+using Common.Dto.PanelDtos;
 using Data;
 using Data.Domain.Panel;
 using Microsoft.EntityFrameworkCore;
@@ -33,20 +34,63 @@ namespace Business.Services.Panel
             return dtoModel;
 
         }
-       
-        public NewsCategoryDto DeleteNewsCategory(int newsCategoryId )
+
+        public NewsCategoryDto DeleteAndAssignNewsCategory(NewsCategoryDto newsCategoryDto)
+        {
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    var newsList = _context.News
+                        .Where(x => x.NewsCategoryId == newsCategoryDto.Id)
+                        .ToList();
+                    foreach (var item in newsList)
+                    {
+                        if (item.NewsCategoryId!= newsCategoryDto.NewsCategoryId)
+                        {
+                            item.NewsCategoryId = newsCategoryDto.NewsCategoryId;
+                            item.UpdatedDate = DateTime.Now;
+
+
+                            _context.Update(item);
+                            _context.SaveChanges();
+                        }
+                           
+                        
+                       
+                    }
+                    var deletedCategory = _context.NewsCategory
+                        .Find(newsCategoryDto.Id);
+                    _context.Remove(deletedCategory);
+                    _context.SaveChanges();
+
+
+
+                    transaction.Commit();
+
+
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                }
+            }
+
+            return newsCategoryDto;
+        }
+
+        public NewsCategoryDto DeleteNewsCategory(int newsCategoryId)
         {
 
             //IsValidForDelete(newsCategoryId);
             var newsCategory = _context.NewsCategory.Find(newsCategoryId);
-
             var deletedNewsCategory = _context.NewsCategory.Remove(newsCategory);
-
             var dtoModel = _mapper.Map<NewsCategoryDto>(newsCategory);
-
             _context.SaveChanges();
 
             return dtoModel;
+
+             
         }
         public List<NewsCategoryDto> GetAllNewsCategories()
         {
@@ -57,8 +101,7 @@ namespace Business.Services.Panel
             return dtoModel;
         }
 
-     
-
+       
         public NewsCategoryDto GetNewsCategoryById(int id)
         {
             var newsCategory = _context.NewsCategory.Find(id);

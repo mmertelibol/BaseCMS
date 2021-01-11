@@ -47,7 +47,7 @@
 
                                     <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatenewscategory"><i class="far fa-edit"></i></button>
 
-                                    <button class="btn btn-sm btn-danger rounded-pill categorydelete" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill categorydelete" data-name="@item.Name" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
 
                                     @*<button class="btn btn-sm btn-danger rounded-pill" onclick="NewsCategoryDeleteShow('@item.Id')" data-toggle="modal" data-target="#deletenewscategorypopup"><i class="far fa-trash-alt"></i></button>*@
                                 </td>
@@ -59,6 +59,7 @@
                     </tbody>
                 </table>
             </div>
+
 
 
             <div class="ht-40"></div>
@@ -75,8 +76,10 @@
         $(document).on('click', '.categorydelete', function () {
 
             var id = $(this).data("id");
-            
-            
+            var name = $(this).data("name");
+
+
+
 
             Swal.fire({
                 title: 'Emin Misin?',
@@ -92,20 +95,54 @@
                     $.ajax({
                         type: 'delete',
                         url: '/NewsCategory/DeleteNewsCategory?Id=' + id,
+
                         success: function (data) {
                             if (data) {
-                                
+
                                 $("#row_" + data.Id).remove();
-                              
+
+
                             }
-                            
+
                             else {
+                                $("#exampleModalCenter").modal('show');
+                                $("#deletedCategory").text(name);
+                                $("#categoryId").val(id);
 
-                                $("#exampleModalCenter").modal("show");
-                                Swal.fire('HATA!', 'Kategoriyle bağlantılı haberler var!', 'warning');
-                               
+                                $("#btn-remove-assign").click(function () {
 
-                              
+                                    let id = $(categoryId).val();
+                                    let newsCategoryId = $(otherCategories).val();
+                                    let name = $(deletedCategory).val();
+
+                                    $.ajax({
+                                        type: "post",
+                                        url: "/NewsCategory/DeleteAndAssignNewsCategory",
+                                        dataType: "json",
+                                        data: {
+                                            Id: id,
+                                            NewsCategoryId: newsCategoryId,
+                                            Name:name
+                                        },
+                                        cache: false,
+                                        success: function (data) {
+                                            if (data) {
+                                                $.ajax({
+                                                    url: "/NewsCategory/Index",
+                                                    type: "get",
+                                                    dataType: "html",
+                                                    contentType: "application/json; ",
+                                                    success: function (data) {
+
+                                                        $("#exampleModalCenter").modal('hide');
+                                                        $("#tableBody").html(data);
+                                                    }
+
+                                                });
+                                            }
+                                        }
+                                    });
+                                });
                             }
                         }
                     });
@@ -146,59 +183,59 @@
         }
 
     </script>
-<script>
+    <script>
 
-    $("#addeditnewscategory").click(function () {
-        $("#addeditcategoryform").validate({
-            ignore: [],
-            debug: false,
-            rules: {
-                categoryname: { required: true }
+        $("#addeditnewscategory").click(function () {
+            $("#addeditcategoryform").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    categoryname: { required: true }
 
-            },
-            messages: {
-                categoryname: { required: "Kategori Ad alanı zorunlu!" }
+                },
+                messages: {
+                    categoryname: { required: "Kategori Ad alanı zorunlu!" }
 
-            },
-            submitHandler: function (form) {
+                },
+                submitHandler: function (form) {
 
-                let id = $("#categoryid").val();
-                let name = $("#categoryname").val();
+                    let id = $("#categoryid").val();
+                    let name = $("#categoryname").val();
 
-                $.ajax({
-                    type: "post",
-                    url: id == 0 ? "/NewsCategory/AddNewsCategory" : "/NewsCategory/UpdateNewsCategory",
-                    data: {
-                        Id: id,
-                        Name: name
-                    },
-                    success: function (response) {
-                        if (response) {
-                            $.ajax({
-                                url: "/NewsCategory/Index",
-                                type: "get",
-                                dataType: "html",
-                                contentType: "application/json; ",
-                                success: function (data) {
+                    $.ajax({
+                        type: "post",
+                        url: id == 0 ? "/NewsCategory/AddNewsCategory" : "/NewsCategory/UpdateNewsCategory",
+                        data: {
+                            Id: id,
+                            Name: name
+                        },
+                        success: function (response) {
+                            if (response) {
+                                $.ajax({
+                                    url: "/NewsCategory/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
 
-                                    $("#updatenewscategory").modal('hide');
-                                    $("#tableBody").html(data);
+                                        $("#updatenewscategory").modal('hide');
+                                        $("#tableBody").html(data);
 
 
 
-                                }
+                                    }
 
-                            });
+                                });
+                            }
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
                         }
-                    },
-                    error: function () {
-                        console.log("Hata Oluştu");
-                    }
-                })
-            }
+                    })
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 
 }

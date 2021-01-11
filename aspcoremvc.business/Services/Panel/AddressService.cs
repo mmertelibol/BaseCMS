@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Business.Services.Panel
 {
-    public class AddressService:IAddressService
+    public class AddressService : IAddressService
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
@@ -36,14 +36,15 @@ namespace Business.Services.Panel
         public AddressDto DeleteAddress(int addressId)
         {
             var address = _context.Adress.Find(addressId);
-            var deletedAddress = _context.Adress.Remove(address);
+            _context.Adress.Remove(address);
             var dtoModel = _mapper.Map<AddressDto>(address);
 
             _context.SaveChanges();
+
             return dtoModel;
 
-        }
 
+        }
         public AddressDto GetAddressById(int addressId)
         {
             var address = _context.Adress.Find(addressId);

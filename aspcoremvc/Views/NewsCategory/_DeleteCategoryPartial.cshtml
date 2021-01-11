@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NewsCategoryDto>
+﻿
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -10,16 +10,24 @@
                 </button>
             </div>
             <div class="modal-body">
+                <input type="hidden" id="categoryId" />
                <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-4">
+                      
+                           <label id="deletedCategory"></label>
                        
-                       <input type="text" value="" id="deleted-category" />
+
                    </div>
 
-                   <div class="col-md-6">
-                      <select id="other-categories">
-                          <option value=""></option>
-                      </select>
+                   <div class="col-md-8">
+                       <select class="form-control" id="otherCategories">
+                           @foreach (var item in ViewBag.Categories)
+                           {
+                               <option value="@item.Id">@item.Name</option>
+                           }
+
+
+                       </select>
                    </div>
 
 
@@ -28,7 +36,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" id="btn-remove-assign" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

@@ -26,30 +26,14 @@ namespace Web.Controllers
             var setting = _settingService.GetSetting();
             return View(setting);
         }
-        //public JsonResult AddSetting(SettingDto settingdto)
-        //{
-        //    var added = _settingService.AddSetting(settingdto);
-
-
-
-        //    return Json(added);
-        //}
-        //public JsonResult DeleteSetting(int id)
-        //{
-        //    var deleted = _settingService.DeleteSetting(id);
-        //    return Json(deleted);
-        //}
+        
         public JsonResult UpdateSetting(SettingDto settingDto)
         {
             var setting = _settingService.UpdateSetting(settingDto);
             return Json(setting);
         }
 
-        //public JsonResult GetSettingById(int id)
-        //{
-        //    var setting = _settingService.GetSettingById(id);
-        //    return Json(setting);
-        //}
+      
 
     }
 }
