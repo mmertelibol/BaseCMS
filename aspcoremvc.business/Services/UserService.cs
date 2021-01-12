@@ -5,6 +5,8 @@ using Common.Dto;
 using Common.Dto.DataTablesGrid;
 using Common.Resources;
 using Data;
+using Domain.User;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,11 +18,14 @@ namespace Business.Services
         private readonly AppDbContext _context;
         private readonly LocService _localizer;
 
-        public UserService(AppDbContext parContext, LocService parLocalizer)
+        private readonly SignInManager<User> _signInManager;
+
+        public UserService(AppDbContext parContext, LocService parLocalizer, SignInManager<User> signInManager)
             : base(parContext, parLocalizer)
         {
             _context = parContext;
             _localizer = parLocalizer;
+            _signInManager = signInManager;
         }
 
         public UserDto GetUser(int id)
@@ -47,6 +52,14 @@ namespace Business.Services
             return mappedResult;
         }
 
-     
+        public async Task<bool> Login(UserDto user)
+        {
+            var identityresult = await _signInManager.PasswordSignInAsync(user.Email, user.Password, false, false);
+
+            var success = identityresult.Succeeded;
+
+
+            return success;
+        }
     }
 }

@@ -136,6 +136,7 @@ namespace Business
                 AddUserAndAssignRole(userManager, "superadmin", "superAdmin", 1, defaultPassword);
                 AddUserAndAssignRole(userManager, "globaladmin", "globalAdmin", 1, defaultPassword);
                 AddUserAndAssignRole(userManager, "employee", "employee", 1, defaultPassword);
+                AddUserAndAssignRole(userManager, "adminpanel", "adminpanel", 1, "m.12345");
             }
 
 

@@ -114,12 +114,13 @@ namespace Web
             {
                 // Cookie settings  
                 options.Cookie.HttpOnly = true;
+                
                 //options.Cookie.Expiration = TimeSpan.FromDays(30);
-                options.ExpireTimeSpan = TimeSpan.FromDays(30);
+                options.ExpireTimeSpan = TimeSpan.FromDays(30);//cookiesüresi
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";
                 options.AccessDeniedPath = "/Account/AccessDenied";
-                options.SlidingExpiration = true;
+                options.SlidingExpiration = true;//her istekte cookie süresi 0 lanır.
                 //options.SessionStore = services.BuildServiceProvider().GetService<ITicketStore>();
             });
 
@@ -144,6 +145,7 @@ namespace Web
             services.AddScoped<ISocialMediaService, SocialMediaService>();
             services.AddScoped<IStaticPageService, StaticPageService>();
             services.AddScoped<ISliderService, SliderService>();
+          
 
 
             //services.AddMvc().AddNewtonsoftJson();
@@ -329,7 +331,7 @@ namespace Web
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=HomePage}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
 
 

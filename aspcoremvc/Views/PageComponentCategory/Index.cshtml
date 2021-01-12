@@ -130,7 +130,7 @@
                                         dataType: "json",
                                         data: {
                                             Id: id,
-                                            PageComponentCategoryId: pageComponentCategoryId,
+                                            PageComponentCategoryId: pageComponentCategoryId
                                             
                                         },
                                         cache: false,
@@ -147,13 +147,14 @@
                                                             $("#deletedComponentCategory").modal('hide');
                                                             $("#tableBody").html(data);
                                                         }
-                                                        else {
-                                                            Swal.fire('Hata Oluştu!', 'Silinecek kategori başka komponentlere aktarılamaz!', 'warning');
-                                                        }
+                                                      
                                                         
                                                     }
 
                                                 });
+                                            }
+                                            else {
+                                                Swal.fire('Hata Oluştu!', 'Silinecek kategori başka komponentlere aktarılamaz!', 'warning');
                                             }
                                             
                                         }

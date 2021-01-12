@@ -145,16 +145,16 @@
                                                             $("#deleteNewsCategory").modal('hide');
                                                             $("#tableBody").html(data);
                                                         }
-                                                        else {
-                                                            Swal.fire('Hata Oluştu!', 'Silinecek kategori başka komponentlere aktarılamaz!', 'warning');
-                                                        }
+                                                        
                                                        
 
                                                     }
 
                                                 });
                                             }
-
+                                            else {
+                                                Swal.fire('Hata Oluştu!', 'Silinecek kategori başka haberlere aktarılamaz!', 'warning');
+                                            }
                                         }
                                     });
                                 });

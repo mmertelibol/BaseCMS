@@ -16,5 +16,8 @@ namespace Business.Services.Interfaces
         /// <returns></returns>
         UserDto GetUser(int id);
         UserDto CheckUserPhone(string phone, int locationId);
+
+
+        Task<bool> Login(UserDto userdto);
     }
 }
