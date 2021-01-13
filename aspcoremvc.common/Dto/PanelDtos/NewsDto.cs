@@ -8,6 +8,7 @@ namespace Common.Dto.PanelDto
     {
         public string HTMLContent { get; set; }
 
+        public List<NewsDto> News { get; set; }
         public string Title { get; set; }
 
         public string MetaKeywords { get; set; }

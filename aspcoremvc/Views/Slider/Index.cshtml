@@ -4,15 +4,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
 
 
-@Html.Partial("_AddEditSlider")
-<div class="container pd-40 ">
 
-    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40 ">
-        <a class="btn" data-toggle="modal" id="btnAddSlider" style="width:180px;  background-color:#5b47fb;"><strong style="color:white;">Slider Ekle</strong> </a>
+    @Html.Partial("_AddEditSlider")
 
-        @*<div class="container">*@
+    <div class="container pd-40 ">
+
+        <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40 ">
+            <a class="btn" data-toggle="modal" id="btnAddSlider" style="width:180px;  background-color:#5b47fb;"><strong style="color:white;">Slider Ekle</strong> </a>
+
+            @*<div class="container">*@
 
             <div class="row">
 
@@ -22,8 +26,8 @@
                     <div class="col-md-4">
 
 
-                        <div id="card_@item.Id" class="card" style="width: 23rem;    margin-top:30px; max-width:100% " >
-                            <img class="card-img-top" src="~/img/@item.ImageUrl" style=" width:365px; height:294px; max-width:100%  ">
+                        <div class="card" style="width: 23rem;    margin-top:30px; max-width:100% ">
+                            <img class="card-img-top img-thumbnail img-fluid card-img-bottom" src="~/img/@item.ImageUrl" style=" width:368px; height:300px; max-width:100%  ">
 
                             <div class="card-footer">
                                 <p style="float:left;"><strong>@item.Order</strong></p>
@@ -37,10 +41,15 @@
             </div>
         </div>
     </div>
-@*</div>*@
+
+
+
 
 
 @section Section{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
+
 
     <script type="text/javascript">
         $(document).on('click', '.deleteslider', function () {
@@ -64,13 +73,28 @@
                         success: function (data) {
                             if (data) {
 
-                                $("#card_" + data.Id).remove();
-                                location.href = "/Slider/Index";
+                                $.ajax({
+                                    url: "/Slider/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+
+                                        $("#tableBody").html(data);
+                                        toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
+
+
+                                       
+
+
+                                    }
+
+                                });
                             }
 
                             else {
-                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
-                                return false;
+                                toastr.error("", "İşlem Gerçekleşmedi !")
+
                             }
                         }
                     });
@@ -85,7 +109,7 @@
 
     <script>
         function getSliderById(id) {
-            debugger;
+
             $.ajax({
                 url: "/Slider/GetSliderById",
                 type: "Get",
@@ -179,12 +203,19 @@
 
                                             $("#updateslidermodal").modal('hide');
                                             $("#tableBody").html(data);
+                                            toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
 
 
 
                                         }
 
+
                                     });
+                                }
+
+                                else {
+                                    toastr.error("", "İşlem Gerçekleşmedi !")
+
                                 }
                             }
 
@@ -196,46 +227,7 @@
 
         });
     </script>
-    @*<script>
 
-            function sliderUpdate() {
-
-                let sliderid = $("#idslider").val();
-                let href = $("#sliderhref").val();
-                let description = $("#descriptionslider").val();
-                let sliderimageurl = $("#imageslider")[0].files[0];
-                let order = $("#orderslider").val();
-
-                let formData = new FormData();
-                formData.append("Id", sliderid);
-                formData.append("Href", href);
-                formData.append("Description", description);
-
-                if (sliderimageurl != null) {
-                    formData.append("SliderFile", sliderimageurl, sliderimageurl.fileName);
-                }
-                formData.append("Order", order);
-
-                $.ajax({
-                    type: "put",
-                    url: "/Slider/UpdateSlider",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-                        if (response) {
-
-                            $('updateslidermodal').modal('hide');
-                        }
-                        location.href = "/Slider/Index";
-                    },
-
-                    error: function () {
-                        console.log("Hata Oluştu");
-                    }
-                })
-            }
-        </script>*@
 
 
 

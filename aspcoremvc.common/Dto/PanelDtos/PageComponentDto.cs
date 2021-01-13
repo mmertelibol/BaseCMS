@@ -11,7 +11,7 @@ namespace Common.Dto.PanelDto
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string Href { get; set; }
-
+        public List<PageComponentDto> PageComponent { get; set; }
         public int PageComponentCategoryId { get; set; }
 
         public PageComponentCategoryDto PageComponentCategory { get; set; }

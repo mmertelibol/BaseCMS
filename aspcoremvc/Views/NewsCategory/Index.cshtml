@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
 <style>
     #selector[class*="sort"]:before,
     #selector[class*="sort"]:after {
@@ -72,14 +73,16 @@
 
 @section Section{
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
+
+
+
+
     <script type="text/javascript">
         $(document).on('click', '.categoryDelete', function () {
 
             var id = $(this).data("id");
             var name = $(this).data("name");
-
-
-
 
             Swal.fire({
                 title: 'Emin Misin?',
@@ -106,12 +109,14 @@
                                     success: function (data) {
 
                                         $("#tableBody").html(data);
+                                        toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
                                     }
 
                                 });
                             }
 
                             else {
+                                toastr.error("", "İşlem gerçekleşmedi !")
                                 $("#deleteNewsCategory").modal('show');
                                 $("#deletedCategory").val(name);
                                 $("#categoryId").val(id);
@@ -120,7 +125,7 @@
 
                                     let id = $(categoryId).val();
                                     let newsCategoryId = $(otherCategories).val();
-                                   
+
 
                                     $.ajax({
                                         type: "post",
@@ -129,7 +134,7 @@
                                         data: {
                                             Id: id,
                                             NewsCategoryId: newsCategoryId
-                                            
+
                                         },
                                         cache: false,
                                         success: function (data) {
@@ -145,14 +150,13 @@
                                                             $("#deleteNewsCategory").modal('hide');
                                                             $("#tableBody").html(data);
                                                         }
-                                                        
-                                                       
-
                                                     }
 
                                                 });
                                             }
+
                                             else {
+
                                                 Swal.fire('Hata Oluştu!', 'Silinecek kategori başka haberlere aktarılamaz!', 'warning');
                                             }
                                         }
@@ -226,20 +230,23 @@
                         },
                         success: function (response) {
                             if (response) {
+
                                 $.ajax({
                                     url: "/NewsCategory/Index",
                                     type: "get",
                                     dataType: "html",
                                     contentType: "application/json; ",
                                     success: function (data) {
+                                        if (data) {
+                                            $("#addUpdateNewsCategoryPopup").modal('hide');
 
-                                        $("#addUpdateNewsCategoryPopup").modal('hide');
-                                        $("#tableBody").html(data);
-
-
-
+                                            $("#tableBody").html(data);
+                                            toastr.success("Başarılı bir şekilde gerçekleşti!", "Başarılı !");
+                                        }
+                                        else {
+                                            toastr.error("", "İşlem Gerçekleşmedi !");
+                                        }
                                     }
-
                                 });
                             }
                         },

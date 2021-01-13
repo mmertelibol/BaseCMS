@@ -5,19 +5,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
 <style>
     #selector[class*="sort"]:before,
     #selector[class*="sort"]:after {
         content: "" !important;
     }
 </style>
+
 <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
     <div class="container">
 
         <div class="az-content-body pd-lg-l-40 d-flex flex-column">
 
             <a class="btn btn-primary" data-toggle="modal" id="btnAddAddress" style="width:150px;  background-color:#5b47fb"><strong style="color:white">Adres Ekle</strong> </a>
-          
+
             @Html.Partial("_AddEditAddress")
 
             <hr class="mg-y-30">
@@ -157,6 +160,7 @@
 @section Section{
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         $(document).on('click', '.addressDelete', function () {
@@ -179,13 +183,23 @@
                         url: '/Address/DeleteAddress?Id=' + id,
                         success: function (data) {
                             if (data) {
-                               
-                                $("#row_" + data.Id).remove();
+
+                                $.ajax({
+                                    url: "/Address/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+
+                                        $("#tableBody").html(data);
+                                        toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
+                                    }
+
+                                });
                             }
 
                             else {
-                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
-                                return false;
+                                toastr.error("", "İşlem Gerçekleşmedi");
                             }
                         }
                     });
@@ -209,7 +223,7 @@
             $("#fullAddressId").val("");
             $("#longitudeId").val("");
             $("#latitudeId").val("");
-            
+
 
             $("#updateaddressmodal").modal("show");
 
@@ -287,7 +301,7 @@
 
                     $.ajax({
                         type: "post",
-                        url: id==0 ? "/Address/AddAddress" : "/Address/UpdateAddress",
+                        url: id == 0 ? "/Address/AddAddress" : "/Address/UpdateAddress",
                         data: {
                             Id: id,
                             Name: name,
@@ -310,17 +324,20 @@
 
                                         $("#updateaddressmodal").modal('hide');
                                         $("#tableBody").html(data);
+                                        toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
 
 
 
                                     }
                                 });
                             }
-                            
+                            else {
+                                toastr.error("", "İşlem Gerçekleşmedi !")
+                            }
+
                         },
                         error: function () {
-                            console.log("Hata Oluştu");
-                            //swal("NewsUpdated!", "", "success");
+                            console.log("Hata!");
                         }
                     })
 

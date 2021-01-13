@@ -36,7 +36,7 @@ namespace Web.Controllers
         [HttpPost]
         public JsonResult AddNewsCategory(NewsCategoryDto newsCategoryDto)
         {
-           
+          
             var added = _newsCategoryService.AddNewsCategory(newsCategoryDto);
             return Json(added);
         }

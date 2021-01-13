@@ -6,6 +6,11 @@
 
 
 }
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
+
+
 <style>
 
 
@@ -137,6 +142,8 @@
 
 @section Section{
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
         $(document).on('click', '.newsDelete', function () {
 
@@ -158,13 +165,23 @@
                         success: function (data) {
                             if (data) {
 
-                                $("#row_" + data.Id).remove();
+                                $.ajax({
+                                    url: "/News/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+
+                                        $("#tableBody").html(data);
+                                        toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
+                                    }
+
+                                });
 
                             }
 
                             else {
-                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu', 'warning');
-                                return false;
+                                toastr.error("", "İşlem Gerçekleşmedi !")
                             }
                         }
                     });
@@ -175,7 +192,7 @@
     </script>
 
 
-   
+
 
     <script>
 
@@ -288,12 +305,15 @@
 
                                         $("#updateNewsPopup").modal('hide');
                                         $("#tableBody").html(data);
-
-
+                                        toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
 
                                     }
 
                                 });
+                            }
+
+                            else {
+                                toastr.success("", "İşlem Gerçekleşmedi !")
                             }
                         },
                         error: function () {
@@ -321,7 +341,7 @@
         CKEDITOR.replace('editor2');
 
     </script>
-   
+
 
 
 }

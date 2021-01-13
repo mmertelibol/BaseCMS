@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
+
 
 <input type="text" id="settingid" style="display:none;" value="@Model.Id" />
 
@@ -11,12 +14,12 @@
     <div class="row">
         <div class="col-md-10 col-lg-8 col-xl-12">
             <div class="card card-body pd-40">
-               
+
                 <div class="row" style="margin-top:-25px;">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="az-content-label tx-11 tx-medium tx-gray-600">ŞİRKET ADI</label>
-                            <input class="form-control"  type="text" id="companyname"  value="@Model.CompanyName">
+                            <input class="form-control" type="text" id="companyname" value="@Model.CompanyName">
                         </div><!-- form-group -->
                     </div>
 
@@ -31,12 +34,12 @@
                     </div>
                 </div>
                 <div class="row" style="margin-top:25px;">
-                  
+
                     <div class="col-md-2">
 
                     </div>
                     <div class="col-md-4">
-                        <label class="az-content-label tx-11 tx-medium tx-gray-600">FAVIKON</label>
+                        <label class="az-content-label tx-11 tx-medium tx-gray-600">FAVICON</label>
 
                         <div class="card" style="width: 13rem; ">
 
@@ -44,8 +47,8 @@
                             <div class="card-footer">
                                 <div class="input-group mb-3">
                                     @*<div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button">Kaydet</button>
-                    </div>*@
+                                            <button class="btn btn-outline-secondary" type="button">Kaydet</button>
+                                        </div>*@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="favicon" name="logo">
                                         <label class="custom-file-label" for="logo">Dosya seç</label>
@@ -54,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                  
+
                     <div class="col-md-6">
                         <label class="az-content-label tx-11 tx-medium tx-gray-600">LOGO</label>
                         <div class="card" style="width: 13rem;  ">
@@ -63,8 +66,8 @@
                             <div class="card-footer">
                                 <div class="input-group mb-3">
                                     @*<div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button">Kaydet</button>
-                    </div>*@
+                                            <button class="btn btn-outline-secondary" type="button">Kaydet</button>
+                                        </div>*@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="logourl" name="logo">
                                         <label class="custom-file-label" for="logo">Dosya seç</label>
@@ -75,9 +78,9 @@
                     </div>
                 </div>
 
-                    <button class="btn btn-indigo"  id="updateSettings" style="margin-top:40px; margin-left:20%; margin-right:20%;">Değişiklikleri Kaydet</button>
-                </div><!-- card -->
-            </div><!-- col -->
+                <button class="btn btn-indigo" id="updateSettings" style="margin-top:40px; margin-left:20%; margin-right:20%;">Değişiklikleri Kaydet</button>
+            </div><!-- card -->
+        </div><!-- col -->
     </div>
 
 </div>
@@ -90,7 +93,7 @@
 
 @section Section{
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
 
     <script>
 
@@ -136,9 +139,13 @@
 
 
                                 $("#tableBody").html(data);
+                                toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
                             }
                         });
 
+                    }
+                    else {
+                        toastr.error("", "İşlem Gerçekleşmedi !")
                     }
 
                 },
@@ -153,9 +160,9 @@
 
     </script>
 
-  
 
-   
+
+
 
 
 

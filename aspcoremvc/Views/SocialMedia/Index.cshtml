@@ -6,6 +6,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
 
 <style>
     #selector[class*="sort"]:before,
@@ -22,7 +24,7 @@
             <a class="btn" data-toggle="modal" id="btn-add-social-media" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Sosyal Medya Ekle</strong> </a>
             @Html.Partial("_AddEditSocialMedia")
 
-           
+
 
             <hr class="mg-y-30">
 
@@ -109,6 +111,8 @@
 
 @section Section{
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
+
 
     <script type="text/javascript">
         $(document).on('click', '.deleteSocialMedia', function () {
@@ -131,13 +135,23 @@
                         url: '/SocialMedia/DeleteSocialMedia?Id=' + id,
                         success: function (data) {
                             if (data) {
-                                //swal('Silindi!', 'Kategori silindi?', 'success');
-                                $("#row_" + data.Id).remove();
+                                $.ajax({
+                                    url: "/PageComponent/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+
+                                        $("#tableBody").html(data);
+                                        toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
+                                    }
+
+                                });
                             }
 
                             else {
-                                Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
-                                return false;
+
+                                toastr.error("", "İşlem Gerçekleşmedi !")
                             }
                         }
                     });
@@ -175,7 +189,7 @@
                 dataType: "json",
                 data: {
                     Id: id
-                    
+
                 },
 
                 success: function (data) {
@@ -183,7 +197,6 @@
                     $("#social-media-id").val(data.Id);
                     $("#name").val(data.Name);
                     $("#is-visible").val(data.IsVisible.toString());
-                    //$("#is-visible").val(data.IsVisible);
                     $("#href").val(data.Href);
                     $("#current-icon").attr("src", "/img/" + data.Icon);
 
@@ -243,8 +256,9 @@
                                 dataType: "html",
                                 contentType: "application/json; ",
                                 success: function (data) {
-                                    
+
                                     $("#tableBody").html(data);
+                                    toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
 
 
 
@@ -270,67 +284,7 @@
 
 
 
-    @*<script>
-            $("#updatesocialmedia").click(function () {
-                $("#updateform").validate({
-                    rules: {
-                        socialmedianame: { required: true },
-                        fileinput: { extension: "png", required: false },
-                        href: { required: true }
 
-                    },
-                    messages: {
-                        socialmedianame: { required: "Lütfen Sosyal Medya Adı Giriniz!" },
-                        fileinput: { required:"Lütfen Dosya Yükleyiniz", extension: "Png formatında dosya yükleyiniz!" },
-                        href: { required: "Lütfen href giriniz!" },
-
-
-                    },
-                    submitHandler: function (form) {
-                        let socialmediaid = $("#idsocial").val();
-                        let socialmedianame = $("#namesocial").val();
-                        let visible = $("#isvisibility").val();
-                        let iconurl = $("#imagesocial")[0].files[0];
-                        let href = $("#hrefsocial").val();
-
-
-                        let formData = new FormData();
-
-                        formData.append("Id", socialmediaid);
-                        formData.append("Name", socialmedianame);
-                        formData.append("IsVisible", visible);
-                        formData.append("Href", href);
-
-                        if (iconurl != null) {
-                            formData.append("File", iconurl, iconurl.fileName)
-                        }
-
-                        // debugger;
-                        $.ajax({
-                            type: "put",
-                            url: "/SocialMedia/UpdateSocialMedia",
-                            data: formData,
-                            contentType: false,
-                            processData: false,
-                            success: function (response) {
-                                if (response) {
-
-                                    $('#updatesocialmediapopup').modal('hide');
-                                }
-                                location.href = "/SocialMedia/Index";
-
-
-
-                            }
-
-                        });
-
-                    }
-                });
-            });
-
-
-        </script>*@
 
 
 
