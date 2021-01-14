@@ -8,20 +8,21 @@
     <div class="container">
 
         <div class="row">
+
             <div class="col-sm-2">
                 <a asp-action="Index" asp-controller="News">
                     <div class="card card-dashboard-two" style="height:100px !important">
                         <div class="card-header">
-                            
-                                <h6>@Model.News.Count()<small>Adet</small><i class="icon ion-md-trending-up tx-success"></i></h6>
+
+                            <h6>@Model.News.Count()<small>Adet</small><i class="icon ion-md-trending-up tx-success"></i></h6>
                             <h5>Haber</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
                             <div class="chart-wrapper">
-                                <div id="flotChart1" class="flot-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" width="359"  style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 239.667px; height: 100px;"></canvas><canvas class="flot-overlay" width="359" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 239.667px; height: 100px;"></canvas></div>
-                            </div> @*chart-wrapper*@ 
-                        </div> @*card-body*@ 
-                    </div> @*card*@ 
+                                <div id="flotChart1" class="flot-chart" style="padding: 0px; position: relative;"><canvas class="flot-base" width="359" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 239.667px; height: 100px;"></canvas><canvas class="flot-overlay" width="359" height="150" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 239.667px; height: 100px;"></canvas></div>
+                            </div> @*chart-wrapper*@
+                        </div> @*card-body*@
+                    </div> @*card*@
                 </a>
 
             </div>
@@ -58,7 +59,7 @@
                         </div><!-- card-body -->
                     </div><!-- card -->
                 </a>
-              
+
             </div>
 
             <div class="col-sm-2">
@@ -69,11 +70,11 @@
                             <h5>Slider</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
-                           
+
                         </div><!-- card-body -->
                     </div><!-- card -->
                 </a>
-               
+
             </div>
             <div class="col-sm-2">
                 <a asp-action="Index" asp-controller="PageComponent">
@@ -89,14 +90,14 @@
                         </div><!-- card-body -->
                     </div><!-- card -->
                 </a>
-               
+
             </div>
             <div class="col-sm-2">
                 <a asp-action="Index" asp-controller="Address">
                     <div class="card card-dashboard-two" style="height:100px !important">
                         <div class="card-header">
                             <h6>@Model.Addresses.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
-                            <h5>Address</h5>
+                            <h5>Adres</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
                             <div class="chart-wrapper">
@@ -105,14 +106,16 @@
                         </div><!-- card-body -->
                     </div><!-- card -->
                 </a>
-               
+
             </div>
 
         </div>
+
+
+
 
 
     </div>
 
 
 </div>
-   

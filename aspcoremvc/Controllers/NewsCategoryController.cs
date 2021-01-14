@@ -15,18 +15,21 @@ namespace Web.Controllers
         private readonly INewsCategoryService _newsCategoryService;
         private readonly INewsService _newsService;
         private readonly ILogger<NewsCategoryController> _logger;
+        private readonly ISettingService _settingService;
         
 
-        public NewsCategoryController(INewsCategoryService newsCategoryService, ILogger<NewsCategoryController> logger, INewsService newsService)
+        public NewsCategoryController(INewsCategoryService newsCategoryService, ILogger<NewsCategoryController> logger, INewsService newsService, ISettingService settingService)
         {
             _newsCategoryService = newsCategoryService;
             _logger = logger;
             _newsService = newsService;
+            _settingService = settingService;
         }
         public IActionResult Index()
             
         {
-            //var deletedCategory = _newsCategoryService.GetDeletedNewsCategoryName(newsCategoryDto);
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
             var categorylist = _newsCategoryService.GetAllNewsCategories();
             ViewBag.Categories = categorylist;
 

@@ -14,14 +14,18 @@ namespace Web.Controllers
     {
         private readonly IStaticPageService _staticPageService;
         private readonly ILogger<StaticPageController> _logger;
-
-        public StaticPageController(IStaticPageService staticPageService, ILogger<StaticPageController> logger)
+        private readonly ISettingService _settingService;
+        public StaticPageController(IStaticPageService staticPageService, ILogger<StaticPageController> logger, ISettingService settingService)
         {
             _logger = logger;
             _staticPageService = staticPageService;
+            _settingService = settingService;
         }
         public IActionResult Index()
         {
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
+
             var pageList = _staticPageService.GetAllStaticPage();
             return View(pageList);
         }

@@ -23,6 +23,8 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
             var setting = _settingService.GetSetting();
             return View(setting);
         }

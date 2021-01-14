@@ -15,15 +15,19 @@ namespace Web.Controllers
         private readonly INewsService _newsService;
         private readonly ILogger<NewsController> _logger;
         private readonly INewsCategoryService _newsCategoryService;
-        public NewsController(INewsService newsService, ILogger<NewsController> logger, INewsCategoryService newsCategoryService)
+        private readonly ISettingService _settingService;
+        public NewsController(INewsService newsService, ILogger<NewsController> logger, INewsCategoryService newsCategoryService, ISettingService settingService)
         {
             _newsService = newsService;
             _logger = logger;
             _newsCategoryService = newsCategoryService;
+            _settingService = settingService;
         }
 
         public IActionResult Index()
         {
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
 
             var newsList = _newsService.GetAllNews();
             var categoryList = _newsCategoryService.GetAllNewsCategories().Distinct().ToList();

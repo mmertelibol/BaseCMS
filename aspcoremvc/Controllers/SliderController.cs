@@ -14,14 +14,19 @@ namespace Web.Controllers
     {
         private readonly ISliderService _sliderService;
         private readonly ILogger<SliderController> _logger;
-        public SliderController(ISliderService sliderService, ILogger<SliderController> logger)
+        private readonly ISettingService _settingService;
+        public SliderController(ISliderService sliderService, ILogger<SliderController> logger, ISettingService settingService)
         {
             _logger = logger;
             _sliderService = sliderService;
+            _settingService = settingService;
 
         }
         public IActionResult Index()
         {
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
+
             var sliderList = _sliderService.GetAllSliders();
             return View(sliderList);
         }

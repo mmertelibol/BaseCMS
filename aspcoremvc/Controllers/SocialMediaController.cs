@@ -13,15 +13,18 @@ namespace Web.Controllers
     {
         private readonly ILogger<SocialMediaController> _logger;
         private readonly ISocialMediaService _socialMediaService;
+        private readonly ISettingService _settingService;
 
-        public SocialMediaController(ILogger<SocialMediaController> logger, ISocialMediaService socialMediaService)
+        public SocialMediaController(ILogger<SocialMediaController> logger, ISocialMediaService socialMediaService, ISettingService settingService)
         {
             _logger = logger;
             _socialMediaService = socialMediaService;
+            _settingService = settingService;
         }
         public IActionResult Index()
         {
-            
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
 
             var socialMediaList = _socialMediaService.GetAllList();
 

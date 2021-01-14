@@ -14,15 +14,21 @@ namespace Web.Controllers
         private readonly IPageComponentService _pageComponentService;
         private readonly IPageComponentCategoryService _pageComponentCategoryService;
         private readonly ILogger<PageComponentController> _logger;
+        private readonly ISettingService _settingService;
 
-        public PageComponentController(IPageComponentService pageComponentService, ILogger<PageComponentController> logger, IPageComponentCategoryService pageComponentCategoryService)
+        public PageComponentController(IPageComponentService pageComponentService, ILogger<PageComponentController> logger, 
+            IPageComponentCategoryService pageComponentCategoryService, ISettingService settingService)
         {
             _logger = logger;
             _pageComponentService = pageComponentService;
             _pageComponentCategoryService = pageComponentCategoryService;
+            _settingService = settingService;
         }
         public IActionResult Index()
         {
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
+
             var categoryList = _pageComponentCategoryService.GetAllPageComponentCategories();
             ViewBag.ComponentCategories = categoryList;
            var componentList= _pageComponentService.GetAllPageComponents();

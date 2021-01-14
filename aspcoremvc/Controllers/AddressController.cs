@@ -13,13 +13,18 @@ namespace Web.Controllers
     {
         private readonly IAddressService _addressService;
         private readonly ILogger<AddressController> _logger;
-        public AddressController(IAddressService addressService, ILogger<AddressController> logger)
+        private readonly ISettingService _settingService;
+        public AddressController(IAddressService addressService, ILogger<AddressController> logger, ISettingService settingService)
         {
             _addressService = addressService;
             _logger = logger;
+            _settingService = settingService;
         }
         public IActionResult Index()
         {
+
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
             var AddressList = _addressService.GetAllAddress();
             return View(AddressList);
         }

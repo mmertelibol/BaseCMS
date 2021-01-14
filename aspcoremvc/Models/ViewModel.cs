@@ -16,5 +16,7 @@ namespace Web.Models
         public IEnumerable <SocialMedia> SocialMedias { get; set; }
         public IEnumerable <StaticPage> StaticPages { get; set; }
 
+        
+
     }
 }
