@@ -149,6 +149,7 @@
 
                                                             $("#deleteNewsCategory").modal('hide');
                                                             $("#tableBody").html(data);
+                                                            toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
                                                         }
                                                     }
 
@@ -157,7 +158,8 @@
 
                                             else {
 
-                                                Swal.fire('Hata Oluştu!', 'Silinecek kategori başka haberlere aktarılamaz!', 'warning');
+                                                toastr.error("", "İşlem Gerçekleşmedi !")
+
                                             }
                                         }
                                     });

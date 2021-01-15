@@ -11,22 +11,22 @@
 
     @Html.Partial("_AddEditSlider")
 
-    <div class="container pd-40 ">
+    <div id="" class="container pd-40 ">
 
-        <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40 ">
+        <div id="" class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40 ">
             <a class="btn" data-toggle="modal" id="btnAddSlider" style="width:180px;  background-color:#5b47fb;"><strong style="color:white;">Slider Ekle</strong> </a>
 
             @*<div class="container">*@
 
-            <div class="row">
+            <div id="slider-content" class="row">
 
                 @foreach (var item in Model)
                 {
 
-                    <div class="col-md-4">
+                    <div   class="col-md-4">
 
 
-                        <div class="card" style="width: 23rem;    margin-top:30px; max-width:100% ">
+                        <div id="cardId"class="card" style="width: 23rem;    margin-top:30px; max-width:100% ">
                             <img class="card-img-top img-thumbnail img-fluid card-img-bottom" src="~/img/@item.ImageUrl" style=" width:368px; height:300px; max-width:100%  ">
 
                             <div class="card-footer">
@@ -72,23 +72,16 @@
                         url: '/Slider/DeleteSlider?Id=' + id,
                         success: function (data) {
                             if (data) {
-
+                                 
                                 $.ajax({
                                     url: "/Slider/Index",
                                     type: "get",
                                     dataType: "html",
                                     contentType: "application/json; ",
-                                    success: function (data) {
-
+                                    success: function (data) { 
                                         $("#tableBody").html(data);
                                         toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
-
-
-                                       
-
-
                                     }
-
                                 });
                             }
 
