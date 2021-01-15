@@ -145,7 +145,9 @@ namespace Web
             services.AddScoped<ISocialMediaService, SocialMediaService>();
             services.AddScoped<IStaticPageService, StaticPageService>();
             services.AddScoped<ISliderService, SliderService>();
-          
+            services.AddScoped<IGenericService, GenericService>();
+            services.AddScoped<IAccountService, AccountService>();
+
 
 
             //services.AddMvc().AddNewtonsoftJson();

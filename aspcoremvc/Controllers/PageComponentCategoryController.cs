@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
-    public class PageComponentCategoryController : Controller
+    public class PageComponentCategoryController : BaseController
     {
         private readonly IPageComponentCategoryService _pageComponentCategoryService;
         private readonly ILogger<PageComponentCategoryController> _logger;

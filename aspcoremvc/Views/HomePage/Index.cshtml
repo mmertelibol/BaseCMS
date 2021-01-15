@@ -1,8 +1,10 @@
-﻿@model Web.Models.ViewModel
+﻿@model Common.Dto.PanelDtos.GenericDto
+
 @{
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 
 <div class="container mt-4 p-4">
     <div class="container">
@@ -14,7 +16,7 @@
                     <div class="card card-dashboard-two" style="height:100px !important">
                         <div class="card-header">
 
-                            <h6>@Model.News.Count()<small>Adet</small><i class="icon ion-md-trending-up tx-success"></i></h6>
+                            <h6>@Model.NewsDto.Count()<small>Adet</small><i class="icon ion-md-trending-up tx-success"></i></h6>
                             <h5>Haber</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
@@ -33,7 +35,7 @@
                     <div class="card card-dashboard-two" style="height:100px !important">
 
                         <div class="card-header">
-                            <h6>@Model.StaticPages.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
+                            <h6>@Model.StaticPageDto.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
                             <h5>Sayfa</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
@@ -49,7 +51,7 @@
                 <a asp-action="Index" asp-controller="SocialMedia">
                     <div class="card card-dashboard-two" style="height:100px !important">
                         <div class="card-header">
-                            <h6>@Model.SocialMedias.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
+                            <h6>@Model.SocialMediaDto.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
                             <h5>Sosyal Medya</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
@@ -66,7 +68,7 @@
                 <a asp-action="Index" asp-controller="Slider">
                     <div class="card card-dashboard-two" style="height:100px !important">
                         <div class="card-header">
-                            <h6>@Model.Sliders.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
+                            <h6>@Model.SliderDto.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
                             <h5>Slider</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
@@ -80,7 +82,7 @@
                 <a asp-action="Index" asp-controller="PageComponent">
                     <div class="card card-dashboard-two" style="height:100px !important">
                         <div class="card-header">
-                            <h6>@Model.PageComponents.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
+                            <h6>@Model.PageComponentDto.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
                             <h5>Component</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
@@ -96,7 +98,7 @@
                 <a asp-action="Index" asp-controller="Address">
                     <div class="card card-dashboard-two" style="height:100px !important">
                         <div class="card-header">
-                            <h6>@Model.Addresses.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
+                            <h6>@Model.AddressDto.Count()<small>Adet</small> <i class="icon ion-md-trending-up tx-success"></i> </h6>
                             <h5>Adres</h5>
                         </div><!-- card-header -->
                         <div class="card-body">
@@ -113,9 +115,17 @@
 
 
 
+        <div id="myfirstchart" style="height: 250px; width:400px;"></div>
 
 
     </div>
 
 
 </div>
+
+@section Section{ 
+
+  
+
+
+}

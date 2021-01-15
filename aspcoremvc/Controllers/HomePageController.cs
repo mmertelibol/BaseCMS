@@ -12,31 +12,24 @@ using Web.Models;
 
 namespace Web.Controllers
 {
-    public class HomePageController : Controller
+    public class HomePageController : BaseController
     {
-        private readonly AppDbContext _context;
+        private readonly IGenericService _genericService;
         private readonly ISettingService _settingService;
 
-        public HomePageController(AppDbContext context,ISettingService settingService)
+        public HomePageController(IGenericService genericService,ISettingService settingService)
         {
-            _context = context;
+            _genericService = genericService;
             _settingService = settingService;
         }
         
-        public IActionResult Index(ViewModel model)
+        public IActionResult Index()
         {
             var favIcon = _settingService.GetSetting().FavIconUrl;
             ViewBag.FavIcon = favIcon;
 
-            model.PageComponents = _context.PageComponent.Where(x => x.IsDeleted == false).ToList();
-            model.News = _context.News.Where(x => x.IsDeleted == false).ToList();
-            model.SocialMedias = _context.SocialMedia.Where(x => x.IsDeleted == false).ToList();
-            model.Addresses = _context.Adress.Where(x => x.IsDeleted == false).ToList();
-            model.Sliders = _context.Slider.Where(x => x.IsDeleted == false).ToList();
-            model.StaticPages = _context.StaticPage.Where(x => x.IsDeleted == false).ToList();
-           
-
-            return View(model);
+            GenericDto dto = new GenericDto();
+            return View(_genericService.GetAllDto(dto));
         }
     }
 }

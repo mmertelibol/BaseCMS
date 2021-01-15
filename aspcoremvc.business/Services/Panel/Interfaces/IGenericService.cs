@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Business.Services.Panel.Interfaces
 {
-    public interface ICombineService
+    public interface IGenericService
     {
-        List<CombineDto> GetList();
+        GenericDto GetAllDto(GenericDto genericDto);
+        
     }
 }

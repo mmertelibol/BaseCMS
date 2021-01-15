@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Web.Controllers
 { 
     
-    public class SliderController : Controller
+    public class SliderController : BaseController
     {
         private readonly ISliderService _sliderService;
         private readonly ILogger<SliderController> _logger;

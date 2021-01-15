@@ -25,71 +25,71 @@ namespace Web.Controllers
         private bool _hasTransaction;
 
 
-        //public override void OnActionExecuting(ActionExecutingContext context)
-        //{
-        //    var descriptor = context.ActionDescriptor as ControllerActionDescriptor;
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            var descriptor = context.ActionDescriptor as ControllerActionDescriptor;
 
-        //    if (HttpHelper.GetConfig<bool>("AppConfig:LogActions"))
-        //    {
-        //        _ignoreLog = descriptor.MethodInfo.GetCustomAttributes(inherit: true)
-        //            .Any(a => a.GetType().Equals(typeof(IgnoreLogAttribute)));
+            if (HttpHelper.GetConfig<bool>("AppConfig:LogActions"))
+            {
+                _ignoreLog = descriptor.MethodInfo.GetCustomAttributes(inherit: true)
+                    .Any(a => a.GetType().Equals(typeof(IgnoreLogAttribute)));
 
-        //        if (!_ignoreLog)
-        //        {
-        //            string prms = null;
+                if (!_ignoreLog)
+                {
+                    string prms = null;
 
-        //            if (context.HttpContext.Request.Method == "POST"
-        //                && context.HttpContext.Request.ContentType != null)
-        //            {
-        //                var form = context.HttpContext.Request.Form;
-        //                prms = form.Keys.ToDictionary(k => k, k => form[k]).JsonEncode();
+                    if (context.HttpContext.Request.Method == "POST"
+                        && context.HttpContext.Request.ContentType != null)
+                    {
+                        var form = context.HttpContext.Request.Form;
+                        prms = form.Keys.ToDictionary(k => k, k => form[k]).JsonEncode();
 
-        //            }
-        //            else if (context.HttpContext.Request.Method == "GET")
-        //                prms = context.HttpContext.Request.Query.JsonEncode();
+                    }
+                    else if (context.HttpContext.Request.Method == "GET")
+                        prms = context.HttpContext.Request.Query.JsonEncode();
 
-        //            var actionLog = new ActionLogDto
-        //            {
-        //                Controller = descriptor.ControllerName,
-        //                Action = descriptor.ActionName,
-        //                RequestStart = DateTime.Now,
-        //                UserId = HttpHelper.GetActiveUserId(),
-        //                ClientIp = HttpHelper.GetClientIp(),
-        //                Parameters = prms,
-        //                Referer = context.HttpContext.Request.Headers["Referer"].Count == 0
-        //                    ? context.HttpContext.Request.GetDisplayUrl()
-        //                    : context.HttpContext.Request.Headers["Referer"].ToString(),
-        //            };
+                    var actionLog = new ActionLogDto
+                    {
+                        Controller = descriptor.ControllerName,
+                        Action = descriptor.ActionName,
+                        RequestStart = DateTime.Now,
+                        UserId = HttpHelper.GetActiveUserId(),
+                        ClientIp = HttpHelper.GetClientIp(),
+                        Parameters = prms,
+                        Referer = context.HttpContext.Request.Headers["Referer"].Count == 0
+                            ? context.HttpContext.Request.GetDisplayUrl()
+                            : context.HttpContext.Request.Headers["Referer"].ToString(),
+                    };
 
-        //            _actionLogId = HttpHelper.GetService<IAccountService>().AddActionLog(actionLog);
-        //        }
-        //    }
+                    _actionLogId = HttpHelper.GetService<IAccountService>().AddActionLog(actionLog);
+                }
+            }
 
 
-        //    _hasTransaction = descriptor.MethodInfo.GetCustomAttributes(inherit: true)
-        //    .Any(a => a.GetType().Equals(typeof(HasTransactionAttribute)));
+            _hasTransaction = descriptor.MethodInfo.GetCustomAttributes(inherit: true)
+            .Any(a => a.GetType().Equals(typeof(HasTransactionAttribute)));
 
-        //    if (_hasTransaction)
-        //    {
-        //        _dbContext = HttpHelper.GetService<AppDbContext>();
-        //        _dbContext.Database.BeginTransaction();
+            if (_hasTransaction)
+            {
+                _dbContext = HttpHelper.GetService<AppDbContext>();
+                _dbContext.Database.BeginTransaction();
 
-        //    }
-        //}
+            }
+        }
 
-        //public override void OnActionExecuted(ActionExecutedContext context)
-        //{
-        //    if (_hasTransaction && _dbContext.Database.CurrentTransaction != null)
-        //    {
-        //        if (context.Exception == null)
-        //            _dbContext.Database.CommitTransaction();
-        //        else
-        //            _dbContext.Database.RollbackTransaction();
-        //    }
+        public override void OnActionExecuted(ActionExecutedContext context)
+        {
+            if (_hasTransaction && _dbContext.Database.CurrentTransaction != null)
+            {
+                if (context.Exception == null)
+                    _dbContext.Database.CommitTransaction();
+                else
+                    _dbContext.Database.RollbackTransaction();
+            }
 
-        //    if (HttpHelper.GetConfig<bool>("AppConfig:LogActions"))
-        //        HttpHelper.GetService<IAccountService>().UpdateActionLog(_actionLogId, context.Exception != null);
-        //}
+            if (HttpHelper.GetConfig<bool>("AppConfig:LogActions"))
+                HttpHelper.GetService<IAccountService>().UpdateActionLog(_actionLogId, context.Exception != null);
+        }
 
         public void AddMultipleSearch<T>(DataTableAjaxResponse res)
             where T : GridRowBaseKeyed

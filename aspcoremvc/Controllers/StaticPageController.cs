@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
-    public class StaticPageController : Controller
+    public class StaticPageController : BaseController
     {
         private readonly IStaticPageService _staticPageService;
         private readonly ILogger<StaticPageController> _logger;

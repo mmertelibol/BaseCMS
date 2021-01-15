@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
-    public class SettingController : Controller
+    public class SettingController : BaseController
     {
         private readonly ISettingService _settingService;
         private readonly ILogger<SettingController> _logger;

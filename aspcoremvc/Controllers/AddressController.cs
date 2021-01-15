@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
-    public class AddressController : Controller
+    public class AddressController : BaseController
     {
         private readonly IAddressService _addressService;
         private readonly ILogger<AddressController> _logger;

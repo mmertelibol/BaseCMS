@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
-    public class NewsController : Controller
+    public class NewsController : BaseController
     {
         private readonly INewsService _newsService;
         private readonly ILogger<NewsController> _logger;

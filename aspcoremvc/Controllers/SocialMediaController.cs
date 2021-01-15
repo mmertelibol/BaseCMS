@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
-    public class SocialMediaController : Controller
+    public class SocialMediaController : BaseController
     {
         private readonly ILogger<SocialMediaController> _logger;
         private readonly ISocialMediaService _socialMediaService;

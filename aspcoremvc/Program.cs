@@ -64,7 +64,7 @@ namespace Web
             var opts = new ColumnOptions();
             //opts.Store.Remove(StandardColumn.Properties);
             //opts.Store.Remove(StandardColumn.MessageTemplate);
-            //opts.Store.Add(StandardColumn.LogEvent);
+            opts.Store.Add(StandardColumn.LogEvent);
             HttpHelper.ConnStr = Configuration.GetConnectionString(Configuration["AppConfig:ActiveConnection"]);
             var conf = new LoggerConfiguration().Enrich.FromLogContext().Enrich.With<HttpContextEnricher>();
             if (bool.Parse(Configuration["Serilog:EnableFileLogging"]))
