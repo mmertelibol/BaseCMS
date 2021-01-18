@@ -33,16 +33,28 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserDto user)
         {
-            var email = await _userManager.FindByEmailAsync(user.Email);
+            if (ModelState.IsValid)
+            {
+                var email = await _userManager.FindByEmailAsync(user.Email);
+
+                if (email == null)
+                {
+                    ModelState.AddModelError("", "Bu maile ait hesap bulunamadı!");
+                    return View(user);
+                }
+
                 var result = await _signInManager.PasswordSignInAsync(email, user.Password, false, false);
+
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Homepage");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "kullanıcı adı veya şifre hatalı");
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı!");
                 }
+
+            }
 
             return View(user);
 

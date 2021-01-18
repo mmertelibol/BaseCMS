@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Common.Dto.DataTablesGrid;
 
 namespace Common.Dto
@@ -7,8 +8,11 @@ namespace Common.Dto
     public class UserDto
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage ="Mail alanı zorunlu!")]
         public string Email { get; set; }
         public string  UserName { get; set; }
+        [Required(ErrorMessage = "Password alanı zorunlu!")]
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

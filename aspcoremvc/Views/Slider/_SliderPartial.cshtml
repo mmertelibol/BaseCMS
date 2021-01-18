@@ -1,0 +1,19 @@
+﻿@model IEnumerable<SliderDto>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+
+
+        <div id="cardId" class="card" style="width: 23rem;    margin-top:30px; max-width:100% ">
+            <img class="card-img-top img-thumbnail img-fluid card-img-bottom" src="~/img/@item.ImageUrl" style=" width:368px; height:300px; max-width:100%  ">
+
+            <div class="card-footer">
+                <p style="float:left;"><strong>@item.Order</strong></p>
+                <button onclick="getSliderById('@item.Id')" data-target="#updateslidermodal" data-toggle="modal" style="float:right; margin-left:10px;" class="btn btn-sm btn-indigo rounded-pill"> <i class="far fa-edit"></i></button>
+                <button class="btn btn-sm btn-danger rounded-pill deleteslider" data-id="@item.Id" type="submit" name="delete" style="float:right"><i class="far fa-trash-alt"></i></button>
+            </div>
+        </div>
+    </div>
+}
+

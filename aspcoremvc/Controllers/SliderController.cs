@@ -57,5 +57,12 @@ namespace Web.Controllers
             var slider = _sliderService.GetSliderById(id);
             return Json(slider);
         }
+
+        [HttpPost]
+        public IActionResult SliderPartial()
+        {
+            var sliderList = _sliderService.GetAllSliders();
+            return PartialView("_SliderPartial",sliderList);
+        }
     }
 }
