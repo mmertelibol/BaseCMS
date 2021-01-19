@@ -25,6 +25,18 @@ namespace Business.Services.Panel
         public SliderDto AddSlider(SliderDto sliderDto)
         {
             sliderDto.AddedDate = DateTime.Now;
+            var sliders = _context.Slider.Where(x => x.IsDeleted == false).ToList();
+            if (sliders.Count==0)
+            {
+                sliderDto.Order = 1;
+            }
+            else
+            {
+                var maxOrder = _context.Slider.Where(x => x.IsDeleted == false).Max(x => x.Order);
+              
+                sliderDto.Order = ++maxOrder;
+            }
+           
 
             if (sliderDto.SliderFile!= null)
             {

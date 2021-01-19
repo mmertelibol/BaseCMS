@@ -114,5 +114,7 @@ namespace Business.Services.Interfaces
         /// <param name="id">Kullanıcı ID</param>
         /// <returns></returns>
         Task<UserDto> GetUser(int id);
+
+        Task<RoleDto> AddRole(RoleDto roleDto);
     }
 }

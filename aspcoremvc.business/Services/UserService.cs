@@ -19,13 +19,15 @@ namespace Business.Services
         private readonly LocService _localizer;
 
         private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
 
-        public UserService(AppDbContext parContext, LocService parLocalizer, SignInManager<User> signInManager)
+        public UserService(AppDbContext parContext, LocService parLocalizer, SignInManager<User> signInManager, UserManager<User> userManager)
             : base(parContext, parLocalizer)
         {
             _context = parContext;
             _localizer = parLocalizer;
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public UserDto GetUser(int id)
@@ -54,12 +56,22 @@ namespace Business.Services
 
         public async Task<bool> Login(UserDto user)
         {
-            var identityresult = await _signInManager.PasswordSignInAsync(user.Email, user.Password, false, false);
+            var email = await _userManager.FindByEmailAsync(user.Email);
+
+            var identityresult = await _signInManager.PasswordSignInAsync(email, user.Password, false, false);
 
             var success = identityresult.Succeeded;
 
 
             return success;
+        }
+
+        public async Task<bool> SignOut()
+        {
+            await  _signInManager.SignOutAsync();
+
+
+            return true;
         }
     }
 }

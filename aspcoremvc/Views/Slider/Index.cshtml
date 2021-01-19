@@ -117,6 +117,8 @@
             $("#sliderimage").val("");
             $("#ordernumber").val("");
             $("#current-slider-div").fadeOut(1);
+            $("#orderDiv").fadeOut(1);
+
 
 
             $("#updateslidermodal").modal("show");
@@ -134,13 +136,13 @@
                     debug: false,
                     rules: {
                         href: { required: true },
-                        ordernumber: { required: true },
+                        //ordernumber: { required: true },
                         description: { required: true },
                         sliderimage: { extension: "png" }
                     },
                     messages: {
                         href: { required: "Kategori Ad alanı zorunlu!" },
-                        ordernumber: { required: "Sıra Numarası alanı zorunlu!" },
+                        //ordernumber: { required: "Sıra Numarası alanı zorunlu!" },
                         description: { required: "Özet alanı zorunlu!" },
                         description: { extension: "Lütfen png formatında dosya seçiniz!" }
 

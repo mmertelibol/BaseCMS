@@ -80,7 +80,6 @@
     <None Include="wwwroot\NewFolder\ckeditor\build-config.js" />
     <None Include="wwwroot\NewFolder\ckeditor\CHANGES.md" />
     <None Include="wwwroot\NewFolder\ckeditor\ckeditor.js" />
-    <None Include="wwwroot\NewFolder\ckeditor\config.js" />
     <None Include="wwwroot\NewFolder\ckeditor\lang\af.js" />
     <None Include="wwwroot\NewFolder\ckeditor\lang\ar.js" />
     <None Include="wwwroot\NewFolder\ckeditor\lang\az.js" />

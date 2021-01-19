@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Common.Dto.RoleDto>
+@{
+    ViewData["Title"] = "Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
+<style>
+    #selector[class*="sort"]:before,
+    #selector[class*="sort"]:after {
+        content: "" !important;
+    }
+</style>
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn" data-toggle="modal" id="btnAddRole" style="width:180px; background-color:#5b47fb;"><strong style="color:white">Rol Ekle</strong> </a>
+
+
+            @Html.Partial("_AddEditRole")
+            @*@Html.Partial("_DeleteCategoryPartial")*@
+
+
+
+            <hr class="mg-y-30">
+
+
+
+            <div>
+                <table id="example2" class="table">
+                    <thead>
+                        <tr>
+                            <th>Rol Adı</th>
+                            <th id="selector"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.RoleId">
+
+                                <td>@item.RoleName</td>
+                                <td>
+
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.RoleId')" data-toggle="modal" data-target="#addUpdateNewsCategoryPopup"><i class="far fa-edit"></i></button>
+
+                                    <button class="btn btn-sm btn-danger rounded-pill categoryDelete" data-name="@item.RoleName" data-id="@item.RoleId" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+
+
+                                </td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+@section Section{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
+
+    <script>
+        $("#btnAddRole").on("click", function () {
+
+            $("#roleId").val(0);
+            $("#roleName").val("");
+
+            $("#addEditRoleModal").modal("show");
+
+        });
+
+    </script>
+    <script>
+
+        $("#btnAddUpdateRole").click(function () {
+            $("#addUpdateRoleForm").validate({
+                ignore: [],
+                debug: false,
+                rules: {
+                    rolename: { required: true }
+
+                },
+                messages: {
+                    rolename: { required: "Rol Adı alanı zorunlu!" }
+
+                },
+                submitHandler: function (form) {
+
+                    let id = $(roleId).val();
+                    let name = $(roleName).val();
+
+                    $.ajax({
+                        type: "post",
+                        url: "/Role/AddRole",
+                        data: {
+                            RoleId: id,
+                            RoleName: name,
+
+                            
+                        },
+                        success: function (response) {
+                            
+                            if (response) {
+
+                                $.ajax({
+                                    url: "/Role/Index",
+                                    type: "get",
+                                    dataType: "html",
+                                    contentType: "application/json; ",
+                                    success: function (data) {
+                                        if (data) {
+                                            $("#addEditRoleModal").modal('hide');
+
+                                            $("#tableBody").html(data);
+                                            toastr.success("Başarılı bir şekilde gerçekleşti!", "Başarılı !");
+                                        }
+                                        else {
+                                            toastr.error("", "İşlem Gerçekleşmedi !");
+                                        }
+                                    }
+                                });
+                            }
+                        },
+                        error: function () {
+                            console.log("Hata Oluştu");
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+
+
+
+
+}

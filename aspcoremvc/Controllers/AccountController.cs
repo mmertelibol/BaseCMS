@@ -1,4 +1,5 @@
-﻿using Business.Services.Panel.Interfaces;
+﻿using Business.Services.Interfaces;
+using Business.Services.Panel.Interfaces;
 using Common.Dto;
 using Domain.User;
 using Microsoft.AspNetCore.Identity;
@@ -12,15 +13,16 @@ namespace Web.Controllers
 {
     public class AccountController : BaseController
     {
-        private readonly UserManager<User> _userManager;
+
         private readonly SignInManager<User> _signInManager;
-        private readonly RoleManager<Role> _roleManager;
+        
         private readonly ISettingService _settingService;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<Role> roleManager, ISettingService settingService)
+        private readonly IUserService  _userService;
+        public AccountController( SignInManager<User> signInManager, IUserService userService, ISettingService settingService)
         {
-            _userManager = userManager;
+           
             _signInManager = signInManager;
-            _roleManager = roleManager;
+            _userService = userService;
             _settingService = settingService;
         }
         public IActionResult Login()
@@ -35,34 +37,23 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var email = await _userManager.FindByEmailAsync(user.Email);
-
-                if (email == null)
+                var login= await _userService.Login(user);
+                if (login==true)
                 {
-                    ModelState.AddModelError("", "Bu maile ait hesap bulunamadı!");
-                    return View(user);
+                    return RedirectToAction("Index", "HomePage");
                 }
-
-                var result = await _signInManager.PasswordSignInAsync(email, user.Password, false, false);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Homepage");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatalı!");
-                }
+               
 
             }
-
+            ModelState.AddModelError("", "Kullanıcı Adı veya Şifre Hatalı");
             return View(user);
 
         }
 
         public async Task<IActionResult> LogOut()
         {
-            await _signInManager.SignOutAsync();
+           await _userService.SignOut();
+            
             return RedirectToAction("Login", "Account");
         }
     }

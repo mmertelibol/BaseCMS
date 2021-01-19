@@ -29,11 +29,12 @@ namespace Business.Services
         private readonly AppDbContextSystem _contextSystem;
         protected readonly LocService _localizer;
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<Role> _roleManager;
 
 
 
         public AccountService(AppDbContext context, AppDbContextSystem contextSystem, LocService localizer,
-        UserManager<User> userManager, CacheBase cacheService)
+        UserManager<User> userManager, CacheBase cacheService, RoleManager<Role> roleManager)
             : base(context, localizer)
         {
             _context = context;
@@ -41,6 +42,7 @@ namespace Business.Services
             _localizer = localizer;
             _userManager = userManager;
             _cache = cacheService;
+            _roleManager = roleManager;
         }
         #endregion
 
@@ -235,5 +237,25 @@ namespace Business.Services
         {
             return _cache.RemoveCache("Genel.AllMenu");
         }
+
+        public async Task<RoleDto> AddRole(RoleDto roleDto)
+        {
+            Role role = new Role()
+            {
+                Name = roleDto.RoleName,
+                IsDeleted = false,
+                IsActive = true,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+                StartPageId = 1
+
+                
+            };
+
+             await _roleManager.CreateAsync(role);
+
+            return roleDto;
+        }
+
     }
 }

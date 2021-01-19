@@ -19,5 +19,8 @@ namespace Business.Services.Interfaces
 
 
         Task<bool> Login(UserDto userdto);
+        Task<bool> SignOut();
+
+
     }
 }
