@@ -35,5 +35,28 @@ namespace Web.Controllers
             
             return Json(_accountService.AddRole(role));
         }
+
+        [HttpPost]
+        public JsonResult UpdateRole(RoleDto role)
+        {
+
+            return Json(_accountService.UpdateRole(role));
+        }
+        public JsonResult GetRoleById(int roleId)
+        {
+
+            return Json(_accountService.GetRoleById(roleId));
+        }
+
+        [HttpDelete]
+        public JsonResult DeleteRole(int roleId)
+        {
+
+            return Json(_accountService.DeleteRole(roleId));
+        }
+
+
+
+
     }
 }

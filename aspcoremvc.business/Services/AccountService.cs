@@ -253,9 +253,51 @@ namespace Business.Services
             };
 
              await _roleManager.CreateAsync(role);
+            _context.SaveChanges();
 
             return roleDto;
         }
 
+        public async Task<RoleDto> UpdateRole(RoleDto roleDto)
+        {
+           var updatedRole= _roleManager.Roles.FirstOrDefault(x => x.Id == roleDto.RoleId);
+            updatedRole.Id = (int)roleDto.RoleId;
+            updatedRole.Name = roleDto.RoleName;
+            updatedRole.UpdatedDate = DateTime.Now;
+
+
+            var result = await _roleManager.UpdateAsync(updatedRole);
+
+            _context.SaveChanges();
+
+            return roleDto;
+
+            
+        }
+
+        public RoleDto GetRoleById(int roleId)
+        {
+            var role = _roleManager.Roles.FirstOrDefault(x => x.Id == roleId);
+            RoleDto roleDto = new RoleDto();
+            roleDto.RoleId = role.Id;
+            roleDto.RoleName = role.Name;
+
+            return roleDto;
+        }
+
+        public async Task<RoleDto> DeleteRole(int roleId)
+        {
+            var role = _context.Roles.FirstOrDefault(x => x.Id == roleId);
+            RoleDto roleDto = new RoleDto();
+            roleDto.RoleId = role.Id;
+            roleDto.RoleName = role.Name;
+          
+            
+
+             _context.Roles.Remove(role);
+           await _context.SaveChangesAsync();
+          
+            return roleDto;
+        }
     }
 }

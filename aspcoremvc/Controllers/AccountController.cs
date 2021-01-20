@@ -25,6 +25,13 @@ namespace Web.Controllers
             _userService = userService;
             _settingService = settingService;
         }
+
+        public IActionResult Index()
+        {
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
+            return View();
+        }
         public IActionResult Login()
         {
             var favIcon = _settingService.GetSetting().FavIconUrl;

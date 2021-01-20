@@ -116,5 +116,8 @@ namespace Business.Services.Interfaces
         Task<UserDto> GetUser(int id);
 
         Task<RoleDto> AddRole(RoleDto roleDto);
+        Task<RoleDto> UpdateRole(RoleDto roleDto);
+        RoleDto GetRoleById(int roleId);
+        Task<RoleDto> DeleteRole(int roleId);
     }
 }

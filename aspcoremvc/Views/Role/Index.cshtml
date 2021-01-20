@@ -46,9 +46,9 @@
                                 <td>@item.RoleName</td>
                                 <td>
 
-                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.RoleId')" data-toggle="modal" data-target="#addUpdateNewsCategoryPopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.RoleId')" data-toggle="modal" data-target="#addEditRoleModal"><i class="far fa-edit"></i></button>
 
-                                    <button class="btn btn-sm btn-danger rounded-pill categoryDelete" data-name="@item.RoleName" data-id="@item.RoleId" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill roleDelete" data-name="@item.RoleName" data-id="@item.RoleId" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
 
 
                                 </td>
@@ -72,6 +72,79 @@
 
 @section Section{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript">
+
+    $(document).on('click', '.roleDelete', function () {
+
+        var id = $(this).data("id");
+       
+
+        Swal.fire({
+            title: 'Emin Misin?',
+            text: "Kategori Silinecek!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Evet, Sil!',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'delete',
+                    url: '/Role/DeleteRole?RoleId=' + id,
+                    success: function (data) {
+                        if (data) {
+                            $.ajax({
+                                url: "/Role/Index",
+                                type: "get",
+                                dataType: "html",
+                                contentType: "application/json; ",
+                                success: function (data) {
+
+                                    $("#tableBody").html(data);
+                                    toastr.success("İşlem başarılı bir şekilde gerçekleşti!", "Başarılı !")
+                                }
+
+                            });
+
+
+                        }
+
+
+                    }
+                });
+
+            }
+        });
+    });
+</script>
+
+    <script>
+        function getById(id) {
+            $.ajax({
+                url: "/Role/GetRoleById",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+                    RoleId: id
+                },
+                success: function (data) {
+
+                    $("#roleId").val(data.RoleId);
+                    $("#roleName").val(data.RoleName);
+                }
+            })
+        }
+
+    </script>
+
+
 
     <script>
         $("#btnAddRole").on("click", function () {
@@ -105,7 +178,7 @@
 
                     $.ajax({
                         type: "post",
-                        url: "/Role/AddRole",
+                        url: id == 0 ? "/Role/AddRole" : "/Role/UpdateRole",
                         data: {
                             RoleId: id,
                             RoleName: name,
