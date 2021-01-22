@@ -1,4 +1,5 @@
 ﻿using Business.Services.Interfaces;
+using Business.Services.Panel.Interfaces;
 using Common.Dto;
 using Domain.User;
 using Microsoft.AspNetCore.Identity;
@@ -16,16 +17,20 @@ namespace Web.Controllers
       
         private readonly IAccountService _accountService;
         private readonly ILogger<RoleController> _logger;
+        private readonly ISettingService _settingService;
 
-        public RoleController( IAccountService accountService, ILogger<RoleController> logger)
+        public RoleController( IAccountService accountService, ILogger<RoleController> logger, ISettingService settingService)
         {
             _logger = logger;
-           
+            _settingService = settingService;
             _accountService = accountService;
         }
         public IActionResult Index()
         {
-           var roleList= _accountService.GetAllRoles();
+            var favIcon = _settingService.GetSetting().FavIconUrl;
+            ViewBag.FavIcon = favIcon;
+
+            var roleList= _accountService.GetAllRoles();
             return View(roleList);
         }
 

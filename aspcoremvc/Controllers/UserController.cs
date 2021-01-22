@@ -1,9 +1,11 @@
 ﻿using Business.Services.Interfaces;
 using Business.Services.Panel.Interfaces;
 using Common.Dto;
+using Common.Dto.PanelDtos;
 using Domain.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace Web.Controllers
 {
-    public class AccountController : BaseController
+    public class UserController : BaseController
     {
 
         private readonly SignInManager<User> _signInManager;
         
         private readonly ISettingService _settingService;
         private readonly IUserService  _userService;
-        public AccountController( SignInManager<User> signInManager, IUserService userService, ISettingService settingService)
+        public UserController( SignInManager<User> signInManager, IUserService userService, ISettingService settingService)
         {
            
             _signInManager = signInManager;
@@ -30,7 +32,9 @@ namespace Web.Controllers
         {
             var favIcon = _settingService.GetSetting().FavIconUrl;
             ViewBag.FavIcon = favIcon;
-            return View();
+
+            var userList = _userService.GetAllUser();
+            return View(userList);
         }
         public IActionResult Login()
         {
@@ -63,5 +67,27 @@ namespace Web.Controllers
             
             return RedirectToAction("Login", "Account");
         }
+
+
+        public async Task<JsonResult> AssignRole(int id)
+        {
+           
+            var roleList = await _userService.AssignRole(id);
+            return Json(JsonConvert.SerializeObject(roleList));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AssignRole(List<UserDto> assignRoles, int id)
+        {
+            var roleList = await _userService.AssignRolePost(assignRoles, id);
+
+            return RedirectToAction("Index", "User");
+        }
+
+
+
+
+
+
     }
 }

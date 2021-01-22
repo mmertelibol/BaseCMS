@@ -1,0 +1,164 @@
+﻿
+@model IEnumerable<Common.Dto.UserDto>
+@{
+    ViewData["Title"] = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" integrity="sha256-He3QEBKoL/nMXlVsoM7S2C2kjFQqS5L+mgA+F8LpG+U=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha256-R91pD48xW+oHbpJYGn5xR0Q7tMhH4xOrWn1QqMRINtA=" crossorigin="anonymous" />
+
+
+<style>
+    #selector[class*="sort"]:before,
+    #selector[class*="sort"]:after {
+        content: "" !important;
+    }
+</style>
+
+<div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+    <div class="container">
+
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+            <a class="btn " data-toggle="modal" id="btnAddPage" style="width:180px;  background-color:#5b47fb"><strong style="color:white">Kullanıcı Ekle</strong> </a>
+
+            @Html.Partial("_AssignRolePartial", Model)
+
+
+
+
+            <hr class="mg-y-30">
+
+
+
+            <div>
+                <table id="example2" class="table dataTable no-footer dtr-inline" role="grid" aria-describedby="example2_info">
+                    <thead>
+                        <tr>
+                            <th>Adı</th>
+                            @*<th>Soyadı</th>*@
+                            @*<th>İçerik</th>*@
+                            <th>KullanıcıAdı</th>
+                            <th>Email</th>
+                            @*<th>Rol</th>*@
+
+                            @*<th>Details</th>*@
+                            <th id="selector"></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="row_@item.Id">
+
+                                @if (!string.IsNullOrWhiteSpace(item.FirstName))
+                                {
+
+                                    <td>@item.FirstName</td>
+
+                                }
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
+
+
+                                @if (!string.IsNullOrWhiteSpace(item.UserName))
+                                {
+
+                                    <td>@item.UserName</td>
+
+                                }
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
+
+                                @if (!string.IsNullOrWhiteSpace(item.Email))
+                                {
+
+                                    <td>@item.Email</td>
+
+                                }
+
+                                else
+                                {
+                                    <td><p style="color:indigo"><strong>Eklenmedi!</strong></p></td>
+                                }
+
+
+
+
+                                <td>
+                                    <button class="btn btn-sm btn-indigo rounded-pill" onclick="getById('@item.Id')" data-toggle="modal" data-target="#updatestaticpagepopup"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-danger rounded-pill deleteUser" data-id="@item.Id" type="submit" name="delete"><i class="far fa-trash-alt"></i></button>
+                                    <button class="btn btn-sm btn-warning rounded-pill" onclick="assignRole('@item.Id')" data-toggle="modal" data-target="#roleAssignModal">Rol Ekle</button>
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="ht-40"></div>
+
+
+        </div><!-- az-content-body -->
+    </div><!-- container -->
+</div><!-- az-content -->
+
+
+@section Section{
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha256-yNbKY1y6h2rbVcQtf0b8lq4a+xpktyFc3pSYoGAY1qQ=" crossorigin="anonymous"></script>
+  
+
+
+    <script>
+        function assignRole(id) {
+
+            $.ajax({
+                url: "/User/AssignRole",
+                type: "Get",
+                contentType: "application/json; charset=utf8",
+                dataType: "json",
+                data: {
+             
+                    id: id
+                },
+                success: function (data) {
+
+                    var obje = jQuery.parseJSON(data);
+                    let table = `<table class= table table-bordered table-sm> <tr>
+                                               <th> </th>  <th> Roller </th> </tr>`
+                    $.each(obje, (index, value) => {
+                        
+                        table += `<tr> <td><input class='mert' ${value.Exists ? 'checked' : ''}  id='${value.RoleName}' type='checkbox'   value='${value.Exists}'   /> </td>
+
+                                               <td> ${value.RoleName}
+                                                    <input type='hidden'  value='${value.RoleId}'  />
+                                                    <input type='hidden'  value='${value.RoleName}'  /> </td> </tr>`
+
+                        
+
+                    });
+                    table += '</table>';
+
+                    $("#allRoles").append(table);
+
+
+
+                }
+            })
+        }
+    </script>
+
+
+}

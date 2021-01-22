@@ -7,6 +7,10 @@ namespace Common.Dto
 {
     public class UserDto
     {
+
+
+       
+
         public int Id { get; set; }
 
         [Required(ErrorMessage ="Mail alanı zorunlu!")]
@@ -27,6 +31,10 @@ namespace Common.Dto
             return $"{FirstName} {LastName}";
         }
 
+        //ROL EKLEME İÇİN
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
+        public bool Exists { get; set; }
     }
 
     public class UserRolePostDto : DataTableAjaxPostModel
@@ -53,6 +61,8 @@ namespace Common.Dto
         public int? RoleId { get; set; }
 
         public string RoleName { get; set; }
+
+      
     }
 
     public class UpdateUserRolesModel

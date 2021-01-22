@@ -119,5 +119,8 @@ namespace Business.Services.Interfaces
         Task<RoleDto> UpdateRole(RoleDto roleDto);
         RoleDto GetRoleById(int roleId);
         Task<RoleDto> DeleteRole(int roleId);
+
+      
+
     }
 }

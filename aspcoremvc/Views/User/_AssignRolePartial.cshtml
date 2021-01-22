@@ -1,0 +1,76 @@
+﻿
+@model List<Common.Dto.UserDto>
+
+<style>
+    .error {
+        color: red;
+        font-family: 'Times New Roman', Times, serif;
+    }
+</style>
+
+<form id="addeditcategoryform">
+
+    <div id="roleAssignModal" class="modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal-content-demo">
+                <div class="modal-header">
+                    <h6 class="modal-title">Rol Ata</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="allRoles"class="modal-body">
+
+
+                    @*<table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                </th>
+                                <th>
+                                    Role Name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          
+                                <tr>
+                                    <td><input type="checkbox"  value=""  /> </td>
+                                    <td>
+                                        @Model[i].RoleName
+                                        <input type="hidden" id="roleId" value=""  />
+                                        <input type="text" id="roleName" value=""  />
+                                    </td>
+                                </tr>
+                            
+                            <tr>
+                                <td colspan="2">
+                                    <button>Rol Ata</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>*@
+
+
+                </div><!-- modal-body -->
+                <div class="modal-footer">
+                    <button type="submit" id="addupdatecategory" class="btn btn-indigo">Kaydet</button>
+                    <a asp-action="Index" asp-controller="User" class="btn btn-outline-light">Kapat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+

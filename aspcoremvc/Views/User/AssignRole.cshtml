@@ -1,0 +1,59 @@
+﻿@model List<Common.Dto.PanelDtos.RoleAssignDto>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    <div class="az-signin-wrapper mt-5 mb-5">
+        <div class="az-card-signin" style="border:double">
+
+
+            <form asp-action="AssignRole" asp-controller="User" method="post">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                            </th>
+                            <th>
+                               <h5 style="color:indigo"><strong>Tüm Roller</strong></h5>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                
+                                <td><input type="checkbox" class=""  asp-for="@Model[i].Exists" /> </td>
+                                <td>
+                                    <strong>@Model[i].RoleName</strong> 
+                                    <input type="hidden" asp-for="@Model[i].RoleId" />
+                                    <input type="hidden" asp-for="@Model[i].RoleName" />
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="2">
+                                <div style="text-align:center">
+                                    <button type="submit" class="btn btn-sm btn-indigo" style="width:200px;">Rol Ata</button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
+
+
+
+
+            <div class="az-signin-footer">
+                @*<p><a href="">Forgot password?</a></p>
+                    <p>Don't have an account? <a href="page-signup.html">Create an Account</a></p>*@
+            </div><!-- az-signin-footer -->
+        </div><!-- az-card-signin -->
+    </div><!-- az-signin-wrapper -->
+

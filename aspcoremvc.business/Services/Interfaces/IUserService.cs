@@ -1,5 +1,7 @@
 ﻿using Common.Dto;
 using Common.Dto.DataTablesGrid;
+using Common.Dto.PanelDtos;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Business.Services.Interfaces
@@ -18,8 +20,13 @@ namespace Business.Services.Interfaces
         UserDto CheckUserPhone(string phone, int locationId);
 
 
-        Task<bool> Login(UserDto userdto);
+        Task<bool> Login(UserDto userDto);
         Task<bool> SignOut();
+        List<UserDto> GetAllUser();
+        Task<List<UserDto>> AssignRole(int id);
+        Task<List<UserDto>> AssignRolePost(List<UserDto> assignRoles,int id);
+
+       
 
 
     }
