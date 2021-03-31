@@ -25,6 +25,7 @@ namespace Business.Services.Panel
         public SliderDto AddSlider(SliderDto sliderDto)
         {
             sliderDto.AddedDate = DateTime.Now;
+
             var sliders = _context.Slider.Where(x => x.IsDeleted == false).ToList();
             if (sliders.Count==0)
             {

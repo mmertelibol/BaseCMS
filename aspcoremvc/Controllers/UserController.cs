@@ -65,7 +65,7 @@ namespace Web.Controllers
         {
            await _userService.SignOut();
             
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Login", "User");
         }
 
 
@@ -76,12 +76,13 @@ namespace Web.Controllers
             return Json(JsonConvert.SerializeObject(roleList));
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> AssignRole(List<UserDto> assignRoles, int id)
+        public async Task<JsonResult> AssignRole(List<UserDto> assignRoles, int id)
         {
             var roleList = await _userService.AssignRolePost(assignRoles, id);
 
-            return RedirectToAction("Index", "User");
+            return Json(roleList);
         }
 
 

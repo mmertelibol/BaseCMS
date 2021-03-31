@@ -140,7 +140,7 @@
                                                <th> </th>  <th> Roller </th> </tr>`
                     $.each(obje, (index, value) => {
                         
-                        table += `<tr> <td><input class='mert' ${value.Exists ? 'checked' : ''}  id='${value.RoleName}' type='checkbox'   value='${value.Exists}'   /> </td>
+                        table += `<tr> <td><input  ${value.Exists ? 'checked' : ''}  id='${value.RoleName}' type='checkbox'   value='${value.Exists}'   /> </td>
 
                                                <td> ${value.RoleName}
                                                     <input type='hidden'  value='${value.RoleId}'  />
@@ -159,6 +159,7 @@
             })
         }
     </script>
+
 
 
 }
